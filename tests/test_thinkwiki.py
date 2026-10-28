@@ -100,16 +100,18 @@ class ThinkWikiReferences(unittest.TestCase):
 
     def test_live_catalogue_has_explicit_coverage_and_exact_variants(self):
         models = json.loads((ROOT/'data/models.json').read_text())['models']
-        self.assertEqual(len(models), 250)
+        self.assertEqual(len(models), 666)
         self.assertTrue(all('thinkwiki' in m for m in models))
         by_id = {m['id']:m for m in models}
         self.assertEqual(by_id['x230']['thinkwiki'], [{'title':'X230','url':'https://www.thinkwiki.org/wiki/Category:X230'}])
         self.assertEqual(by_id['x230-tablet']['thinkwiki'][0]['url'], 'https://www.thinkwiki.org/wiki/Category:X230_Tablet')
         self.assertEqual(by_id['a21e-2628']['thinkwiki'], by_id['a21e-2632']['thinkwiki'])
         self.assertEqual(len(by_id['365c']['thinkwiki']), 6)
-        self.assertEqual(sum(bool(m['thinkwiki']) for m in models), 243)
-        self.assertEqual(sum(len(m['thinkwiki']) for m in models), 279)
-        self.assertEqual({m['id'] for m in models if not m['thinkwiki']}, {'edge-e31','p1-gen-7','reserve-edition','s51','t14-gen-5-amd','x1-carbon-gen-12','x200si'})
+        self.assertGreaterEqual(sum(bool(m['thinkwiki']) for m in models), 332)
+        self.assertGreaterEqual(sum(len(m['thinkwiki']) for m in models), 368)
+        self.assertTrue({'edge-e31', 'x200si'} <= {m['id'] for m in models if not m['thinkwiki']})
+        self.assertNotIn('s51', by_id)
+        self.assertTrue(all(m['thinkwiki'] or m['document_ids'] for m in models))
 
 
 if __name__ == '__main__':

@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.1
+
+- Audited the complete previous 250-entry snapshot and compared every dated ThinkWiki History token plus the captured current/withdrawn PSREF laptop, tablet and mobile-workstation index.
+- Added 417 source-backed model entries and removed one misclassified desktop, bringing the catalogue from 250 to 666 entries. Document references increase from 88 to 489; 662 entries have at least one documented introduction year.
+- Expanded modern, regional, tablet and workstation coverage with exact generation and processor variants, source-linked introduction years and verified manufacturer PDF references. The timeline now spans 1992–2026; new references are not inferred driver associations.
+- Strengthened 81 existing introduction citations with exact official PSREF page anchors, and backfilled documented historical and regional years without spreading a family year to unproven machine types.
+- Corrected i Series 1800 type 2632 and i Series 1124 to 2000, separated A22m type 2633 from the existing A22p type 2629 identity, and retained the original support-route provenance.
+- Removed the S51 selector contamination, positively identified as a ThinkCentre desktop. Preserved the 750CSE and 1400/2651 strings as unverified source members rather than confirmed product aliases.
+- Four exact identities remain wholly undated: A22m type 2633, Edge E31, X200si and X230i Tablet. Four dated groups retain unresolved members. Missing years are never filled from driver dates or manual copyright.
+- Added explicit offline selector errata, source-quality documentation and data regression checks. Existing driver metadata and all retained-model driver associations are unchanged; no PDFs, source bodies or installers are mirrored.
+
 ## 0.3.0
 
 - Public HTTP-origin container deployment for Coolify, with HTTPS and certificates managed by the external reverse proxy.

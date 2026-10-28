@@ -792,6 +792,3615 @@
       "sha256": "c4d91141673baa92b280c9a2e5eb7aa6f1c143a7f0601eb2207a2f0ee66f5abe",
       "bytes": 1172222,
       "model_hint": "ThinkPad X1 Carbon Gen 12"
+    },
+    {
+      "id": "document-1e98b150122d8a21",
+      "title": "ThinkPad 25 Anniversary Edition manufacturer document reference",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/tp25_hmm_sp40j66019.pdf",
+      "source_kind": "official",
+      "sha256": "3565384b5f4b6189a44336a4acb5866193ffef3d226e61e2e65f52e82a3f967e",
+      "bytes": 65017542,
+      "model_hint": "25 Anniversary Edition"
+    },
+    {
+      "id": "document-8dbcaa51697a18fc",
+      "title": "ThinkPad A285 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_A285/ThinkPad_A285_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "4a77109992b6d7d1e04a23b1df6c8b9ea244ec64442ca50603b3476e55aa7637",
+      "bytes": 32561,
+      "model_hint": "A285"
+    },
+    {
+      "id": "document-5197b0ca23d3e067",
+      "title": "ThinkPad A485 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_A485/ThinkPad_A485_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "341aef2a1a3561f7ad707f4a7e309da3e5864bd30ddfd406303af3f0801015a9",
+      "bytes": 33539,
+      "model_hint": "A485"
+    },
+    {
+      "id": "document-1dc2285e73f2e97b",
+      "title": "ThinkPad E14 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E14/ThinkPad_E14_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "86f04e9efe482b756b0c158727894d2f1adf588333586c98dc8dfd7e7b86d5a4",
+      "bytes": 2342569,
+      "model_hint": "E14"
+    },
+    {
+      "id": "document-0639a81c2f59083a",
+      "title": "ThinkPad E15 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E15/ThinkPad_E15_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "51076a0585667584df4405a6f272c077c2abfba9fb43a44df7dd137a9c1e8a50",
+      "bytes": 2404827,
+      "model_hint": "E15"
+    },
+    {
+      "id": "document-0817b3f1a303346d",
+      "title": "ThinkPad E440 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E440/ThinkPad_E440_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c805007707965131ce87a17fe12fb4f7171e878e0ed30145252bcf06ab94ac95",
+      "bytes": 114339,
+      "model_hint": "E440"
+    },
+    {
+      "id": "document-29c1abb59d5bb503",
+      "title": "ThinkPad E450 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E450/ThinkPad_E450_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "e489d4706bdbe4bba7a016005c17b1bc31017ac2fcbaaeefcea8a10fb05e458e",
+      "bytes": 28044,
+      "model_hint": "E450"
+    },
+    {
+      "id": "document-c7a7e778be34944b",
+      "title": "ThinkPad E460 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E460/ThinkPad_E460_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "7d768e20b5673452904fec0b0a61912537b3b68326522558800387d6ed8f1dc2",
+      "bytes": 28056,
+      "model_hint": "E460"
+    },
+    {
+      "id": "document-0389d9423b3b37a3",
+      "title": "ThinkPad E470 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E470/ThinkPad_E470_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "a6db1ef27a097c7abc482ebb74eec3e2a3e8a9e8ba9bb64bd0745f8ca2bff367",
+      "bytes": 27533,
+      "model_hint": "E470"
+    },
+    {
+      "id": "document-60f0efa7f9fc5c7d",
+      "title": "ThinkPad E480 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E480/ThinkPad_E480_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "5c32c299ddad796a3e07c65850fb6c2a5d9efdaa60144909f27e24706e54d829",
+      "bytes": 256322,
+      "model_hint": "E480"
+    },
+    {
+      "id": "document-8da565d0d0bd2255",
+      "title": "ThinkPad E490 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E490/ThinkPad_E490_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "4b86a04f580b56414e244c7c1e460f9d1c78273c53308a7c7270fd0e1e799d09",
+      "bytes": 53104,
+      "model_hint": "E490"
+    },
+    {
+      "id": "document-c7751c667a09d88d",
+      "title": "ThinkPad E540 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E540/ThinkPad_E540_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "14ce1187f1e17eaa63eb35b843068cdfacf17c933631292fbd10d0d57669f4f9",
+      "bytes": 124150,
+      "model_hint": "E540"
+    },
+    {
+      "id": "document-3f85245eea21875a",
+      "title": "ThinkPad E550 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E550/ThinkPad_E550_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "fc60b315b2e4e8586ffed09c78eadcb6c0e4f78ed4a9f50b6fe1ce0b612495c0",
+      "bytes": 28064,
+      "model_hint": "E550"
+    },
+    {
+      "id": "document-591949539046a6af",
+      "title": "ThinkPad E560 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E560/ThinkPad_E560_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "5473d00bbef256e142025c749faac40fba409ad990e62487d77b7b621a6e8e59",
+      "bytes": 27922,
+      "model_hint": "E560"
+    },
+    {
+      "id": "document-4d3d3d5286f6c2a0",
+      "title": "ThinkPad E570 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E570/ThinkPad_E570_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "3b725595e24cadd3b41d4a8df41571d051843247e4debb13f1d6518fc57bd601",
+      "bytes": 28121,
+      "model_hint": "E570"
+    },
+    {
+      "id": "document-3a90f024a78ad65a",
+      "title": "ThinkPad E580 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E580/ThinkPad_E580_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "1a186cfbb5b979480e648d225406118580c45b98c7a311583f48d8c0e6293e4b",
+      "bytes": 53102,
+      "model_hint": "E580"
+    },
+    {
+      "id": "document-e2f7a9b96c295c6f",
+      "title": "ThinkPad E590 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E590/ThinkPad_E590_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "14ea69826311cacf9c6e9b5a0d6764deb9058456a7d518a4a17929dd8a048143",
+      "bytes": 50924,
+      "model_hint": "E590"
+    },
+    {
+      "id": "document-d90866c475a1b5f6",
+      "title": "ThinkPad G50 manufacturer document reference",
+      "url": "https://download.lenovo.com/jp/mobiles_pdf/41W7875.pdf",
+      "source_kind": "official",
+      "sha256": "2a489889848ee5b7b4bb6acb530cb12a51b16005641178320b55fa29421bdabb",
+      "bytes": 2673437,
+      "model_hint": "G50"
+    },
+    {
+      "id": "document-440ef7212a591222",
+      "title": "ThinkPad Helix Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad_Tablets/ThinkPad_Helix_1st_Gen/ThinkPad_Helix_1st_Gen_Spec.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "Helix Gen 1"
+    },
+    {
+      "id": "document-074b9f9a0b32e14c",
+      "title": "ThinkPad Helix Gen 1 manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/helix_hmm_en_0c10337.pdf",
+      "source_kind": "official",
+      "sha256": "8e99121cc24fe2eb12216faa0310ed2407069dd9e57103a4b5ff727f9690f74a",
+      "bytes": 16998750,
+      "model_hint": "Helix Gen 1"
+    },
+    {
+      "id": "document-dc978b3a1dcd4734",
+      "title": "ThinkPad L13 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13/ThinkPad_L13_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "ca660b10c793c91b84f06188bd7749f015682ed27b4c55010fdb09d5f5993f3d",
+      "bytes": 494755,
+      "model_hint": "L13"
+    },
+    {
+      "id": "document-faba3fe91150a5da",
+      "title": "ThinkPad L13 Yoga Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Yoga/ThinkPad_L13_Yoga_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "fac298d014618e977da4bb3a652ceba2f30a451c75f941c4e558e27df26927c7",
+      "bytes": 505494,
+      "model_hint": "L13 Yoga"
+    },
+    {
+      "id": "document-0c084962d876782c",
+      "title": "ThinkPad L14 Gen 1 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_1_AMD/ThinkPad_L14_Gen_1_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "4a77d9778b7861a8007580918dbff217fcffbce9bc60ec9856b98b4339e06f0c",
+      "bytes": 532508,
+      "model_hint": "L14 Gen 1 (AMD)"
+    },
+    {
+      "id": "document-fd29df97a02b636d",
+      "title": "ThinkPad L14 Gen 1 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_1_Intel/ThinkPad_L14_Gen_1_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "702e14213796d4b6f01013862b8bc4656723f6ba0dbc488f3f881a90fba7d5f9",
+      "bytes": 560153,
+      "model_hint": "L14 Gen 1 (Intel)"
+    },
+    {
+      "id": "document-403287d12a0ae70f",
+      "title": "ThinkPad L15 Gen 1 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L15_Gen_1_AMD/ThinkPad_L15_Gen_1_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "65c8401b55cd2b4b99158d9564ab9b51ec5cf053820594faddba2f27565c942e",
+      "bytes": 517220,
+      "model_hint": "L15 Gen 1 (AMD)"
+    },
+    {
+      "id": "document-0f71440cc62933c4",
+      "title": "ThinkPad L15 Gen 1 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L15_Gen_1_Intel/ThinkPad_L15_Gen_1_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "58df54644b9970ec31bd41f6ea2124a23a2183b8fcd30c2d78e6ecc9f79305e1",
+      "bytes": 552854,
+      "model_hint": "L15 Gen 1 (Intel)"
+    },
+    {
+      "id": "document-d51afd354ac79bc8",
+      "title": "ThinkPad L380 Yoga Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L380_Yoga/ThinkPad_L380_Yoga_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "1eacf2485e15c0cf322ffa186dcdce27fa250f9afd07e76e61b110712f79bb45",
+      "bytes": 35180,
+      "model_hint": "L380 Yoga"
+    },
+    {
+      "id": "document-abd75333a94c6d8d",
+      "title": "ThinkPad L420 manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/0a60342_01.pdf",
+      "source_kind": "official",
+      "sha256": "769e3b1300c56ed97c4a6ba00065cfbe026b5fdfc7da9b82028ecd79f1b07002",
+      "bytes": 15418904,
+      "model_hint": "L420"
+    },
+    {
+      "id": "document-5b2621e8cbc6feb6",
+      "title": "ThinkPad L440 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L440/ThinkPad_L440_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "ca74717a854e2e3fd5fcc74eac85151893f5600fbb2ed7c5416ac35e97a9d2b8",
+      "bytes": 35740,
+      "model_hint": "L440"
+    },
+    {
+      "id": "document-aa0cc1a521f8af9a",
+      "title": "ThinkPad L450 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L450/ThinkPad_L450_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "78a56a5d84084fe0e0abeb842b65fa2d02cee5384e461a7bae140964ee32b6fe",
+      "bytes": 31251,
+      "model_hint": "L450"
+    },
+    {
+      "id": "document-e03f09602216b5e6",
+      "title": "ThinkPad L460 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L460/ThinkPad_L460_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d9bd0b9de1b8e5eefcc060837f5630dd9d68af6765b07ac045b42b24a06e2a2a",
+      "bytes": 28387,
+      "model_hint": "L460"
+    },
+    {
+      "id": "document-6eb3d064a0e52cb6",
+      "title": "ThinkPad L470 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L470/ThinkPad_L470_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8084ad2dca3f538effadf965a3230788831077846dc14d6b0d1c6b6c4b6ba67a",
+      "bytes": 34505,
+      "model_hint": "L470"
+    },
+    {
+      "id": "document-1198178a8da18505",
+      "title": "ThinkPad L480 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L480/ThinkPad_L480_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c6fe9cb52cda436001506b0d1ad3b043da2999cb74ae499cf2bc64293f8728e1",
+      "bytes": 36210,
+      "model_hint": "L480"
+    },
+    {
+      "id": "document-c0a8320bc8d2adaf",
+      "title": "ThinkPad L490 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L490/ThinkPad_L490_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "657e03d4e3a9263e89793506c25abcd7cf4361180480f8b56c9a6dd8984c35da",
+      "bytes": 319826,
+      "model_hint": "L490"
+    },
+    {
+      "id": "document-5f8ae644ad889abc",
+      "title": "ThinkPad L540 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L540/ThinkPad_L540_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8b96780ae4ca71f4b6efbcb07a6f9867f0125bfd158adc5388bdab2be9894198",
+      "bytes": 35958,
+      "model_hint": "L540"
+    },
+    {
+      "id": "document-693b5b7f17df2870",
+      "title": "ThinkPad L560 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L560/ThinkPad_L560_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f7d347803058ce37aa6550226a6054ff3a5fb89e0d8cca47a9b1918e4f3959b6",
+      "bytes": 27884,
+      "model_hint": "L560"
+    },
+    {
+      "id": "document-21382b8c1d7897f2",
+      "title": "ThinkPad L570 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L570/ThinkPad_L570_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "ef3f1ba7daceb37150b703ada1ad75f3dfc4a52d169004c61c888fb73ad49e4c",
+      "bytes": 33746,
+      "model_hint": "L570"
+    },
+    {
+      "id": "document-fa5a53c81d55141d",
+      "title": "ThinkPad L580 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L580/ThinkPad_L580_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "a1bf87df4ba41ec8e2cac96def56ea7185123c889ab7408606a6433d9f5c0200",
+      "bytes": 35845,
+      "model_hint": "L580"
+    },
+    {
+      "id": "document-ac781535e098e2bb",
+      "title": "ThinkPad L590 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L590/ThinkPad_L590_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b6afb4a577fd746afaa0acea46733eac4e3353630e30bd9624977bef0528f2d9",
+      "bytes": 348717,
+      "model_hint": "L590"
+    },
+    {
+      "id": "document-310d8fdbd8a53f2a",
+      "title": "ThinkPad P1 Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P1/ThinkPad_P1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "a42d04a84eda1e8e7fc550b52cd9f3d0ab66b21382983970743ed0db698371de",
+      "bytes": 54682,
+      "model_hint": "P1 Gen 1"
+    },
+    {
+      "id": "document-6db32155e0181269",
+      "title": "ThinkPad P1 Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P1_2nd_Gen/ThinkPad_P1_2nd_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c6ef6928a20e03b55dbe07debeb3aed1b7877765aba987d248c8f2093eb35a26",
+      "bytes": 301045,
+      "model_hint": "P1 Gen 2"
+    },
+    {
+      "id": "document-29fef79d3daddf5f",
+      "title": "ThinkPad P1 Gen 3 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P1_Gen_3/ThinkPad_P1_Gen_3_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "4a3055366df6c0713dcd7dc0215fe2e2eab131d1d38b5e09c092ea65a4c138df",
+      "bytes": 413443,
+      "model_hint": "P1 Gen 3"
+    },
+    {
+      "id": "document-917f0fd6edca5a0c",
+      "title": "ThinkPad P1 Gen 4 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P1_Gen_4/ThinkPad_P1_Gen_4_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "a8e6500aec5530633f3bd23039d575f9edd8a4bba3d76bb1d8b0158e3e7264b4",
+      "bytes": 540278,
+      "model_hint": "P1 Gen 4"
+    },
+    {
+      "id": "document-3eba7d47e9963328",
+      "title": "ThinkPad P1 Gen 5 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P1_Gen_5/ThinkPad_P1_Gen_5_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "98d6584a04bcbe2b174da9d637a2baa6c9c14e4f0d9ac0c54b755cee7b1ab80d",
+      "bytes": 505649,
+      "model_hint": "P1 Gen 5"
+    },
+    {
+      "id": "document-65e579251b169a91",
+      "title": "ThinkPad P1 Gen 6 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P1_Gen_6/ThinkPad_P1_Gen_6_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "277b7295913081b1c94b6e59ac0991f47950be95d11bd1123336b0ec87e2580a",
+      "bytes": 750466,
+      "model_hint": "P1 Gen 6"
+    },
+    {
+      "id": "document-ddbe9d32638a429a",
+      "title": "ThinkPad P43s Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P43s/ThinkPad_P43s_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c5b18489685fb0b64654763a1037e6c24e427e4dbffa2fa863deda481d88de27",
+      "bytes": 300382,
+      "model_hint": "P43s"
+    },
+    {
+      "id": "document-50571fe40e9a861b",
+      "title": "ThinkPad P50 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P50/ThinkPad_P50_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "841563c57b4b35d38d8c986b7fa1a9c1a72c9f2716450a9bf54833f3a7ee9e5b",
+      "bytes": 57193,
+      "model_hint": "P50"
+    },
+    {
+      "id": "document-54b657065eeb01ff",
+      "title": "ThinkPad P50s Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P50s/ThinkPad_P50s_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d0c9616659715521c9057217a2d4d82fbcef0799667a1ef9a7b923f1f3187168",
+      "bytes": 31980,
+      "model_hint": "P50s"
+    },
+    {
+      "id": "document-b79ca7ed4455c46e",
+      "title": "ThinkPad P51 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P51/ThinkPad_P51_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "68f3e25358419478b0a491c434c73a4b7a5bbce76b1961534f6f5b8066573cbc",
+      "bytes": 60846,
+      "model_hint": "P51"
+    },
+    {
+      "id": "document-450cb9b81d71de48",
+      "title": "ThinkPad P51s Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P51s/ThinkPad_P51s_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "260d11c60a70ac73f4a7d121bda3051aa9cc6ba2a7b3f82133b577cdfb307ef6",
+      "bytes": 35493,
+      "model_hint": "P51s"
+    },
+    {
+      "id": "document-9c7897e654356251",
+      "title": "ThinkPad P52 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P52/ThinkPad_P52_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "a60177f88aac21b6d0ad02723822361187b534cf91e8f1fc6022c5fc29645d2f",
+      "bytes": 56902,
+      "model_hint": "P52"
+    },
+    {
+      "id": "document-bae5d635e237f22a",
+      "title": "ThinkPad P52s Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P52s/ThinkPad_P52s_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "9421fd0855a7ee26387a4ade9b309c3fbe75fb27286d621e0f41ab867ea86c21",
+      "bytes": 58676,
+      "model_hint": "P52s"
+    },
+    {
+      "id": "document-44ea6c9cf3b2d7ed",
+      "title": "ThinkPad P53 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P53/ThinkPad_P53_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "ae778b814adfce03ea93bba84d3269d886b4844aff57472025b650b37b680059",
+      "bytes": 315942,
+      "model_hint": "P53"
+    },
+    {
+      "id": "document-fd861a41c81dcd38",
+      "title": "ThinkPad P53s Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P53s/ThinkPad_P53s_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "080656c46e6c16e01f98224046e2627501e8ac98ce1a8b6aee13db91e7119733",
+      "bytes": 292438,
+      "model_hint": "P53s"
+    },
+    {
+      "id": "document-e75eecf0e4304c94",
+      "title": "ThinkPad P70 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P70/ThinkPad_P70_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "85c37b8bdfe6feffe3a83dbf12bccf7296260ea6d19bf483837ccecbc4e64758",
+      "bytes": 56345,
+      "model_hint": "P70"
+    },
+    {
+      "id": "document-e599eecca50f1369",
+      "title": "ThinkPad P71 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P71/ThinkPad_P71_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "ed702e4f4f6522506d3e10c850637bb609afd332d8cdaecd4ea783dc8c939c7b",
+      "bytes": 32926,
+      "model_hint": "P71"
+    },
+    {
+      "id": "document-eaf38037ea244dd4",
+      "title": "ThinkPad P72 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P72/ThinkPad_P72_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b8703c2745862c33a5cd87932ed8ebf5d8dd54b2a3f0606636493460460a634d",
+      "bytes": 55361,
+      "model_hint": "P72"
+    },
+    {
+      "id": "document-4901171deabc35be",
+      "title": "ThinkPad P73 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P73/ThinkPad_P73_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b58d80e32e0bd5eb185b0636349f55609b32ce70d9d024698b49fcc2b4c2dd3b",
+      "bytes": 301540,
+      "model_hint": "P73"
+    },
+    {
+      "id": "document-0940561d5a27da1b",
+      "title": "ThinkPad S440 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_S440/ThinkPad_S440_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b00e658b97321decbaa45743ca61df3e568bb4f231a5bc1668073f27e5fd075e",
+      "bytes": 111618,
+      "model_hint": "S440"
+    },
+    {
+      "id": "document-37a483942b7aece5",
+      "title": "ThinkPad S540 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_S540/ThinkPad_S540_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "952ef8ffcdd3c6e12a0f744561a5a7178ddfc51bf5b445d04ccc536ab57c81b0",
+      "bytes": 126631,
+      "model_hint": "S540"
+    },
+    {
+      "id": "document-5de08176639b1c97",
+      "title": "ThinkPad T14 Gen 1 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_1_AMD/ThinkPad_T14_Gen_1_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8ee82a29af86d030d663ced7e9a091e874c2e76550f1b0e02132e594190ad144",
+      "bytes": 515014,
+      "model_hint": "T14 Gen 1 (AMD)"
+    },
+    {
+      "id": "document-f201ada31ecaa7ec",
+      "title": "ThinkPad T14 Gen 1 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_1_Intel/ThinkPad_T14_Gen_1_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f2d9a86f563506aff1c3efac058d3f08620b40b8afdedc70b7b683e0d77e6e0a",
+      "bytes": 542950,
+      "model_hint": "T14 Gen 1 (Intel)"
+    },
+    {
+      "id": "document-aa3f3f48cbc7b641",
+      "title": "ThinkPad T14 Gen 2 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_2_AMD/ThinkPad_T14_Gen_2_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "49d60f32af6d183b1f81d5bdb0bc4d14480e3ebec354e9ebfbf123a76df12152",
+      "bytes": 544147,
+      "model_hint": "T14 Gen 2 (AMD)"
+    },
+    {
+      "id": "document-da97f50118835702",
+      "title": "ThinkPad T14 Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_2_Intel/ThinkPad_T14_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b4c745592f61c04ceca1f73012bc037bca39e9d83992d8ebbe2bb21f52e5d04f",
+      "bytes": 678409,
+      "model_hint": "T14 Gen 2 (Intel)"
+    },
+    {
+      "id": "document-9725eb78213c7e63",
+      "title": "ThinkPad T14 Gen 3 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_3_AMD/ThinkPad_T14_Gen_3_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8a2470ff407857ecd60b153288ce57a22183252736a1ee3d73d920315df9cf07",
+      "bytes": 494595,
+      "model_hint": "T14 Gen 3 (AMD)"
+    },
+    {
+      "id": "document-75c8fae6c9877014",
+      "title": "ThinkPad T14 Gen 3 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_3_Intel/ThinkPad_T14_Gen_3_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "86502f314c6bf50cb58739b1ec7516b60b2b1ba51306a497905afd297b19c82c",
+      "bytes": 564971,
+      "model_hint": "T14 Gen 3 (Intel)"
+    },
+    {
+      "id": "document-b23b67da84169d61",
+      "title": "ThinkPad T14s Gen 1 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_1_AMD/ThinkPad_T14s_Gen_1_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "94fff6168501e062b0b0ab3a504ca726ded12f8c83e1ace2e2031d25f881c05f",
+      "bytes": 493041,
+      "model_hint": "T14s Gen 1 (AMD)"
+    },
+    {
+      "id": "document-60e1335f01ed3d74",
+      "title": "ThinkPad T14s Gen 1 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_1_Intel/ThinkPad_T14s_Gen_1_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "7fea1f989f6759bc7f8f5c024787734902e94d0ab5f497744fe8802f35eae5dc",
+      "bytes": 515826,
+      "model_hint": "T14s Gen 1 (Intel)"
+    },
+    {
+      "id": "document-cb10326b414a6638",
+      "title": "ThinkPad T15 Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T15_Gen_1/ThinkPad_T15_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "623394e406be7a7168b3c921adf42f4a38c29ecdc38607d55d1f9f0fc650930d",
+      "bytes": 528267,
+      "model_hint": "T15 Gen 1"
+    },
+    {
+      "id": "document-80c331053789072b",
+      "title": "ThinkPad T420s manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/t420s_t420si_hmm_en_0a60241_07.pdf",
+      "source_kind": "official",
+      "sha256": "87477466cdd1788675abf4b6b21ea0f4c3160e03fc54727e333ddfdcb3f48c12",
+      "bytes": 15752328,
+      "model_hint": "T420s"
+    },
+    {
+      "id": "document-dcc2c9f62441e731",
+      "title": "ThinkPad T430 manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/t430_t430i_hmm_en_0b48304_04.pdf",
+      "source_kind": "official",
+      "sha256": "aeef53a15f6f9d6c1a4e842fd712f437140b6b803ebaf141a6bc19f9b7aa8057",
+      "bytes": 31941801,
+      "model_hint": "T430"
+    },
+    {
+      "id": "document-f0267b51e5a848c6",
+      "title": "ThinkPad T430s manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/t430s_t430si_hmm_en_0b48538_03.pdf",
+      "source_kind": "official",
+      "sha256": "8cae6412f4c5432e9583afa3c89e4dc2ac8b49dee19a0e31ca49e148794c6f0c",
+      "bytes": 23747101,
+      "model_hint": "T430s"
+    },
+    {
+      "id": "document-a34d9cdd3bb56da0",
+      "title": "ThinkPad T430s manufacturer document reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/withdrawnbook/ThinkPad_T430s_WE.pdf",
+      "source_kind": "official",
+      "sha256": "e64b9e817528b059e65142265fece244671e4b3c2284187cd858ecea3f2af0eb",
+      "bytes": 489689,
+      "model_hint": "T430s"
+    },
+    {
+      "id": "document-8ba3f6098db3052d",
+      "title": "ThinkPad T430u manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/t430u_hmm_en_0b48901_02.pdf",
+      "source_kind": "official",
+      "sha256": "4d2e5fbb306b59bc8a3cc9312221fee275f234f3ea09b2de7df01dfe06062cbd",
+      "bytes": 15434072,
+      "model_hint": "T430u"
+    },
+    {
+      "id": "document-8da7917349672b95",
+      "title": "ThinkPad T440 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T440/ThinkPad_T440_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "080402609606924e74b7e8dd5383098afa500c2e21fe53544bdba00cf49ea5a8",
+      "bytes": 36804,
+      "model_hint": "T440"
+    },
+    {
+      "id": "document-5159ceb6e5ee8375",
+      "title": "ThinkPad T440 manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/t440_ug_en.pdf",
+      "source_kind": "official",
+      "sha256": "a4e0a051f6a7a546449a6aac56b062d1a53ef7e02cd79cea616f1d51fab737df",
+      "bytes": 5057028,
+      "model_hint": "T440"
+    },
+    {
+      "id": "document-22ca8ac1d0de51ef",
+      "title": "ThinkPad T440 manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/t440_hmm_en_sp40a26000_01.pdf",
+      "source_kind": "official",
+      "sha256": "3fbd2e8ddeadd4464f21340d04771a89c6eccd9686095f16ecb9d5169de6f8bd",
+      "bytes": 39682445,
+      "model_hint": "T440"
+    },
+    {
+      "id": "document-6dd47c9e1e29dd8f",
+      "title": "ThinkPad T440p Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T440p/ThinkPad_T440p_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b44827beed3db1d80980acf660e5e0a15f88d034e757af24b5b36a7fe893c1a9",
+      "bytes": 37423,
+      "model_hint": "T440p"
+    },
+    {
+      "id": "document-92fc88f385fb5eee",
+      "title": "ThinkPad T440p manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/t440p_hmm_en_sp40a25467_04.pdf",
+      "source_kind": "official",
+      "sha256": "02d56e8df80d3afa421e3ffbcdb004256b14e19ee45d155bb2a221b0ada59d02",
+      "bytes": 26359586,
+      "model_hint": "T440p"
+    },
+    {
+      "id": "document-775aa1c322f490cb",
+      "title": "ThinkPad T440s Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T440s/ThinkPad_T440s_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "ae0259faccf876f446c2b8be71ab0ab59c3fbb8dab0589e6d5a85b01d64604ef",
+      "bytes": 36560,
+      "model_hint": "T440s"
+    },
+    {
+      "id": "document-18877f8341dc7375",
+      "title": "ThinkPad T440s manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/t440s_ug_en.pdf",
+      "source_kind": "official",
+      "sha256": "9de99d0130b0e4ea25001b079731b92e5233939fabc1f59e015751266489c928",
+      "bytes": 5040715,
+      "model_hint": "T440s"
+    },
+    {
+      "id": "document-f85d82c79a91272a",
+      "title": "ThinkPad T440s manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/t440s_hmm_en_sp40a25360_04.pdf",
+      "source_kind": "official",
+      "sha256": "12fff73b0f2d9521c7678c20b1ca935bd776c007b3d8e7eca00610073c0907b4",
+      "bytes": 35155219,
+      "model_hint": "T440s"
+    },
+    {
+      "id": "document-2509ef565dc03c7f",
+      "title": "ThinkPad T450 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T450/ThinkPad_T450_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d169562e61e83ad29d10d4b25eb7afb7cf7422972a5686aa4888933181bf41be",
+      "bytes": 31144,
+      "model_hint": "T450"
+    },
+    {
+      "id": "document-05c58bf07d6f172b",
+      "title": "ThinkPad T450s Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T450s/ThinkPad_T450s_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "365306a330b3dfc0106b43722c638f9d889c13ec3ff77dda65f44285bf5f3647",
+      "bytes": 30655,
+      "model_hint": "T450s"
+    },
+    {
+      "id": "document-95afad807a25873f",
+      "title": "ThinkPad T460 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T460/ThinkPad_T460_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "6aa776e254ed7a64e3fc078ddf85e43516bc4ebbef42be6fd526b8c0c6311ab1",
+      "bytes": 29391,
+      "model_hint": "T460"
+    },
+    {
+      "id": "document-ee83fa23d41b27e4",
+      "title": "ThinkPad T460p Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T460p/ThinkPad_T460p_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "2a0954230c968e102f4825755275e00fc593a375e5c1dfcd5067ccd13557be59",
+      "bytes": 31105,
+      "model_hint": "T460p"
+    },
+    {
+      "id": "document-c35ef6c63a674fdd",
+      "title": "ThinkPad T460s Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T460s/ThinkPad_T460s_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "5287779ac309a1b7fedb9df398306d2778898e09514d3c06bb9e41e36277a689",
+      "bytes": 27699,
+      "model_hint": "T460s"
+    },
+    {
+      "id": "document-b19a84370911f9eb",
+      "title": "ThinkPad T460s manufacturer document reference",
+      "url": "https://download.lenovo.com/parts/ThinkPad/t460s_frubom_20160120.pdf",
+      "source_kind": "official",
+      "sha256": "2aea31db3ac40851ed0a332e32e1f16480e15c1d2bf5e91d28a2c22e3694408d",
+      "bytes": 71134,
+      "model_hint": "T460s"
+    },
+    {
+      "id": "document-b20000df9fa6a0cc",
+      "title": "ThinkPad T460s manufacturer document reference",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/t460s_hmm_en_sp40k04862_03.pdf",
+      "source_kind": "official",
+      "sha256": "667d89b38cedfdf7b2786ea8603ff9c642771667ad4b474517a6c29b8d6abcd2",
+      "bytes": 102358630,
+      "model_hint": "T460s"
+    },
+    {
+      "id": "document-413d1998f1983a55",
+      "title": "ThinkPad T470 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T470/ThinkPad_T470_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "17ba04d21b3df251a43ed71901a31d2940c42f0280ec75858e8886f73d38670f",
+      "bytes": 36004,
+      "model_hint": "T470"
+    },
+    {
+      "id": "document-1851e886c9bd168c",
+      "title": "ThinkPad T470p Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T470p/ThinkPad_T470p_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "5281b848771a5d3751c10c9055c9b4fc17b2a880045b6d79c172e9ecda4262f0",
+      "bytes": 32676,
+      "model_hint": "T470p"
+    },
+    {
+      "id": "document-09fc3f90f41c1928",
+      "title": "ThinkPad T470s Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T470s/ThinkPad_T470s_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b0c7d1170af3d5dd4a46e15bec40cbf7117e780c81e1fe3493417ca76407ace2",
+      "bytes": 33802,
+      "model_hint": "T470s"
+    },
+    {
+      "id": "document-2a08023c527c4483",
+      "title": "ThinkPad T480 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T480/ThinkPad_T480_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c6fa7bd352636c8ae43863bac7855942aa35daa69faec503b2c21451a90607a1",
+      "bytes": 35742,
+      "model_hint": "T480"
+    },
+    {
+      "id": "document-4586f7054e92c759",
+      "title": "ThinkPad T480s Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T480s/ThinkPad_T480s_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "9a87154c38c85d5e070b7ed5159379ad1f41852653bb03a388a3fc19f93f4f2b",
+      "bytes": 33637,
+      "model_hint": "T480s"
+    },
+    {
+      "id": "document-661ab17eaf0fa56b",
+      "title": "ThinkPad T490 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T490/ThinkPad_T490_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8c31c7db37727b6c902aa36d020eb2959eeadccc56976600a0702f07096cf2e6",
+      "bytes": 336467,
+      "model_hint": "T490"
+    },
+    {
+      "id": "document-79804842f3d54b01",
+      "title": "ThinkPad T490s Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T490s/ThinkPad_T490s_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8cdb7b777b58b45d6ad7c4ff3389f9f98098f126d24c8619edb0c95ed2641769",
+      "bytes": 293684,
+      "model_hint": "T490s"
+    },
+    {
+      "id": "document-aa09c31fad01072e",
+      "title": "ThinkPad T495 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T495/ThinkPad_T495_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "cd7b715ee276b5ccfae3762554e3a4eb7d4306032cd2d258208457066994b947",
+      "bytes": 286846,
+      "model_hint": "T495"
+    },
+    {
+      "id": "document-4254b0995eb4145b",
+      "title": "ThinkPad T495s Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T495s/ThinkPad_T495s_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "387a6c416088bca8c23dbf0e1872e5fd2e7022616d314256bbfe16cbdc41c069",
+      "bytes": 321775,
+      "model_hint": "T495s"
+    },
+    {
+      "id": "document-50e3f4994c7f7731",
+      "title": "ThinkPad T530 manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/t530_t530i_w530_hmm_en_0b48474_03.pdf",
+      "source_kind": "official",
+      "sha256": "0fe0700ef4f234d3480f9630f1654acde4b95528308f43cd3707e3cc9327c694",
+      "bytes": 31001607,
+      "model_hint": "T530"
+    },
+    {
+      "id": "document-fe445062fd4d03ac",
+      "title": "ThinkPad T540p Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T540p/ThinkPad_T540p_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "ab2c0dbbdab5b95cf8484a88b15189fabba64eb7aec5360ac57d264a563695c5",
+      "bytes": 36976,
+      "model_hint": "T540p"
+    },
+    {
+      "id": "document-89c68a6ddf39b6e8",
+      "title": "ThinkPad T540p manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/t540p_w540_w541_hmm_en_sp40a26003_03.pdf",
+      "source_kind": "official",
+      "sha256": "d4057a061fdb6a9121242862234216c382309d6d20710ef78f44a42588994f4c",
+      "bytes": 38601885,
+      "model_hint": "T540p"
+    },
+    {
+      "id": "document-5be2b0a040466c8c",
+      "title": "ThinkPad T550 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T550/ThinkPad_T550_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8c338eea63f357aff7727ea6832db82343f92a37863675f7294d8a2c62c4a6ec",
+      "bytes": 30620,
+      "model_hint": "T550"
+    },
+    {
+      "id": "document-d70cba53e22c2ce6",
+      "title": "ThinkPad T550 manufacturer document reference",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/t550_w550s_hmm_en_sp40g55010_02.pdf",
+      "source_kind": "official",
+      "sha256": "526a2179be654c84e7e188ab8e9b6a9fe12d5a7c21e13fa3f00f5d82e3e40cf3",
+      "bytes": 60593777,
+      "model_hint": "T550"
+    },
+    {
+      "id": "document-b64d54bc0b37a366",
+      "title": "ThinkPad T560 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T560/ThinkPad_T560_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "e878c69d321b6d28b316ad60f733013b5ac6620d9bf410401b5e4b3ca9372958",
+      "bytes": 28884,
+      "model_hint": "T560"
+    },
+    {
+      "id": "document-0c052cdcafb78052",
+      "title": "ThinkPad T570 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T570/ThinkPad_T570_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "6483ecc14e4b48daf69fb8660459def2dc36dcb5c3d752034b6f1e35abeef0d3",
+      "bytes": 35555,
+      "model_hint": "T570"
+    },
+    {
+      "id": "document-38371ae9c37692b1",
+      "title": "ThinkPad T580 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T580/ThinkPad_T580_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "3222d720486fcc8e04ea4d21e26435ae7c7663c0da682156a3d04fc04e6b9855",
+      "bytes": 34530,
+      "model_hint": "T580"
+    },
+    {
+      "id": "document-d389b0d1d24529c2",
+      "title": "ThinkPad T590 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T590/ThinkPad_T590_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "4f4a56f7945a3f8f7aa4c0a05578972bca9250f002c6fd2e576d5ef5fe4407c3",
+      "bytes": 299980,
+      "model_hint": "T590"
+    },
+    {
+      "id": "document-1e549811b9eb6641",
+      "title": "ThinkPad Tablet 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad_Tablets/ThinkPad_Tablet_2/ThinkPad_Tablet_2_Spec.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "Tablet 2"
+    },
+    {
+      "id": "document-15155f7823ecb3da",
+      "title": "Lenovo Announces New ThinkPad Tablet 2 for Windows 8",
+      "url": "https://news.lenovo.com/pressroom/press-releases/lenovo-announces-new-thinkpad-tablet-2-for-windows-8/",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "Tablet 2"
+    },
+    {
+      "id": "document-33434c301ffb53dd",
+      "title": "ThinkPad W530 manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/t530_t530i_w530_hmm_en_0b48474_02.pdf",
+      "source_kind": "official",
+      "sha256": "f9985d7fccedb65c53a454aef2fc866e27920a47080e7769bcba016182074198",
+      "bytes": 30893621,
+      "model_hint": "W530"
+    },
+    {
+      "id": "document-2291fb6c5bcba067",
+      "title": "ThinkPad W530 manufacturer document reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/withdrawnbook/ThinkPad_W530.pdf",
+      "source_kind": "official",
+      "sha256": "3dea14e0c003b0e51f705dc9162abf491de4e87f1e6a19021774ac1eaa98aafa",
+      "bytes": 496931,
+      "model_hint": "W530"
+    },
+    {
+      "id": "document-6b3355254bdd3e51",
+      "title": "ThinkPad W540 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_W540/ThinkPad_W540_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "efde7f47da5a80f2fbe1d7105f61ddd5923138d5066c9ea7b79e33587489cac7",
+      "bytes": 37875,
+      "model_hint": "W540"
+    },
+    {
+      "id": "document-b7e511d20ee00597",
+      "title": "ThinkPad W541 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_W541/ThinkPad_W541_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "94c9c7706eabd2c5ecce77252b3764192dec4a112e4c6887f3974dac5981afd4",
+      "bytes": 35924,
+      "model_hint": "W541"
+    },
+    {
+      "id": "document-9695f630ace62c12",
+      "title": "ThinkPad W550s Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_W550s/ThinkPad_W550s_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "3c22f82eaeafb825c76f7afb07034b1783c6d6af2974e2255e1508cd26abba50",
+      "bytes": 34747,
+      "model_hint": "W550s"
+    },
+    {
+      "id": "document-8f122cc6ca5b53c3",
+      "title": "ThinkPad X1 (2011) manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/0a60867.pdf",
+      "source_kind": "official",
+      "sha256": "4ad08094aed5a0f1e7c93b7b349f0d5c807a2848c703b811a9ce32a8e8722a4d",
+      "bytes": 20562620,
+      "model_hint": "X1 (2011)"
+    },
+    {
+      "id": "document-184d7f7b5088f996",
+      "title": "ThinkPad X1 Carbon Gen 10 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_Gen_10/ThinkPad_X1_Carbon_Gen_10_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f303b3256e734a9d81010a4d18c642acf03a0eb4c4bec365c718cb5f065ea16a",
+      "bytes": 512240,
+      "model_hint": "X1 Carbon Gen 10"
+    },
+    {
+      "id": "document-e6a1e19d85a38377",
+      "title": "ThinkPad X1 Carbon Gen 11 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_Gen_11/ThinkPad_X1_Carbon_Gen_11_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f4f7c49d2c2515ecb176bfc365b0f7958ccca35cacbf47e04b23d7853a784f67",
+      "bytes": 962959,
+      "model_hint": "X1 Carbon Gen 11"
+    },
+    {
+      "id": "document-ec247a0c88999b28",
+      "title": "ThinkPad X1 Carbon Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_2nd_Gen/ThinkPad_X1_Carbon_2nd_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "493c15c280ec20930c1acee723b94150ba44af63f8c8171563318c66af438dfb",
+      "bytes": 36862,
+      "model_hint": "X1 Carbon Gen 2"
+    },
+    {
+      "id": "document-c99c879748da411f",
+      "title": "ThinkPad X1 Carbon Gen 2 manufacturer document reference",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/x1carbon_2_hmm_sp40a26110.pdf",
+      "source_kind": "official",
+      "sha256": "1ea16d8bf8193310729d0811f3ca73fcfcf04789dd7144621a8d8fd6ec4ef9ff",
+      "bytes": 58331257,
+      "model_hint": "X1 Carbon Gen 2"
+    },
+    {
+      "id": "document-6220c3e77105242d",
+      "title": "ThinkPad X1 Carbon Gen 9 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_Gen_9/ThinkPad_X1_Carbon_Gen_9_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "faa29793faf74d30e3aed1f6f80cc560b9830adbcdcf0f86cb80cc7586f8437d",
+      "bytes": 485261,
+      "model_hint": "X1 Carbon Gen 9"
+    },
+    {
+      "id": "document-3a0f5025cb692e2b",
+      "title": "ThinkPad X1 Extreme Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Extreme/ThinkPad_X1_Extreme_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c3f967f3d50730ce8b3e45fb90d9ff686666b5b0d871ec50ba2cf42fce7d2a6f",
+      "bytes": 32573,
+      "model_hint": "X1 Extreme Gen 1"
+    },
+    {
+      "id": "document-041ae93fe05e67cd",
+      "title": "ThinkPad X1 Extreme Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Extreme_2nd_Gen/ThinkPad_X1_Extreme_2nd_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b4be5264facdaafd1641ba8357856274c1d17ac10e27d00bf353e51e0fa86a32",
+      "bytes": 345559,
+      "model_hint": "X1 Extreme Gen 2"
+    },
+    {
+      "id": "document-8c91b19c5a2a0a48",
+      "title": "ThinkPad X1 Nano Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Nano_Gen_1/ThinkPad_X1_Nano_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c4b822e1ebe018c6f8a74bc527c40de8eaff36b3de8f8ba238ac2b5cc10637b0",
+      "bytes": 515902,
+      "model_hint": "X1 Nano Gen 1"
+    },
+    {
+      "id": "document-a61b0bf36b0679d7",
+      "title": "ThinkPad X1 Yoga Gen 5 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Yoga_Gen_5/ThinkPad_X1_Yoga_Gen_5_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d880ae34c0ab7a486419bd8d190f8baefa8ef07414812d344bbcc6a903a17e3e",
+      "bytes": 585148,
+      "model_hint": "X1 Yoga Gen 5"
+    },
+    {
+      "id": "document-eded5fcce9db6797",
+      "title": "ThinkPad X121e manufacturer document reference",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/0a96013_02.pdf",
+      "source_kind": "official",
+      "sha256": "c5c237322a066ea90b8162677660bd4898d0cee12b3b1df69df244191938d01d",
+      "bytes": 16926146,
+      "model_hint": "X121e"
+    },
+    {
+      "id": "document-5d014bab8e762165",
+      "title": "ThinkPad X13 Gen 1 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Gen_1_AMD/ThinkPad_X13_Gen_1_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "0de6a622645416ed9b8c5bdb9fc37fca1297c284a85d345895f0a47adff7379d",
+      "bytes": 476063,
+      "model_hint": "X13 Gen 1 (AMD)"
+    },
+    {
+      "id": "document-97cf937b45932679",
+      "title": "ThinkPad X13 Gen 1 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Gen_1_Intel/ThinkPad_X13_Gen_1_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "71a6ad182854b08967ff765a9a873299fb9b62b90b39367f74e6eabe8821cfef",
+      "bytes": 534239,
+      "model_hint": "X13 Gen 1 (Intel)"
+    },
+    {
+      "id": "document-b789794cf6d1f83f",
+      "title": "ThinkPad X13 Yoga Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Yoga_Gen_1/ThinkPad_X13_Yoga_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b27ef0317638e50caa470704b3c4bed8d2055f58cd9db968e45bd26aaf048810",
+      "bytes": 605915,
+      "model_hint": "X13 Yoga Gen 1"
+    },
+    {
+      "id": "document-31553d51ee6fe7f9",
+      "title": "ThinkPad X240 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X240/ThinkPad_X240_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c031fec5ee4651d71c1a572feb69c2da51a9ea9d31ab05ad7bc9091a6a8e8910",
+      "bytes": 36720,
+      "model_hint": "X240"
+    },
+    {
+      "id": "document-355d2719e246c73f",
+      "title": "ThinkPad X250 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X250/ThinkPad_X250_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "396f2bd789bb370af4d2a80a1b1781d36f4418047b0b081deeab61ccf01e9cae",
+      "bytes": 61429,
+      "model_hint": "X250"
+    },
+    {
+      "id": "document-7dc559535994783f",
+      "title": "ThinkPad X250 manufacturer document reference",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/x250_hmm_en_sp40f30022.pdf",
+      "source_kind": "official",
+      "sha256": "bf7d45a3da7f16ae2f9d6ba9f06b325dd23815d2b6c05c99c950bdd7ac3c3d1c",
+      "bytes": 53213744,
+      "model_hint": "X250"
+    },
+    {
+      "id": "document-aeb85a75a40456ef",
+      "title": "ThinkPad X260 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X260/ThinkPad_X260_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "e8f99466138fa2f9b267a5d97b8576f616f2a996d2274e4a1181953271ab0050",
+      "bytes": 31640,
+      "model_hint": "X260"
+    },
+    {
+      "id": "document-7de98ee4b96cde21",
+      "title": "ThinkPad X260 manufacturer document reference",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/x260_hmm_en_sp40j72016.pdf",
+      "source_kind": "official",
+      "sha256": "9e45215ae01d4890e93a4195e58eccb79575068107e445b43cd96ea6eb82be9e",
+      "bytes": 48061765,
+      "model_hint": "X260"
+    },
+    {
+      "id": "document-afb4820e927ec317",
+      "title": "ThinkPad X270 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X270/ThinkPad_X270_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "906a61cbe5a432a44d17b6be1aee2b95c6b17d1815882d118b8ec3d200237cc4",
+      "bytes": 35492,
+      "model_hint": "X270"
+    },
+    {
+      "id": "document-9819815c72fde3ae",
+      "title": "ThinkPad X280 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X280/ThinkPad_X280_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "dd52277afa07a5e12fcd4314d8225ac9b24d479f06945c147276a231b5834430",
+      "bytes": 36086,
+      "model_hint": "X280"
+    },
+    {
+      "id": "document-0e1621ac9f1fe018",
+      "title": "ThinkPad X390 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X390/ThinkPad_X390_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "bdf5748541ab9bc56975faea211ce37a0cd7dcda5b8585069d485f058267f91f",
+      "bytes": 325083,
+      "model_hint": "X390"
+    },
+    {
+      "id": "document-50a75fa3636384b7",
+      "title": "ThinkPad X390 Yoga Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X390_Yoga/ThinkPad_X390_Yoga_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "334e75cd2031e301fa3fedf2d12a53fee0b866f11a45c265629e02f513dfdfbc",
+      "bytes": 306546,
+      "model_hint": "X390 Yoga"
+    },
+    {
+      "id": "document-9d0cdd93ebd67a46",
+      "title": "ThinkPad X395 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X395/ThinkPad_X395_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "1f7192d3ecb77f2f372a60786750148643ae8578b7f12d80fb7c877c022c06da",
+      "bytes": 326170,
+      "model_hint": "X395"
+    },
+    {
+      "id": "document-91fd1d7fd3d0ea6c",
+      "title": "ThinkPad Z13 Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Z13_Gen_1/ThinkPad_Z13_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "bc3b295577ea08ce30c84f0ac16a1281b5a254ca6f6e5a107990ab77de2d6385",
+      "bytes": 468772,
+      "model_hint": "Z13 Gen 1"
+    },
+    {
+      "id": "document-b258515a4126efc1",
+      "title": "ThinkPad Z16 Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Z16_Gen_1/ThinkPad_Z16_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "9e0802b500c15b37855dd2f916299d2c861d952f37bd9529f96b32b0d21839e7",
+      "bytes": 472980,
+      "model_hint": "Z16 Gen 1"
+    },
+    {
+      "id": "document-7f05c13589e5ce15",
+      "title": "ThinkPad 10 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad_Tablets/ThinkPad_10/ThinkPad_10_Spec.pdf",
+      "source_kind": "official",
+      "sha256": "e31b920f23d5c3543045f44ef10029ebc0e14ad43d096606e3b51a94d09fcd80",
+      "bytes": 240333,
+      "model_hint": "10"
+    },
+    {
+      "id": "document-a8a5d4817373f018",
+      "title": "ThinkPad 10 (2nd Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad_Tablets/ThinkPad_10_2nd_Gen/ThinkPad_10_2nd_Gen_Spec.pdf",
+      "source_kind": "official",
+      "sha256": "68d14fbfbc436a723feb4da56c459e586acf12bd6ebf56ed715d2b36ece5a3a0",
+      "bytes": 28179,
+      "model_hint": "10 (2nd Gen)"
+    },
+    {
+      "id": "document-873c82c1ba9799f4",
+      "title": "ThinkPad 11e Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_11e/ThinkPad_11e_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "34c9dace71452198c36f7b3c3b9f49bac82fd3d72ad98e83a12dbe63ad057794",
+      "bytes": 29928,
+      "model_hint": "11e"
+    },
+    {
+      "id": "document-061824a15d27551b",
+      "title": "ThinkPad 11e (2nd Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_11e_2nd_Gen/ThinkPad_11e_2nd_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f31a1e41b771eefcadeee6f652ddf33af91eec82e54a4ccfae8085cc6e3d99a2",
+      "bytes": 27779,
+      "model_hint": "11e (2nd Gen)"
+    },
+    {
+      "id": "document-5128af54888032e7",
+      "title": "ThinkPad 11e (3rd Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_11e_3rd_Gen/ThinkPad_11e_3rd_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "e0fc092a8cfbd63980a9ea7ce7a8fdf2f0fcd079dba2383247c92be1ad2f395d",
+      "bytes": 25588,
+      "model_hint": "11e (3rd Gen)"
+    },
+    {
+      "id": "document-8226a1b6062c075d",
+      "title": "ThinkPad 11e (4th Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_11e_4th_Gen/ThinkPad_11e_4th_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "1a754e775d9fc2b026b2a91a76411b58f338b946bdad55b6df05bc52760354bd",
+      "bytes": 41636,
+      "model_hint": "11e (4th Gen)"
+    },
+    {
+      "id": "document-bfed299266d09784",
+      "title": "ThinkPad 11e (5th Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_11e_5th_Gen/ThinkPad_11e_5th_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "442f5fc9e054bf77d5b7685c86c959d1f046e422d94034b73ebca1bc4566ab68",
+      "bytes": 563648,
+      "model_hint": "11e (5th Gen)"
+    },
+    {
+      "id": "document-8001d625a2ac606e",
+      "title": "ThinkPad 11e Chromebook Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_11e_Chromebook/ThinkPad_11e_Chromebook_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "2abe16ba066d6ab3479448f517dc9fe287d5a574316ab24a689132e696fd2a9d",
+      "bytes": 30477,
+      "model_hint": "11e Chromebook"
+    },
+    {
+      "id": "document-a8242cfe4efd7fad",
+      "title": "ThinkPad 11e Chromebook (3rd Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_11e_Chromebook_3rd_Gen/ThinkPad_11e_Chromebook_3rd_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "96e14526b2e9bb59a542be052a4a670585b6ae6ffa076f35a13bf4ee3effdf9f",
+      "bytes": 28352,
+      "model_hint": "11e Chromebook (3rd Gen)"
+    },
+    {
+      "id": "document-c44d413a80401b0a",
+      "title": "ThinkPad 11e Chromebook (4th Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_11e_Chromebook_4th_Gen/ThinkPad_11e_Chromebook_4th_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "0c06873ee593a7c25716977a2379fc5f13f6b4d5c266fad710ee5d38e7e747e4",
+      "bytes": 27673,
+      "model_hint": "11e Chromebook (4th Gen)"
+    },
+    {
+      "id": "document-42c410484b453438",
+      "title": "ThinkPad 11e Yoga Gen 6 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_11e_Yoga_Gen_6/ThinkPad_11e_Yoga_Gen_6_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "709f9f6f59c8f58fc7b9daeb7082f6d22b0473d3186c10280a880b72616edbb7",
+      "bytes": 2211592,
+      "model_hint": "11e Yoga Gen 6"
+    },
+    {
+      "id": "document-9cbc8843b9ffbf87",
+      "title": "ThinkPad 13 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_13/ThinkPad_13_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "03dba55391e513b107a0e2ed2800a6e014b8a10838e6f5f099c800178d4d3059",
+      "bytes": 26144,
+      "model_hint": "13"
+    },
+    {
+      "id": "document-b01d71cc7a339d27",
+      "title": "ThinkPad 13 (2nd Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_13_2nd_Gen/ThinkPad_13_2nd_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "77f998d44372cd64af1995e2e55d39b9d2455720ebb1d1ff873a3bac5744f539",
+      "bytes": 46366,
+      "model_hint": "13 (2nd Gen)"
+    },
+    {
+      "id": "document-8a35f96b171261af",
+      "title": "ThinkPad 13 Chromebook Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_13_Chromebook/ThinkPad_13_Chromebook_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "4b523c349aaeea778903ad722f02c06b42bc04e8d71c626e87e6729c89ebbb97",
+      "bytes": 28214,
+      "model_hint": "13 Chromebook"
+    },
+    {
+      "id": "document-32621207ce5d26fb",
+      "title": "ThinkPad 8 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad_Tablets/ThinkPad_8/ThinkPad_8_Spec.pdf",
+      "source_kind": "official",
+      "sha256": "2b49a207e05f730484d12e19166a7aa77987605e5282af8155b37528d8859c12",
+      "bytes": 160235,
+      "model_hint": "8"
+    },
+    {
+      "id": "document-7acd0509d98bcd45",
+      "title": "ThinkPad A275 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_A275/ThinkPad_A275_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "9bca1e7cef6705420faaec771848a814ddfa0443242521e12a86bc68a89840c8",
+      "bytes": 33028,
+      "model_hint": "A275"
+    },
+    {
+      "id": "document-b24c11000cc1e359",
+      "title": "ThinkPad A475 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_A475/ThinkPad_A475_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c35993325b5dae5fd29d0ec0589941ebb57420a431c31f4e14d13b3a25928c16",
+      "bytes": 32921,
+      "model_hint": "A475"
+    },
+    {
+      "id": "document-66d5566d63bc127c",
+      "title": "ThinkPad C13 Yoga Gen 1 Chromebook Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_C13_Yoga_Gen_1_Chromebook/ThinkPad_C13_Yoga_Gen_1_Chromebook_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "5b27a4b0ba1ea4e5408808f9f4b32fc59d306046b70285377713be0bcccef94a",
+      "bytes": 588304,
+      "model_hint": "C13 Yoga Gen 1 Chromebook"
+    },
+    {
+      "id": "document-922f3669dc287ff7",
+      "title": "ThinkPad C14 Gen 1 Chromebook Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_C14_Gen_1_Chromebook/ThinkPad_C14_Gen_1_Chromebook_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "e87906f2b7bbfe7f4e29917744bea6791de191625db5f493d75c9e80f3790bd1",
+      "bytes": 500357,
+      "model_hint": "C14 Gen 1 Chromebook"
+    },
+    {
+      "id": "document-92b6ff2d6d82fd1e",
+      "title": "ThinkPad E14 Gen 2 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E14_Gen_2_AMD/ThinkPad_E14_Gen_2_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8de5e204b342fab6dab82cfeb1954ec1a3dc457a9561f1c1502f658fe0280aaa",
+      "bytes": 566969,
+      "model_hint": "E14 Gen 2 (AMD)"
+    },
+    {
+      "id": "document-4cd86b9d7fca84b8",
+      "title": "ThinkPad E14 Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E14_Gen_2_Intel/ThinkPad_E14_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "15c80d45b068fca9a0abe63cc52e19b80ed11f7de94d4432ccd39d422ac36824",
+      "bytes": 2344629,
+      "model_hint": "E14 Gen 2 (Intel)"
+    },
+    {
+      "id": "document-2210d6dac92d869c",
+      "title": "ThinkPad E14 Gen 3 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E14_Gen_3_AMD/ThinkPad_E14_Gen_3_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "aada595c4295104c2b509e98afcd2061252cda184260a660d02469be2f9a37df",
+      "bytes": 528793,
+      "model_hint": "E14 Gen 3 (AMD)"
+    },
+    {
+      "id": "document-657169869f812a3a",
+      "title": "ThinkPad E14 Gen 4 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E14_Gen_4_AMD/ThinkPad_E14_Gen_4_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f74bce990da7ac87bfa1edbaa5d01a02526d89e99d267ba1da90ad0f78e5926d",
+      "bytes": 595488,
+      "model_hint": "E14 Gen 4 (AMD)"
+    },
+    {
+      "id": "document-613a8a57d21bc470",
+      "title": "ThinkPad E14 Gen 4 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E14_Gen_4_Intel/ThinkPad_E14_Gen_4_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "075354a6bcc1e4f50411e8c54580ca64fd7697c199e4d40556ebf4acbd79217f",
+      "bytes": 2316337,
+      "model_hint": "E14 Gen 4 (Intel)"
+    },
+    {
+      "id": "document-dfeb180948c9fcd6",
+      "title": "ThinkPad E14 Gen 5 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E14_Gen_5_AMD/ThinkPad_E14_Gen_5_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "4980191378628fc235fd834661d06d5fc83515abf12ac254866f0b93b82541de",
+      "bytes": 1185643,
+      "model_hint": "E14 Gen 5 (AMD)"
+    },
+    {
+      "id": "document-7a94b6eeac44b18d",
+      "title": "ThinkPad E14 Gen 5 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E14_Gen_5_Intel/ThinkPad_E14_Gen_5_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "bc6ef21963049b8c2a194a4bda212f247c97566cc9e2041910566766a9a3acc2",
+      "bytes": 1044697,
+      "model_hint": "E14 Gen 5 (Intel)"
+    },
+    {
+      "id": "document-dd1f62791746bc2f",
+      "title": "ThinkPad E14 Gen 6 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E14_Gen_6_AMD/ThinkPad_E14_Gen_6_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8115d6435e4f476f4ec589be09741f1a7076e9a1070c7225781a5a7db313360b",
+      "bytes": 1059433,
+      "model_hint": "E14 Gen 6 (AMD)"
+    },
+    {
+      "id": "document-8366b8fa391e8434",
+      "title": "ThinkPad E14 Gen 6 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E14_Gen_6_Intel/ThinkPad_E14_Gen_6_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c8af05e845d8ea8e31c1aa39a53908ef5f489965370e1b92c6c852a1062b5242",
+      "bytes": 1075639,
+      "model_hint": "E14 Gen 6 (Intel)"
+    },
+    {
+      "id": "document-7a3bde3d2f4f15af",
+      "title": "ThinkPad E14 Gen 7 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E14_Gen_7_AMD/ThinkPad_E14_Gen_7_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "0cdfee734010e5d5375389b1301f7e5d2b482716452859202fec82acdb2a8d5d",
+      "bytes": 1082775,
+      "model_hint": "E14 Gen 7 (AMD)"
+    },
+    {
+      "id": "document-35460ba0399fa3c4",
+      "title": "ThinkPad E14 Gen 7 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E14_Gen_7_Intel/ThinkPad_E14_Gen_7_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "99fb7db17e916eeb78dd49f5c83bf6b9e38586e87862f168f7a47e894f36af2c",
+      "bytes": 1012608,
+      "model_hint": "E14 Gen 7 (Intel)"
+    },
+    {
+      "id": "document-400ca64b6c12ec57",
+      "title": "ThinkPad E14 Gen 8 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E14_Gen_8_AMD/ThinkPad_E14_Gen_8_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "2c650a5cfa051e162411e4c6d7b7e6a10e3604851aec6798dfb0285ea9ecda57",
+      "bytes": 1067917,
+      "model_hint": "E14 Gen 8 (AMD)"
+    },
+    {
+      "id": "document-46da360943f284cd",
+      "title": "ThinkPad E14 Gen 8 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E14_Gen_8_Intel/ThinkPad_E14_Gen_8_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "628890bc1e2c6c4e4a30b6600b35c0832818828f325326db8698c12f2b3af31a",
+      "bytes": 1005309,
+      "model_hint": "E14 Gen 8 (Intel)"
+    },
+    {
+      "id": "document-94eda31d3a78f6b9",
+      "title": "ThinkPad E15 Gen 2 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E15_Gen_2_AMD/ThinkPad_E15_Gen_2_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "33b858eba022ede508c265c4ee417641f7424bb316306fea7bca89917fcf00af",
+      "bytes": 563709,
+      "model_hint": "E15 Gen 2 (AMD)"
+    },
+    {
+      "id": "document-aae8ca4966e34426",
+      "title": "ThinkPad E15 Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E15_Gen_2_Intel/ThinkPad_E15_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "963ab38f6d3bf270a7f4e102ba56a82b29790702af0c63d8ff4ce77ab6858da7",
+      "bytes": 2315357,
+      "model_hint": "E15 Gen 2 (Intel)"
+    },
+    {
+      "id": "document-f53c4405b853f9dc",
+      "title": "ThinkPad E15 Gen 3 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E15_Gen_3_AMD/ThinkPad_E15_Gen_3_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "3e5bfe096fa52d037057180a1e6429eb12c4f81259a1f47d07479378b22586ce",
+      "bytes": 504576,
+      "model_hint": "E15 Gen 3 (AMD)"
+    },
+    {
+      "id": "document-26b2b4b644a419a5",
+      "title": "ThinkPad E15 Gen 4 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E15_Gen_4_AMD/ThinkPad_E15_Gen_4_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "7c81c2393a816c023c6633ca26fb59f28ce10e233a4c539b55193ffde136c89a",
+      "bytes": 584398,
+      "model_hint": "E15 Gen 4 (AMD)"
+    },
+    {
+      "id": "document-333ca09060285ce8",
+      "title": "ThinkPad E15 Gen 4 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E15_Gen_4_Intel/ThinkPad_E15_Gen_4_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "71ba9dcd5c0625ee9c17b53ee2d9ef0c6ada53abb1affb66875013185be69c9c",
+      "bytes": 2364793,
+      "model_hint": "E15 Gen 4 (Intel)"
+    },
+    {
+      "id": "document-887221d865e4dc24",
+      "title": "ThinkPad E16 Gen 1 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E16_Gen_1_AMD/ThinkPad_E16_Gen_1_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "1579e2de230d30ffaf7e5dd4d810baf279502eec76e8cbae7d960b0c9db8733f",
+      "bytes": 1177071,
+      "model_hint": "E16 Gen 1 (AMD)"
+    },
+    {
+      "id": "document-affecec723f66541",
+      "title": "ThinkPad E16 Gen 1 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E16_Gen_1_Intel/ThinkPad_E16_Gen_1_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8112bd0129a9e14e0d98a4876b2ca49fbc93a9a4482a6f3602c402fe5d12bd2c",
+      "bytes": 1191106,
+      "model_hint": "E16 Gen 1 (Intel)"
+    },
+    {
+      "id": "document-a719ef0926df9aa0",
+      "title": "ThinkPad E16 Gen 2 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E16_Gen_2_AMD/ThinkPad_E16_Gen_2_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "3864078149976986284e8976379c0474538aeecf29c6529f362f2667ef63006b",
+      "bytes": 1126961,
+      "model_hint": "E16 Gen 2 (AMD)"
+    },
+    {
+      "id": "document-211cea79d4026373",
+      "title": "ThinkPad E16 Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E16_Gen_2_Intel/ThinkPad_E16_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b438553409fa502180ac70856563d36f681deddc97f9ba2a8cd25ae7b37c896b",
+      "bytes": 1148879,
+      "model_hint": "E16 Gen 2 (Intel)"
+    },
+    {
+      "id": "document-10d446e0b06b004b",
+      "title": "ThinkPad E16 Gen 3 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E16_Gen_3_AMD/ThinkPad_E16_Gen_3_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "69525c8dbd34497b08cb91f3c5cf74fd20164665d4ddbf47bceb93ce2375f13c",
+      "bytes": 1055573,
+      "model_hint": "E16 Gen 3 (AMD)"
+    },
+    {
+      "id": "document-f6a79c1b7092fd2a",
+      "title": "ThinkPad E16 Gen 3 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E16_Gen_3_Intel/ThinkPad_E16_Gen_3_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8d48692e7cbd3d7c0c3c41753127f807b285b07ea1c0ffc8341268a785b8ffa9",
+      "bytes": 980530,
+      "model_hint": "E16 Gen 3 (Intel)"
+    },
+    {
+      "id": "document-825daf6de40ac35a",
+      "title": "ThinkPad E16 Gen 4 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E16_Gen_4_AMD/ThinkPad_E16_Gen_4_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c82c1736534f8fc2b49ca396caa2a8937cfd24b6cbf77ef4836970a58a98433b",
+      "bytes": 1043019,
+      "model_hint": "E16 Gen 4 (AMD)"
+    },
+    {
+      "id": "document-044c42588245c1cf",
+      "title": "ThinkPad E16 Gen 4 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E16_Gen_4_Intel/ThinkPad_E16_Gen_4_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "aece164d79f196833152b2280187e433b63749088560d894c895cf025a7a516d",
+      "bytes": 1035747,
+      "model_hint": "E16 Gen 4 (Intel)"
+    },
+    {
+      "id": "document-84271bdb322dcb7e",
+      "title": "ThinkPad E431 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E431/ThinkPad_E431_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "5e793b2ae52fb21123c3a41f638f9c340026e339ac711d6a19c764b8960eea34",
+      "bytes": 105302,
+      "model_hint": "E431"
+    },
+    {
+      "id": "document-f4fd076d2e194a99",
+      "title": "ThinkPad E455 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E455/ThinkPad_E455_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "fa92c0e065011787041b31cc1f9260e80651c1dd5e775e432815eddab6c69333",
+      "bytes": 27248,
+      "model_hint": "E455"
+    },
+    {
+      "id": "document-9f56d2d08a1e92cb",
+      "title": "ThinkPad E465 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E465/ThinkPad_E465_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "703549324e69167db94279845f455b38f7106c0979d1265f2e90f4b1dd653e31",
+      "bytes": 27891,
+      "model_hint": "E465"
+    },
+    {
+      "id": "document-0c6b29e196e618df",
+      "title": "ThinkPad E475 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E475/ThinkPad_E475_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "bf3231133e6b0df872789ee61f8a7b7ca4b510631e40e171e2e0ea6aa42343a9",
+      "bytes": 29827,
+      "model_hint": "E475"
+    },
+    {
+      "id": "document-6c6996a6b0506c44",
+      "title": "ThinkPad E485 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E485/ThinkPad_E485_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8e58dfe1534f060572d70fc4d2e6bd9bf3b9f7f5f15dcf72df97c3fb7241d8f6",
+      "bytes": 30545,
+      "model_hint": "E485"
+    },
+    {
+      "id": "document-31de6cd76a7cad56",
+      "title": "ThinkPad E490s Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E490s/ThinkPad_E490s_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "de3db143b3550a403338d343c77c341de1a762f22905cf8d1d967b7aac589171",
+      "bytes": 31525,
+      "model_hint": "E490s"
+    },
+    {
+      "id": "document-066f73eb8cd54789",
+      "title": "ThinkPad E495 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E495/ThinkPad_E495_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b2955725fbd8f19acb20e0e553159b3332105fb8662dec5fe1880a7592d4e6fa",
+      "bytes": 265668,
+      "model_hint": "E495"
+    },
+    {
+      "id": "document-a3a99b612c054004",
+      "title": "ThinkPad E531 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E531/ThinkPad_E531_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "51d28206ff01c810d7a587af222a7df430770bb85e675e4153085b730b6f6bab",
+      "bytes": 430737,
+      "model_hint": "E531"
+    },
+    {
+      "id": "document-4b014facdb8f027e",
+      "title": "ThinkPad E555 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E555/ThinkPad_E555_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f1928df057fa07ac8eecdd7a74c84646a79f8c86ca05a8e5dd736891997f3608",
+      "bytes": 27607,
+      "model_hint": "E555"
+    },
+    {
+      "id": "document-e524f0a79b4fd217",
+      "title": "ThinkPad E565 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E565/ThinkPad_E565_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d7a82b6c8ae763f9b56adb98becacdf37e15935b8fd4a7af2a78e5e70b32be56",
+      "bytes": 27415,
+      "model_hint": "E565"
+    },
+    {
+      "id": "document-8138847d5a988a04",
+      "title": "ThinkPad E575 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E575/ThinkPad_E575_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "e6c7f0d7c5ccd11e1f3ab50655c42382fdd9d4464c5ea4c51f4e5054c256dce0",
+      "bytes": 30115,
+      "model_hint": "E575"
+    },
+    {
+      "id": "document-0a1a0a9129fd8f5c",
+      "title": "ThinkPad E585 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E585/ThinkPad_E585_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "a3deaf62895b8823f506247733599b5f5505bf35b49ad3ebcc920a527af87a4a",
+      "bytes": 30327,
+      "model_hint": "E585"
+    },
+    {
+      "id": "document-98d6f11acb3bc9de",
+      "title": "ThinkPad E595 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E595/ThinkPad_E595_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f8273748d9cbae9dfb67444a16953eddd13e1609efb214752c9ef5312516fc11",
+      "bytes": 254995,
+      "model_hint": "E595"
+    },
+    {
+      "id": "document-e6a27e543e548b07",
+      "title": "ThinkPad L13 2-in-1 Gen 5 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_2_in_1_Gen_5_Intel/ThinkPad_L13_2_in_1_Gen_5_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "7dc7ce26d7bb3e7a45e413428926564b6b3be09dc217f260a350ac8112efb52e",
+      "bytes": 1134624,
+      "model_hint": "L13 2-in-1 Gen 5 (Intel)"
+    },
+    {
+      "id": "document-6fc5dbf0d5bb71d9",
+      "title": "ThinkPad L13 2-in-1 Gen 6 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_2_in_1_Gen_6_AMD/ThinkPad_L13_2_in_1_Gen_6_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "7d7d2d1a7f182ce29730cbbb691bb1d12cadec8cc541ba36e02acfcd995f3e6b",
+      "bytes": 942151,
+      "model_hint": "L13 2-in-1 Gen 6 (AMD)"
+    },
+    {
+      "id": "document-231f6889c727188f",
+      "title": "ThinkPad L13 2-in-1 Gen 6 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_2_in_1_Gen_6_Intel/ThinkPad_L13_2_in_1_Gen_6_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b411b44c3d31969bacb0dd47b4496c624eb051c40d96ac188a65d00448c816bf",
+      "bytes": 996686,
+      "model_hint": "L13 2-in-1 Gen 6 (Intel)"
+    },
+    {
+      "id": "document-8ef181277c9f0b9b",
+      "title": "ThinkPad L13 Gen 2 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Gen_2_AMD/ThinkPad_L13_Gen_2_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "fd4baf1f5fc5441619afa5ed9bb9529cd303599b6bf07314ce1b124614ba8d87",
+      "bytes": 464213,
+      "model_hint": "L13 Gen 2 (AMD)"
+    },
+    {
+      "id": "document-dd7fdd4faac41fec",
+      "title": "ThinkPad L13 Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Gen_2_Intel/ThinkPad_L13_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "38570c4607a7c899b7cc2a22fc729a309016814a2ecbd01f3de2140d24c05b55",
+      "bytes": 545181,
+      "model_hint": "L13 Gen 2 (Intel)"
+    },
+    {
+      "id": "document-26671e1c7ed25fe5",
+      "title": "ThinkPad L13 Gen 3 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Gen_3_AMD/ThinkPad_L13_Gen_3_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d3912f608d6ee56008e02cdf363d9376348da72c2da25397dea2d6ad02de58b1",
+      "bytes": 650731,
+      "model_hint": "L13 Gen 3 (AMD)"
+    },
+    {
+      "id": "document-e35c4904e931a9ad",
+      "title": "ThinkPad L13 Gen 3 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Gen_3_Intel/ThinkPad_L13_Gen_3_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d65639a0a833383c6c2eac811a0efcd14f1958b17b583c312526aae23bf4fef5",
+      "bytes": 677701,
+      "model_hint": "L13 Gen 3 (Intel)"
+    },
+    {
+      "id": "document-2e50e94edc33736b",
+      "title": "ThinkPad L13 Gen 4 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Gen_4_AMD/ThinkPad_L13_Gen_4_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f24002bea5f6a65f516818713f87431fb51657b10d0cd1019065dee31561f2dc",
+      "bytes": 1048552,
+      "model_hint": "L13 Gen 4 (AMD)"
+    },
+    {
+      "id": "document-768958bcc79656bb",
+      "title": "ThinkPad L13 Gen 4 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Gen_4_Intel/ThinkPad_L13_Gen_4_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f0d2ff6543c19dc25e6121df9dc4780124b56f20484a36502f159e5ea0bb12b7",
+      "bytes": 1061860,
+      "model_hint": "L13 Gen 4 (Intel)"
+    },
+    {
+      "id": "document-ae84872acf9ee2ce",
+      "title": "ThinkPad L13 Gen 5 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Gen_5_Intel/ThinkPad_L13_Gen_5_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b84c8bf53e57a816b6c5bf59c38792d92e6f3ba0cc4c7896baf68412ed3d86c3",
+      "bytes": 986803,
+      "model_hint": "L13 Gen 5 (Intel)"
+    },
+    {
+      "id": "document-4c4d6dae95a1f50b",
+      "title": "ThinkPad L13 Gen 6 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Gen_6_AMD/ThinkPad_L13_Gen_6_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "86268e119a4b90a2ff8a79747d261fabbe1160246825e2ce74ac57fa4f2c9963",
+      "bytes": 857858,
+      "model_hint": "L13 Gen 6 (AMD)"
+    },
+    {
+      "id": "document-69f5206cbb998fe8",
+      "title": "ThinkPad L13 Gen 6 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Gen_6_Intel/ThinkPad_L13_Gen_6_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "23e918aa477f43d9c24159ba9df6b9ada4000d8ab6d8fdee7984e17c811c8944",
+      "bytes": 1054071,
+      "model_hint": "L13 Gen 6 (Intel)"
+    },
+    {
+      "id": "document-43ec47a46b9a24a3",
+      "title": "ThinkPad L13 Gen 7 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Gen_7_Intel/ThinkPad_L13_Gen_7_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d2a99f32a1322918501080cd708890a4e9551bd81da33495f6fa024746f8b48e",
+      "bytes": 930319,
+      "model_hint": "L13 Gen 7 (Intel)"
+    },
+    {
+      "id": "document-67afc050f361435b",
+      "title": "ThinkPad L13 Yoga Gen 2 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Yoga_Gen_2_AMD/ThinkPad_L13_Yoga_Gen_2_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "ece59fc121d6fb85278b50633b9b410892107a32e64233fd34da1b78bbe53200",
+      "bytes": 535981,
+      "model_hint": "L13 Yoga Gen 2 (AMD)"
+    },
+    {
+      "id": "document-114d9af22ebe34cd",
+      "title": "ThinkPad L13 Yoga Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Yoga_Gen_2_Intel/ThinkPad_L13_Yoga_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "26a21a881c345abb18762bcf2f8a74047534999428a069374cb4ff582e81bd7e",
+      "bytes": 549834,
+      "model_hint": "L13 Yoga Gen 2 (Intel)"
+    },
+    {
+      "id": "document-744d9d769f2ca968",
+      "title": "ThinkPad L13 Yoga Gen 3 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Yoga_Gen_3_AMD/ThinkPad_L13_Yoga_Gen_3_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "a3569b40e9aed3198768ffd03ed53b1771f21f0760102cdd50ff7775f39f8fd8",
+      "bytes": 615572,
+      "model_hint": "L13 Yoga Gen 3 (AMD)"
+    },
+    {
+      "id": "document-5e1a8a7a926b0b83",
+      "title": "ThinkPad L13 Yoga Gen 3 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Yoga_Gen_3_Intel/ThinkPad_L13_Yoga_Gen_3_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "4997aee859545fc0788ef8bbc85d77cc39b9fbfbad08fbcad05b98e74b8ea0fa",
+      "bytes": 652287,
+      "model_hint": "L13 Yoga Gen 3 (Intel)"
+    },
+    {
+      "id": "document-4f7c611ae03a6318",
+      "title": "ThinkPad L13 Yoga Gen 4 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Yoga_Gen_4_AMD/ThinkPad_L13_Yoga_Gen_4_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "3b185bf4090e44ee94fae8c0d42d5a3327a8ef97d7ded7ea0e52d14ba31c4403",
+      "bytes": 1179987,
+      "model_hint": "L13 Yoga Gen 4 (AMD)"
+    },
+    {
+      "id": "document-2f29133338801470",
+      "title": "ThinkPad L13 Yoga Gen 4 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L13_Yoga_Gen_4_Intel/ThinkPad_L13_Yoga_Gen_4_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f29d08b3b056e69384363f045b5b2d491b3aa2b36e1b17b89b7bd3d6344b75f8",
+      "bytes": 1218375,
+      "model_hint": "L13 Yoga Gen 4 (Intel)"
+    },
+    {
+      "id": "document-e9111f2fef596a47",
+      "title": "ThinkPad L14 Gen 2 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_2_AMD/ThinkPad_L14_Gen_2_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "43d118a131d38c3a83820ba00113da1584933b623f0fe193c4085fdc9e635aec",
+      "bytes": 671857,
+      "model_hint": "L14 Gen 2 (AMD)"
+    },
+    {
+      "id": "document-6e5eda1268fb16d2",
+      "title": "ThinkPad L14 Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_2_Intel/ThinkPad_L14_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "2c26dfc1f0ba656f04fa6883304230e4d1c8b23139651d9c9a7f8c5d819282cc",
+      "bytes": 579598,
+      "model_hint": "L14 Gen 2 (Intel)"
+    },
+    {
+      "id": "document-2391f303f3667a2d",
+      "title": "ThinkPad L14 Gen 3 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_3_AMD/ThinkPad_L14_Gen_3_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "36452b43f3c00688a8e97b2c61891be053882ce230fe344299c32ab71b68986f",
+      "bytes": 669109,
+      "model_hint": "L14 Gen 3 (AMD)"
+    },
+    {
+      "id": "document-733198b44c2e7f8b",
+      "title": "ThinkPad L14 Gen 3 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_3_Intel/ThinkPad_L14_Gen_3_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "81317d11468ecb0b5848622f805a6a6b0b517e338254cba2493ef477b55dadfe",
+      "bytes": 666606,
+      "model_hint": "L14 Gen 3 (Intel)"
+    },
+    {
+      "id": "document-e48a9d351e08714b",
+      "title": "ThinkPad L14 Gen 4 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_4_AMD/ThinkPad_L14_Gen_4_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "6216f17f4cd522134e2bccd0a9e0c5e9093d804564d3a8a42a8c3b53470494f0",
+      "bytes": 1218599,
+      "model_hint": "L14 Gen 4 (AMD)"
+    },
+    {
+      "id": "document-0bd6875992fe4a18",
+      "title": "ThinkPad L14 Gen 4 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_4_Intel/ThinkPad_L14_Gen_4_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b349c1ace575ef77fb148436ec5b0d2afdcefbcc352761aab4b7680e7789d843",
+      "bytes": 1062515,
+      "model_hint": "L14 Gen 4 (Intel)"
+    },
+    {
+      "id": "document-5310d54d1309a799",
+      "title": "ThinkPad L14 Gen 5 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_5_AMD/ThinkPad_L14_Gen_5_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "99d8c532e3a246dd119f2cb774f5d359730c317de3e4660147e8cece67e297b0",
+      "bytes": 1112261,
+      "model_hint": "L14 Gen 5 (AMD)"
+    },
+    {
+      "id": "document-2d3afdd46fd04217",
+      "title": "ThinkPad L14 Gen 5 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_5_Intel/ThinkPad_L14_Gen_5_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "6ea54ccfcd7de8cc681ae62da0abfabe45bcf8298dd21cf1a151deac588d23f1",
+      "bytes": 1030454,
+      "model_hint": "L14 Gen 5 (Intel)"
+    },
+    {
+      "id": "document-5c35f6154d33317b",
+      "title": "ThinkPad L14 Gen 6 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_6_AMD/ThinkPad_L14_Gen_6_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "29fe786777af0f4bab1fb898f93ebd06876a4a5a5765e44d70ff5fddcf862c4c",
+      "bytes": 921372,
+      "model_hint": "L14 Gen 6 (AMD)"
+    },
+    {
+      "id": "document-6c0acf40290a1e79",
+      "title": "ThinkPad L14 Gen 6 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_6_Intel/ThinkPad_L14_Gen_6_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "870c120920a6e72013455271663b64ba0156dd7b9f3d45488cfd5d65403e5fb6",
+      "bytes": 851211,
+      "model_hint": "L14 Gen 6 (Intel)"
+    },
+    {
+      "id": "document-8024269b0fa45c6d",
+      "title": "ThinkPad L14 Gen 7 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_7_AMD/ThinkPad_L14_Gen_7_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "e1bf28fb10bc5ddb1f80b8a8f1ae8da1af34bded3685a73cc7ff80e819000d27",
+      "bytes": 910869,
+      "model_hint": "L14 Gen 7 (AMD)"
+    },
+    {
+      "id": "document-e9ba4e916916555e",
+      "title": "ThinkPad L14 Gen 7 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L14_Gen_7_Intel/ThinkPad_L14_Gen_7_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "32634829dd467762fffb0ad6b054379f6bdead8838d441e04091d4f3af2544d7",
+      "bytes": 895789,
+      "model_hint": "L14 Gen 7 (Intel)"
+    },
+    {
+      "id": "document-783dfbfe4f803356",
+      "title": "ThinkPad L15 Gen 2 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L15_Gen_2_AMD/ThinkPad_L15_Gen_2_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "42ef0672354fddfda160ed764078f566ab78f3c50740505839c6bda8ef5f4931",
+      "bytes": 677084,
+      "model_hint": "L15 Gen 2 (AMD)"
+    },
+    {
+      "id": "document-54bd4f1bacd6baa2",
+      "title": "ThinkPad L15 Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L15_Gen_2_Intel/ThinkPad_L15_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c9a566cc6cad9d8853245a1a543f237e3d8842d2c682b7079f41bbba4000a565",
+      "bytes": 578082,
+      "model_hint": "L15 Gen 2 (Intel)"
+    },
+    {
+      "id": "document-e6f6d992372d2544",
+      "title": "ThinkPad L15 Gen 3 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L15_Gen_3_AMD/ThinkPad_L15_Gen_3_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d73ba7452c7e0fa924cc4f6b1263f82b0685703e27b56bd38b507a476807f71d",
+      "bytes": 611378,
+      "model_hint": "L15 Gen 3 (AMD)"
+    },
+    {
+      "id": "document-1d50af9f64aa9cc5",
+      "title": "ThinkPad L15 Gen 3 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L15_Gen_3_Intel/ThinkPad_L15_Gen_3_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "51ce47bcf666af4821fa2deb3d084c976dcdc3b173fcda4091936a39fe188eff",
+      "bytes": 658838,
+      "model_hint": "L15 Gen 3 (Intel)"
+    },
+    {
+      "id": "document-735506c1f489d9df",
+      "title": "ThinkPad L15 Gen 4 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L15_Gen_4_AMD/ThinkPad_L15_Gen_4_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f8ca0bef1db37ec0c3a9b2edecaa96b56b6fc0a4722f157b0db1c90ec67f11ee",
+      "bytes": 1211617,
+      "model_hint": "L15 Gen 4 (AMD)"
+    },
+    {
+      "id": "document-e99d895a0add489c",
+      "title": "ThinkPad L15 Gen 4 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L15_Gen_4_Intel/ThinkPad_L15_Gen_4_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "016fe2044883ed67af802c534e3c73ef9efaef8fcf1cb86952a821f053053b0c",
+      "bytes": 1051683,
+      "model_hint": "L15 Gen 4 (Intel)"
+    },
+    {
+      "id": "document-adfdd8400c78df76",
+      "title": "ThinkPad L16 Gen 1 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L16_Gen_1_AMD/ThinkPad_L16_Gen_1_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "125cb214b443dd75ee4d07d481e60fbbb22cc2da6e5490438625868a99569e4f",
+      "bytes": 1013923,
+      "model_hint": "L16 Gen 1 (AMD)"
+    },
+    {
+      "id": "document-613f23dffb413967",
+      "title": "ThinkPad L16 Gen 1 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L16_Gen_1_Intel/ThinkPad_L16_Gen_1_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8dc5ac6a5d0f14a24c9f4a0486c0caf34c3fd42fd478e4e7ca3500bc0f092127",
+      "bytes": 1029735,
+      "model_hint": "L16 Gen 1 (Intel)"
+    },
+    {
+      "id": "document-a035a4db697131b2",
+      "title": "ThinkPad L16 Gen 2 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L16_Gen_2_AMD/ThinkPad_L16_Gen_2_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "3888e9b6c76b2eb31f1cdb40c4a077ffacb434845cc34fae57ded36f87387a6e",
+      "bytes": 911226,
+      "model_hint": "L16 Gen 2 (AMD)"
+    },
+    {
+      "id": "document-ff99886058cf5d54",
+      "title": "ThinkPad L16 Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L16_Gen_2_Intel/ThinkPad_L16_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "6e85129063a6320df2ebc5c35a63d900f98ccbc53c60c538eb2c26b9badc0b9c",
+      "bytes": 913232,
+      "model_hint": "L16 Gen 2 (Intel)"
+    },
+    {
+      "id": "document-8bc2fc574844554f",
+      "title": "ThinkPad L16 Gen 3 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L16_Gen_3_AMD/ThinkPad_L16_Gen_3_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "7d5301c34c6f483f69e7a66042ecd577376795b35040fc0090d7a06ba05cfabd",
+      "bytes": 834862,
+      "model_hint": "L16 Gen 3 (AMD)"
+    },
+    {
+      "id": "document-2da36e4bedbf5860",
+      "title": "ThinkPad L16 Gen 3 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L16_Gen_3_Intel/ThinkPad_L16_Gen_3_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "ebd26302218fa611cdf9e3d2b07208a23654a00a9d69ab4c0a1b3a065ab474f9",
+      "bytes": 819942,
+      "model_hint": "L16 Gen 3 (Intel)"
+    },
+    {
+      "id": "document-8031ee7f205cb1cf",
+      "title": "ThinkPad L380 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L380/ThinkPad_L380_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "7f261ea2d4d9eef609374e4ad3b650deb0cc908135086ceaa4ca64e599761c32",
+      "bytes": 34810,
+      "model_hint": "L380"
+    },
+    {
+      "id": "document-1471f79882172d06",
+      "title": "ThinkPad L390 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L390/ThinkPad_L390_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "0cd02144f68aa97514de2ff057d3da4317c8b3f53f89f86e596c57c9da2e5661",
+      "bytes": 284676,
+      "model_hint": "L390"
+    },
+    {
+      "id": "document-13a0ea806d84a6dc",
+      "title": "ThinkPad L390 Yoga Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_L390_Yoga/ThinkPad_L390_Yoga_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "87d2b25572b31311db3e0f796770bc0b56607150652166c8425f886336a99178",
+      "bytes": 279083,
+      "model_hint": "L390 Yoga"
+    },
+    {
+      "id": "document-211adb75532e9be8",
+      "title": "ThinkPad P1 Gen 8 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P1_Gen_8/ThinkPad_P1_Gen_8_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f6323a2c6c5cfecf9b09b4aeb486efc0445dc3bd08e2b17210e80b4f329442ef",
+      "bytes": 650033,
+      "model_hint": "P1 Gen 8"
+    },
+    {
+      "id": "document-e9edcb220bca60c3",
+      "title": "ThinkPad P1 Gen 9 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P1_Gen_9/ThinkPad_P1_Gen_9_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "2718b2288d038a5f1d84787255f4009d457a0a37d239647f4122c997a4dd5e34",
+      "bytes": 1361302,
+      "model_hint": "P1 Gen 9"
+    },
+    {
+      "id": "document-4674ba3843f2ef18",
+      "title": "ThinkPad P14s Gen 1 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_1_AMD/ThinkPad_P14s_Gen_1_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "2a381d98f45227b2c6cede8a0f1ecc95fa2b1d2257a519f9945813d71ad4c0c8",
+      "bytes": 474313,
+      "model_hint": "P14s Gen 1 (AMD)"
+    },
+    {
+      "id": "document-2d6385f3a8827244",
+      "title": "ThinkPad P14s Gen 1 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_1_Intel/ThinkPad_P14s_Gen_1_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "5ee85551c5f9bf060cbb9a0fd1f3d56df29d2122385b3c4796db6818fb135a9e",
+      "bytes": 476106,
+      "model_hint": "P14s Gen 1 (Intel)"
+    },
+    {
+      "id": "document-5ee082bdb3729952",
+      "title": "ThinkPad P14s Gen 2 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_2_AMD/ThinkPad_P14s_Gen_2_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "5aa69d8b12508156273046b773ff3f0a65d0438fa7b276af7752bb70f41ffc0e",
+      "bytes": 527375,
+      "model_hint": "P14s Gen 2 (AMD)"
+    },
+    {
+      "id": "document-974e7adcd5282e64",
+      "title": "ThinkPad P14s Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_2_Intel/ThinkPad_P14s_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "be4da4ce7d5ab00bc9cc92e686393c86e4b5a3af4a7ee0d77e602a5d4818595e",
+      "bytes": 536976,
+      "model_hint": "P14s Gen 2 (Intel)"
+    },
+    {
+      "id": "document-b3c8b4486636772e",
+      "title": "ThinkPad P14s Gen 3 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_3_AMD/ThinkPad_P14s_Gen_3_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "796a152f07c4acf5e73efa2ca88c4effe25e5d3fd2ef9bd1b0e2732cd43f23e9",
+      "bytes": 585467,
+      "model_hint": "P14s Gen 3 (AMD)"
+    },
+    {
+      "id": "document-b6f37c56f8cc47fa",
+      "title": "ThinkPad P14s Gen 3 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_3_Intel/ThinkPad_P14s_Gen_3_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f3f60d8f4ccfe9ce709a723f8f49fb1c5200c7285636493438f7e9ec3fc5a35d",
+      "bytes": 586716,
+      "model_hint": "P14s Gen 3 (Intel)"
+    },
+    {
+      "id": "document-ce3b4ca470dd117c",
+      "title": "ThinkPad P14s Gen 4 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_4_AMD/ThinkPad_P14s_Gen_4_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "63712bec6d9e069868ba0c00bbaad28abe7d3b73036f9277a37f24153e7fa1e5",
+      "bytes": 792001,
+      "model_hint": "P14s Gen 4 (AMD)"
+    },
+    {
+      "id": "document-f7c4186e1571511c",
+      "title": "ThinkPad P14s Gen 4 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_4_Intel/ThinkPad_P14s_Gen_4_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "11e361d8bb495bac99805328a4f1ecdfa7d17f644331757a9c109cd01cca3ff6",
+      "bytes": 877380,
+      "model_hint": "P14s Gen 4 (Intel)"
+    },
+    {
+      "id": "document-9c6f9582d141e79f",
+      "title": "ThinkPad P14s Gen 5 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_5_AMD/ThinkPad_P14s_Gen_5_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8299283a29b22ddc106d78b91082afdbdb0ee3777e2e57c6fc064c6b4ebccb65",
+      "bytes": 1784927,
+      "model_hint": "P14s Gen 5 (AMD)"
+    },
+    {
+      "id": "document-6ac4f04daabcd16a",
+      "title": "ThinkPad P14s Gen 5 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_5_Intel/ThinkPad_P14s_Gen_5_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "675068bad51622075136bda14ad470255d6c11053604254cac4681f8a06d0f2f",
+      "bytes": 841803,
+      "model_hint": "P14s Gen 5 (Intel)"
+    },
+    {
+      "id": "document-63dfbf3f05f4cadc",
+      "title": "ThinkPad P14s Gen 6 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_6_AMD/ThinkPad_P14s_Gen_6_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "ac3b46a528299009c31a2afdfea384bcd49b5c8312051df9eb00c60bdbdf9ad9",
+      "bytes": 1145099,
+      "model_hint": "P14s Gen 6 (AMD)"
+    },
+    {
+      "id": "document-9aa97becd42d0963",
+      "title": "ThinkPad P14s Gen 6 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_6_Intel/ThinkPad_P14s_Gen_6_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "7faa1165e541c0dc2dddc8bf9458df6251a9b7f2944f87359fd52ed99e48e81a",
+      "bytes": 821980,
+      "model_hint": "P14s Gen 6 (Intel)"
+    },
+    {
+      "id": "document-db0641257222ee73",
+      "title": "ThinkPad P14s Gen 7 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_7_AMD/ThinkPad_P14s_Gen_7_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "81682f2e48be221c9b8782682cb568ea211534533327702bf6a2c95185b030ba",
+      "bytes": 1268589,
+      "model_hint": "P14s Gen 7 (AMD)"
+    },
+    {
+      "id": "document-238a180f0ae42bb8",
+      "title": "ThinkPad P14s Gen 7 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P14s_Gen_7_Intel/ThinkPad_P14s_Gen_7_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "a0bdde49b9c75183e7138579455ff080bd20c6ee29c527f423fb42598b7a1006",
+      "bytes": 1229795,
+      "model_hint": "P14s Gen 7 (Intel)"
+    },
+    {
+      "id": "document-4bff268c8e7e1879",
+      "title": "ThinkPad P15 Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P15_Gen_1/ThinkPad_P15_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c220619defabf87b01de97d95a8dceeb47f0d3197f0f81b310774f3c4241144e",
+      "bytes": 470365,
+      "model_hint": "P15 Gen 1"
+    },
+    {
+      "id": "document-1ba36425728b5719",
+      "title": "ThinkPad P15 Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P15_Gen_2/ThinkPad_P15_Gen_2_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b1ef54cf84d2a4498814dff34acc1f90b4a5014ab1c1e70403bb38135700d2cf",
+      "bytes": 588601,
+      "model_hint": "P15 Gen 2"
+    },
+    {
+      "id": "document-ce6ccead4d385a92",
+      "title": "ThinkPad P15s Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P15s_Gen_1/ThinkPad_P15s_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "44f1946fbe9160a5f54ad2a9d3ff5190f625eda4ce0529336fe6cac1d773f47a",
+      "bytes": 466942,
+      "model_hint": "P15s Gen 1"
+    },
+    {
+      "id": "document-70eed9716c4199fe",
+      "title": "ThinkPad P15s Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P15s_Gen_2/ThinkPad_P15s_Gen_2_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "7bddc928a8c0a54322717ce26c1b903b70e6cad9033c7c8ab723c8ceecf6cc20",
+      "bytes": 524529,
+      "model_hint": "P15s Gen 2"
+    },
+    {
+      "id": "document-c4f410872cb5fda8",
+      "title": "ThinkPad P15v Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P15v_Gen_1/ThinkPad_P15v_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8c739d6901efe7c3f182abcb109b3039ce2b659d69f2c8bdfc9c834f05f79780",
+      "bytes": 406775,
+      "model_hint": "P15v Gen 1"
+    },
+    {
+      "id": "document-fb44d278035e07b6",
+      "title": "ThinkPad P15v Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P15v_Gen_2/ThinkPad_P15v_Gen_2_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c950ae71e09f8af95bfab4b903a41c48b96bb32e3e9af58ed3cc4a95f9b07b3d",
+      "bytes": 391366,
+      "model_hint": "P15v Gen 2"
+    },
+    {
+      "id": "document-9e81f3e2a638a11d",
+      "title": "ThinkPad P15v Gen 3 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P15v_Gen_3_AMD/ThinkPad_P15v_Gen_3_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "7c283d69ed2599266392f7ec4847f5508c201b3939ba1bedcdfc8404b4444023",
+      "bytes": 371402,
+      "model_hint": "P15v Gen 3 (AMD)"
+    },
+    {
+      "id": "document-408ba7ba2a75c88c",
+      "title": "ThinkPad P15v Gen 3 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P15v_Gen_3_Intel/ThinkPad_P15v_Gen_3_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "3302d20427b4d58a80058d2b3b19166c5048f9804d2492f07eafb77ac55a0ab1",
+      "bytes": 348174,
+      "model_hint": "P15v Gen 3 (Intel)"
+    },
+    {
+      "id": "document-b66bd3307588d3c7",
+      "title": "ThinkPad P16 Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16_Gen_1/ThinkPad_P16_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "625486685cb587e5bee932266f5f1f50ff227f3c06e8596f2a5abaf6e3f2d052",
+      "bytes": 511597,
+      "model_hint": "P16 Gen 1"
+    },
+    {
+      "id": "document-e6a222ae4bf2deaf",
+      "title": "ThinkPad P16 Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16_Gen_2/ThinkPad_P16_Gen_2_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "ff9ba2d888379803a25948a4b60b93cbcad3d193735395e95b02837e91ead05f",
+      "bytes": 642942,
+      "model_hint": "P16 Gen 2"
+    },
+    {
+      "id": "document-2e4a585185e1ab59",
+      "title": "ThinkPad P16 Gen 3 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16_Gen_3/ThinkPad_P16_Gen_3_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "a55016b0d241e397aa1b453a2851827b50862ac6ef479c7fed8d048759656801",
+      "bytes": 666932,
+      "model_hint": "P16 Gen 3"
+    },
+    {
+      "id": "document-1059117b9b351edc",
+      "title": "ThinkPad P16s Gen 1 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16s_Gen_1_AMD/ThinkPad_P16s_Gen_1_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "54526db5c17c1fe5f164e6e9b40b18e3d7e5a0639239931f408d0839cde51aa5",
+      "bytes": 583623,
+      "model_hint": "P16s Gen 1 (AMD)"
+    },
+    {
+      "id": "document-964b8256c3a7b567",
+      "title": "ThinkPad P16s Gen 1 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16s_Gen_1_Intel/ThinkPad_P16s_Gen_1_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "50e403efa63b61875996036513d212f3ca15424587b362147e7fc0b9d8d37df2",
+      "bytes": 547295,
+      "model_hint": "P16s Gen 1 (Intel)"
+    },
+    {
+      "id": "document-87d4ecbb48e218eb",
+      "title": "ThinkPad P16s Gen 2 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16s_Gen_2_AMD/ThinkPad_P16s_Gen_2_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "a0e697bc0160b6cb88285118876022140567ba6802c06a93004991d77ffc97d9",
+      "bytes": 935186,
+      "model_hint": "P16s Gen 2 (AMD)"
+    },
+    {
+      "id": "document-2f7b9ecf1eb319b8",
+      "title": "ThinkPad P16s Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16s_Gen_2_Intel/ThinkPad_P16s_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8d632cb64484e58065683299ecbb54db4716d44a5ac411200bf965653a056b9d",
+      "bytes": 827800,
+      "model_hint": "P16s Gen 2 (Intel)"
+    },
+    {
+      "id": "document-c430ceb7760d4ca0",
+      "title": "ThinkPad P16s Gen 3 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16s_Gen_3_Intel/ThinkPad_P16s_Gen_3_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "61c18502995f85ce2a62e9e48f8dea40c6690d08a56379e090ae19fd5df3aaef",
+      "bytes": 1494395,
+      "model_hint": "P16s Gen 3 (Intel)"
+    },
+    {
+      "id": "document-71852978260d5bd6",
+      "title": "ThinkPad P16s Gen 4 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16s_Gen_4_AMD/ThinkPad_P16s_Gen_4_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "417f34fdf7b526c7a675b750c98b6867aae3510465fd24884a13d23535630c83",
+      "bytes": 887785,
+      "model_hint": "P16s Gen 4 (AMD)"
+    },
+    {
+      "id": "document-0f833e374b1e38ec",
+      "title": "ThinkPad P16s Gen 4 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16s_Gen_4_Intel/ThinkPad_P16s_Gen_4_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "94c93bd8cea22b671374d62ed32b65207cd464513a824c240c6dd3d814be36dc",
+      "bytes": 1510991,
+      "model_hint": "P16s Gen 4 (Intel)"
+    },
+    {
+      "id": "document-0f857635e77cbdbc",
+      "title": "ThinkPad P16s Gen 5 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16s_Gen_5_AMD/ThinkPad_P16s_Gen_5_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "fc1222a495db9879a5535e63c85f01374678b211e45ffa859a2d9bd01ac6c035",
+      "bytes": 1166371,
+      "model_hint": "P16s Gen 5 (AMD)"
+    },
+    {
+      "id": "document-72ad15c2cb093b2e",
+      "title": "ThinkPad P16s Gen 5 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16s_Gen_5_Intel/ThinkPad_P16s_Gen_5_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "0dbde1de09037d10b4805dc5dcc4bb301092e446c32ecff3f79b56cd562fdb8d",
+      "bytes": 1168024,
+      "model_hint": "P16s Gen 5 (Intel)"
+    },
+    {
+      "id": "document-37474f45ca9fd660",
+      "title": "ThinkPad P16v Gen 1 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16v_Gen_1_AMD/ThinkPad_P16v_Gen_1_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "aab4524be711523bf48ce32b14a0fb978e1684d01fef02a5e10a555b07429a8e",
+      "bytes": 743278,
+      "model_hint": "P16v Gen 1 (AMD)"
+    },
+    {
+      "id": "document-6bcf9ebd77634d48",
+      "title": "ThinkPad P16v Gen 1 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16v_Gen_1_Intel/ThinkPad_P16v_Gen_1_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "e49df53f4504bb38f869e9f7c4e70b8a45b0278a6dc1d1784cf81a66d94ece5b",
+      "bytes": 387308,
+      "model_hint": "P16v Gen 1 (Intel)"
+    },
+    {
+      "id": "document-da7d5b920fe45f60",
+      "title": "ThinkPad P16v Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16v_Gen_2_Intel/ThinkPad_P16v_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "e7a2348e84221a7d0e5b2973ce00c24f4fd1f94f573083ac7759a3823def86f1",
+      "bytes": 2071563,
+      "model_hint": "P16v Gen 2 (Intel)"
+    },
+    {
+      "id": "document-b2c3d757bb99dd0d",
+      "title": "ThinkPad P16v Gen 3 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16v_Gen_3_Intel/ThinkPad_P16v_Gen_3_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8ab313cec838d7fef284da89fb193271d32f82983987a8bed2ed3a3151c69898",
+      "bytes": 644406,
+      "model_hint": "P16v Gen 3 (Intel)"
+    },
+    {
+      "id": "document-d8fd72431963cdf0",
+      "title": "ThinkPad P17 Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P17_Gen_1/ThinkPad_P17_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d6c708bf7407386f4569f2d6d2ab3afe1713dcd311a975ebe6773d031816c6d7",
+      "bytes": 446082,
+      "model_hint": "P17 Gen 1"
+    },
+    {
+      "id": "document-e0b3f8c7108fd72d",
+      "title": "ThinkPad P17 Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P17_Gen_2/ThinkPad_P17_Gen_2_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "77478f090ddbfdf316d8d065089bc7c22b16da3deb903775da0dce41b977cf78",
+      "bytes": 630235,
+      "model_hint": "P17 Gen 2"
+    },
+    {
+      "id": "document-e977664ace75ae9f",
+      "title": "ThinkPad P40 Yoga Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P40_Yoga/ThinkPad_P40_Yoga_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "bdf6f42a9d7c43ab81fe0f3e0a3d84763f08a0933622b19689d825f9c2199040",
+      "bytes": 27654,
+      "model_hint": "P40 Yoga"
+    },
+    {
+      "id": "document-d084881dfce5d433",
+      "title": "ThinkPad S431 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_S431/ThinkPad_S431_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "0c3a64f8f06f7ccb9d3c80db2cb4a107e7a112c76d4855c05990a58bcf536498",
+      "bytes": 99790,
+      "model_hint": "S431"
+    },
+    {
+      "id": "document-c77ab82980eb8cb7",
+      "title": "ThinkPad S531 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_S531/ThinkPad_S531_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "e752f71575807c09660ee4b21b7f0fa4fd80761400f86a27f5041d9caebd9239",
+      "bytes": 103198,
+      "model_hint": "S531"
+    },
+    {
+      "id": "document-7de776480ddd874f",
+      "title": "ThinkPad T14 Gen 4 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_4_AMD/ThinkPad_T14_Gen_4_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "87a6bc388bc9e8eb4bc8fa189257c055af7b73913fbc5ebde9659a273f2cf917",
+      "bytes": 1177200,
+      "model_hint": "T14 Gen 4 (AMD)"
+    },
+    {
+      "id": "document-0c580b9a77cf05f1",
+      "title": "ThinkPad T14 Gen 4 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_4_Intel/ThinkPad_T14_Gen_4_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "79beac13e3ab90833ad25209fc2bf8d72f749b8f189ab8fd6f1230e581ccf72e",
+      "bytes": 1131944,
+      "model_hint": "T14 Gen 4 (Intel)"
+    },
+    {
+      "id": "document-94f4b4997aecc461",
+      "title": "ThinkPad T14 Gen 5 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_5_Intel/ThinkPad_T14_Gen_5_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "341dfdd966087e02aae7f955d1619a89d596794fb4b48f835a21db19b6264167",
+      "bytes": 1105948,
+      "model_hint": "T14 Gen 5 (Intel)"
+    },
+    {
+      "id": "document-73ce96598fa7d794",
+      "title": "ThinkPad T14 Gen 6 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_6_AMD/ThinkPad_T14_Gen_6_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "4c261e49d1d375151727e6b8afdb433818cb92db96c6f669a91a318831c065a9",
+      "bytes": 1128981,
+      "model_hint": "T14 Gen 6 (AMD)"
+    },
+    {
+      "id": "document-c25749cc601e6ebf",
+      "title": "ThinkPad T14 Gen 6 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_6_Intel/ThinkPad_T14_Gen_6_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8a00b136e058a5886103453ec251724660dbe6aa6eda0e60402ba3f8e42698a8",
+      "bytes": 1109494,
+      "model_hint": "T14 Gen 6 (Intel)"
+    },
+    {
+      "id": "document-f6711a9c425f54ad",
+      "title": "ThinkPad T14 Gen 7 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_7_AMD/ThinkPad_T14_Gen_7_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f83b3339e48a7171bab1248fb837fd0e269900aa893529bfb29ad24c197a8670",
+      "bytes": 1134890,
+      "model_hint": "T14 Gen 7 (AMD)"
+    },
+    {
+      "id": "document-2ad95b0f6b668a55",
+      "title": "ThinkPad T14 Gen 7 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_7_Intel/ThinkPad_T14_Gen_7_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c7e4df9daa3512b3f2a1f882b5ad2ff71d52753261760aa3d7e3bffad1584ea3",
+      "bytes": 1078618,
+      "model_hint": "T14 Gen 7 (Intel)"
+    },
+    {
+      "id": "document-ca882ab99c2bb9ca",
+      "title": "ThinkPad T14 Secure Access / Healthcare Edition Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Secure_Access_Healthcare_Edition_Gen_1/ThinkPad_T14_Secure_Access_Healthcare_Edition_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "8ea962c896ec0f39b7651ebbeb7058b23c4d4be7a5a597387c714f421259a647",
+      "bytes": 510418,
+      "model_hint": "T14 Secure Access / Healthcare Edition Gen 1"
+    },
+    {
+      "id": "document-95d814632f316981",
+      "title": "ThinkPad T14s 2-in-1 Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_2_in_1_Gen_1/ThinkPad_T14s_2_in_1_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f5e932561d316a6379bc81ed517660bfacdd03e37c972e7a690a808d91e45819",
+      "bytes": 1012308,
+      "model_hint": "T14s 2-in-1 Gen 1"
+    },
+    {
+      "id": "document-ad6708eaa5965881",
+      "title": "ThinkPad T14s 2-in-1 Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_2_in_1_Gen_2/ThinkPad_T14s_2_in_1_Gen_2_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "ae9a86561cf7e273eaef9ae78824fb056e2ef8ffb4d6f8ffe820bbf6bbf63ac7",
+      "bytes": 913740,
+      "model_hint": "T14s 2-in-1 Gen 2"
+    },
+    {
+      "id": "document-8a445f4f3e001a51",
+      "title": "ThinkPad T14s Gen 2 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_2_AMD/ThinkPad_T14s_Gen_2_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "36a4a55ed05d706d2e3ef63d2482edc81a7c3ccb939da432de8d414b3b1cd48a",
+      "bytes": 533545,
+      "model_hint": "T14s Gen 2 (AMD)"
+    },
+    {
+      "id": "document-39e8db3c098306f1",
+      "title": "ThinkPad T14s Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_2_Intel/ThinkPad_T14s_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "13445d3bd96032d95b6af14ab813c019343e034429be6b15dd020af074410b24",
+      "bytes": 665071,
+      "model_hint": "T14s Gen 2 (Intel)"
+    },
+    {
+      "id": "document-b21709d9d86bebf1",
+      "title": "ThinkPad T14s Gen 3 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_3_AMD/ThinkPad_T14s_Gen_3_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "efc4d0155c1a435cf22ef96ed0676e559d02d97bd10e2e6d5d5459a6d7a0d28e",
+      "bytes": 450347,
+      "model_hint": "T14s Gen 3 (AMD)"
+    },
+    {
+      "id": "document-5163909335b93519",
+      "title": "ThinkPad T14s Gen 3 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_3_Intel/ThinkPad_T14s_Gen_3_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "16249ed74444f66ef0dafb8e1f086e930b17214becbb467cf47ae70450130741",
+      "bytes": 451343,
+      "model_hint": "T14s Gen 3 (Intel)"
+    },
+    {
+      "id": "document-e733f96ecd87382b",
+      "title": "ThinkPad T14s Gen 4 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_4_AMD/ThinkPad_T14s_Gen_4_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "be5e1041606c6ecb2db0dfe5ee3b9add8b0a85169f0035cbb75b233c1dac987f",
+      "bytes": 1095370,
+      "model_hint": "T14s Gen 4 (AMD)"
+    },
+    {
+      "id": "document-1d35cb40421e9575",
+      "title": "ThinkPad T14s Gen 4 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_4_Intel/ThinkPad_T14s_Gen_4_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "95592686ef8267c67e808c64ffc68de12f9e366a8fe4d835a00cfe5aea701ebe",
+      "bytes": 957199,
+      "model_hint": "T14s Gen 4 (Intel)"
+    },
+    {
+      "id": "document-19fdb85bf4c0bb0f",
+      "title": "ThinkPad T14s Gen 5 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_5/ThinkPad_T14s_Gen_5_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "cb5033f56fff2736b730d41214268544a246b01ce516c4c145aa289271212e40",
+      "bytes": 1163999,
+      "model_hint": "T14s Gen 5"
+    },
+    {
+      "id": "document-a7268c7e6608157d",
+      "title": "ThinkPad T14s Gen 6 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_6_AMD/ThinkPad_T14s_Gen_6_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d0a68e78a19fd5ce6c608bb6ba4b7ff3cb6ab589b20798d732d87b288dfcbaf2",
+      "bytes": 1040365,
+      "model_hint": "T14s Gen 6 (AMD)"
+    },
+    {
+      "id": "document-8da7000e8eb47aff",
+      "title": "ThinkPad T14s Gen 6 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_6_Intel/ThinkPad_T14s_Gen_6_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "42cce36b9488df6d1728ccaf16e118427ab91c69fd704b340d965f77b88447fd",
+      "bytes": 1036722,
+      "model_hint": "T14s Gen 6 (Intel)"
+    },
+    {
+      "id": "document-0ab1b4e842ee2b60",
+      "title": "ThinkPad T14s Gen 6 (Snapdragon) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_6_Snapdragon/ThinkPad_T14s_Gen_6_Snapdragon_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "2ff086c84fb78d7f39c997d0aeb7a1218b5ff94be48fb954db70ac183efeadfb",
+      "bytes": 996411,
+      "model_hint": "T14s Gen 6 (Snapdragon)"
+    },
+    {
+      "id": "document-d347c12482cad578",
+      "title": "ThinkPad T14s Gen 7 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_7_AMD/ThinkPad_T14s_Gen_7_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "73a232225c7de43c80fca7303dc7c7ecba9e1e6e68e35d2ad4a5907472bec3ca",
+      "bytes": 1031080,
+      "model_hint": "T14s Gen 7 (AMD)"
+    },
+    {
+      "id": "document-78765dd5c2427275",
+      "title": "ThinkPad T14s Gen 7 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_7_Intel/ThinkPad_T14s_Gen_7_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d86887c5c4f4d94f2647c9393d69c23780f1130462ecf8037cc1eb5ecca0486e",
+      "bytes": 1006468,
+      "model_hint": "T14s Gen 7 (Intel)"
+    },
+    {
+      "id": "document-6cb7e81cdce1e102",
+      "title": "ThinkPad T14s Gen 7 (Snapdragon) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14s_Gen_7_Snapdragon/ThinkPad_T14s_Gen_7_Snapdragon_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "7edee8b6075849f8f02141c53c970360aa4621650b10fda4712d794e0396964f",
+      "bytes": 915289,
+      "model_hint": "T14s Gen 7 (Snapdragon)"
+    },
+    {
+      "id": "document-f82788ef69544170",
+      "title": "ThinkPad T15 Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T15_Gen_2/ThinkPad_T15_Gen_2_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "bfd249fd0040a30d4f4cfd861dd4a7fe6080a6468d5cf0c50e2b78b5a0abaf6e",
+      "bytes": 618799,
+      "model_hint": "T15 Gen 2"
+    },
+    {
+      "id": "document-4fde5d021ad709bb",
+      "title": "ThinkPad T15g Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T15g_Gen_1/ThinkPad_T15g_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b84d203fc863d42162828f1c066b310517a59d29394fd4a0121335588538fe92",
+      "bytes": 435193,
+      "model_hint": "T15g Gen 1"
+    },
+    {
+      "id": "document-268287b0ae69a20c",
+      "title": "ThinkPad T15g Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T15g_Gen_2/ThinkPad_T15g_Gen_2_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d11a1951f14237e21e0ff367030abb72ee0c27a3f3de60b61e18010080ccb27d",
+      "bytes": 588518,
+      "model_hint": "T15g Gen 2"
+    },
+    {
+      "id": "document-4c608e0dc3570c03",
+      "title": "ThinkPad T15p Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T15p_Gen_1/ThinkPad_T15p_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "93e75e6b1f49196ee77c7172fd3277ef83600ef800a05a5bda355d0f6a128950",
+      "bytes": 410470,
+      "model_hint": "T15p Gen 1"
+    },
+    {
+      "id": "document-ce5f02cb07c17930",
+      "title": "ThinkPad T15p Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T15p_Gen_2/ThinkPad_T15p_Gen_2_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "eb59791443bea94b9bc4fb41cd2bf6e461e47d1591448c5c073030d137a55837",
+      "bytes": 373324,
+      "model_hint": "T15p Gen 2"
+    },
+    {
+      "id": "document-d96ea03ab97e5f98",
+      "title": "ThinkPad T15p Gen 3 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T15p_Gen_3/ThinkPad_T15p_Gen_3_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "85b5105b6c5d4f111594ad6ec788f2f1fcb159c9d859a62dc2ce48d355b5d470",
+      "bytes": 339664,
+      "model_hint": "T15p Gen 3"
+    },
+    {
+      "id": "document-b8f73d349eb95149",
+      "title": "ThinkPad T16 Gen 1 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T16_Gen_1_AMD/ThinkPad_T16_Gen_1_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f52593af94f8d528f01fbca26a9f91200f4938323205a22375e9d06365a52662",
+      "bytes": 453864,
+      "model_hint": "T16 Gen 1 (AMD)"
+    },
+    {
+      "id": "document-e4889c12ecc8eed7",
+      "title": "ThinkPad T16 Gen 1 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T16_Gen_1_Intel/ThinkPad_T16_Gen_1_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "1cf69dd3ac5dafb287f586688673f2f870a7dc0a751e7da95b3f29798ad96255",
+      "bytes": 539566,
+      "model_hint": "T16 Gen 1 (Intel)"
+    },
+    {
+      "id": "document-b0db97b2f076a5a0",
+      "title": "ThinkPad T16 Gen 2 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T16_Gen_2_AMD/ThinkPad_T16_Gen_2_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "0b900362cc846b3a37923faef915715bff742d38d378de9854a0b55df003ad6e",
+      "bytes": 1146924,
+      "model_hint": "T16 Gen 2 (AMD)"
+    },
+    {
+      "id": "document-e6d5e9bbc9713692",
+      "title": "ThinkPad T16 Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T16_Gen_2_Intel/ThinkPad_T16_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "367d33e9fd6645df0a8345d4b8cc9fcf2230b091c9695e72cfc1e03274af74b6",
+      "bytes": 1084404,
+      "model_hint": "T16 Gen 2 (Intel)"
+    },
+    {
+      "id": "document-28af96ebf8943186",
+      "title": "ThinkPad T16 Gen 3 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T16_Gen_3/ThinkPad_T16_Gen_3_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "bceb1a69b921a1c8d52d63d07964feb2ff298f61bc3d664b877cbaf831cf0904",
+      "bytes": 1078395,
+      "model_hint": "T16 Gen 3"
+    },
+    {
+      "id": "document-1833639d1d73ffa8",
+      "title": "ThinkPad T16 Gen 4 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T16_Gen_4_AMD/ThinkPad_T16_Gen_4_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f4e667932cefeadbbadec62d62ba02c2ae866b3d64d26e8d6b314ffb46f8de7f",
+      "bytes": 962955,
+      "model_hint": "T16 Gen 4 (AMD)"
+    },
+    {
+      "id": "document-536144f6f73bdc8b",
+      "title": "ThinkPad T16 Gen 4 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T16_Gen_4_Intel/ThinkPad_T16_Gen_4_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "fbf05ee71c8bcdacc9839b2641d18fc1eca01b9fce49cc1f32a0756c3b950660",
+      "bytes": 1029875,
+      "model_hint": "T16 Gen 4 (Intel)"
+    },
+    {
+      "id": "document-0c412ce0338c39f3",
+      "title": "ThinkPad T16 Gen 5 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T16_Gen_5_AMD/ThinkPad_T16_Gen_5_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "6c4409aeddccbad18aa15aad030fae699272c139cc6674344ea7544a048724db",
+      "bytes": 1110152,
+      "model_hint": "T16 Gen 5 (AMD)"
+    },
+    {
+      "id": "document-cf42e44df3a90386",
+      "title": "ThinkPad T16 Gen 5 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T16_Gen_5_Intel/ThinkPad_T16_Gen_5_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "20e61b064b1ba10163370062361216fff8707de6e87d46c80763b7e52f176d69",
+      "bytes": 1099847,
+      "model_hint": "T16 Gen 5 (Intel)"
+    },
+    {
+      "id": "document-5799cf163d23a0f8",
+      "title": "ThinkPad T16g Gen 3 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T16g_Gen_3/ThinkPad_T16g_Gen_3_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "48d5896d0117fbd4a74dab206bec83f2b98d7bdcc6c613d0ab1da1f94d9281eb",
+      "bytes": 671192,
+      "model_hint": "T16g Gen 3"
+    },
+    {
+      "id": "document-614cac4b4f100597",
+      "title": "ThinkPad T1g Gen 8 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T1g_Gen_8/ThinkPad_T1g_Gen_8_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "9324171fdc4e93da051b9fbefe8d0744099b73da5b283b6978f0fcb6828e904f",
+      "bytes": 648287,
+      "model_hint": "T1g Gen 8"
+    },
+    {
+      "id": "document-7b53e9cc2a306e93",
+      "title": "ThinkPad T1g Gen 9 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T1g_Gen_9/ThinkPad_T1g_Gen_9_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "86283022d975769032fc2b21eadf4bbe87f89dad7f06f9ec7b44a7876b845349",
+      "bytes": 1136226,
+      "model_hint": "T1g Gen 9"
+    },
+    {
+      "id": "document-c65a6495facfd547",
+      "title": "ThinkPad T490 Secure Access / Healthcare Edition Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T490_Secure_Access_Healthcare_Edition/ThinkPad_T490_Secure_Access_Healthcare_Edition_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "3ab6578ecf5fed3392e575329ea54a44d9e38edc2b6f45842cbdb83df49bf235",
+      "bytes": 274793,
+      "model_hint": "T490 Secure Access / Healthcare Edition"
+    },
+    {
+      "id": "document-f124d9bbb1e2c88f",
+      "title": "ThinkPad X1 2-in-1 Gen 10 Aura Edition Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_2_in_1_Gen_10_Aura_Edition/ThinkPad_X1_2_in_1_Gen_10_Aura_Edition_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "62eca0690d3d8c7bd11557808066589ffc5e8afa76835fbd2ee3da01cda32194",
+      "bytes": 1082532,
+      "model_hint": "X1 2-in-1 Gen 10 Aura Edition"
+    },
+    {
+      "id": "document-8b96bbefe6a7698c",
+      "title": "ThinkPad X1 2-in-1 Gen 11 Aura Edition Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_2_in_1_Gen_11_Aura_Edition/ThinkPad_X1_2_in_1_Gen_11_Aura_Edition_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "cdcd7466daa424038762da1c06d36921408a60196b7872c13a7b528dcfbf9d3d",
+      "bytes": 1115314,
+      "model_hint": "X1 2-in-1 Gen 11 Aura Edition"
+    },
+    {
+      "id": "document-ade713bc202dce62",
+      "title": "ThinkPad X1 2-in-1 Gen 9 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_2_in_1_Gen_9/ThinkPad_X1_2_in_1_Gen_9_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "884d6a811ca3e800506bd57328519f03773e7a66ba1b20f8916b5ce27e78db6d",
+      "bytes": 1155748,
+      "model_hint": "X1 2-in-1 Gen 9"
+    },
+    {
+      "id": "document-9e6df9bb22846746",
+      "title": "ThinkPad X1 Carbon (3rd Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_3rd_Gen/ThinkPad_X1_Carbon_3rd_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d903e93e4b05b8a2f896933b36b179fa8026a0e0e8ede70040acfa078ab76782",
+      "bytes": 31713,
+      "model_hint": "X1 Carbon (3rd Gen)"
+    },
+    {
+      "id": "document-fe5192e4817d5211",
+      "title": "ThinkPad X1 Carbon (4th Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_4th_Gen/ThinkPad_X1_Carbon_4th_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "fbb5ca2dcb38fcfff16654f7aa2508bf0de881882a6faca86f42c0a00715218b",
+      "bytes": 28980,
+      "model_hint": "X1 Carbon (4th Gen)"
+    },
+    {
+      "id": "document-e8dbc672fa5caf36",
+      "title": "ThinkPad X1 Carbon (5th Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_5th_Gen/ThinkPad_X1_Carbon_5th_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d2498b0ac30496d2bf5491ba7dfe67559a915b0a069d5b623eab51f7677c75eb",
+      "bytes": 34696,
+      "model_hint": "X1 Carbon (5th Gen)"
+    },
+    {
+      "id": "document-31d31d8c32a787ae",
+      "title": "ThinkPad X1 Carbon (6th Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_6th_Gen/ThinkPad_X1_Carbon_6th_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "7f87e24b6fe16901fd7d0214938e03b5d6f26df0f3359443c92d80edfad5c043",
+      "bytes": 34060,
+      "model_hint": "X1 Carbon (6th Gen)"
+    },
+    {
+      "id": "document-6fc52900ab505d8c",
+      "title": "ThinkPad X1 Carbon (7th Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_7th_Gen/ThinkPad_X1_Carbon_7th_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "36893a4dafbafb404467e32c570b4e80f2bf97d6adf2db9618b7df817b9c49ad",
+      "bytes": 311520,
+      "model_hint": "X1 Carbon (7th Gen)"
+    },
+    {
+      "id": "document-15ddca594fd01243",
+      "title": "ThinkPad X1 Carbon Gen 13 Aura Edition Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_Gen_13_Aura_Edition/ThinkPad_X1_Carbon_Gen_13_Aura_Edition_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "5b1e67574e82fc7c80ede0505010d776afb8d98c332d691fb82b87ddced72668",
+      "bytes": 1046056,
+      "model_hint": "X1 Carbon Gen 13 Aura Edition"
+    },
+    {
+      "id": "document-0bb2ac373346636e",
+      "title": "ThinkPad X1 Carbon Gen 14 Aura Edition Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_Gen_14_Aura_Edition/ThinkPad_X1_Carbon_Gen_14_Aura_Edition_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "2c0e10098d8e7f5b7ad437dfb6a738289b5f25980e9ed8e4db4167afaf3cf30c",
+      "bytes": 938562,
+      "model_hint": "X1 Carbon Gen 14 Aura Edition"
+    },
+    {
+      "id": "document-46c11353ee1222d0",
+      "title": "ThinkPad X1 Carbon Gen 8 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_Gen_8/ThinkPad_X1_Carbon_Gen_8_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "2b42a9a8977e30b13c155e12cadcc4386e3fcbef56d913ef809907707fb0468a",
+      "bytes": 539795,
+      "model_hint": "X1 Carbon Gen 8"
+    },
+    {
+      "id": "document-12b6523c236e8e42",
+      "title": "ThinkPad X1 Extreme Gen 3 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Extreme_Gen_3/ThinkPad_X1_Extreme_Gen_3_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "de3d288afb12950e9b8ca0a360c11be65058cc7cc3d27ea5568ba5b8df3a8a98",
+      "bytes": 526723,
+      "model_hint": "X1 Extreme Gen 3"
+    },
+    {
+      "id": "document-17b7ac23b31c6689",
+      "title": "ThinkPad X1 Extreme Gen 4 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Extreme_Gen_4/ThinkPad_X1_Extreme_Gen_4_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "642c50a08754aad0ba019b9082b9a58c65d8f5a1fc2f38bc6ffe8f3156342652",
+      "bytes": 595329,
+      "model_hint": "X1 Extreme Gen 4"
+    },
+    {
+      "id": "document-655434c2f1425f67",
+      "title": "ThinkPad X1 Extreme Gen 5 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Extreme_Gen_5/ThinkPad_X1_Extreme_Gen_5_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c6415f2eef7baacef1049643dadbe95a5003fa381e292a10278a5d3c24887060",
+      "bytes": 626404,
+      "model_hint": "X1 Extreme Gen 5"
+    },
+    {
+      "id": "document-a0ec1bfd6e6d5832",
+      "title": "ThinkPad X1 Fold 16 Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Fold_16_Gen_1/ThinkPad_X1_Fold_16_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "0680f4979a85057d04b1a8dab5188b166566c1f39dd75720cc8eaaab89f57087",
+      "bytes": 942033,
+      "model_hint": "X1 Fold 16 Gen 1"
+    },
+    {
+      "id": "document-b966d28faf271db0",
+      "title": "ThinkPad X1 Fold Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Fold_Gen_1/ThinkPad_X1_Fold_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c7a59fe853dfbe7eee50af35a8636a33de29c644a6f65ca22ecefc91c728acdc",
+      "bytes": 834240,
+      "model_hint": "X1 Fold Gen 1"
+    },
+    {
+      "id": "document-c325942ca33029a0",
+      "title": "ThinkPad X1 Nano Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Nano_Gen_2/ThinkPad_X1_Nano_Gen_2_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "82b251a4f1b64413687905ef57995b22ca5ff66cc9c01af72310828afa33126d",
+      "bytes": 606835,
+      "model_hint": "X1 Nano Gen 2"
+    },
+    {
+      "id": "document-283d9560d3ed859e",
+      "title": "ThinkPad X1 Nano Gen 3 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Nano_Gen_3/ThinkPad_X1_Nano_Gen_3_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "94d668b4610fa9bfd9a3a330718c91f21c19774494da24d23cf140415ca31b1c",
+      "bytes": 381181,
+      "model_hint": "X1 Nano Gen 3"
+    },
+    {
+      "id": "document-677d948d79e711e9",
+      "title": "ThinkPad X1 Tablet Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad_Tablets/ThinkPad_X1_Tablet/ThinkPad_X1_Tablet_Spec.pdf",
+      "source_kind": "official",
+      "sha256": "d739a94d7f0f3f7101a832c386ee85676e0b6963a4c7078c6af3a2ab0b7ede15",
+      "bytes": 28602,
+      "model_hint": "X1 Tablet"
+    },
+    {
+      "id": "document-ff4adde895f2f845",
+      "title": "ThinkPad X1 Tablet (2nd Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad_Tablets/ThinkPad_X1_Tablet_2nd_Gen/ThinkPad_X1_Tablet_2nd_Gen_Spec.pdf",
+      "source_kind": "official",
+      "sha256": "4383910b3ceb13f9cb3611d816fbfffbb4816eb829986de6ac0c69da3096609c",
+      "bytes": 29591,
+      "model_hint": "X1 Tablet (2nd Gen)"
+    },
+    {
+      "id": "document-349610b66e8f341b",
+      "title": "ThinkPad X1 Tablet (3rd Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad_Tablets/ThinkPad_X1_Tablet_3rd_Gen/ThinkPad_X1_Tablet_3rd_Gen_Spec.pdf",
+      "source_kind": "official",
+      "sha256": "9b94275fc474ec1ee8b4f0c9d12d88d9aafb3910de817c163d97865c99e5accd",
+      "bytes": 410605,
+      "model_hint": "X1 Tablet (3rd Gen)"
+    },
+    {
+      "id": "document-803efed7b6d5a66d",
+      "title": "ThinkPad X1 Titanium Yoga Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Titanium_Yoga_Gen_1/ThinkPad_X1_Titanium_Yoga_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "7894957f458858bd3cd35e0012ed9a76bc16dc693e9ca5285027754f5a270aa4",
+      "bytes": 564430,
+      "model_hint": "X1 Titanium Yoga Gen 1"
+    },
+    {
+      "id": "document-db4d8ff5eb5591e9",
+      "title": "ThinkPad X1 Yoga (2nd Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Yoga_2nd_Gen/ThinkPad_X1_Yoga_2nd_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b754067d704ce6818fccf919f0e02cf664cfbe699f16361fab63e43f7ddda638",
+      "bytes": 30413,
+      "model_hint": "X1 Yoga (2nd Gen)"
+    },
+    {
+      "id": "document-d809d7f7f315bb6b",
+      "title": "ThinkPad X1 Yoga (3rd Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Yoga_3rd_Gen/ThinkPad_X1_Yoga_3rd_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "534760fbc22fb58493a76744ed3b3740a745126f35337b487c5a756e8b7f56ff",
+      "bytes": 38849,
+      "model_hint": "X1 Yoga (3rd Gen)"
+    },
+    {
+      "id": "document-354b3b944bf109fb",
+      "title": "ThinkPad X1 Yoga (4th Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Yoga_4th_Gen/ThinkPad_X1_Yoga_4th_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "ccc3e57fccecd9b0569c68981d74acb53c74ae0488aa99dc9abd9e48fb0ff005",
+      "bytes": 284714,
+      "model_hint": "X1 Yoga (4th Gen)"
+    },
+    {
+      "id": "document-de138ff418f6542c",
+      "title": "ThinkPad X1 Yoga Gen 6 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Yoga_Gen_6/ThinkPad_X1_Yoga_Gen_6_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "48c891d203fd129f02f0adad837c44dbf44ca2193546f6b50b89716dc8a1e30d",
+      "bytes": 510930,
+      "model_hint": "X1 Yoga Gen 6"
+    },
+    {
+      "id": "document-908b04ebb3eb061c",
+      "title": "ThinkPad X1 Yoga Gen 7 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Yoga_Gen_7/ThinkPad_X1_Yoga_Gen_7_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "aa70a0ee0a6f6ed7dcad2e37ce01b118b912a1dc47adba0e7e4bed1e69e0aa7e",
+      "bytes": 571659,
+      "model_hint": "X1 Yoga Gen 7"
+    },
+    {
+      "id": "document-cd7f848ddf9e3043",
+      "title": "ThinkPad X1 Yoga Gen 8 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Yoga_Gen_8/ThinkPad_X1_Yoga_Gen_8_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "2c6b8737a49107949592c60299de4f3ddaffd300f0681628ee763d6f63022b46",
+      "bytes": 1072462,
+      "model_hint": "X1 Yoga Gen 8"
+    },
+    {
+      "id": "document-5418fdcb5c7ef233",
+      "title": "ThinkPad X12 Detachable Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X12_Detachable/ThinkPad_X12_Detachable_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "79649ff8586ad7f879a779f7e71c38c9e149dd7f4eff9dae0f8e1bae34ab01ca",
+      "bytes": 747681,
+      "model_hint": "X12 Detachable"
+    },
+    {
+      "id": "document-6169fe60e340e80f",
+      "title": "ThinkPad X12 Detachable Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X12_Detachable_Gen_2/ThinkPad_X12_Detachable_Gen_2_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "9ff75a4e1656be144a79006c4badb7b8ff9caac6bc92531611c04016a38c8eb1",
+      "bytes": 1138022,
+      "model_hint": "X12 Detachable Gen 2"
+    },
+    {
+      "id": "document-6ceb9fa19fa3319f",
+      "title": "ThinkPad X13 2-in-1 Gen 5 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_2_in_1_Gen_5/ThinkPad_X13_2_in_1_Gen_5_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "50cf985fc600c21a28d8f9fd949086f7601bc0c9f57f4014f748036b2bbf92b6",
+      "bytes": 1058853,
+      "model_hint": "X13 2-in-1 Gen 5"
+    },
+    {
+      "id": "document-5436eb6291e621c7",
+      "title": "ThinkPad X13 Detachable Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Detachable_Gen_1/ThinkPad_X13_Detachable_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "85b1edf86303e0b8a2d5f517e37c40e52e243c5831809eaa40b0374520c36954",
+      "bytes": 1128532,
+      "model_hint": "X13 Detachable Gen 1"
+    },
+    {
+      "id": "document-9954f5078ae7ef1a",
+      "title": "ThinkPad X13 Gen 2 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Gen_2_AMD/ThinkPad_X13_Gen_2_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "878ea733cacf78e325ed3ee77172cdafe17706ba6fffbb8be192d7019d2a888e",
+      "bytes": 457460,
+      "model_hint": "X13 Gen 2 (AMD)"
+    },
+    {
+      "id": "document-0ee0d313f24489e0",
+      "title": "ThinkPad X13 Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Gen_2_Intel/ThinkPad_X13_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "643e9880d6b005afeeb3b28c95f0364a2e95548e2f8a4992cbaa2a99c7cbaf42",
+      "bytes": 654093,
+      "model_hint": "X13 Gen 2 (Intel)"
+    },
+    {
+      "id": "document-307946bd3ed48aa3",
+      "title": "ThinkPad X13 Gen 3 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Gen_3_AMD/ThinkPad_X13_Gen_3_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c44057c8ef65347d175d91a4f072cc40eb7c8df16ba57c592ddb4d4039f1e42a",
+      "bytes": 446729,
+      "model_hint": "X13 Gen 3 (AMD)"
+    },
+    {
+      "id": "document-fb84dba2047ff560",
+      "title": "ThinkPad X13 Gen 3 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Gen_3_Intel/ThinkPad_X13_Gen_3_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "14052ad206fcafb74fc620b6c3a8202a0dc4be03d139eb6bc1e7e21b43736a71",
+      "bytes": 499896,
+      "model_hint": "X13 Gen 3 (Intel)"
+    },
+    {
+      "id": "document-66a5841c11103903",
+      "title": "ThinkPad X13 Gen 4 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Gen_4_AMD/ThinkPad_X13_Gen_4_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "73a511a8d82ade1ccf39b46ed840ac2430310dadf55dc323ae5a8cbe1626930f",
+      "bytes": 974880,
+      "model_hint": "X13 Gen 4 (AMD)"
+    },
+    {
+      "id": "document-0fc6c40e3d153ec3",
+      "title": "ThinkPad X13 Gen 4 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Gen_4_Intel/ThinkPad_X13_Gen_4_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "892776c605c14c3db81531cc0e8247b257b50c1a3988bd522c305fbb1282ad0b",
+      "bytes": 894593,
+      "model_hint": "X13 Gen 4 (Intel)"
+    },
+    {
+      "id": "document-f8b9c4f3af646568",
+      "title": "ThinkPad X13 Gen 5 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Gen_5/ThinkPad_X13_Gen_5_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "3ebdde6b206a42a7167d604b56d4783de43491a916b05502cc6982f592d83851",
+      "bytes": 996073,
+      "model_hint": "X13 Gen 5"
+    },
+    {
+      "id": "document-2b64fb6278997f7e",
+      "title": "ThinkPad X13 Gen 6 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Gen_6_AMD/ThinkPad_X13_Gen_6_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "43db468b2c067aa333c057a4692c0147e4c6dd22226322412a293edfad8562b8",
+      "bytes": 1055400,
+      "model_hint": "X13 Gen 6 (AMD)"
+    },
+    {
+      "id": "document-1844236cadbb485f",
+      "title": "ThinkPad X13 Gen 6 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Gen_6_Intel/ThinkPad_X13_Gen_6_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "21c4c33c9f286d3c1d5931fa3be8653d19a0ea8c49a5e9e337546a3c313344b8",
+      "bytes": 966447,
+      "model_hint": "X13 Gen 6 (Intel)"
+    },
+    {
+      "id": "document-e8b50acd7e058334",
+      "title": "ThinkPad X13 Gen 7 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Gen_7_AMD/ThinkPad_X13_Gen_7_AMD_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "bf156490394608bb23bb2b872c85ef7b9f997cf17ed0d84e4ea6b21d3cbcaf3e",
+      "bytes": 916621,
+      "model_hint": "X13 Gen 7 (AMD)"
+    },
+    {
+      "id": "document-e01809169698b073",
+      "title": "ThinkPad X13 Gen 7 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Gen_7_Intel/ThinkPad_X13_Gen_7_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "a25347777c0e006502f3205b2fd4e1ebbb8cdf8ec1b763de30c972cc0b2d23f5",
+      "bytes": 931925,
+      "model_hint": "X13 Gen 7 (Intel)"
+    },
+    {
+      "id": "document-a958f0bdc5cba432",
+      "title": "ThinkPad X13 Yoga Gen 2 (Intel) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Yoga_Gen_2_Intel/ThinkPad_X13_Yoga_Gen_2_Intel_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "a9bd5a192988b6da0cca85356c874b2d4d104575477a376c94223552fc71a9ac",
+      "bytes": 614971,
+      "model_hint": "X13 Yoga Gen 2 (Intel)"
+    },
+    {
+      "id": "document-eed1813fff4919c6",
+      "title": "ThinkPad X13 Yoga Gen 3 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Yoga_Gen_3/ThinkPad_X13_Yoga_Gen_3_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "e701f30718e0d00f5bd372f31477518cef4b6a4f50df1bcb82123a47c3b79c1c",
+      "bytes": 440874,
+      "model_hint": "X13 Yoga Gen 3"
+    },
+    {
+      "id": "document-5366093754dd9173",
+      "title": "ThinkPad X13 Yoga Gen 4 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13_Yoga_Gen_4/ThinkPad_X13_Yoga_Gen_4_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b2d60b8f07e0df5a813754b324c06fdedc6442c67f2f385efc76c010376fdb10",
+      "bytes": 833929,
+      "model_hint": "X13 Yoga Gen 4"
+    },
+    {
+      "id": "document-69d0fe355ebd2f0e",
+      "title": "ThinkPad X13s Gen 1 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X13s_Gen_1/ThinkPad_X13s_Gen_1_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "89a56ab08b9f4a9b1a00381b049b01fafa3bb7532f83bcdf6e94d5f920d388c1",
+      "bytes": 453459,
+      "model_hint": "X13s Gen 1"
+    },
+    {
+      "id": "document-632129efd3de3226",
+      "title": "ThinkPad X380 Yoga Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X380_Yoga/ThinkPad_X380_Yoga_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "db388a701e7412aadf62251d931535b42df29a6335784f578daac8ce3263114b",
+      "bytes": 33304,
+      "model_hint": "X380 Yoga"
+    },
+    {
+      "id": "document-f742012e1dadf39e",
+      "title": "ThinkPad X9-14 Gen 1 Aura Edition Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X9_14_Gen_1_Aura_Edition/ThinkPad_X9_14_Gen_1_Aura_Edition_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "ecbe01deb5d4d5873ec6a88a445a0c0b8fb094b734e6f45f1d5a77bd96d5e020",
+      "bytes": 987126,
+      "model_hint": "X9-14 Gen 1 Aura Edition"
+    },
+    {
+      "id": "document-b25a3c398add5818",
+      "title": "ThinkPad X9-15 Gen 1 Aura Edition Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X9_15_Gen_1_Aura_Edition/ThinkPad_X9_15_Gen_1_Aura_Edition_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "9dcbdc1f10ccee7a40dfdc52be66700816999f1ccb33db75022dc61bfd0e57ab",
+      "bytes": 1247913,
+      "model_hint": "X9-15 Gen 1 Aura Edition"
+    },
+    {
+      "id": "document-1dc2002ca7272c7e",
+      "title": "ThinkPad X9-15p Gen 1 Aura Edition Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X9_15p_Gen_1_Aura_Edition/ThinkPad_X9_15p_Gen_1_Aura_Edition_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "abb3182aad0efe1d6d0d8c2a9c93164ad97b941e315ebe9e5b3674f66349ce48",
+      "bytes": 1445913,
+      "model_hint": "X9-15p Gen 1 Aura Edition"
+    },
+    {
+      "id": "document-2a3ee461faa177a2",
+      "title": "ThinkPad Yoga Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Yoga/ThinkPad_Yoga_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "7aa179098e1a6b7f05a9de2ea9dad5cb4ed636a0c6984e55434fbc4be2ab521d",
+      "bytes": 153549,
+      "model_hint": "Yoga"
+    },
+    {
+      "id": "document-040fbc3d68dbaa3f",
+      "title": "ThinkPad Yoga 11e Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Yoga_11e/ThinkPad_Yoga_11e_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c7a4684d515e9ad84cbecf31b6ac79ab0188403f4162102951e79bbc973dcc7f",
+      "bytes": 35241,
+      "model_hint": "Yoga 11e"
+    },
+    {
+      "id": "document-732dab210645bac0",
+      "title": "ThinkPad Yoga 11e (2nd Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Yoga_11e_2nd_Gen/ThinkPad_Yoga_11e_2nd_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "519d14454687bed681f4a7f13ae42d170c5626f40f1a7e0bfce4780adbe57940",
+      "bytes": 27997,
+      "model_hint": "Yoga 11e (2nd Gen)"
+    },
+    {
+      "id": "document-315bda25370bcb18",
+      "title": "ThinkPad Yoga 11e (3rd Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Yoga_11e_3rd_Gen/ThinkPad_Yoga_11e_3rd_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "a5b932be48e6ae1e8816c8c3bc9c0c4df0add8834939f6e273e65ee9d7c99c51",
+      "bytes": 27221,
+      "model_hint": "Yoga 11e (3rd Gen)"
+    },
+    {
+      "id": "document-5c370a0dc2bfb5b5",
+      "title": "ThinkPad Yoga 11e (4th Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Yoga_11e_4th_Gen/ThinkPad_Yoga_11e_4th_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "e4207f683ed8e29a6be84120e2ecec2b7e96698c41994016acf09623661faa66",
+      "bytes": 27378,
+      "model_hint": "Yoga 11e (4th Gen)"
+    },
+    {
+      "id": "document-d64ea217a9520c07",
+      "title": "ThinkPad Yoga 11e (5th Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Yoga_11e_5th_Gen/ThinkPad_Yoga_11e_5th_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "10c787374b7364551e044e02616efa953d601787c7430603a8ddb32d9839936a",
+      "bytes": 484955,
+      "model_hint": "Yoga 11e (5th Gen)"
+    },
+    {
+      "id": "document-aee299c5e91c3889",
+      "title": "ThinkPad Yoga 11e Chromebook (3rd Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Yoga_11e_Chromebook_3rd_Gen/ThinkPad_Yoga_11e_Chromebook_3rd_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f23f5f5b3c42434c115737d6a77722b97563f536b2a40c6112602434f36be515",
+      "bytes": 29887,
+      "model_hint": "Yoga 11e Chromebook (3rd Gen)"
+    },
+    {
+      "id": "document-3626c268f0ed3c2e",
+      "title": "ThinkPad Yoga 11e Chromebook (4th Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Yoga_11e_Chromebook_4th_Gen/ThinkPad_Yoga_11e_Chromebook_4th_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "9f8e11d2f1e53098069d389beed11929ac7a68526a5cbe66275f62a06325c8ce",
+      "bytes": 33322,
+      "model_hint": "Yoga 11e Chromebook (4th Gen)"
+    },
+    {
+      "id": "document-711e98a938440fb7",
+      "title": "ThinkPad Yoga 12 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Yoga_12/ThinkPad_Yoga_12_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "65837dda069e864fb79e1ee9c69e255bdf83e7a10a6650383747fe3f7ce033d1",
+      "bytes": 27671,
+      "model_hint": "Yoga 12"
+    },
+    {
+      "id": "document-2598cdc7712b2b34",
+      "title": "ThinkPad Yoga 14 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Yoga_14/ThinkPad_Yoga_14_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "b5527777afaba68f337a687d0ca53e8d96213e744b1e85cfc9f07bec57cfd8ae",
+      "bytes": 29469,
+      "model_hint": "Yoga 14"
+    },
+    {
+      "id": "document-404ff422d07448a1",
+      "title": "ThinkPad Yoga 15 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Yoga_15/ThinkPad_Yoga_15_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "d77217e16a55178d5fa5ee0ffa04826a55c95714878f80fb6a90282fd5a46d96",
+      "bytes": 31004,
+      "model_hint": "Yoga 15"
+    },
+    {
+      "id": "document-f23c25017efac2d6",
+      "title": "ThinkPad Yoga 260 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Yoga_260/ThinkPad_Yoga_260_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f152bd6f57893b17c5deb7a18855fd7ec59bfbed67710f755b430133cb6a2a3d",
+      "bytes": 29342,
+      "model_hint": "Yoga 260"
+    },
+    {
+      "id": "document-aa294648f44b8485",
+      "title": "ThinkPad Yoga 370 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Yoga_370/ThinkPad_Yoga_370_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "71087b57a6529b61c0212958f9df5ea1a2edb6bdf01d3ee8413d7883f5e350e5",
+      "bytes": 29424,
+      "model_hint": "Yoga 370"
+    },
+    {
+      "id": "document-9da1a8649b73c2d3",
+      "title": "ThinkPad Yoga 460 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Yoga_460/ThinkPad_Yoga_460_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "4980c51bac947a953de0c1ffadae8809c0b79844a1136e0c3413dac737e5b634",
+      "bytes": 28002,
+      "model_hint": "Yoga 460"
+    },
+    {
+      "id": "document-349dd7806a4f3348",
+      "title": "ThinkPad Z13 Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Z13_Gen_2/ThinkPad_Z13_Gen_2_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f0b5e758a3006d9039460efdae5d6d55eeddca1f9b7053367a05f0c06f9a9428",
+      "bytes": 1547730,
+      "model_hint": "Z13 Gen 2"
+    },
+    {
+      "id": "document-8d082863cb394ff5",
+      "title": "ThinkPad Z16 Gen 2 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_Z16_Gen_2/ThinkPad_Z16_Gen_2_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "f295f9271d39e21a4cc4e6d8d60e21ccdcf3ceef8ba5fa9576c52c52b0418d0b",
+      "bytes": 1156655,
+      "model_hint": "Z16 Gen 2"
+    },
+    {
+      "id": "document-aecf8cf807905473",
+      "title": "ThinkPad E545 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_E545/ThinkPad_E545_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "920aad67d19c88887115f560d14af25df0b05e53f889ef22d7035458a4b3b7e9",
+      "bytes": 107708,
+      "model_hint": "E545"
+    },
+    {
+      "id": "document-9267d5f5a36063fb",
+      "title": "ThinkPad Helix 2nd Gen Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad_Tablets/ThinkPad_Helix_2nd_Gen/ThinkPad_Helix_2nd_Gen_Spec.pdf",
+      "source_kind": "official",
+      "sha256": "86cacd1e9c5af3e1da515d8ecc2ff8abffa0859d162dde5ef99938733ec70aba",
+      "bytes": 32255,
+      "model_hint": "Helix 2nd Gen"
+    },
+    {
+      "id": "document-302a78f8081ad792",
+      "title": "ThinkPad X1 Yoga (1st Gen) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Yoga_1st_Gen/ThinkPad_X1_Yoga_1st_Gen_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "85ab29167ff45d8ed30fe2fe1df5b23b3db94d66d49f7e509829124f4836170a",
+      "bytes": 28489,
+      "model_hint": "X1 Yoga (1st Gen)"
     }
   ]
 }

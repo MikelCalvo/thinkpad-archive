@@ -367,10 +367,33 @@ def main(argv=None):
             catalogue = json.loads((args.root / "data" / "models.json").read_text(encoding="utf-8"))
             selected = [row for row in catalogue["models"] if "lenovo-eol-selector" in row["sources"]]
             identities = {(row["name"], row["matrix_url"]) for row in selected}
-            expected = {(row["label"], "https://download.lenovo.com/lenovo/content/ddfm/" + row["matrix"] + ".html") for row in original}
-            if len(selected) != len(original) or len(expected) != len(original) or identities != expected:
+            # Exact observed label+route pairs only. See docs/data-quality.md;
+            # the raw parser remains unchanged, and unknown drift still fails.
+            corrections = {
+                ('ThinkPad 750, 750CSE, 750CS, 755C, 755CS', '750'):
+                    'ThinkPad 750, 750CS, 755C, 755CS',
+                ('ThinkPad A21e (Type 2632)', 'A21e-2632'):
+                    'ThinkPad i Series 1800 (Type 2632)',
+                ('ThinkPad A22m (Type 2629, 2633)', 'A22m-2629'):
+                    'ThinkPad A22m (Type 2633)',
+                ('ThinkPad 1400, 1500 (Type 2621, 2651)', '1500-2621'):
+                    'ThinkPad 1400 (Type 2621), 1500 (Type 2621, 2651)',
+                ('ThinkPad S51', 'S51'): None,
+            }
+            normalized = []
+            excluded = 0
+            for row in original:
+                label = corrections.get((row['label'], row['matrix']), row['label'])
+                if label is None:
+                    excluded += 1
+                else:
+                    normalized.append((label, 'https://download.lenovo.com/lenovo/content/ddfm/' + row['matrix'] + '.html'))
+            expected = set(normalized)
+            if len(selected) != len(normalized) or len(expected) != len(normalized) or identities != expected:
                 raise ValueError("selector identities differ from catalogue")
-            result["selector_reconciled"] = len(original)
+            result["selector_reconciled"] = len(normalized)
+            if excluded:
+                result['selector_excluded'] = excluded
     except (ValueError, OSError, KeyError, TypeError) as error:
         parser.exit(1, "catalogue audit failed: " + str(error) + "\n")
     print(json.dumps(result, indent=2, sort_keys=True))

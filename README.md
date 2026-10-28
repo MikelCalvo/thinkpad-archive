@@ -4,7 +4,7 @@
 
 Find manuals, driver metadata and source references for documented ThinkPad models, with an emphasis on early machines. The site is available in English and Spanish. You can also build a local copy and browse it without a server.
 
-**v0.3.0 · public preview.** The catalogue and interface are still under development. Coverage is source-grounded, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
+**v0.3.1 · public preview.** The catalogue and interface are still under development. Coverage is source-grounded, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
 
 This is an independent community project, not affiliated with, endorsed by or an official publication of IBM or Lenovo.
 
@@ -12,14 +12,14 @@ This is an independent community project, not affiliated with, endorsed by or an
 
 | Content | Indexed entries |
 | --- | ---: |
-| Documented model entries | 250 |
-| Manual and other document references | 88 |
+| Documented model entries | 666 |
+| Manual and other document references | 489 |
 | Driver/software metadata entries | 14,901 |
 | Utility references | 10 |
 
 Model pages collect source-supported names and aliases, document links, driver/software listings and provenance. Start with ALL at the left of the timeline to search the complete catalogue and filter by family or available references. Swipe to a year or use the slider for a clean year-only list without search or filters. Entries with unconfirmed years stay in ALL, without a separate timeline option. Grouped variants may appear in more than one documented year. Package metadata includes advertised operating systems, versions and dates where the source provides them. ThinkWiki links are labelled as community references, with an explicit search fallback when no dedicated page has been verified.
 
-These counts describe catalogue records, not unique working downloads or hardware-tested packages. Manufacturer selectors can group variants, and a shared package can appear on several model routes. Missing information stays missing rather than being inferred from a similar model name. See the [catalogue schema and evidence levels](docs/catalogue.md).
+These counts describe catalogue records, not unique working downloads or hardware-tested packages. Manufacturer selectors can group variants, and a shared package can appear on several model routes. Missing information stays missing rather than being inferred from a similar model name. The source-backed timeline now reaches 2026. Four exact identities remain wholly undated, and four dated groups retain unresolved members; see the [data-quality review and explicit selector errata](docs/data-quality.md) and the [catalogue schema and evidence levels](docs/catalogue.md).
 
 ### Before installing historical software
 

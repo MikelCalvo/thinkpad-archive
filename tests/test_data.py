@@ -170,6 +170,59 @@ class AuditTests(unittest.TestCase):
             self.assertEqual(rejected.returncode, 1)
             self.assertIn("selector identities differ", rejected.stderr)
 
+    def test_selector_cli_applies_only_documented_identity_errata(self):
+        fixture = self.fixture()
+        fixture['models']['sources'][0]['id'] = 'lenovo-eol-selector'
+        model = fixture['models']['models'][0]
+        model.update(name='ThinkPad i Series 1800 (Type 2632)',
+                     sources=['lenovo-eol-selector'],
+                     matrix_url='https://download.lenovo.com/lenovo/content/ddfm/A21e-2632.html')
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / 'data').mkdir()
+            for name, payload in fixture.items():
+                (root / 'data' / (name + '.json')).write_text(json.dumps(payload))
+            selector = root / 'selector.js'
+            selector.write_text('var l_tp_a = new Array("ThinkPad A21e (Type 2632)|A21e-2632"); '
+                                'var l_tp_s = new Array("ThinkPad S51|S51");')
+            command = [sys.executable, str(AUDIT_PATH), '--root', str(root), '--selector', str(selector)]
+            accepted = subprocess.run(command, text=True, capture_output=True)
+            self.assertEqual(accepted.returncode, 0, accepted.stderr)
+            self.assertEqual(json.loads(accepted.stdout)['selector_reconciled'], 1)
+            self.assertEqual(json.loads(accepted.stdout)['selector_excluded'], 1)
+            # A lookalike label/route must not inherit an unrelated exception.
+            selector.write_text('var l_tp_a = new Array("ThinkPad A21e (Type 2632)|Other2632");')
+            rejected = subprocess.run(command, text=True, capture_output=True)
+            self.assertEqual(rejected.returncode, 1)
+            self.assertIn('selector identities differ', rejected.stderr)
+
+            selector.write_text('var l_tp_x = new Array("ThinkPad Other|Other");')
+            rejected = subprocess.run(command, text=True, capture_output=True)
+            self.assertEqual(rejected.returncode, 1)
+            self.assertIn('selector identities differ', rejected.stderr)
+
+    def test_selector_cli_reconciles_every_documented_canonical_correction(self):
+        fixture = self.fixture()
+        fixture['models']['sources'][0]['id'] = 'lenovo-eol-selector'
+        identities = [
+            ('750', 'ThinkPad 750, 750CS, 755C, 755CS', 'ThinkPad 750, 750CSE, 750CS, 755C, 755CS'),
+            ('A22m-2629', 'ThinkPad A22m (Type 2633)', 'ThinkPad A22m (Type 2629, 2633)'),
+            ('1500-2621', 'ThinkPad 1400 (Type 2621), 1500 (Type 2621, 2651)', 'ThinkPad 1400, 1500 (Type 2621, 2651)'),
+        ]
+        fixture['models']['models'] = [dict(fixture['models']['models'][0], id='sample-' + str(i), name=name,
+            sources=['lenovo-eol-selector'], matrix_url='https://download.lenovo.com/lenovo/content/ddfm/' + route + '.html')
+            for i, (route, name, raw) in enumerate(identities)]
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / 'data').mkdir()
+            for name, payload in fixture.items():
+                (root / 'data' / (name + '.json')).write_text(json.dumps(payload))
+            selector = root / 'selector.js'
+            selector.write_text('var l_tp_test = new Array(' + ','.join(json.dumps(raw + '|' + route) for route, name, raw in identities) + ');')
+            accepted = subprocess.run([sys.executable, str(AUDIT_PATH), '--root', str(root), '--selector', str(selector)], text=True, capture_output=True)
+            self.assertEqual(accepted.returncode, 0, accepted.stderr)
+            self.assertEqual(json.loads(accepted.stdout)['selector_reconciled'], 3)
+
     def test_broken_references_rejected(self):
         for field, value in (("sources", ["missing"]), ("document_ids", ["missing"]), ("driver_ids", ["missing"])):
             data = self.fixture()
@@ -249,12 +302,12 @@ class AuditTests(unittest.TestCase):
 class LiveCatalogueTests(unittest.TestCase):
     def test_live_catalogue_schema_and_scope(self):
         counts = audit_module().audit_catalogue(ROOT)
-        self.assertEqual(counts["models"], 250)
-        self.assertEqual(counts["documents"], 88)
+        self.assertEqual(counts["models"], 666)
+        self.assertEqual(counts["documents"], 489)
         self.assertEqual(counts["utilities"], 10)
         self.assertGreater(counts["driver_metadata_entries"], 1000)
         self.assertGreater(counts["models_with_driver_metadata"], 110)
-        self.assertEqual(counts["selector_models"], 161)
+        self.assertEqual(counts["selector_models"], 160)
         data = json.loads((ROOT / "data" / "models.json").read_text(encoding="utf-8"))
         names = {item["name"] for item in data["models"]}
         self.assertTrue({"ThinkPad 300", "ThinkPad 700", "ThinkPad 700C", "ThinkPad 700T"} <= names)
@@ -263,11 +316,11 @@ class LiveCatalogueTests(unittest.TestCase):
 
     def test_exact_variant_associations_and_finite_counts(self):
         payloads = {name: json.loads((ROOT / "data" / (name + ".json")).read_text(encoding="utf-8")) for name in ("models", "documents", "utilities", "drivers")}
-        self.assertEqual(len(payloads["models"]["models"]), 250)
-        self.assertEqual(len(payloads["documents"]["documents"]), 88)
-        self.assertEqual(len(payloads["models"]["sources"]), 20)
+        self.assertEqual(len(payloads["models"]["models"]), 666)
+        self.assertEqual(len(payloads["documents"]["documents"]), 489)
+        self.assertEqual(len(payloads["models"]["sources"]), 24)
         models = {row["name"]: row for row in payloads["models"]["models"]}
-        self.assertEqual(len(models), 250)
+        self.assertEqual(len(models), len(payloads['models']['models']))
         for name in ("ThinkPad 300C", "ThinkPad 750CE", "ThinkPad X201i Tablet", "ThinkPad X201si", "ThinkPad X230s"):
             self.assertEqual(models[name]["document_ids"], [], name)
         self.assertNotEqual(models["ThinkPad T40"]["id"], models["ThinkPad T40p"]["id"])
@@ -276,8 +329,8 @@ class LiveCatalogueTests(unittest.TestCase):
         self.assertNotIn("ThinkPad 860", models)
         self.assertNotIn("ThinkPad 800", models)
         documents = payloads["documents"]["documents"]
-        self.assertEqual(len({row["url"] for row in documents}), 88)
-        self.assertEqual(sum(row["sha256"] is not None for row in documents), 49)
+        self.assertEqual(len({row["url"] for row in documents}), len(documents))
+        self.assertEqual(sum(row["sha256"] is not None for row in documents), 447)
         for utility in payloads["utilities"]["utilities"]:
             self.assertLess(len(utility["title"]), 100)
             self.assertNotIn("verbatim", utility["title"])
@@ -322,7 +375,7 @@ class LiveCatalogueTests(unittest.TestCase):
     def test_audit_cli(self):
         completed = subprocess.run([sys.executable, str(AUDIT_PATH), "--root", str(ROOT)], text=True, capture_output=True)
         self.assertEqual(completed.returncode, 0, completed.stderr)
-        self.assertEqual(json.loads(completed.stdout)["selector_models"], 161)
+        self.assertEqual(json.loads(completed.stdout)["selector_models"], 160)
 
 
 if __name__ == "__main__":

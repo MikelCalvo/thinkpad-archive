@@ -177,8 +177,14 @@ class Timeline(unittest.TestCase):
 
     def test_machine_type_groups_do_not_inherit_generic_launch_years(self):
         models = {m['id']: m for m in json.loads((ROOT/'data/models.json').read_text())['models']}
-        for identity in ('r52-1846', 'r52-1858'):
-            self.assertEqual(models[identity]['introduced'], [], identity)
+        expected = {'r52-1846': {'1846', '1847', '1848', '1849'},
+                    'r52-1858': {'1858', '1859', '1860', '1861', '1958'}}
+        for identity, types in expected.items():
+            references = models[identity]['introduced']
+            self.assertEqual({v for r in references for v in r['variants']},
+                             {'ThinkPad R52 (Type ' + t + ')' for t in types})
+            self.assertTrue(all(r['year'] == 2005 and '#page=' in r['url'] and 'ltwbook_2013.pdf' in r['url'] for r in references))
+            self.assertTrue(models[identity]['introduced_unknown'])
 
     def test_plain_legacy_models_remain_accessible_as_unknown(self):
         fixtures.write_fixture(self.data)
