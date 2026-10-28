@@ -149,7 +149,7 @@ class BuildTests(unittest.TestCase):
         self.assertNotIn('class="stats"', self.text())
         self.assertNotIn('Manual references</dt><dd>1</dd>', self.text())
         self.assertNotIn('Model entries</dt><dd>3</dd>', self.text())
-        self.assertIn("PC Doctor", self.text())
+        self.assertNotIn("PC Doctor", self.text())
         self.assertIn("700 C", self.text("en/models/700c.html"))
 
     def test_driver_details_links_evidence_and_separate_firmware_warning(self):
@@ -186,17 +186,16 @@ class BuildTests(unittest.TestCase):
             self.assertIn(translations["not_recorded"], model)
             self.assertIn('href="https://example.org/other"', model)
 
-    def test_spanish_applicability_and_utility_qualifiers_are_translated_prose(self):
+    def test_spanish_model_applicability_remains_without_landing_library(self):
         self.build()
         model = self.text("es/models/700c.html")
         home = self.text("es/index.html")
         self.assertIn("no es necesariamente un manual de servicio", model)
         self.assertIn("tipo de máquina y la variante exactos", model)
-        self.assertIn("readme histórico", home)
-        self.assertIn("Solo referencia auxiliar", home)
-        self.assertNotIn("historical readme", home)
+        self.assertNotIn('reference-library', home)
+        self.assertNotIn('class="utility"', home)
         self.assertNotIn("Selected document reference", model)
-        self.assertIn("PC Doctor", home)
+        self.assertNotIn("PC Doctor", home)
 
     def test_each_absent_download_or_readme_is_explicit_in_both_languages(self):
         self.build()

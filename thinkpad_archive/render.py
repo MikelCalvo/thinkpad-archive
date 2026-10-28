@@ -95,7 +95,7 @@ class Renderer:
                 '<header class="site-header"><div class="topbar">'
                 '<nav class="language-nav" aria-label="' + e(t["language"]) + '">' + ' '.join(languages) + '</nav>'
                 '<div class="topbar-right"><nav class="main-nav" aria-label="' + e(t["site_name"]) + '">' + ''.join(nav) + '</nav>' + tools + '</div></div></header>\n'
-                '<main id="main">' + body + '</main>\n<footer><p>' + e(t["footer"]) + '</p><p>' + e(t["legacy_note"]) + '</p></footer>\n</body>\n</html>\n')
+                '<main id="main">' + body + '</main>\n<footer><p>' + e(t["footer"]) + '</p><p>' + e(t["created_by"]) + ' ' + self.remote('https://mikelcalvo.net/', 'Mikel Calvo') + '</p></footer>\n</body>\n</html>\n')
 
     def document(self, current, lang, doc):
         t = self.locales[lang]
@@ -188,13 +188,8 @@ class Renderer:
                 body += '<td>' + (self.link(current, model_path + '#' + section, str(len(ids))) if ids else '0') + '</td>'
             body += '</tr>'
         body += '</tbody></table></div><p id="empty-results" class="notice" aria-live="polite"' + (' hidden' if selected_count else '') + '>' + e(t["empty_results"]) + '</p></section>'
-        body += '<details class="reference-library"><summary>' + e(t['reference_library']) + '</summary><section aria-label="' + e(t["manuals"]) + '"><p>' + e(t["document_note"]) + '</p><div class="document-grid">'
-        body += ''.join(self.document(current, lang, doc) for doc in data["documents"])
-        body += '</div></section><section aria-label="' + e(t["utilities"]) + '"><p>' + e(t["utilities_note"]) + '</p><div class="utility-grid">'
-        for utility in data["utilities"]:
-            body += '<article class="utility"><h3>' + e(utility["title"]) + '</h3><p>' + e(t[utility["category"] + "_description"]) + '</p><p>' + self.remote(utility["url"], t["remote"]) + '</p></article>'
         kind = 'all' if selection == 'all' else 'year' if selection is not None else 'home'
-        return self.page(current, lang, t["catalogue"], body + '</div></section></details>', kind=kind, selection=selected)
+        return self.page(current, lang, t["catalogue"], body, kind=kind, selection=selected)
 
     def driver_categories(self, current, lang, drivers, prefix):
         t = self.locales[lang]

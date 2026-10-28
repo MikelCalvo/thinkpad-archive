@@ -66,9 +66,9 @@ class Presentation(unittest.TestCase):
             self.assertNotIn('id="utilities-heading"', text)
             self.assertIn('</h1></section><section aria-label=', text)
             self.assertIn('<h2 id="selected-year" class="visually-hidden">', text)
-            self.assertIn('<details class="reference-library"', text)
-            self.assertEqual(text.count('<article class="document">'), 1)
-            self.assertEqual(text.count('<article class="utility">'), 2)
+            self.assertNotIn('reference-library', text)
+            self.assertNotIn('<article class="document">', text)
+            self.assertNotIn('<article class="utility">', text)
         css = (self.output/'assets/style.css').read_text()
         hero = css.split('.hero{', 1)[1].split('}', 1)[0]
         self.assertNotIn('border-bottom:', hero)

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.2
+
+- Remove the document and utility library from the landing, all-model and year catalogue pages. Keep catalogue navigation, filtering and model-specific manual/software links unchanged.
+- Simplify the shared EN/ES footer to the independent-community/non-affiliation statement and a localized creator credit. Link Mikel Calvo to https://mikelcalvo.net/ in a new tab with noopener noreferrer.
+- Preserve catalogue/profile data, model identities, document/software associations, detail-page content and firmware warnings. Existing public metadata inputs remain supported.
+
 ## 0.4.1
 
 - Start in dark mode when no valid local preference is saved, regardless of system theme. Keep explicit light/dark choices, cross-tab preference synchronization and a usable toggle when storage is blocked; no-script pages also default to dark.
