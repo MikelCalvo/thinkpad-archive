@@ -124,6 +124,19 @@ class Timeline(unittest.TestCase):
             self.assertIn('2012', model)
             self.assertIn('2013', model)
 
+    def test_selected_year_is_not_visually_repeated_below_the_rail(self):
+        site = self.build()
+        for lang in ('en', 'es'):
+            for relative in ('index.html', 'years/2012.html'):
+                text = (site/lang/relative).read_text()
+                attrs = next(a for t,a in Tags(text).tags if a.get('id') == 'selected-year')
+                self.assertEqual(attrs.get('class'), 'visually-hidden')
+                self.assertNotIn('class="timeline-caption"', text)
+                self.assertIn('aria-labelledby="selected-year"', text)
+        css = (site/'assets/style.css').read_text()
+        self.assertIn('.visually-hidden{', css)
+        self.assertIn('clip-path:inset(50%)', css)
+
     def test_introduction_schema_rejects_bad_dates_urls_and_duplicates_before_output(self):
         invalid = [None, [1992], [{'year':True,'variants':['700C'],'url':'https://example.org'}],
                    [{'year':1991,'variants':['700C'],'url':'https://example.org'}],

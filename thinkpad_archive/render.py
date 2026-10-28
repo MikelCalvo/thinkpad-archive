@@ -148,7 +148,7 @@ class Renderer:
             value = selected if type(selected) is int else years[0] - 1
             controls += '<input id="year-slider" type="range" min="' + str(years[0] - 1) + '" max="' + str(years[-1]) + '" step="1" value="' + str(value) + '" aria-label="' + e(t['choose_year']) + '" hidden>'
         label = t['unknown_year'] if selected == 'unknown' else t['all_years'] if selected == 'all' else t['introduced_in'] + ' ' + str(selected)
-        return '<div id="timeline" class="timeline" data-selected-year="' + e(selected) + '" data-default-year="' + e('all') + '" data-all-value="' + e(years[0] - 1 if years else '') + '" data-all-label="' + e(t['all_years']) + '" data-unknown-label="' + e(t['unknown_year']) + '" data-year-label="' + e(t['introduced_in']) + '">' + controls + '<div class="timeline-caption"><h2 id="selected-year">' + e(label) + '</h2></div></div>'
+        return '<div id="timeline" class="timeline" data-selected-year="' + e(selected) + '" data-default-year="' + e('all') + '" data-all-value="' + e(years[0] - 1 if years else '') + '" data-all-label="' + e(t['all_years']) + '" data-unknown-label="' + e(t['unknown_year']) + '" data-year-label="' + e(t['introduced_in']) + '">' + controls + '<h2 id="selected-year" class="visually-hidden">' + e(label) + '</h2></div>'
 
     def home(self, current, lang, selection=None):
         t, data = self.locales[lang], self.data

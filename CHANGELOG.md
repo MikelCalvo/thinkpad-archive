@@ -7,6 +7,7 @@
 - Local dark/light preference, an initial system-theme default and a readable system-theme fallback without JavaScript.
 - External references, including PDF links, open in a new tab with opener and referrer isolation. Internal navigation stays in the current tab.
 - Timeline navigation with ALL first at the left, followed by the calendar years. Search and family/availability filters appear only under ALL; choosing a year clears them and shows only that year's list. A native slider and static HTML links cover both modes. The full reference library is collapsed by default instead of extending the landing page.
+- No repeated selected-year caption below the timeline; selection remains highlighted and named for assistive technology.
 - Minimal landing layout: project title directly followed by the timeline, without summary counters, numbered section headings or the hero divider.
 - Kept the range slider while hiding the duplicate year-rail scrollbar; undated entries remain under ALL without an extra timeline option.
 - Source-linked introduction years span 1992–2024 across 237 dated entries. Thirteen entries remain wholly undated and one grouped entry retains an undated variant. Package dates are never used as model launch dates.

@@ -65,7 +65,7 @@ class Presentation(unittest.TestCase):
             self.assertNotIn('id="manuals-heading"', text)
             self.assertNotIn('id="utilities-heading"', text)
             self.assertIn('</h1></section><section aria-label=', text)
-            self.assertIn('<h2 id="selected-year">', text)
+            self.assertIn('<h2 id="selected-year" class="visually-hidden">', text)
             self.assertIn('<details class="reference-library"', text)
             self.assertEqual(text.count('<article class="document">'), 1)
             self.assertEqual(text.count('<article class="utility">'), 2)
