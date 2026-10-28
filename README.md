@@ -28,6 +28,8 @@ To make Spanish the root language:
 
 A language switch keeps the current model. Both output variants contain metadata and links, not manufacturer files or installer binaries.
 
+For container hosting and push-triggered Coolify deployment, see docs/deployment.md.
+
 ## What you can find
 
 - Source-supported model names, variants and aliases.

@@ -1,0 +1,47 @@
+{
+	admin off
+	auto_https off
+	persist_config off
+	servers {
+		protocols h1 h2
+	}
+}
+
+http://:8080 {
+	root * /srv
+	encode zstd gzip
+	header {
+		-Server
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		X-Frame-Options DENY
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+	}
+
+	@github {
+		path /_deploy/github
+		method POST
+	}
+	handle @github {
+		request_body {
+			max_size 2MB
+		}
+		rewrite * /webhooks/source/github/events/manual
+		reverse_proxy {$COOLIFY_WEBHOOK_UPSTREAM: http://127.0.0.1:9} {
+			header_up Host {upstream_hostport}
+			transport http {
+				dial_timeout 3s
+				response_header_timeout 15s
+			}
+		}
+	}
+	handle /_deploy/* {
+		respond 404
+	}
+	handle /healthz {
+		respond "ok" 200
+	}
+	handle {
+		file_server
+	}
+}
