@@ -99,5 +99,7 @@
   "category_recovery": "Recuperación",
   "category_diagnostics": "Diagnóstico",
   "category_bios": "BIOS y UEFI",
-  "category_other": "Otras categorías de la fuente"
+  "category_other": "Otras categorías de la fuente",
+  "thinkwiki_search": "Buscar en ThinkWiki",
+  "thinkwiki_missing": "Sin entrada específica verificada."
 }

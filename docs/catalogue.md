@@ -6,6 +6,8 @@ All public data files use schema_version 2. Metadata is independent of the inter
 
 The model catalogue supplies localized scope text, source definitions and model records. A model has a name, explicit aliases, a family, a coarse catalogue-era label, cited source IDs, an optional observed manufacturer matrix URL, document IDs and driver metadata IDs.
 
+Version 0.2.0 adds an optional `thinkwiki` list of `{title, url}` references without changing schema_version 2 or legacy input requirements. Each URL is an explicitly checked HTTPS category on www.thinkwiki.org, not a category inferred at build time from a model ID. All bundled entries carry this field: 243 have one or more references (279 links, 272 distinct resolved pages); seven have an empty list. Missing or empty legacy/reference lists render a model-specific ThinkWiki search, clearly marked as not having a verified dedicated page. Search URLs are constructed locally and require no build-time network access. Grouped source identities can have several links, and type-qualified entries may share a community category without becoming interchangeable hardware or driver targets. ThinkWiki is labelled as a community source; a category can be a stub, and existence does not certify completeness or compatibility.
+
 An ID identifies a documented source entry, not necessarily a unique hardware configuration. Some manufacturer selector labels intentionally group multiple variants or machine types. Preserve qualifiers. Do not silently map a regional/type-qualified model to a different model's document or package.
 
 ## Documents and utility references

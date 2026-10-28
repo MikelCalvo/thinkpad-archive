@@ -99,5 +99,7 @@
   "category_recovery": "Recovery",
   "category_diagnostics": "Diagnostics",
   "category_bios": "BIOS and UEFI",
-  "category_other": "Other source categories"
+  "category_other": "Other source categories",
+  "thinkwiki_search": "Search ThinkWiki",
+  "thinkwiki_missing": "No model-specific page verified."
 }

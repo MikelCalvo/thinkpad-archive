@@ -6,7 +6,7 @@ This independent community project is not affiliated with, endorsed by or an off
 
 ## Status
 
-Version: 0.1.0. Initial pre-1.0 preview; the catalogue and interface are still under development. This source release does not deploy a hosted website. See CHANGELOG.md for the included scope.
+Version: 0.2.0. Pre-1.0 preview; the catalogue and interface are still under development. This source release does not deploy a hosted website. See CHANGELOG.md for the included scope.
 
 The catalogue is source-grounded, not exhaustive. Historical manufacturer selectors can group several variants in one entry. A model identity, a manufacturer's advertised driver listing, a checked download and a successful installation are different facts. Missing metadata stays missing rather than being guessed.
 
@@ -34,6 +34,7 @@ A language switch keeps the current model. Both output variants contain metadata
 - Hardware Maintenance Manuals and other document references, identified as such.
 - Driver/software listings associated with explicit model source routes, with advertised operating systems, dates and versions when available.
 - Source, download and README links, with an evidence-level distinction and firmware warnings.
+- ThinkWiki links on every model page: verified category references where available, otherwise an explicitly labelled ThinkWiki search.
 - Honest missing-data states, rather than assumed support from a similar model name.
 
 The data schema and source classification are documented in docs/catalogue.md. A catalogue entry does not guarantee that an external link remains live or that a package applies to your exact machine.

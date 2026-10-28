@@ -11,7 +11,7 @@ from urllib.parse import urlsplit
 
 ID = re.compile(r"[a-z0-9][a-z0-9-]*\Z", re.ASCII)
 LANG = re.compile(r"[a-z]{2,3}(?:-[a-z0-9]{2,8})*\Z", re.ASCII)
-LOCALE_KEYS = frozenset("language_name site_name catalogue sources skip language browse_categories category_audio category_graphics category_network category_bluetooth category_chipset category_power category_input category_storage category_optical category_usb category_security category_camera category_expansion category_updates category_utilities category_recovery category_diagnostics category_bios category_other scope_heading model_count driver_count manual_count browse_heading search search_hint family all_families all_entries driver_availability manual_availability with_drivers without_drivers with_manuals without_manuals model aliases era source_listing source_unavailable matching reset empty_results manuals no_manuals official community remote metadata_only document_note digest bytes not_recorded model_hint utilities utilities_note diagnostic_description reference_description sources_intro safety_heading safety_text source_kind matrix back_catalogue footer legacy_note era_early era_classic era_lenovo era_modern era_unknown drivers no_drivers firmware no_firmware firmware_warning firmware_warning_text category version operating_systems released download readme reference source_url evidence manufacturer_listing readme_model_list availability_note driver_note missing_download missing_readme no_package_links source_digest".split())
+LOCALE_KEYS = frozenset("language_name site_name catalogue sources skip language browse_categories category_audio category_graphics category_network category_bluetooth category_chipset category_power category_input category_storage category_optical category_usb category_security category_camera category_expansion category_updates category_utilities category_recovery category_diagnostics category_bios category_other scope_heading model_count driver_count manual_count browse_heading search search_hint family all_families all_entries driver_availability manual_availability with_drivers without_drivers with_manuals without_manuals model aliases era source_listing source_unavailable matching reset empty_results manuals no_manuals official community remote metadata_only document_note digest bytes not_recorded model_hint utilities utilities_note diagnostic_description reference_description sources_intro safety_heading safety_text source_kind matrix back_catalogue footer legacy_note era_early era_classic era_lenovo era_modern era_unknown drivers no_drivers firmware no_firmware firmware_warning firmware_warning_text category version operating_systems released download readme reference source_url evidence manufacturer_listing readme_model_list availability_note driver_note missing_download missing_readme no_package_links source_digest thinkwiki_search thinkwiki_missing".split())
 MAX_INPUT = 16 * 1024 * 1024
 
 
@@ -173,7 +173,17 @@ def load_catalogue(directory):
         digest(driver["source_sha256"])
     source_ids, doc_ids, driver_ids = ({item["id"] for item in rows} for rows in (sources, docs, drivers))
     for model in models:
-        fields(model, "id name aliases family era sources matrix_url document_ids driver_ids")
+        model_fields = "id name aliases family era sources matrix_url document_ids driver_ids"
+        fields(model, model_fields + (" thinkwiki" if type(model) is dict and "thinkwiki" in model else ""))
+        if "thinkwiki" in model:
+            require(type(model["thinkwiki"]) is list, "Expected ThinkWiki references")
+            for reference in model["thinkwiki"]:
+                fields(reference, "title url")
+                text(reference["title"])
+                url(reference["url"])
+                parts = urlsplit(reference["url"])
+                require(parts.netloc == "www.thinkwiki.org" and parts.path.startswith("/wiki/Category:") and bool(parts.path.removeprefix("/wiki/Category:")) and not parts.query and not parts.fragment, "Invalid ThinkWiki category URL")
+            require(len(model["thinkwiki"]) == len({r["url"] for r in model["thinkwiki"]}), "Repeated ThinkWiki references")
         identifier(model["id"])
         identifier(model["family"])
         text(model["name"])

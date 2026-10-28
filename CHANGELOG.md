@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.0
+
+### Added
+
+- ThinkWiki access on all 250 model pages in English and Spanish, placed beside the model identity.
+- 279 explicit category-reference links across 243 catalogue entries, resolving to 272 distinct ThinkWiki pages checked through its public MediaWiki API.
+- Separate links for source-grouped models, exact Tablet variants and observed ThinkWiki naming differences.
+- A clearly labelled ThinkWiki search for seven entries without a verified dedicated category: Edge E31, P1 Gen 7, Reserve Edition, S51, T14 Gen 5 (AMD), X1 Carbon Gen 12 and X200si. Search access is not presented as a model article.
+- Validation and regression tests for explicit community references and safe search fallback. Original model identities, document associations and driver associations are unchanged.
+
+This remains a pre-1.0 preview. ThinkWiki references are community material and do not establish hardware compatibility; category existence checks do not certify every statement on the destination page.
+
 ## 0.1.0
 
 Initial pre-1.0 source preview. No hosted website or manufacturer-file mirror is included.

@@ -186,7 +186,22 @@ def _rows(data, key, fields):
         raise ValueError("metadata collection must be an array")
     seen = set()
     for row in rows:
-        _fields(row, fields)
+        if key == "models" and isinstance(row, dict) and "thinkwiki" in row:
+            _fields(row, fields + " thinkwiki")
+            references = row["thinkwiki"]
+            if not isinstance(references, list):
+                raise ValueError("invalid ThinkWiki references")
+            for reference in references:
+                _fields(reference, "title url")
+                _text(reference["title"])
+                _url(reference["url"])
+                parts = urlsplit(reference["url"])
+                if parts.netloc != "www.thinkwiki.org" or not parts.path.startswith("/wiki/Category:") or not parts.path.removeprefix("/wiki/Category:") or parts.query or parts.fragment:
+                    raise ValueError("invalid ThinkWiki category URL")
+            if len(references) != len({r["url"] for r in references}):
+                raise ValueError("repeated ThinkWiki references")
+        else:
+            _fields(row, fields)
         identifier = row["id"]
         if not isinstance(identifier, str) or not ID.fullmatch(identifier) or identifier in seen:
             raise ValueError("invalid or duplicate identifier")

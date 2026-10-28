@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from html import escape
 from pathlib import PurePosixPath
+from urllib.parse import quote, urlencode
 import posixpath
 
 
@@ -164,10 +165,19 @@ class Renderer:
             sections.append('<details class="driver-category" id="' + e(target) + '"><summary>' + content + '</summary><div class="driver-grid">' + ''.join(self.driver(lang, row) for row in packages) + '</div></details>')
         return ('<nav class="category-nav" aria-label="' + e(t['browse_categories']) + '">' + ''.join(navigation) + '</nav><div class="category-groups">' + ''.join(sections) + '</div>')
 
+    def thinkwiki(self, lang, model):
+        t = self.locales[lang]
+        references = model.get("thinkwiki", [])
+        if references:
+            links = ' <span aria-hidden="true">·</span> '.join(self.remote(r["url"], 'ThinkWiki: ' + r["title"]) for r in references)
+            return '<p class="model-references">' + links + ' <span class="small">(' + e(t["community"]) + ')</span></p>'
+        search = 'https://www.thinkwiki.org/w/index.php?' + urlencode({"search": model["name"].removeprefix('ThinkPad ')}, quote_via=quote)
+        return '<p class="model-references">' + self.remote(search, t["thinkwiki_search"]) + ' <span class="small">' + e(t["thinkwiki_missing"]) + '</span></p>'
+
     def model(self, current, lang, model):
         t = self.locales[lang]
         items = [(t["aliases"], ' / '.join(model["aliases"]) or t["not_recorded"]), (t["era"], t["era_" + model["era"]])]
-        body = '<p class="breadcrumb">' + self.link(current, lang + "/index.html", t["back_catalogue"]) + '</p><section class="model-hero"><p class="eyebrow">' + e(t["family"]) + ' ' + e(model["family"].upper()) + '</p><h1>' + e(model["name"]) + '</h1><p>' + e(t["source_listing"]) + '</p>' + self.metadata(items) + '</section>'
+        body = '<p class="breadcrumb">' + self.link(current, lang + "/index.html", t["back_catalogue"]) + '</p><section class="model-hero"><p class="eyebrow">' + e(t["family"]) + ' ' + e(model["family"].upper()) + '</p><h1>' + e(model["name"]) + '</h1><p>' + e(t["source_listing"]) + '</p>' + self.metadata(items) + self.thinkwiki(lang, model) + '</section>'
         body += '<section id="manuals"><h2>' + e(t["manuals"]) + '</h2><p>' + e(t["document_note"]) + '</p>'
         if model["document_ids"]:
             body += '<div class="document-grid">' + ''.join(self.document(current, lang, self.docs[doc]) for doc in model["document_ids"]) + '</div>'
