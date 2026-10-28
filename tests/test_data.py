@@ -290,7 +290,8 @@ class LiveCatalogueTests(unittest.TestCase):
         self.assertEqual(set(data["models"]["scope"]), {"en", "es"})
         self.assertNotEqual(data["models"]["scope"]["en"], data["models"]["scope"]["es"])
         for row in data["models"]["models"]:
-            self.assertEqual(set(row), set("id name aliases family era sources matrix_url document_ids driver_ids thinkwiki".split()))
+            optional = {key for key in ('introduced_unknown',) if key in row}
+            self.assertEqual(set(row), set("id name aliases family era sources matrix_url document_ids driver_ids thinkwiki introduced".split()) | optional)
         for row in data["documents"]["documents"]:
             self.assertEqual(set(row), set("id title url source_kind sha256 bytes model_hint".split()))
             self.assertNotIn(";", row["model_hint"])

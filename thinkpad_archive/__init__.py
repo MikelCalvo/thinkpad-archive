@@ -28,7 +28,7 @@ def build_site(output, *, data_dir=None, locales_dir=None, default_language=None
         language = default_language if default_language is not None else "en"
         require(type(language) is str and LANG.fullmatch(language) is not None and language in locales, "Unknown default language")
         pages = Renderer(data, locales).render(language)
-        assets = {"assets/" + name: read_bytes(ROOT / "assets" / name) for name in ("style.css", "search.js", "ui.js")}
+        assets = {"assets/" + name: read_bytes(ROOT / "assets" / name) for name in ("style.css", "search.js", "ui.js", "theme.js")}
         payload = {name: text.encode("utf-8") for name, text in pages.items()}
         payload.update(assets)
         try:

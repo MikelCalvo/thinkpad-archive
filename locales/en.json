@@ -101,5 +101,14 @@
   "category_bios": "BIOS and UEFI",
   "category_other": "Other source categories",
   "thinkwiki_search": "Search ThinkWiki",
-  "thinkwiki_missing": "No model-specific page verified."
+  "thinkwiki_missing": "No model-specific page verified.",
+  "theme_light": "Switch to light theme",
+  "theme_dark": "Switch to dark theme",
+  "github_repository": "View the project on GitHub (opens in a new tab)",
+  "timeline": "Explore the timeline",
+  "choose_year": "Slide to a year",
+  "unknown_year": "Year not confirmed",
+  "all_years": "ALL",
+  "introduced_in": "Introduced in",
+  "reference_library": "Document and utility reference library"
 }

@@ -1,64 +1,69 @@
-# ThinkPad Archive
+# [![ThinkPad Archive](docs/readme-header.svg)](https://thinkpadarchive.com/)
 
-Find manuals, drivers and source references for documented ThinkPad models, with an emphasis on early machines. The static website is English by default, with a Spanish interface and a translation structure ready for additional languages.
+**[Browse the archive](https://thinkpadarchive.com/)** · [Build locally](#build-locally) · [Contribute](#contributing) · [MIT license](LICENSE)
 
-This independent community project is not affiliated with, endorsed by or an official publication of IBM or Lenovo. Product names belong to their respective owners.
+Find manuals, driver metadata and source references for documented ThinkPad models, with an emphasis on early machines. The site is available in English and Spanish. You can also build a local copy and browse it without a server.
 
-## Status
+**v0.3.0 · public preview.** The catalogue and interface are still under development. Coverage is source-grounded, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
 
-Version: 0.2.0. Pre-1.0 preview; the catalogue and interface are still under development. This source release does not deploy a hosted website. See CHANGELOG.md for the included scope.
+This is an independent community project, not affiliated with, endorsed by or an official publication of IBM or Lenovo.
 
-The catalogue is source-grounded, not exhaustive. Historical manufacturer selectors can group several variants in one entry. A model identity, a manufacturer's advertised driver listing, a checked download and a successful installation are different facts. Missing metadata stays missing rather than being guessed.
+## In the catalogue
 
-## Build and test
+| Content | Indexed entries |
+| --- | ---: |
+| Documented model entries | 250 |
+| Manual and other document references | 88 |
+| Driver/software metadata entries | 14,901 |
+| Utility references | 10 |
 
-Python 3.11 or later; standard library only. Run from this project directory:
+Model pages collect source-supported names and aliases, document links, driver/software listings and provenance. Start with ALL at the left of the timeline to search the complete catalogue and filter by family or available references. Swipe to a year or use the slider for a clean year-only list without search or filters. Entries with unconfirmed years stay in ALL, without a separate timeline option. Grouped variants may appear in more than one documented year. Package metadata includes advertised operating systems, versions and dates where the source provides them. ThinkWiki links are labelled as community references, with an explicit search fallback when no dedicated page has been verified.
 
-    python3 -m unittest discover -s tests -v
-    mkdir -p build
-    python3 -m thinkpad_archive build --output build/public
-    python3 tools/check_site.py build/public
+These counts describe catalogue records, not unique working downloads or hardware-tested packages. Manufacturer selectors can group variants, and a shared package can appear on several model routes. Missing information stays missing rather than being inferred from a similar model name. See the [catalogue schema and evidence levels](docs/catalogue.md).
 
-The destination must not already exist. Open build/public/index.html in a browser. No local server is required. Generated pages are readable without JavaScript; optional search and filters run entirely on your device. Following external manual, source and package links requires Internet access.
+### Before installing historical software
+
+Read the exact package README. Check machine type/model (MTM), variant, operating system, architecture, device and dependencies. A source listing does not guarantee that a link is still live or that a package applies to your machine.
+
+**BIOS, embedded-controller, recovery and destructive utilities require separate care.** They are not routine driver updates. The site does not run downloads, automate installation or certify compatibility. Documentation review and content hashes are not hardware tests.
+
+## Build locally
+
+You need Python 3.11 or later. The builder uses only the standard library. From the project directory:
+
+```sh
+python3 -m unittest discover -s tests -v
+mkdir -p build
+python3 -m thinkpad_archive build --output build/public
+python3 tools/check_site.py build/public
+```
+
+The output destination must not already exist. Open `build/public/index.html` in your browser, including through `file://`. Pages and links work without JavaScript; optional search and filters run on your device. External manual, source and package links still need Internet access. Modern-browser checks do not establish support for every historical browser.
 
 To make Spanish the root language:
 
-    mkdir -p build
-    python3 -m thinkpad_archive build --output build/spanish --default-language es
+```sh
+python3 -m thinkpad_archive build --output build/spanish --default-language es
+```
 
-A language switch keeps the current model. Both output variants contain metadata and links, not manufacturer files or installer binaries.
+Switching languages keeps the current model. Both builds contain metadata and links, not manufacturer documents or installer binaries. The moon/sun control remembers your theme in local browser storage; on a first visit it follows your system preference. GitHub and external references open in a new tab, while catalogue navigation stays in the current one.
 
-For container hosting and push-triggered Coolify deployment, see docs/deployment.md.
+## Hosting
 
-## What you can find
+The public site is at **[thinkpadarchive.com](https://thinkpadarchive.com/)**. You can host the generated files on a static web server, or use the included Docker setup. See the [deployment guide](docs/deployment.md) for container hosting and Coolify configuration.
 
-- Source-supported model names, variants and aliases.
-- Hardware Maintenance Manuals and other document references, identified as such.
-- Driver/software listings associated with explicit model source routes, with advertised operating systems, dates and versions when available.
-- Source, download and README links, with an evidence-level distinction and firmware warnings.
-- ThinkWiki links on every model page: verified category references where available, otherwise an explicitly labelled ThinkWiki search.
-- Honest missing-data states, rather than assumed support from a similar model name.
+## Contributing
 
-The data schema and source classification are documented in docs/catalogue.md. A catalogue entry does not guarantee that an external link remains live or that a package applies to your exact machine.
+Corrections, source links and translations are welcome. Please include the exact model or machine-type qualifier and the source URL; prefer primary manufacturer sources. Keep grouped source identities intact unless a reliable source establishes an individual variant. Do not assign packages by family-name resemblance.
 
-## Public content boundary
+For a new language, add a complete locale JSON with the same keys as the existing languages. Translate project interface text and warnings, while preserving original product titles and operating-system identifiers. Do not redistribute or translate a manufacturer document as part of this project.
 
-Original code, translations and tests accompany factual metadata, provenance URLs and optional fingerprints. The repository does not mirror PDFs, driver binaries, original README bodies or captured manufacturer websites. It does not include personal inventories or local-device records.
+Before proposing a release, run the tests and link checker, inspect both languages and narrow layouts, and review the [release checklist](docs/release-checklist.md).
 
-Source availability is not a redistribution license. See docs/sources-and-rights.md. The owner has not yet selected a license for original project material; do not assume an MIT, GPL or other open-source license grant.
+## License and source rights
 
-## Contributing information
+Original project code, documentation, tests, translations and artwork are available under the [MIT License](LICENSE), copyright 2026 MikelCalvo.
 
-Prefer primary manufacturer sources. Include the exact model or machine-type qualifier and the source URL. Keep grouped source identities intact unless a reliable source establishes the individual variant. Never assign a package to a model merely because they share a family name.
+The catalogue publishes factual metadata and source links. It does not mirror manufacturer PDFs, driver binaries, original README bodies or captured websites, and it contains no personal inventory or local-device records. The project license does not grant rights to third-party documents, software, websites or trademarks. Public availability and content hashes are not redistribution permission.
 
-For new translations, add a complete locale JSON with the same keyset as the existing languages. Original product titles and operating-system identifiers retain their source designation; project interface text and warnings should be translated. Do not modify or redistribute a manufacturer document as a translation of this project.
-
-## Before installing historical software
-
-Read the exact package README. Check machine type/model (MTM), variant, operating system, architecture, device and dependencies. Shared driver listings may contain entries for additional models. BIOS, embedded-controller, recovery and destructive utilities are separate deliberate operations, not routine driver updates.
-
-This website does not run downloads, automate installation or certify compatibility. Documentation review and content hashes are not hardware tests. Modern-browser checks do not establish support for every historical browser.
-
-## Release acceptance
-
-Run the complete tests, verify generated internal links, inspect both languages and narrow layouts in a real browser, review provenance and the public file allowlist, then freeze an accepted source version. Public repository creation, push and release publication occur only after the owner has selected the target and reviewed the candidate. See docs/release-checklist.md.
+See [sources, attribution and publication boundary](docs/sources-and-rights.md) for the full distinction. ThinkPad, IBM, Lenovo and other product names belong to their respective owners.

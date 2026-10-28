@@ -1,4 +1,4 @@
-/* Optional presentation only: no network, cookies or persistent preferences. */
+/* Optional category presentation: no network or persistent state. */
 (function () {
   "use strict";
   var jumps = document.querySelectorAll("[data-category-target]");

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="header-title header-description">
+  <title id="header-title">ThinkPad Archive</title>
+  <desc id="header-description">An independent community catalogue for ThinkPad manuals, driver metadata and source references. Original typography on warm paper, with a red dot on the i in ThinkPad.</desc>
+  <defs>
+    <linearGradient id="i-dot" x1="0" y1="114" x2="0" y2="187" gradientUnits="userSpaceOnUse">
+      <stop offset="24%" stop-color="#d42d35"/>
+      <stop offset="24%" stop-color="#201f1d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="320" rx="12" fill="#f4f0e6"/>
+  <g aria-hidden="true">
+    <path d="M64 64h36" stroke="#d42d35" stroke-width="3"/>
+    <text x="116" y="69" fill="#625e57" font-family="'DejaVu Sans Mono', 'Liberation Mono', monospace" font-size="14" letter-spacing="1.8">INDEPENDENT COMMUNITY CATALOGUE</text>
+    <text x="60" y="187" fill="#201f1d" font-family="'DejaVu Sans', 'Liberation Sans', Arial, sans-serif" font-size="96" font-weight="700" letter-spacing="-3">Th<tspan fill="url(#i-dot)">i</tspan>nkPad Archive</text>
+    <path d="M64 225h1072" stroke="#cbc5ba"/>
+    <text x="64" y="267" fill="#625e57" font-family="'DejaVu Sans Mono', 'Liberation Mono', monospace" font-size="16" letter-spacing="1.4">MANUALS / DRIVER METADATA / SOURCE REFERENCES</text>
+  </g>
+</svg>

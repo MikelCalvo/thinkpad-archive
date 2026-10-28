@@ -55,6 +55,25 @@ class Presentation(unittest.TestCase):
             self.assertNotIn('Los primeros equipos tienen prioridad', text)
         self.assertIn('class="archive-title"', self.text('index.html'))
 
+    def test_title_leads_directly_to_timeline_without_stats_or_numbered_headings(self):
+        for lang in ('en', 'es'):
+            text = self.text(lang + '/index.html')
+            self.assertNotIn('class="stats"', text)
+            self.assertNotIn('class="section-number"', text)
+            self.assertNotIn('class="section-heading"', text)
+            self.assertNotIn('id="catalogue-heading"', text)
+            self.assertNotIn('id="manuals-heading"', text)
+            self.assertNotIn('id="utilities-heading"', text)
+            self.assertIn('</h1></section><section aria-label=', text)
+            self.assertIn('<h2 id="selected-year">', text)
+            self.assertIn('<details class="reference-library"', text)
+            self.assertEqual(text.count('<article class="document">'), 1)
+            self.assertEqual(text.count('<article class="utility">'), 2)
+        css = (self.output/'assets/style.css').read_text()
+        hero = css.split('.hero{', 1)[1].split('}', 1)[0]
+        self.assertNotIn('border-bottom:', hero)
+        self.assertIn('padding-bottom:0', hero)
+
     def test_general_notice_is_absent_but_firmware_warning_remains(self):
         for path in self.output.rglob('*.html'):
             text = path.read_text()

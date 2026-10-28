@@ -30,7 +30,7 @@ class Topbar(unittest.TestCase):
         import thinkpad_archive
         self.output = thinkpad_archive.build_site(self.base / 'site', data_dir=self.base / 'data')
 
-    def test_header_has_single_row_languages_first_without_small_brand(self):
+    def test_header_keeps_languages_before_navigation_without_small_brand(self):
         for relative in ['index.html', 'en/index.html', 'es/index.html', 'en/models/700c.html', 'es/sources.html']:
             text = (self.output / relative).read_text()
             header = text.split('<header', 1)[1].split('</header>', 1)[0]
@@ -50,7 +50,7 @@ class Topbar(unittest.TestCase):
             self.assertNotIn('Las cifras describen entradas de metadatos de las fuentes', text)
             self.assertNotIn('Driver counts describe', text)
         home = (self.output / 'index.html').read_text()
-        self.assertIn('Driver metadata entries</dt><dd>4</dd>', home)
+        self.assertNotIn('class="stats"', home)
         self.assertNotIn('dismissible-notice', home)
 
     def test_catalogue_has_no_search_help_paragraph_and_keeps_controls(self):
@@ -61,7 +61,7 @@ class Topbar(unittest.TestCase):
             self.assertIn('<form id="filters"', text)
             self.assertIn('id="model-search"', text)
             self.assertIn('id="model-rows"', text)
-            self.assertIn('id="catalogue-heading"', text)
+            self.assertIn('aria-labelledby="selected-year"', text)
 
     def test_title_preserves_normal_i_for_copy_search_and_without_css(self):
         for relative in ('index.html', 'en/index.html', 'es/index.html'):

@@ -101,5 +101,14 @@
   "category_bios": "BIOS y UEFI",
   "category_other": "Otras categorías de la fuente",
   "thinkwiki_search": "Buscar en ThinkWiki",
-  "thinkwiki_missing": "Sin entrada específica verificada."
+  "thinkwiki_missing": "Sin entrada específica verificada.",
+  "theme_light": "Cambiar al tema claro",
+  "theme_dark": "Cambiar al tema oscuro",
+  "github_repository": "Ver el proyecto en GitHub (se abre en otra pestaña)",
+  "timeline": "Explora la línea temporal",
+  "choose_year": "Desliza hasta un año",
+  "unknown_year": "Sin fecha confirmada",
+  "all_years": "TODOS",
+  "introduced_in": "Presentados en",
+  "reference_library": "Biblioteca de documentos y utilidades"
 }

@@ -145,9 +145,9 @@ class BuildTests(unittest.TestCase):
         self.assertIn('type="search"', self.text())
         self.assertIn('aria-live="polite"', self.text())
         self.assertIn('id="filters" class="filters" hidden', self.text())
-        self.assertIn('Driver metadata entries</dt><dd>4</dd>', self.text())
-        self.assertIn('Manual references</dt><dd>1</dd>', self.text())
-        self.assertIn('Model entries</dt><dd>3</dd>', self.text())
+        self.assertNotIn('class="stats"', self.text())
+        self.assertNotIn('Manual references</dt><dd>1</dd>', self.text())
+        self.assertNotIn('Model entries</dt><dd>3</dd>', self.text())
         self.assertIn("PC Doctor", self.text())
         self.assertIn("700 C", self.text("en/models/700c.html"))
 

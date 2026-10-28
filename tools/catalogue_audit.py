@@ -186,8 +186,40 @@ def _rows(data, key, fields):
         raise ValueError("metadata collection must be an array")
     seen = set()
     for row in rows:
+        optional = ""
+        if key == "models" and isinstance(row, dict):
+            optional = ''.join(' ' + field for field in ('thinkwiki', 'introduced', 'introduced_unknown') if field in row)
+        _fields(row, fields + optional)
+        if key == "models" and isinstance(row, dict) and "introduced_unknown" in row:
+            variants = row["introduced_unknown"]
+            if not isinstance(variants, list):
+                raise ValueError("invalid undated variants")
+            for variant in variants:
+                _text(variant)
+            if len(set(variants)) != len(variants):
+                raise ValueError("repeated undated variants")
+        if key == "models" and isinstance(row, dict) and "introduced" in row:
+            introductions = row["introduced"]
+            if not isinstance(introductions, list):
+                raise ValueError("invalid introduction references")
+            seen_dates = set()
+            for introduction in introductions:
+                _fields(introduction, "year variants url")
+                if type(introduction["year"]) is not int or not 1992 <= introduction["year"] <= 2100:
+                    raise ValueError("invalid introduction year")
+                variants = introduction["variants"]
+                if not isinstance(variants, list) or not variants:
+                    raise ValueError("introduction needs explicit variants")
+                for variant in variants:
+                    _text(variant)
+                if len(set(variants)) != len(variants):
+                    raise ValueError("repeated introduction variants")
+                _url(introduction["url"])
+                identity = (introduction["year"], introduction["url"])
+                if identity in seen_dates:
+                    raise ValueError("repeated introduction reference")
+                seen_dates.add(identity)
         if key == "models" and isinstance(row, dict) and "thinkwiki" in row:
-            _fields(row, fields + " thinkwiki")
             references = row["thinkwiki"]
             if not isinstance(references, list):
                 raise ValueError("invalid ThinkWiki references")
@@ -200,8 +232,6 @@ def _rows(data, key, fields):
                     raise ValueError("invalid ThinkWiki category URL")
             if len(references) != len({r["url"] for r in references}):
                 raise ValueError("repeated ThinkWiki references")
-        else:
-            _fields(row, fields)
         identifier = row["id"]
         if not isinstance(identifier, str) or not ID.fullmatch(identifier) or identifier in seen:
             raise ValueError("invalid or duplicate identifier")

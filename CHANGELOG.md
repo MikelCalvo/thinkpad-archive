@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.0
+
+- Public HTTP-origin container deployment for Coolify, with HTTPS and certificates managed by the external reverse proxy.
+- GitHub repository shortcut and a moon/sun theme toggle at the right of the navigation; language links remain on the left.
+- Local dark/light preference, an initial system-theme default and a readable system-theme fallback without JavaScript.
+- External references, including PDF links, open in a new tab with opener and referrer isolation. Internal navigation stays in the current tab.
+- Timeline navigation with ALL first at the left, followed by the calendar years. Search and family/availability filters appear only under ALL; choosing a year clears them and shows only that year's list. A native slider and static HTML links cover both modes. The full reference library is collapsed by default instead of extending the landing page.
+- Minimal landing layout: project title directly followed by the timeline, without summary counters, numbered section headings or the hero divider.
+- Kept the range slider while hiding the duplicate year-rail scrollbar; undated entries remain under ALL without an extra timeline option.
+- Source-linked introduction years span 1992–2024 across 237 dated entries. Thirteen entries remain wholly undated and one grouped entry retains an undated variant. Package dates are never used as model launch dates.
+- Removed the decorative red strip from the top edge of the page; dark-theme accents remain red rather than pink.
+- Refreshed README with an original red-dot wordmark header and an MIT license for original project material. Third-party source and trademark rights remain separate.
+
 ## 0.2.0
 
 ### Added
