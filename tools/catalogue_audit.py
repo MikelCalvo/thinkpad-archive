@@ -204,7 +204,19 @@ def _rows(data, key, fields):
                 raise ValueError("invalid introduction references")
             seen_dates = set()
             for introduction in introductions:
-                _fields(introduction, "year variants url")
+                _fields(introduction, "year variants url" + (" evidence" if isinstance(introduction, dict) and "evidence" in introduction else ""))
+                if "evidence" in introduction:
+                    evidence = introduction["evidence"]
+                    _fields(evidence, "kind note")
+                    if evidence["kind"] not in ("commercial_listing", "regional_availability", "regional_sku_launch"):
+                        raise ValueError("invalid introduction evidence kind")
+                    notes = evidence["note"]
+                    if not isinstance(notes, dict) or not {"en", "es"} <= set(notes):
+                        raise ValueError("introduction evidence requires English and Spanish notes")
+                    for code, note in notes.items():
+                        if not isinstance(code, str) or not re.fullmatch(r"[a-z]{2,3}(?:-[a-z0-9]{2,8})*", code):
+                            raise ValueError("invalid evidence note language")
+                        _text(note)
                 if type(introduction["year"]) is not int or not 1992 <= introduction["year"] <= 2100:
                     raise ValueError("invalid introduction year")
                 variants = introduction["variants"]

@@ -230,7 +230,13 @@ class Renderer:
         introductions = model.get('introduced', [])
         if introductions:
             dates = ' <span aria-hidden="true">·</span> '.join(self.remote(row['url'], str(row['year']) + ' · ' + ', '.join(row['variants'])) for row in introductions)
-            body += '<p class="introduction-references"><span class="small">' + e(t['introduced_in']) + ': </span>' + dates + '</p>'
+            label = t['documented_years'] if any('evidence' in row for row in introductions) else t['introduced_in']
+            body += '<p class="introduction-references"><span class="small">' + e(label) + ': </span>' + dates + '</p>'
+            for row in introductions:
+                if 'evidence' in row:
+                    evidence = row['evidence']
+                    note = evidence['note'].get(lang, evidence['note']['en'])
+                    body += '<p class="date-evidence small"><strong>' + e(str(row['year']) + ' · ' + t['evidence_' + evidence['kind']]) + ': </strong>' + e(note) + '</p>'
         else:
             body += '<p class="small">' + e(t['unknown_year']) + '</p>'
         unknown_variants = model.get('introduced_unknown', [])

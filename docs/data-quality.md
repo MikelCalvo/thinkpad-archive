@@ -1,6 +1,6 @@
 # Data quality and source errata
 
-Introduction years are source-backed navigation metadata, not hardware compatibility claims. The catalogue distinguishes an exact product launch, an explicitly dated SKU announcement, and a community history assertion. An earliest published PSREF SKU date documents that platform in that year; it does not certify the first worldwide sale. Where a manufacturer's dated announcement is available, it takes priority. Manual copyright, a driver release, a product-name resemblance and a declaration's issue date are not launch evidence.
+Introduction years are source-backed navigation metadata, not hardware compatibility claims. Version 0.3.2 additionally accepts explicitly qualified dated commercial listings and regional availability records; these do not certify first launch. Their evidence kind and localized limitations are visible on each affected model page. The catalogue distinguishes an exact product launch, an explicitly dated SKU announcement, and a community history assertion. An earliest published PSREF SKU date documents that platform in that year; it does not certify the first worldwide sale. Where a manufacturer's dated announcement is available, it takes priority. Manual copyright, a driver release, a product-name resemblance and a declaration's issue date are not launch evidence.
 
 ## Historical selector corrections
 
@@ -34,10 +34,11 @@ The declarations establish names and machine types only; their publication dates
 
 ## Remaining exact-variant gaps
 
-These entries or grouped members remain undated rather than borrowing a generic family year:
+Unresolved launch dates and qualified documentary years are kept distinct rather than borrowing a generic family year:
 
-- A22m type 2633, Edge E31, X200si and X230i Tablet.
-- R52 special-bid types 1850, 1870, 1862 and 1863. Types 1846/1847/1848/1849 and 1858/1859/1860/1861/1958 independently have dated 2005 PSREF rows; that does not date the special-bid types.
+- A22m type 2633 remains wholly undated.
+- Edge E31, X200si and X230i Tablet now have qualified exact-SKU regional dates, while their earliest worldwide launches remain unconfirmed.
+- R52 special-bid types 1850, 1870, 1862 and 1863 now have a March 2005 exact-type commercial brochure citation, explicitly not a proved first sale. The ordinary types retain their independent dated PSREF rows. See the [0.3.2 backfill and its source limits](year-backfill-0.3.2.md).
 - The selector string 750CSE is attested, but a distinct launch was not established. It remains explicitly unverified; it is not silently replaced with 750C, 750CE or 755CSE.
 - 1400 type 2651 is an unverified member implied by a compound selector, not a confirmed product. The documented 1400/2621 and 1500/2621 dates are 1999; 1500/2651 is 2000.
 

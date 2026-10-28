@@ -148,6 +148,42 @@
       "title": "ThinkPad Edge E50 commercial-name declaration",
       "url": "https://p4-ofp.static.pub/ShareResource/compliance/eco-declaration/pdfs/Batch5/ThinkPad-Edge-15-E50-TED.pdf",
       "kind": "official"
+    },
+    {
+      "id": "ibm-r52-march-2005-mirror",
+      "title": "IBM ThinkPad R52 commercial brochure, March 2005, p. 3 (third-party mirror)",
+      "url": "https://www.scribd.com/document/291939136/IBMR52?page=3",
+      "kind": "community"
+    },
+    {
+      "id": "sina-e31-025027c",
+      "title": "Sina ThinkPad E31 025027C: explicit February 2011 market-introduction field",
+      "url": "https://tech.sina.com.cn/notebook/submodels/2011-02-28/29/12274.html",
+      "kind": "community"
+    },
+    {
+      "id": "lenovo-e31-identity",
+      "title": "Lenovo Edge E31 machine-type identity crosswalk (not a launch date)",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/84h101ww.txt",
+      "kind": "official"
+    },
+    {
+      "id": "tweakers-x200si-ns2fvmh",
+      "title": "Tweakers X200si NS2FVMH: Dutch availability listing from 28 April 2010",
+      "url": "https://tweakers.net/pricewatch/256747/lenovo-thinkpad-x200si-ns2fvmh.html#detail-view:specifications",
+      "kind": "community"
+    },
+    {
+      "id": "campus-x230i-tablet-3438ak8",
+      "title": "German campus dealer: July 2012 delivery forecast for 3438-AK8",
+      "url": "https://thinkpad-forum.de/threads/update-lenovo-campus-x230-x230-bundel-x230-tablet.139673/page-2#post-1401009",
+      "kind": "community"
+    },
+    {
+      "id": "owner-x230i-tablet-3438ak8",
+      "title": "Contemporary X230i Tablet 3438-AK8 owner receipt and naming crosswalk, 29 July 2012",
+      "url": "https://thinkpad-forum.de/threads/review-x230i-tablet.142472/#post-1416798",
+      "kind": "community"
     }
   ],
   "models": [
@@ -6853,7 +6889,9 @@
       "family": "edge",
       "era": "lenovo",
       "sources": [
-        "lenovo-eol-selector"
+        "lenovo-eol-selector",
+        "sina-e31-025027c",
+        "lenovo-e31-identity"
       ],
       "matrix_url": "https://download.lenovo.com/lenovo/content/ddfm/Edge-E31.html",
       "document_ids": [
@@ -6861,7 +6899,22 @@
       ],
       "driver_ids": [],
       "thinkwiki": [],
-      "introduced": []
+      "introduced": [
+        {
+          "year": 2011,
+          "variants": [
+            "ThinkPad E31 (025027C, China)"
+          ],
+          "url": "https://tech.sina.com.cn/notebook/submodels/2011-02-28/29/12274.html",
+          "evidence": {
+            "kind": "regional_sku_launch",
+            "note": {
+              "en": "Sina explicitly gives February 2011 as the market-introduction month for Chinese SKU 025027C. This dates that regional configuration, not the first E31 worldwide: Lenovo already names E31 in a September 2010 driver document, which is not used as a laptop launch date.",
+              "es": "Sina indica febrero de 2011 como mes de salida al mercado de la configuración china 025027C. Fecha esa configuración regional, no el primer E31 mundial: Lenovo ya nombra E31 en un controlador de septiembre de 2010, cuya fecha no se usa como lanzamiento del portátil."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "edge-e40",
@@ -10101,7 +10154,8 @@
       "family": "r",
       "era": "classic",
       "sources": [
-        "lenovo-eol-selector"
+        "lenovo-eol-selector",
+        "ibm-r52-march-2005-mirror"
       ],
       "matrix_url": "https://download.lenovo.com/lenovo/content/ddfm/R52-1846.html",
       "document_ids": [
@@ -10329,12 +10383,24 @@
             "ThinkPad R52 (Type 1849)"
           ],
           "url": "https://psrefstuff.lenovo.com/syspool/Sys/PDF/withdrawnbook/ltwbook_2013.pdf#page=41"
+        },
+        {
+          "year": 2005,
+          "variants": [
+            "ThinkPad R52 (Type 1850)",
+            "ThinkPad R52 (Type 1870)"
+          ],
+          "url": "https://www.scribd.com/document/291939136/IBMR52?page=3",
+          "evidence": {
+            "kind": "commercial_listing",
+            "note": {
+              "en": "IBM sales brochure TPD00885-USEN-00, March 2005, page 3, explicitly lists these machine types. This is a dated commercial listing, not a confirmed first-announcement or first-sale date; the document is on a third-party mirror.",
+              "es": "El folleto comercial de IBM TPD00885-USEN-00, de marzo de 2005, página 3, enumera estos tipos exactos. Es un catálogo comercial fechado, no una confirmación del primer anuncio o venta; el documento está en un repositorio de terceros."
+            }
+          }
         }
       ],
-      "introduced_unknown": [
-        "ThinkPad R52 (Type 1850)",
-        "ThinkPad R52 (Type 1870)"
-      ]
+      "introduced_unknown": []
     },
     {
       "id": "r52-1858",
@@ -10343,7 +10409,8 @@
       "family": "r",
       "era": "classic",
       "sources": [
-        "lenovo-eol-selector"
+        "lenovo-eol-selector",
+        "ibm-r52-march-2005-mirror"
       ],
       "matrix_url": "https://download.lenovo.com/lenovo/content/ddfm/R52-1858.html",
       "document_ids": [
@@ -10578,12 +10645,24 @@
             "ThinkPad R52 (Type 1958)"
           ],
           "url": "https://psrefstuff.lenovo.com/syspool/Sys/PDF/withdrawnbook/ltwbook_2013.pdf#page=54"
+        },
+        {
+          "year": 2005,
+          "variants": [
+            "ThinkPad R52 (Type 1862)",
+            "ThinkPad R52 (Type 1863)"
+          ],
+          "url": "https://www.scribd.com/document/291939136/IBMR52?page=3",
+          "evidence": {
+            "kind": "commercial_listing",
+            "note": {
+              "en": "IBM sales brochure TPD00885-USEN-00, March 2005, page 3, explicitly lists these machine types. This is a dated commercial listing, not a confirmed first-announcement or first-sale date; the document is on a third-party mirror.",
+              "es": "El folleto comercial de IBM TPD00885-USEN-00, de marzo de 2005, página 3, enumera estos tipos exactos. Es un catálogo comercial fechado, no una confirmación del primer anuncio o venta; el documento está en un repositorio de terceros."
+            }
+          }
         }
       ],
-      "introduced_unknown": [
-        "ThinkPad R52 (Type 1862)",
-        "ThinkPad R52 (Type 1863)"
-      ]
+      "introduced_unknown": []
     },
     {
       "id": "r60",
@@ -17449,7 +17528,8 @@
       "era": "lenovo",
       "sources": [
         "lenovo-eol-selector",
-        "source-manual-x200-x200s-x200si-x201-x201i-x201s-hmm-en-43y6632-11"
+        "source-manual-x200-x200s-x200si-x201-x201i-x201s-hmm-en-43y6632-11",
+        "tweakers-x200si-ns2fvmh"
       ],
       "matrix_url": "https://download.lenovo.com/lenovo/content/ddfm/X200si.html",
       "document_ids": [
@@ -17493,7 +17573,22 @@
         "driver-f912c44002e92a0319682c48"
       ],
       "thinkwiki": [],
-      "introduced": []
+      "introduced": [
+        {
+          "year": 2010,
+          "variants": [
+            "ThinkPad X200si (NS2FVMH, Netherlands)"
+          ],
+          "url": "https://tweakers.net/pricewatch/256747/lenovo-thinkpad-x200si-ns2fvmh.html#detail-view:specifications",
+          "evidence": {
+            "kind": "regional_availability",
+            "note": {
+              "en": "Tweakers lists exact X200si SKU NS2FVMH as available since 28 April 2010. This is the Dutch price-comparison listing date, not a confirmed worldwide first launch; the uncorroborated 2009 claim on a repair site is not adopted.",
+              "es": "Tweakers registra la configuración exacta X200si NS2FVMH como disponible desde el 28 de abril de 2010. Es la fecha de disponibilidad registrada por el comparador neerlandés, no el primer lanzamiento mundial confirmado; no se adopta la afirmación de 2009 de una web de reparaciones sin corroboración."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "x201",
@@ -19567,7 +19662,9 @@
       "era": "lenovo",
       "sources": [
         "lenovo-power-model-list",
-        "source-manual-x230tablet-x230itablet-hmm-en-0b48730-01"
+        "source-manual-x230tablet-x230itablet-hmm-en-0b48730-01",
+        "campus-x230i-tablet-3438ak8",
+        "owner-x230i-tablet-3438ak8"
       ],
       "matrix_url": null,
       "document_ids": [
@@ -19582,7 +19679,22 @@
           "url": "https://www.thinkwiki.org/wiki/Category:X230i_Tablet"
         }
       ],
-      "introduced": []
+      "introduced": [
+        {
+          "year": 2012,
+          "variants": [
+            "ThinkPad X230i Tablet (3438-AK8, Germany)"
+          ],
+          "url": "https://thinkpad-forum.de/threads/update-lenovo-campus-x230-x230-bundel-x230-tablet.139673/page-2#post-1401009",
+          "evidence": {
+            "kind": "regional_availability",
+            "note": {
+              "en": "A German campus dealer forecast delivery of exact SKU 3438-AK8 for 9 July 2012; an owner documents receipt as X230i Tablet on 29 July 2012. This supports 2012 regional availability, not a precise global launch day. Current Lenovo lookup normalizes this SKU to X230 Tablet; the contemporary owner explicitly flags that naming discrepancy.",
+              "es": "Un distribuidor alemán del programa campus previó la entrega de la configuración exacta 3438-AK8 para el 9 de julio de 2012; un propietario documenta su recepción como X230i Tablet el 29 de julio de 2012. Acredita disponibilidad regional en 2012, no un día de lanzamiento mundial. La consulta actual de Lenovo denomina esta configuración X230 Tablet; el propietario ya advertía esa discrepancia."
+            }
+          }
+        }
+      ]
     },
     {
       "id": "x230s",

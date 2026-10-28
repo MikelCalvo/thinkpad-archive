@@ -318,7 +318,7 @@ class LiveCatalogueTests(unittest.TestCase):
         payloads = {name: json.loads((ROOT / "data" / (name + ".json")).read_text(encoding="utf-8")) for name in ("models", "documents", "utilities", "drivers")}
         self.assertEqual(len(payloads["models"]["models"]), 666)
         self.assertEqual(len(payloads["documents"]["documents"]), 489)
-        self.assertEqual(len(payloads["models"]["sources"]), 24)
+        self.assertEqual(len(payloads["models"]["sources"]), 30)
         models = {row["name"]: row for row in payloads["models"]["models"]}
         self.assertEqual(len(models), len(payloads['models']['models']))
         for name in ("ThinkPad 300C", "ThinkPad 750CE", "ThinkPad X201i Tablet", "ThinkPad X201si", "ThinkPad X230s"):

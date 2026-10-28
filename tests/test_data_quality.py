@@ -12,16 +12,18 @@ def models_by_id():
 
 
 class DataQuality(unittest.TestCase):
-    def test_backfilled_types_keep_unsupported_members_explicitly_unknown(self):
+    def test_backfilled_types_keep_commercial_evidence_separate_from_launches(self):
         models = models_by_id()
         for identity in ('r52-1846', 'r52-1858'):
             with self.subTest(identity=identity):
                 self.assertTrue(models[identity]['introduced'])
-                self.assertTrue(models[identity]['introduced_unknown'])
+                self.assertFalse(models[identity]['introduced_unknown'])
                 self.assertTrue(all(i['year'] == 2005 for i in models[identity]['introduced']))
                 self.assertTrue(all('Type ' in v for i in models[identity]['introduced'] for v in i['variants']))
-        self.assertEqual(models['r52-1846']['introduced_unknown'], ['ThinkPad R52 (Type 1850)', 'ThinkPad R52 (Type 1870)'])
-        self.assertEqual(models['r52-1858']['introduced_unknown'], ['ThinkPad R52 (Type 1862)', 'ThinkPad R52 (Type 1863)'])
+        for identity in ('r52-1846', 'r52-1858'):
+            commercial = [r for r in models[identity]['introduced'] if 'evidence' in r]
+            self.assertEqual(len(commercial), 1)
+            self.assertEqual(commercial[0]['evidence']['kind'], 'commercial_listing')
         self.assertEqual(models['a21e-2632']['name'], 'ThinkPad i Series 1800 (Type 2632)')
         self.assertEqual(models['a21e-2632']['introduced'][0]['year'], 2000)
         self.assertEqual(models['a22m-2629']['name'], 'ThinkPad A22m (Type 2633)')
@@ -39,8 +41,10 @@ class DataQuality(unittest.TestCase):
         for identity in ('edge-e10', 'edge-e30', 'edge-e40', 'edge-e50'):
             with self.subTest(identity=identity):
                 self.assertEqual([i['year'] for i in models[identity]['introduced']], [2010])
-        for identity in ('edge-e31', 'x200si', 'x230i-tablet'):
-            self.assertEqual(models[identity]['introduced'], [], identity)
+        for identity, year in [('edge-e31', 2011), ('x200si', 2010), ('x230i-tablet', 2012)]:
+            row = models[identity]['introduced'][0]
+            self.assertEqual(row['year'], year)
+            self.assertTrue(row['evidence']['kind'].startswith('regional_'))
 
     def test_source_grounded_expansion_keeps_variant_identity_and_references(self):
         models = models_by_id()

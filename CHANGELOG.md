@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.2
+
+- Researched the eight previously unresolved entries/groups and added seven exact variant years across five catalogue records: R52 types 1850/1870/1862/1863 (2005), Edge E31 Chinese SKU 025027C (2011), X200si Dutch SKU NS2FVMH (2010), and X230i Tablet German campus SKU 3438-AK8 (2012).
+- Added optional typed date evidence with localized scope notes. Model pages distinguish a dated commercial listing, a regional SKU introduction and regional availability from a confirmed first launch; these years remain useful timeline navigation metadata.
+- The catalogue remains at 666 entries and 489 document references; 665 entries now have at least one documented year. A22m type 2633 remains undated, and 750CSE/1400 type 2651 remain unverified selector members. No dates are inferred from driver releases or manual copyright.
+- Preserved all document/driver metadata and model associations. Added source-linked research notes and regressions for the qualified date schema, safe rendering and exact-type backfill. See [the detailed evidence review](docs/year-backfill-0.3.2.md).
+
 ## 0.3.1
 
 - Audited the complete previous 250-entry snapshot and compared every dated ThinkWiki History token plus the captured current/withdrawn PSREF laptop, tablet and mobile-workstation index.

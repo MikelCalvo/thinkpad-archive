@@ -11,7 +11,7 @@ from urllib.parse import urlsplit
 
 ID = re.compile(r"[a-z0-9][a-z0-9-]*\Z", re.ASCII)
 LANG = re.compile(r"[a-z]{2,3}(?:-[a-z0-9]{2,8})*\Z", re.ASCII)
-LOCALE_KEYS = frozenset("language_name site_name catalogue sources skip language browse_categories category_audio category_graphics category_network category_bluetooth category_chipset category_power category_input category_storage category_optical category_usb category_security category_camera category_expansion category_updates category_utilities category_recovery category_diagnostics category_bios category_other scope_heading model_count driver_count manual_count browse_heading search search_hint family all_families all_entries driver_availability manual_availability with_drivers without_drivers with_manuals without_manuals model aliases era source_listing source_unavailable matching reset empty_results manuals no_manuals official community remote metadata_only document_note digest bytes not_recorded model_hint utilities utilities_note diagnostic_description reference_description sources_intro safety_heading safety_text source_kind matrix back_catalogue footer legacy_note era_early era_classic era_lenovo era_modern era_unknown drivers no_drivers firmware no_firmware firmware_warning firmware_warning_text category version operating_systems released download readme reference source_url evidence manufacturer_listing readme_model_list availability_note driver_note missing_download missing_readme no_package_links source_digest thinkwiki_search thinkwiki_missing theme_light theme_dark github_repository timeline choose_year unknown_year all_years introduced_in reference_library".split())
+LOCALE_KEYS = frozenset("language_name site_name catalogue sources skip language browse_categories category_audio category_graphics category_network category_bluetooth category_chipset category_power category_input category_storage category_optical category_usb category_security category_camera category_expansion category_updates category_utilities category_recovery category_diagnostics category_bios category_other scope_heading model_count driver_count manual_count browse_heading search search_hint family all_families all_entries driver_availability manual_availability with_drivers without_drivers with_manuals without_manuals model aliases era source_listing source_unavailable matching reset empty_results manuals no_manuals official community remote metadata_only document_note digest bytes not_recorded model_hint utilities utilities_note diagnostic_description reference_description sources_intro safety_heading safety_text source_kind matrix back_catalogue footer legacy_note era_early era_classic era_lenovo era_modern era_unknown drivers no_drivers firmware no_firmware firmware_warning firmware_warning_text category version operating_systems released download readme reference source_url evidence manufacturer_listing readme_model_list availability_note driver_note missing_download missing_readme no_package_links source_digest thinkwiki_search thinkwiki_missing theme_light theme_dark github_repository timeline choose_year unknown_year all_years introduced_in reference_library documented_years evidence_commercial_listing evidence_regional_availability evidence_regional_sku_launch".split())
 MAX_INPUT = 16 * 1024 * 1024
 
 
@@ -181,7 +181,12 @@ def load_catalogue(directory):
             require(type(model["introduced"]) is list, "Expected introduction references")
             seen_introductions = set()
             for introduction in model["introduced"]:
-                fields(introduction, "year variants url")
+                fields(introduction, "year variants url" + (" evidence" if type(introduction) is dict and "evidence" in introduction else ""))
+                if "evidence" in introduction:
+                    evidence = introduction["evidence"]
+                    fields(evidence, "kind note")
+                    require(evidence["kind"] in ("commercial_listing", "regional_availability", "regional_sku_launch"), "Invalid introduction evidence kind")
+                    localized_text(evidence["note"])
                 require(type(introduction["year"]) is int and 1992 <= introduction["year"] <= 2100, "Invalid introduction year")
                 string_list(introduction["variants"])
                 require(bool(introduction["variants"]), "Introduction needs explicit variants")

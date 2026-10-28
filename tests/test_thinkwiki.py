@@ -69,7 +69,10 @@ class ThinkWikiReferences(unittest.TestCase):
         self.assertEqual([u for u in Links(text).links if 'thinkwiki.org' in u], [r['url'] for r in model['thinkwiki']])
 
     def test_audit_accepts_explicit_reference_metadata(self):
-        import tools.catalogue_audit as audit
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('thinkwiki_audit', ROOT / 'tools/catalogue_audit.py')
+        audit = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(audit)
         data = fixtures.fixture_data()
         # Keep the audit's existing README/source identity invariant valid.
         tablet = data['drivers']['drivers'][2]

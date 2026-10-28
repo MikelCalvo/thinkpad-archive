@@ -110,5 +110,9 @@
   "unknown_year": "Sin fecha confirmada",
   "all_years": "TODOS",
   "introduced_in": "Presentados en",
+  "documented_years": "Años documentados",
+  "evidence_commercial_listing": "Catálogo comercial",
+  "evidence_regional_availability": "Disponibilidad regional",
+  "evidence_regional_sku_launch": "Presentación regional de una configuración",
   "reference_library": "Biblioteca de documentos y utilidades"
 }
