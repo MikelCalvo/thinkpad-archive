@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.3
+
+- Center the selected year within the horizontal timeline after a plain click or keyboard activation, revealing adjacent years for successive navigation. Animate clicks smoothly unless reduced motion is requested; clamp at either end and return to the left edge for ALL.
+- Keep scrolling confined to the year rail so selecting a year does not move the page vertically. Slider scrubbing remains immediate, and modified/middle clicks retain native link behavior.
+
 ## 0.3.2
 
 - Researched the eight previously unresolved entries/groups and added seven exact variant years across five catalogue records: R52 types 1850/1870/1862/1863 (2005), Edge E31 Chinese SKU 025027C (2011), X200si Dutch SKU NS2FVMH (2010), and X230i Tablet German campus SKU 3438-AK8 (2012).

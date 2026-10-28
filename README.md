@@ -4,7 +4,7 @@
 
 Find manuals, driver metadata and source references for documented ThinkPad models, with an emphasis on early machines. The site is available in English and Spanish. You can also build a local copy and browse it without a server.
 
-**v0.3.2 · public preview.** The catalogue and interface are still under development. Coverage is source-grounded, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
+**v0.3.3 · public preview.** The catalogue and interface are still under development. Coverage is source-grounded, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
 
 This is an independent community project, not affiliated with, endorsed by or an official publication of IBM or Lenovo.
 

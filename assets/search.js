@@ -62,7 +62,21 @@
       }
     }
   }
-  function choose(year, scroll) {
+  function centerYear(link, smooth) {
+    var rail = link.parentNode;
+    if (!rail || !rail.getBoundingClientRect || !link.getBoundingClientRect) { return; }
+    var railBox = rail.getBoundingClientRect();
+    var linkBox = link.getBoundingClientRect();
+    var left = rail.scrollLeft + linkBox.left - railBox.left - rail.clientLeft + linkBox.width / 2 - rail.clientWidth / 2;
+    left = Math.max(0, Math.min(left, rail.scrollWidth - rail.clientWidth));
+    var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (rail.scrollTo) {
+      rail.scrollTo({left:left, behavior:smooth && !reducedMotion ? "smooth" : "auto"});
+    } else {
+      rail.scrollLeft = left;
+    }
+  }
+  function choose(year, scroll, smooth) {
     selected = year;
     search.value = "";
     family.value = "";
@@ -72,7 +86,7 @@
     if (scroll) {
       for (var n = 0; n < links.length; n += 1) {
         if (links[n].getAttribute("data-year") === year) {
-          links[n].scrollIntoView({block:"nearest", inline:"center"});
+          centerYear(links[n], smooth);
         }
       }
     }
@@ -82,7 +96,7 @@
       link.addEventListener("click", function (event) {
         if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) { return; }
         event.preventDefault();
-        choose(link.getAttribute("data-year"), false);
+        choose(link.getAttribute("data-year"), true, true);
       });
     }(links[k]));
   }
