@@ -11,6 +11,7 @@
 !assets/
 !assets/*.css
 !assets/*.js
+!assets/favicon.svg
 !tests/
 !tests/*.py
 !tools/

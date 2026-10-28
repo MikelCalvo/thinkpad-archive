@@ -30,6 +30,18 @@ class DeploymentTests(unittest.TestCase):
         self.assertIn('http://127.0.0.1:8080/healthz', image)
         self.assertNotIn('--no-check-certificate', image)
 
+    def test_context_admits_local_svg_favicon_but_not_unlisted_payloads(self):
+        from fnmatch import fnmatchcase
+        lines = (ROOT / '.dockerignore').read_text().splitlines()
+        self.assertTrue((ROOT / 'assets/favicon.svg').is_file())
+        for path, allowed in (('assets/favicon.svg', True), ('assets/style.css', True),
+                              ('assets/language.js', True), ('assets/private.bin', False),
+                              ('build/public/index.html', False), ('.git/config', False)):
+            with self.subTest(path=path):
+                matches = [line for line in lines if fnmatchcase(path, line.lstrip('!'))]
+                self.assertTrue(matches)
+                self.assertEqual(matches[-1].startswith('!'), allowed)
+
     def test_context_excludes_all_unlisted_files(self):
         path = ROOT / '.dockerignore'
         self.assertTrue(path.is_file(), 'Build context must be an allowlist')

@@ -28,6 +28,8 @@ The 0.4.3 navigation uses catalogue/source links on the left and a native langua
 
 Only the neutral root entry follows a saved explicit language choice; without one, the ordinary build starts in English. A build made with `--default-language es` retains its Spanish no-preference fallback. Explicit language URLs are never redirected by that preference. Language switching preserves the model, selected year or sources page and current query/fragment. Storage refusal does not prevent navigation, and the native picker and links work without JavaScript. Theme persistence remains independent.
 
+The Sources/Fuentes page presents curated source families only when their recorded source identities are present. Manufacturer listings, README associations and installation compatibility remain distinct evidence levels. A compact visible installation/firmware caution precedes two native closed-by-default disclosures for all original identity/date references (grouped by official/community origin) and coverage/methodology. Model-specific document, package and specification citations remain on their original pages. Missing curated source families in custom input do not create invented links.
+
 ## Documents and utility references
 
 Document metadata contains a title, source URL, official/community classification, optional observed SHA-256 and size, and a factual model hint. A missing fingerprint means it has not been recorded; it is not an invitation to fabricate one. A hardware service manual and a product specification reference are different document types even when both mention a model.

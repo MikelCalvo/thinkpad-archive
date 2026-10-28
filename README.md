@@ -4,7 +4,7 @@
 
 Find manuals, driver metadata and source references for documented ThinkPad models, with an emphasis on early machines. The site is available in English and Spanish. You can also build a local copy and browse it without a server.
 
-**v0.4.2.** A focused catalogue landing page and a concise creator footer, with source-backed model profiles. The catalogue is still under development; coverage is documented, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
+**v0.4.3.** Compact navigation, remembered language choices, a red pointing-stick favicon and a clearer Sources page, with source-backed model profiles. The catalogue is still under development; coverage is documented, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
 
 This is an independent community project, not affiliated with, endorsed by or an official publication of IBM or Lenovo.
 
@@ -22,6 +22,8 @@ Model pages now include sourced EN/ES summaries, historical context and technica
 Model pages collect source-supported names and aliases, document links, driver/software listings and provenance. The landing page focuses on the catalogue, without a separate document/utility library. The shared footer contains the independent-community/non-affiliation statement and a creator link to Mikel Calvo. Start with ALL at the left of the timeline to search the complete catalogue and filter by family or available references. Swipe to a year or use the slider for a clean year-only list without search or filters. Entries with unconfirmed years stay in ALL, without a separate timeline option. Grouped variants may appear in more than one documented year. Package metadata includes advertised operating systems, versions and dates where the source provides them. ThinkWiki links are labelled as community references, with an explicit search fallback when no dedicated page has been verified.
 
 These counts describe catalogue records, not unique working downloads or hardware-tested packages. Manufacturer selectors can group variants, and a shared package can appear on several model routes. Missing information stays missing rather than being inferred from a similar model name. The source-backed timeline now reaches 2026. 665 entries have a documented year, including explicitly qualified regional availability and commercial-listing dates. A22m type 2633 remains undated; 750CSE and 1400/2651 remain unverified selector members. See the [0.3.2 historical backfill](docs/year-backfill-0.3.2.md) for the seven added variant years and their limits, alongside the [data-quality review and explicit selector errata](docs/data-quality.md) and the [catalogue schema and evidence levels](docs/catalogue.md).
+
+The Sources page groups IBM/Lenovo documentation, PSREF specifications and ThinkWiki community research into compact entry points. Short evidence definitions and an installation/firmware caution stay visible; the original reference list and coverage/methodology remain available in native disclosures. Source-specific qualifications stay on each model page.
 
 ### Before installing historical software
 

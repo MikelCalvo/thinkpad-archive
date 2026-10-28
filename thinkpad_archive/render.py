@@ -276,10 +276,52 @@ class Renderer:
     def source_page(self, current, lang):
         t = self.locales[lang]
         scope_lang = lang if lang in self.data["scope"] else "en"
-        body = '<section class="page-intro"><p class="eyebrow">' + e(t["site_name"]) + '</p><h1>' + e(t["sources"]) + '</h1><p class="lede">' + e(t["sources_intro"]) + '</p></section><section><h2>' + e(t["scope_heading"]) + '</h2><p lang="' + e(scope_lang) + '">' + e(self.data["scope"][scope_lang]) + '</p><ul class="source-list">'
-        for source in self.data["sources"]:
-            body += '<li>' + self.remote(source["url"], source["title"]) + '<p class="small">' + e(t["source_kind"]) + ': ' + e(t[source["kind"]]) + '</p></li>'
-        body += '</ul></section><section><h2>' + e(t["safety_heading"]) + '</h2><p>' + e(t["safety_text"]) + '</p></section>'
+        body = ('<div class="sources-page"><section class="sources-intro"><h1>' + e(t['sources']) + '</h1>'
+                '<p class="lede">' + e(t['sources_intro']) + '</p></section>')
+        # Curated entry points use recorded identities, never guessed source URLs.
+        families = (
+            ('manufacturer', 'IBM / Lenovo', 'sources_docs_text', 'official',
+             'M5 3h10l4 4v14H5ZM14 3v5h5M8 12h8M8 16h6',
+             (('lenovo-eol-manuals', 'sources_manual_link'), ('lenovo-eol-selector', 'sources_software_link'))),
+            ('specifications', 'PSREF', 'sources_specs_text', 'official',
+             'M4 5h16v14H4ZM4 10h16M10 10v9',
+             (('lenovo-psref', 'sources_psref_link'), ('psref-twbook', 'sources_books_link'))),
+            ('community', 'ThinkWiki', 'sources_wiki_text', 'community',
+             'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM3 12h18M12 3c-5 5-5 13 0 18M12 3c5 5 5 13 0 18',
+             (('thinkwiki-history', 'sources_wiki_link'),)),
+        )
+        cards = []
+        for key, title, description, kind, icon, entries in families:
+            links = [self.remote(self.sources[source_id]['url'], t[label]) for source_id, label in entries
+                     if source_id in self.sources and self.sources[source_id]['kind'] == kind]
+            if links:
+                cards.append('<article class="source-family" data-source-family="' + e(key) + '">'
+                             '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="' + e(icon) + '"/></svg>'
+                             '<h3>' + e(title) + '</h3><p>' + e(t[description]) + '</p>'
+                             '<div class="source-entry-links">' + ''.join(links) + '</div></article>')
+        if cards:
+            body += ('<section aria-labelledby="sources-primary"><h2 id="sources-primary">' + e(t['sources_primary']) + '</h2>'
+                     '<div class="source-families">' + ''.join(cards) + '</div></section>')
+        body += ('<section aria-labelledby="sources-evidence"><h2 id="sources-evidence">' + e(t['sources_evidence_heading']) + '</h2>'
+                 '<dl class="source-evidence">')
+        for key in ('listing', 'readme', 'compatibility'):
+            body += '<div><dt>' + e(t['sources_' + key]) + '</dt><dd>' + e(t['sources_' + key + '_text']) + '</dd></div>'
+        body += ('</dl></section><aside class="source-install" aria-labelledby="sources-install"><h2 id="sources-install">' + e(t['safety_heading']) + '</h2>'
+                 '<p>' + e(t['safety_text']) + '</p><p class="source-firmware"><strong>BIOS / firmware.</strong> ' + e(t['sources_firmware_text']) + '</p></aside>'
+                 '<div class="source-details"><details id="source-references"><summary>' + e(t['sources_reference_heading']) + '</summary>'
+                 '<div class="source-details-body"><p class="small">' + e(t['sources_reference_intro']) + '</p><div class="source-reference-groups">')
+        for kind, heading in (('official', 'sources_official_heading'), ('community', 'sources_community_heading')):
+            sources = [s for s in self.data['sources'] if s['kind'] == kind]
+            if sources:
+                body += '<div><h3>' + e(t[heading]) + '</h3><ul class="source-reference-list">'
+                for source in sources:
+                    body += '<li>' + self.remote(source['url'], source['title']) + '</li>'
+                body += '</ul></div>'
+        body += ('</div></div></details><details id="source-methodology"><summary>' + e(t['sources_method_heading']) + '</summary>'
+                 '<div class="source-details-body"><p lang="' + e(scope_lang) + '">' + e(self.data['scope'][scope_lang]) + '</p>')
+        for key in ('dates', 'files', 'operations'):
+            body += '<p>' + e(t['sources_method_' + key]) + '</p>'
+        body += '</div></details></div></div>'
         return self.page(current, lang, t["sources"], body, kind="sources")
 
     def render(self, default_language):
