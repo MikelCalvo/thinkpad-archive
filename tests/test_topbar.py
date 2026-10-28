@@ -30,7 +30,7 @@ class Topbar(unittest.TestCase):
         import thinkpad_archive
         self.output = thinkpad_archive.build_site(self.base / 'site', data_dir=self.base / 'data')
 
-    def test_header_keeps_languages_before_navigation_without_small_brand(self):
+    def test_header_keeps_navigation_before_language_picker(self):
         for relative in ['index.html', 'en/index.html', 'es/index.html', 'en/models/700c.html', 'es/sources.html']:
             text = (self.output / relative).read_text()
             header = text.split('<header', 1)[1].split('</header>', 1)[0]
@@ -39,7 +39,7 @@ class Topbar(unittest.TestCase):
             self.assertNotIn('FIELD REFERENCE', header)
             self.assertNotIn('REFERENCIA TÉCNICA', header)
             self.assertNotIn('trackpoint', header)
-            self.assertLess(header.index('class="language-nav"'), header.index('class="main-nav"'))
+            self.assertLess(header.index('class="main-nav"'), header.index('class="language-nav"'))
             self.assertIn('hreflang="en"', header)
             self.assertIn('hreflang="es"', header)
 

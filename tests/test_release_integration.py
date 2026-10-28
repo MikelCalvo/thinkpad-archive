@@ -40,7 +40,7 @@ class ReleaseIntegration(unittest.TestCase):
 
     def test_public_builder_renders_validated_profiles_and_accepted_design(self):
         output = build_site(self.root / 'site', data_dir=self.data, default_language='es')
-        self.assertIn('<html lang="es">', (output / 'index.html').read_text())
+        self.assertIn('<html lang="es" data-language-entry="true">', (output / 'index.html').read_text())
         for lang, summary in [('en', 'A source-backed synthetic notebook.'), ('es', 'Un portátil sintético con fuentes.')]:
             text = (output / lang / 'models/700c.html').read_text()
             self.assertIn(summary, text)

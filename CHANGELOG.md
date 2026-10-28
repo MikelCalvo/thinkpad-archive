@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased (0.4.3)
+
+- Add an original red pointing-stick SVG favicon to every page.
+- Place catalogue/source navigation on the left and a native globe language picker beside the theme and GitHub controls. Remember explicit language choices for the neutral entry while preserving explicit-language deep links and model/year/source context.
+- Replace the redundant subpage wordmark and back-to-catalogue arrow with a compact, localized home icon in the navigation row. Retain native no-script language links and tolerate unavailable browser storage.
+
 ## 0.4.2
 
 - Remove the document and utility library from the landing, all-model and year catalogue pages. Keep catalogue navigation, filtering and model-specific manual/software links unchanged.

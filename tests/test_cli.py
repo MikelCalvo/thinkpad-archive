@@ -39,7 +39,7 @@ class CliTests(unittest.TestCase):
                     args += ["--default-language", lang]
                 result = self.run_cli(*args)
                 self.assertEqual(result.returncode, 0, result.stderr)
-                self.assertIn('<html lang="' + (lang or "en") + '">', (output / "index.html").read_text())
+                self.assertIn('<html lang="' + (lang or "en") + '" data-language-entry="true">', (output / "index.html").read_text())
                 self.assertIn("Built", result.stdout)
                 self.assertNotIn(str(self.base), result.stdout + result.stderr)
                 self.assertFalse(any(output.rglob("volumes.html")))

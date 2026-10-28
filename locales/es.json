@@ -5,6 +5,8 @@
   "sources": "Fuentes y límites",
   "skip": "Saltar al contenido",
   "language": "Idioma",
+  "choose_language": "Elegir idioma",
+  "home_link": "Inicio",
   "scope_heading": "Alcance del catálogo",
   "model_count": "Entradas de modelos",
   "driver_count": "Entradas de metadatos de controladores",

@@ -48,7 +48,7 @@ To make Spanish the root language:
 python3 -m thinkpad_archive build --output build/spanish --default-language es
 ```
 
-Switching languages keeps the current model. Both builds contain metadata and links, not manufacturer documents or installer binaries. The moon/sun control remembers your theme in local browser storage; on a first visit it starts dark, independent of your system preference. A saved light or dark choice takes priority; without scripts the site also starts dark. GitHub and external references open in a new tab, while catalogue navigation stays in the current one.
+The navigation places catalogue/source links on the left and the globe language picker beside the theme and GitHub controls on the right. Subpages use a compact house icon to return home. The neutral entry starts in English by default and remembers an explicit language choice; direct English/Spanish links remain in their requested language. Switching languages keeps the current model, selected year or sources page. Both builds contain metadata and links, not manufacturer documents or installer binaries. The moon/sun control remembers your theme in local browser storage; on a first visit it starts dark, independent of your system preference. A saved light or dark choice takes priority; without scripts the site also starts dark. GitHub and external references open in a new tab, while catalogue navigation stays in the current one.
 
 ## Hosting
 

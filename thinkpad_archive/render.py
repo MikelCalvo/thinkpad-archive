@@ -69,32 +69,40 @@ class Renderer:
         for key, filename in (("catalogue", "index.html"), ("sources", "sources.html")):
             active = {"aria-current": "page"} if key == {"home": "catalogue", "year": "catalogue", "all": "catalogue", "sources": "sources"}.get(kind) else {}
             nav.append(self.link(current, lang + "/" + filename, t[key], **active))
-        languages = []
+        languages, alternates = [], []
         for code, translation in self.locales.items():
             target = self.year_target(code, selection) if kind in ("year", "all") else code + ("/models/" + model_id + ".html" if model_id else "/" + ("sources.html" if kind == "sources" else "index.html"))
             year_attrs = {'data-year-url':self.href(current, code + '/years/__year__.html'), 'data-all-url':self.href(current, code + '/catalogue.html')} if kind in ('home', 'year', 'all') else {}
-            languages.append(self.link(current, target, translation["language_name"], hreflang=code, lang=code, **year_attrs, **({"aria-current": "true"} if code == lang else {})))
+            languages.append(self.link(current, target, translation["language_name"], hreflang=code, lang=code, **{'data-language-choice': code}, **year_attrs, **({"aria-current": "true"} if code == lang else {})))
+            alternates.append('<link rel="alternate" hreflang="' + e(code) + '" href="' + e(self.href(current, target)) + '">\n')
+        language_picker = ('<details id="language-picker" class="language-picker"><summary class="icon-control" aria-label="' + e(t['choose_language']) + '" title="' + e(t['choose_language']) + '">'
+                           '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-5 5-5 13 0 18M12 3c5 5 5 13 0 18"/></svg>'
+                           '<span class="language-code" aria-hidden="true">' + e(lang.upper()) + '</span></summary>'
+                           '<nav class="language-nav" aria-label="' + e(t['language']) + '">' + ''.join(languages) + '</nav></details>')
+        home = '' if kind == 'home' else ('<a class="home-link" href="' + e(self.href(current, lang + '/index.html')) + '" aria-label="' + e(t['home_link']) + '" title="' + e(t['home_link']) + '">'
+                    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 10.5 12 3l9 7.5M5.5 9v11h5v-6h3v6h5V9"/></svg></a>')
         css = self.href(current, "assets/style.css")
         script = self.href(current, "assets/search.js")
-        tools = ('<div class="header-tools">'
+        tools = ('<div class="header-tools">' + language_picker +
                  '<button id="theme-toggle" class="icon-control" type="button" hidden aria-label="' + e(t["theme_dark"]) + '" data-light-label="' + e(t["theme_light"]) + '" data-dark-label="' + e(t["theme_dark"]) + '">'
                  '<svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 13.2A8.5 8.5 0 0 1 10.8 3.5a8.5 8.5 0 1 0 9.7 9.7Z"/></svg>'
                  '<svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>'
                  '<a class="github-link icon-control" href="https://github.com/MikelCalvo/thinkpad-archive" target="_blank" rel="noopener noreferrer" aria-label="' + e(t["github_repository"]) + '" title="' + e(t["github_repository"]) + '">'
                  # Simple Icons GitHub path (CC0); attribution in sources-and-rights.md.
                  '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></div>')
-        return ('<!DOCTYPE html>\n<html lang="' + e(lang) + '">\n<head>\n<meta charset="utf-8">\n'
+        return ('<!DOCTYPE html>\n<html lang="' + e(lang) + '"' + (' data-language-entry="true"' if current == 'index.html' else '') + '>\n<head>\n<meta charset="utf-8">\n'
                 '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-                '<meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; style-src &#39;self&#39;; script-src &#39;self&#39;; base-uri &#39;none&#39;; form-action &#39;none&#39;">\n'
+                '<meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; style-src &#39;self&#39;; img-src &#39;self&#39;; script-src &#39;self&#39;; base-uri &#39;none&#39;; form-action &#39;none&#39;">\n'
                 '<meta name="referrer" content="no-referrer">\n<title>' + e(title + " · " + t["site_name"]) + '</title>\n'
+                + ''.join(alternates) + '<script src="' + e(self.href(current, "assets/language.js")) + '"></script>\n'
                 '<script src="' + e(self.href(current, "assets/theme.js")) + '"></script>\n'
+                '<link rel="icon" type="image/svg+xml" href="' + e(self.href(current, 'favicon.svg')) + '">\n'
                 '<link rel="stylesheet" href="' + e(css) + '">\n'
                 + '<script src="' + e(self.href(current, "assets/ui.js")) + '" defer></script>\n'
                 + ('<script src="' + e(script) + '" defer></script>\n' if kind in ("home", "year", "all") else '') + '</head>\n<body>\n'
                 '<a class="skip-link" href="#main">' + e(t["skip"]) + '</a>\n'
                 '<header class="site-header"><div class="topbar">'
-                '<nav class="language-nav" aria-label="' + e(t["language"]) + '">' + ' '.join(languages) + '</nav>'
-                '<div class="topbar-right"><nav class="main-nav" aria-label="' + e(t["site_name"]) + '">' + ''.join(nav) + '</nav>' + tools + '</div></div></header>\n'
+                '<nav class="main-nav" aria-label="' + e(t["site_name"]) + '">' + home + ''.join(nav) + '</nav>' + tools + '</div></header>\n'
                 '<main id="main">' + body + '</main>\n<footer><p>' + e(t["footer"]) + '</p><p>' + e(t["created_by"]) + ' ' + self.remote('https://mikelcalvo.net/', 'Mikel Calvo') + '</p></footer>\n</body>\n</html>\n')
 
     def document(self, current, lang, doc):
@@ -220,7 +228,7 @@ class Renderer:
     def model(self, current, lang, model):
         t = self.locales[lang]
         items = [(t["aliases"], ' / '.join(model["aliases"]) or t["not_recorded"]), (t["era"], t["era_" + model["era"]])]
-        body = '<p class="breadcrumb">' + self.link(current, lang + "/index.html", t["back_catalogue"]) + '</p><section class="model-hero"><p class="eyebrow">' + e(t["family"]) + ' ' + e(model["family"].upper()) + '</p><h1>' + e(model["name"]) + '</h1><p>' + e(t["source_listing"]) + '</p>' + self.metadata(items) + self.thinkwiki(lang, model) + '</section>'
+        body = '<section class="model-hero"><p class="eyebrow">' + e(t["family"]) + ' ' + e(model["family"].upper()) + '</p><h1>' + e(model["name"]) + '</h1><p>' + e(t["source_listing"]) + '</p>' + self.metadata(items) + self.thinkwiki(lang, model) + '</section>'
         introductions = model.get('introduced', [])
         if introductions:
             dates = ' <span aria-hidden="true">·</span> '.join(self.remote(row['url'], str(row['year']) + ' · ' + ', '.join(row['variants'])) for row in introductions)

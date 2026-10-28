@@ -56,3 +56,23 @@
 .introduction-references{font-size:.85rem}
 @media(max-width:720px){.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}.stats dd{font-size:1.5rem}.stats dt{font-size:.65rem;line-height:1.35;max-width:none}.timeline-track a{min-width:66px;padding:.55rem .75rem}.timeline{margin-top:1rem}.hero{padding-bottom:0;margin-bottom:1rem}.archive-title{margin-bottom:1.25rem}}
 @media print{.timeline{display:none}}
+
+/* Navigation left, local language/theme controls right. */
+.topbar{gap:1rem;justify-content:space-between;flex-wrap:nowrap}
+.topbar>.main-nav{min-width:0;flex-wrap:nowrap}
+.topbar>.header-tools{margin-left:auto;flex-shrink:0}
+.main-nav a.home-link{flex:0 0 36px;justify-content:center;padding:0;min-height:52px;color:var(--muted)}
+.home-link svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.main-nav a.home-link:hover{color:var(--red)}
+.language-picker{position:relative;align-self:center;z-index:5}
+.language-picker>summary{list-style:none;cursor:pointer;width:auto;min-width:62px;gap:.35rem;padding:0 .35rem}
+.language-picker>summary::-webkit-details-marker{display:none}
+.language-code{font:.65rem/1 var(--mono);color:var(--muted)}
+.language-picker[open]>summary{color:var(--red);background:var(--tint)}
+.language-picker .language-nav{position:absolute;right:0;top:calc(100% + .45rem);min-width:160px;display:flex;flex-direction:column;align-items:stretch;gap:0;padding:.4rem;background:var(--card);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 24px #0003}
+.language-picker:not([open])>.language-nav{display:none}
+.language-picker .language-nav a{display:flex;padding:.65rem .85rem;min-height:44px;border:0;border-radius:3px;color:var(--ink)}
+.language-picker .language-nav a:hover{color:var(--red);background:var(--tint)}
+.language-picker .language-nav a[aria-current]{color:var(--red);font-weight:bold;background:var(--tint)}
+@media(max-width:720px){.topbar{gap:.65rem}.topbar>.main-nav{gap:.9rem}.topbar>.main-nav a{font-size:.8rem;line-height:1.35}.language-picker>summary{min-width:58px}}
+@media(max-width:380px){.main-nav a.home-link{flex-basis:28px}.topbar{gap:.4rem}.topbar>.main-nav{gap:.7rem}.topbar>.main-nav a{font-size:.75rem}.language-code{display:none}.language-picker>summary{min-width:36px;padding:0}}

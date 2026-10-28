@@ -305,7 +305,7 @@ class ModelDesignRenderer(Renderer):
             title = '<span class="brand-word">Th<span class="title-i">i</span>nkPad</span> ' + e(name[len('ThinkPad '):])
         else:
             title = e(name)
-        body = '<div class="model-design"><div class="design-location"><a href="' + e(self.href(current,lang+'/index.html')) + '"><span aria-hidden="true">←</span> ' + e(w['back']) + '</a></div>'
+        body = '<div class="model-design">'
         body += '<header class="dossier-hero"><h1>' + title + '</h1></header>'
         body += '<section id="overview" class="model-overview" aria-label="' + e(w['overview']) + '">'
         body += self.header_facts(lang, model, profile, sample)

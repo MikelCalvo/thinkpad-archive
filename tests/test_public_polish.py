@@ -65,7 +65,8 @@ class PublicPolish(unittest.TestCase):
             github = [a for tag, a in tags if tag == 'a' and a.get('href') == REPO]
             self.assertEqual(len(github), 1)
             self.assertTrue(github[0].get('aria-label'))
-            self.assertLess(header.index('class="language-nav"'), header.index('class="main-nav"'))
+            self.assertLess(header.index('class="main-nav"'), header.index('class="language-nav"'))
+            self.assertLess(header.index('id="language-picker"'), header.index('id="theme-toggle"'))
             self.assertLess(header.index('class="main-nav"'), header.index('id="theme-toggle"'))
             self.assertLess(header.index('id="theme-toggle"'), header.index('class="github-link'))
             self.assertIn('class="theme-moon"', header)

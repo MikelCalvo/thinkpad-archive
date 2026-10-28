@@ -99,11 +99,11 @@ class BuildTests(unittest.TestCase):
                 for removed in ("collection", "volumes.html", "private-map", "cd-r", "dvd-r", "recorded selection", "volúmenes", "colección"):
                     self.assertNotIn(removed, content, str(path.relative_to(self.output)))
         self.assertFalse(any(self.output.rglob("volumes.html")))
-        self.assertEqual({p.suffix for p in self.output.rglob("*") if p.is_file()}, {".html", ".css", ".js"})
+        self.assertEqual({p.suffix for p in self.output.rglob("*") if p.is_file()}, {".html", ".css", ".js", ".svg"})
 
     def test_complete_bilingual_tree_same_model_links_and_local_assets(self):
         self.build()
-        self.assertIn('<html lang="en">', self.text("index.html"))
+        self.assertIn('<html lang="en" data-language-entry="true">', self.text("index.html"))
         for lang in ("en", "es"):
             for page in ("index.html", "sources.html", "models/700c.html", "models/x230-tablet.html", "models/700cs.html"):
                 self.assertTrue((self.output / lang / page).is_file())
@@ -225,7 +225,7 @@ class BuildTests(unittest.TestCase):
 
     def test_complete_spanish_ui_scope_evidence_warning_and_metadata_caveats(self):
         self.build(default_language="es")
-        self.assertIn('<html lang="es">', self.text("index.html"))
+        self.assertIn('<html lang="es" data-language-entry="true">', self.text("index.html"))
         es = self.text("es/models/700c.html")
         for value in ("Controladores", "Versión", "Sistemas operativos anunciados", "Fecha", "Descarga", "Listado del fabricante", "Solo listado del fabricante", "Advertencia de firmware", "instalación", "disponibilidad"):
             self.assertIn(value, es)
@@ -258,7 +258,7 @@ class BuildTests(unittest.TestCase):
         other.update(language_name="Français", catalogue="Catalogue de test")
         (self.locales / "fr.json").write_text(json.dumps(other))
         self.build(default_language="fr")
-        self.assertIn('<html lang="fr">', self.text("index.html"))
+        self.assertIn('<html lang="fr" data-language-entry="true">', self.text("index.html"))
         self.assertIn("Catalogue de test", self.text("fr/index.html"))
         self.assertIn("../../fr/models/700c.html", self.text("en/models/700c.html"))
         self.assertIn('<p lang="en">Synthetic source scope.</p>', self.text("fr/sources.html"))

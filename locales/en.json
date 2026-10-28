@@ -5,6 +5,8 @@
   "sources": "Sources & limits",
   "skip": "Skip to content",
   "language": "Language",
+  "choose_language": "Choose language",
+  "home_link": "Home",
   "scope_heading": "Catalogue scope",
   "model_count": "Model entries",
   "driver_count": "Driver metadata entries",

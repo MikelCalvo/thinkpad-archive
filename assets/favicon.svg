@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Red pointing-stick cap</title>
+  <defs>
+    <radialGradient id="rubber" cx="35%" cy="27%" r="77%">
+      <stop offset="0" stop-color="#ff6265"/>
+      <stop offset=".45" stop-color="#e62d36"/>
+      <stop offset=".83" stop-color="#b80e23"/>
+      <stop offset="1" stop-color="#790c19"/>
+    </radialGradient>
+    <radialGradient id="rim" cx="40%" cy="30%" r="75%">
+      <stop stop-color="#ff7072"/>
+      <stop offset=".7" stop-color="#b31628"/>
+      <stop offset="1" stop-color="#5e0c18"/>
+    </radialGradient>
+    <pattern id="grip" width="5" height="4.4" patternUnits="userSpaceOnUse">
+      <circle cx="1.25" cy="1.2" r=".7" fill="#700b18" opacity=".35"/>
+      <circle cx="1.1" cy=".9" r=".38" fill="#ffb1ac" opacity=".42"/>
+      <circle cx="3.75" cy="3.4" r=".7" fill="#700b18" opacity=".35"/>
+      <circle cx="3.6" cy="3.1" r=".38" fill="#ffb1ac" opacity=".42"/>
+    </pattern>
+  </defs>
+  <circle cx="32" cy="33" r="29" fill="#300910" opacity=".22"/>
+  <circle cx="32" cy="31" r="29" fill="url(#rim)"/>
+  <circle cx="32" cy="30" r="26" fill="url(#rubber)"/>
+  <circle cx="32" cy="30" r="24.5" fill="url(#grip)"/>
+  <path d="M13 17a25 25 0 0 1 37-1" fill="none" stroke="#ffb1ac" stroke-width="1.2" stroke-linecap="round" opacity=".48"/>
+  <circle cx="32" cy="30" r="25.5" fill="none" stroke="#ff8080" stroke-width=".7" opacity=".4"/>
+</svg>
