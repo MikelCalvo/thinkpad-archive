@@ -27,8 +27,20 @@ def build_site(output, *, data_dir=None, locales_dir=None, default_language=None
         locales = load_locales(source_locales)
         language = default_language if default_language is not None else "en"
         require(type(language) is str and LANG.fullmatch(language) is not None and language in locales, "Unknown default language")
-        pages = Renderer(data, locales).render(language)
+        profile_path = source_data / "profiles.json"
+        profiles = None
+        if profile_path.exists() or profile_path.is_symlink():
+            from .profiles import load_profiles
+            profiles = load_profiles(profile_path, {model["id"] for model in data["models"]})
+        if profiles is not None:
+            from .model_design import ModelDesignRenderer
+            renderer = ModelDesignRenderer(data, locales, profiles=profiles)
+        else:
+            renderer = Renderer(data, locales)
+        pages = renderer.render(language)
         assets = {"assets/" + name: read_bytes(ROOT / "assets" / name) for name in ("style.css", "search.js", "ui.js", "theme.js")}
+        if profiles is not None:
+            assets["assets/style.css"] += b"\n" + read_bytes(ROOT / "assets/model-design.css")
         payload = {name: text.encode("utf-8") for name, text in pages.items()}
         payload.update(assets)
         try:

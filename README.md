@@ -4,7 +4,7 @@
 
 Find manuals, driver metadata and source references for documented ThinkPad models, with an emphasis on early machines. The site is available in English and Spanish. You can also build a local copy and browse it without a server.
 
-**v0.3.3 · public preview.** The catalogue and interface are still under development. Coverage is source-grounded, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
+**v0.4.0.** Source-backed model profiles and redesigned detail pages. The catalogue is still under development; coverage is documented, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
 
 This is an independent community project, not affiliated with, endorsed by or an official publication of IBM or Lenovo.
 
@@ -16,6 +16,8 @@ This is an independent community project, not affiliated with, endorsed by or an
 | Manual and other document references | 489 |
 | Driver/software metadata entries | 14,901 |
 | Utility references | 10 |
+
+Model pages now include sourced EN/ES summaries, historical context and technical specifications in native collapsible groups. The 666-entry research audit supplies 665 technical profiles and 7,095 facts; 652 profiles contain dated evidence and 239 contain historical prices. These are coverage counts, not worldwide first-launch or universal-price claims. X201si remains unresolved. Compact header metadata omits unsourced prices and shows a market only when exclusivity is explicitly documented; complete source scope remains at the end of each page.
 
 Model pages collect source-supported names and aliases, document links, driver/software listings and provenance. Start with ALL at the left of the timeline to search the complete catalogue and filter by family or available references. Swipe to a year or use the slider for a clean year-only list without search or filters. Entries with unconfirmed years stay in ALL, without a separate timeline option. Grouped variants may appear in more than one documented year. Package metadata includes advertised operating systems, versions and dates where the source provides them. ThinkWiki links are labelled as community references, with an explicit search fallback when no dedicated page has been verified.
 

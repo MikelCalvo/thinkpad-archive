@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0
+
+- Research-audited all 666 catalogue identities and added a separately validated EN/ES profile sidecar: 665 source-backed summaries and technical profiles, 7,095 technical facts, 652 historical contexts, 652 profiles with dated evidence and 239 with historical prices. X201si remains explicitly unresolved; missing facts are not inferred from neighboring models.
+- Integrate the approved model-page design into the ordinary public builder: compact wrapping date/series metadata, historical prices only when sourced, and market labels only for explicitly documented exclusivity. Preserve announcement, availability, exact-SKU and catalogue-price meanings and full scope in the final references.
+- Replace the dense specification sidebar with four native collapsed groups that expand to full width. Make historical context optional and collapsible, keep source qualifications at the end, and retain the red dot on the normal ThinkPad “i”. Remove local-preview labels and their footer.
+- Retain all model IDs, document/driver associations, package metadata, external links and firmware warnings. Compact manuals and software lists without removing their provenance or native no-script controls. Legacy input without a profile sidecar remains supported.
+- Keep the site static, offline-readable and bilingual; publish factual metadata and citations only, not retained research captures, manufacturer documents or installer binaries.
+
 ## 0.3.3
 
 - Center the selected year within the horizontal timeline after a plain click or keyboard activation, revealing adjacent years for successive navigation. Animate clicks smoothly unless reduced motion is requested; clamp at either end and return to the left edge for ALL.

@@ -141,6 +141,26 @@ class AuditTests(unittest.TestCase):
                 (root / "data" / (name + ".json")).write_text(json.dumps(payload), encoding="utf-8")
             return audit_module().audit_catalogue(root)
 
+    def test_optional_profiles_use_their_own_strict_schema(self):
+        fixture = self.fixture()
+        profile = {"model_id": "x20", "summary": None, "context": None,
+                   "facts": [], "dates": [], "prices": [], "markets": [], "references": []}
+        fixture["profiles"] = {"schema_version": 1, "profiles": [profile]}
+        self.assertEqual(self.run_fixture(fixture)["models"], 1)
+        for field, value in (("schema_version", 2), ("profiles", []),
+                             ("profiles", [dict(profile, model_id="x21")]),
+                             ("profiles", [profile, profile])):
+            changed = self.fixture()
+            changed["profiles"] = dict(fixture["profiles"], **{field: value})
+            with self.subTest(field=field, value=value), self.assertRaises(ValueError):
+                self.run_fixture(changed)
+
+    def test_unknown_public_sidecars_remain_rejected(self):
+        fixture = self.fixture()
+        fixture["private_capture"] = {"schema_version": 1}
+        with self.assertRaises(ValueError):
+            self.run_fixture(fixture)
+
     def test_valid_metadata_counts_are_computed(self):
         self.assertEqual(self.run_fixture(self.fixture()), {
             "models": 1, "sources": 1, "documents": 1, "utilities": 1, "driver_metadata_entries": 1,
@@ -336,10 +356,12 @@ class LiveCatalogueTests(unittest.TestCase):
             self.assertNotIn("verbatim", utility["title"])
 
     def test_public_v2_metadata_only_and_localization_boundaries(self):
-        self.assertEqual({p.name for p in (ROOT / "data").iterdir()}, {"models.json", "documents.json", "utilities.json", "drivers.json"})
+        self.assertEqual({p.name for p in (ROOT / "data").iterdir()}, {"models.json", "documents.json", "utilities.json", "drivers.json", "profiles.json"})
         data = {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in (ROOT / "data").glob("*.json")}
-        for payload in data.values():
-            self.assertEqual(payload["schema_version"], 2)
+        for name, payload in data.items():
+            self.assertEqual(payload["schema_version"], 1 if name == "profiles" else 2)
+        from thinkpad_archive.profiles import validate_profiles
+        validate_profiles(data["profiles"], {m["id"] for m in data["models"]["models"]})
         self.assertEqual(set(data["models"]["scope"]), {"en", "es"})
         self.assertNotEqual(data["models"]["scope"]["en"], data["models"]["scope"]["es"])
         for row in data["models"]["models"]:

@@ -13,7 +13,14 @@ from html.parser import HTMLParser
 import json
 from pathlib import Path, PurePosixPath
 import re
+import sys
 from urllib.parse import urljoin, urlsplit
+
+SOURCE_ROOT = Path(__file__).resolve().parents[1]
+if str(SOURCE_ROOT) not in sys.path:
+    sys.path.insert(0, str(SOURCE_ROOT))
+
+from thinkpad_archive.profiles import load_profiles
 
 ID = re.compile(r"[a-z0-9][a-z0-9-]*\Z")
 MATRIX = re.compile(r"[A-Za-z0-9][A-Za-z0-9-]*\Z")
@@ -262,7 +269,9 @@ def audit_catalogue(root):
     data = {}
     expected = {"models": "schema_version scope sources models", "documents": "schema_version documents",
                 "utilities": "schema_version utilities", "drivers": "schema_version drivers"}
-    if {p.name for p in (root / "data").iterdir()} != {name + ".json" for name in expected}:
+    required_files = {name + ".json" for name in expected}
+    actual_files = {p.name for p in (root / "data").iterdir()}
+    if not required_files <= actual_files or actual_files - required_files - {"profiles.json"}:
         raise ValueError("unexpected or missing public data files")
     for name, keys in expected.items():
         data[name] = json.loads((root / "data" / (name + ".json")).read_text(encoding="utf-8"))
@@ -274,6 +283,8 @@ def audit_catalogue(root):
         _text(value)
     sources, source_ids = _rows(data["models"], "sources", "id title url kind")
     models, model_ids = _rows(data["models"], "models", "id name aliases family era sources matrix_url document_ids driver_ids")
+    if "profiles.json" in actual_files:
+        load_profiles(root / "data" / "profiles.json", model_ids)
     documents, document_ids = _rows(data["documents"], "documents", "id title url source_kind sha256 bytes model_hint")
     utilities, utility_ids = _rows(data["utilities"], "utilities", "id title url category")
     drivers, driver_ids = _rows(data["drivers"], "drivers", "id title category version operating_systems released links source_url evidence risk source_sha256")

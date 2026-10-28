@@ -1,6 +1,6 @@
 # Catalogue schema and evidence
 
-All public data files use schema_version 2. Metadata is independent of the interface language. Model IDs are stable lowercase identifiers; source names, document cover titles and operating-system names retain their factual source designation.
+The four core catalogue data files use schema_version 2. The optional `profiles.json` sidecar introduced in 0.4.0 uses its own schema_version 1. Metadata is independent of the interface language. Model IDs are stable lowercase identifiers; source names, document cover titles and operating-system names retain their factual source designation.
 
 ## Models
 
@@ -38,6 +38,16 @@ Evidence values:
 Risk values separate firmware from other software. Read the exact source instructions before considering any BIOS, embedded-controller or firmware operation. A non-firmware classification is not a guarantee that a package is harmless.
 
 Counts must distinguish source rows, model-route associations, metadata records and distinct download URLs. One shared package can appear in several model routes; do not advertise repeated listing rows as unique installers. Empty driver_ids means the catalogue has not yet indexed package metadata for that entry, not that no driver exists anywhere.
+
+## Source-backed model profiles
+
+The optional `profiles.json` contains `{schema_version: 1, profiles: [...]}` and must contain exactly one audit entry per model ID. Each entry has `model_id`, nullable localized `summary` and `context`, and lists of `facts`, `dates`, `prices`, `markets` and `references`. Empty audit entries are valid; absence of evidence must not be filled by a neighboring identity. Unknown fields, duplicate IDs/keys, unsafe URLs and unresolved reference IDs are rejected before public output is created. Legacy catalogues without this sidecar remain supported by the ordinary builder.
+
+Facts contain `key`, localized `value` and `scope`, and nonempty `sources` reference IDs. Supported keys cover processor, display, memory, storage, graphics, weight, dimensions, ports, connectivity, battery, original operating systems, positioning and features. References contain `id`, HTTPS `url`, `title`, `kind` (`official`, `community` or `press`) and a source `locator`. Narrative-only references are retained too.
+
+Dates preserve year/month/day precision and distinguish `announcement`, `availability`, `sku_announcement` and `documented_by`. Historical prices require a positive decimal-string `amount`, ISO-style three-letter `currency`, dated evidence, localized scope and source IDs; `kind` distinguishes `launch`, `catalogue` and `contemporary_review`. A later catalogue price is not an original launch price. Market entries have localized scope and a nullable boolean `exclusive`: only explicit `true` enables a compact exclusivity label. Regional listings alone do not establish exclusivity.
+
+The public builder validates this sidecar and uses the model-dossier layout with its local stylesheet. Headers show documented event meaning, series, sourced prices and explicit exclusivity only. All technical facts remain in native expandable groups; detailed source scope and citations remain in final references. The profile data does not change timeline identity or document/software associations. Retained source captures and research ledgers are private working evidence, not part of the generated site or repository.
 
 ## Safe contributions
 
