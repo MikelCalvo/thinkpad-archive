@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "utilities": [
+    {
+      "id": "reference-1ety48ww",
+      "title": "PC-Doctor DOS CD 2.0.1816",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1ety48ww.txt",
+      "category": "diagnostic"
+    },
+    {
+      "id": "reference-1rth52us",
+      "title": "Access IBM for ThinkPad T42, T42p",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1rth52us.txt",
+      "category": "reference"
+    },
+    {
+      "id": "reference-1uu311u2",
+      "title": "ThinkPad Configuration for Windows NT",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1uu311u2.txt",
+      "category": "reference"
+    },
+    {
+      "id": "reference-1xu105u1",
+      "title": "Battery MaxiMiser and Power Management Features",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1xu105u1.txt",
+      "category": "reference"
+    },
+    {
+      "id": "reference-7avu43ww",
+      "title": "Hotkey Features and On Screen Display",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/7avu43ww.txt",
+      "category": "reference"
+    },
+    {
+      "id": "reference-7iu601us",
+      "title": "ThinkPad Configuration for DOS",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/7iu601us.txt",
+      "category": "reference"
+    },
+    {
+      "id": "reference-7ju501aw",
+      "title": "ThinkPad Configuration for Windows",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/7ju501aw.txt",
+      "category": "reference"
+    },
+    {
+      "id": "reference-7jua07ww",
+      "title": "Presentation Director",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/7jua07ww.txt",
+      "category": "reference"
+    },
+    {
+      "id": "reference-7vua51ww",
+      "title": "Presentation Director",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/7vua51ww.txt",
+      "category": "reference"
+    },
+    {
+      "id": "reference-prdi98me",
+      "title": "Presentation Director",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/prdi98me.txt",
+      "category": "reference"
+    }
+  ]
+}

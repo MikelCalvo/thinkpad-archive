@@ -1,0 +1,797 @@
+{
+  "schema_version": 2,
+  "documents": [
+    {
+      "id": "manual-02r2913",
+      "title": "ThinkPad R30/R31 Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/02r2913.pdf",
+      "source_kind": "official",
+      "sha256": "591d93f7dbd596658255baab47496ee61b2b74865008bf02a8dcdea2b52d23dc",
+      "bytes": 5048307,
+      "model_hint": "R30, R31"
+    },
+    {
+      "id": "manual-02r2914",
+      "title": "ThinkPad R32 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/02r2914.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad R32"
+    },
+    {
+      "id": "manual-06p8883",
+      "title": "ThinkPad A21e (2628) — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/bp_thinkpad/06p8883.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad A21e (2628)"
+    },
+    {
+      "id": "manual-09n1033",
+      "title": "ThinkPad 600/600E (2645) Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/09n1033.pdf",
+      "source_kind": "official",
+      "sha256": "a2ed8175fff00227b79829a521b4d80a221e83af3f5dc90d3de68006ec53624c",
+      "bytes": 1069060,
+      "model_hint": "600, 600E"
+    },
+    {
+      "id": "manual-09n8590",
+      "title": "ThinkPad 240 Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/09n8590.pdf",
+      "source_kind": "official",
+      "sha256": "314306b176668cbffd21306888ae15da4554586936da60e606d3ca793098d3c7",
+      "bytes": 3275483,
+      "model_hint": "240"
+    },
+    {
+      "id": "manual-09n8604",
+      "title": "ThinkPad 390X — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/09n8604.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad 390X"
+    },
+    {
+      "id": "manual-09n8606",
+      "title": "i Series 1400, 1500 (Type 2621) — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/09n8606.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "i Series 1400, 1500 (Type 2621)"
+    },
+    {
+      "id": "manual-09n8608",
+      "title": "ThinkPad 600X Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/09n8608.pdf",
+      "source_kind": "official",
+      "sha256": "702d5371502fab9480c43b6718092add67bf54a676472c37a35a23bf3f57196f",
+      "bytes": 954246,
+      "model_hint": "600X"
+    },
+    {
+      "id": "manual-09n8609",
+      "title": "ThinkPad 570 and 570E Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/09n8609.pdf",
+      "source_kind": "official",
+      "sha256": "718ce4a495afc838f04413676b1c311af6c9a9f1c18713ece0e33aca12de2243",
+      "bytes": 1608337,
+      "model_hint": "570, 570E"
+    },
+    {
+      "id": "manual-0a60175-04",
+      "title": "ThinkPad X220 Tablet and X220i Tablet Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/0a60175_04.pdf",
+      "source_kind": "official",
+      "sha256": "a27e50f720bf8817e78f9bbdb064f309b2c35826687c782eb44017fc9edbbaaa",
+      "bytes": 14348766,
+      "model_hint": "X220 Tablet, X220i Tablet"
+    },
+    {
+      "id": "manual-0a60739",
+      "title": "ThinkPad X220 and X220i Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/0a60739.pdf",
+      "source_kind": "official",
+      "sha256": "1d2dc4b728ad08c1632e9b8e9509cdde4770da32f6c8ea55a80f40e7bfd422ff",
+      "bytes": 14186740,
+      "model_hint": "X220, X220i"
+    },
+    {
+      "id": "manual-0b48666",
+      "title": "ThinkPad X230 and X230i Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/0b48666.pdf",
+      "source_kind": "official",
+      "sha256": "85d5d1f870b886350caaba12508a460d4784cbeba47a8619ba0aeb38af60c4f7",
+      "bytes": 16906507,
+      "model_hint": "X230, X230i"
+    },
+    {
+      "id": "manual-13n6183",
+      "title": "ThinkPad R40/e — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/13n6183.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad R40/e"
+    },
+    {
+      "id": "manual-19k5649",
+      "title": "ThinkPad 240X — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/19k5649.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad 240X"
+    },
+    {
+      "id": "manual-22p2932",
+      "title": "ThinkPad TransNote Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/bp_thinkpad/22p2932.pdf",
+      "source_kind": "official",
+      "sha256": "c5841e3c2497b415038199e554d40229a98d097391224d8de95c3f764210f490",
+      "bytes": 3088303,
+      "model_hint": "TransNote"
+    },
+    {
+      "id": "manual-23p0894",
+      "title": "i Series 1200, 1300, ThinkPad 130 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/23p0894.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "i Series 1200, 1300, ThinkPad 130"
+    },
+    {
+      "id": "manual-23p0896",
+      "title": "ThinkPad A20m/A21m/A22m and A20p/A21p/A22p Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/bp_thinkpad/23p0896.pdf",
+      "source_kind": "official",
+      "sha256": "df9ca421929180399f262d0d222ebb63ebd2a05964da254bfc24aeb3fa07ac79",
+      "bytes": 1806376,
+      "model_hint": "A20m, A21m, A22m, A20p, A21p, A22p"
+    },
+    {
+      "id": "manual-24p2910a",
+      "title": "ThinkPad A2*e (2655) — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/24p2910a.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad A2*e (2655)"
+    },
+    {
+      "id": "manual-24p2911",
+      "title": "ThinkPad A22* (Wireless models) — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/24p2911.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad A22* (Wireless models)"
+    },
+    {
+      "id": "manual-24p2914",
+      "title": "ThinkPad S30, S31 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/24p2914.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad S30, S31"
+    },
+    {
+      "id": "manual-24p2975",
+      "title": "ThinkPad X20, X21, X22, X23, X24 Hardware Maintenance Manual",
+      "url": "https://ps-2.kev009.com/pccbbs/mobiles_pdf/24p2975.pdf",
+      "source_kind": "community",
+      "sha256": "61a03c62f76917b949b21e893e3f60248a544845f04a66007299dff59fca2cc9",
+      "bytes": 5819624,
+      "model_hint": "X20, X21, X22, X23, X24"
+    },
+    {
+      "id": "manual-37l5152",
+      "title": "ThinkPad 770, 770E/ED, 770X, 770Z Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/37l5152.pdf",
+      "source_kind": "official",
+      "sha256": "b166a81d96744d01820672f115ed02e209cd279209172228ddef3546bdd293f8",
+      "bytes": 1057862,
+      "model_hint": "770, 770E, 770ED, 770X, 770Z"
+    },
+    {
+      "id": "manual-37l5153",
+      "title": "ThinkPad 390E — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/37l5153.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad 390E"
+    },
+    {
+      "id": "manual-37l5192",
+      "title": "ThinkPad i Series 1400 (2611) Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/37l5192.pdf",
+      "source_kind": "official",
+      "sha256": "77995f4daefef39ac8c1159401b739ef54273c8f81dce4867fd18d1aff3f90f2",
+      "bytes": 2682205,
+      "model_hint": "i Series 1400 (Type 2611)"
+    },
+    {
+      "id": "manual-38xhmm",
+      "title": "ThinkPad 380XD, 385XD — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/38xhmm.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad 380XD, 385XD"
+    },
+    {
+      "id": "manual-38zhmm",
+      "title": "ThinkPad 380Z — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/38zhmm.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad 380Z"
+    },
+    {
+      "id": "manual-390hmm",
+      "title": "ThinkPad 390, 1720 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/390hmm.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad 390, 1720"
+    },
+    {
+      "id": "manual-39t2393",
+      "title": "ThinkPad T43/T43p Hardware Maintenance Manual (MT 2668/2669/2678/2679/2686/2687)",
+      "url": "https://ps-2.kev009.com/pccbbs/mobiles_pdf/39t2393.pdf",
+      "source_kind": "community",
+      "sha256": "63617be80d93e187ba6930ba87eaf93a71269dc8d2eddeb2371ba3d4cec03b3e",
+      "bytes": 4644263,
+      "model_hint": "T43, T43p"
+    },
+    {
+      "id": "manual-39t2462",
+      "title": "ThinkPad R50e, R51e, R52 Hardware Maintenance Manual (August 2005)",
+      "url": "https://ps-2.kev009.com/pccbbs/mobiles_pdf/39t2462.pdf",
+      "source_kind": "community",
+      "sha256": "3e44322337b0e36c125f93acf51d67e7a9affced511e5ed3751c88ac9fc75813",
+      "bytes": 4398428,
+      "model_hint": "R50e, R51e, R52"
+    },
+    {
+      "id": "manual-39t2462-01",
+      "title": "ThinkPad R50e, R51e, R52 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/39t2462_01.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad R50e, R51e, R52"
+    },
+    {
+      "id": "manual-39t5971",
+      "title": "ThinkPad X41 Hardware Maintenance Manual",
+      "url": "https://ps-2.kev009.com/pccbbs/mobiles_pdf/39t5971.pdf",
+      "source_kind": "community",
+      "sha256": "93ea9c05cacd0cce5ede13facf8a48b1946cb4d8133982510b62b99a8a906e2a",
+      "bytes": 6145681,
+      "model_hint": "X41"
+    },
+    {
+      "id": "manual-39t6188",
+      "title": "ThinkPad G40, G41 Hardware Maintenance Manual",
+      "url": "https://ps-2.kev009.com/pccbbs/mobiles_pdf/39t6188.pdf",
+      "source_kind": "community",
+      "sha256": "f94dda63321e8ccf5a751f57854c55aa47aaf5c601ce791419726ae07e479f2d",
+      "bytes": 4017563,
+      "model_hint": "G40, G41"
+    },
+    {
+      "id": "manual-39t6189",
+      "title": "ThinkPad X30, X31, X32 Hardware Maintenance Manual",
+      "url": "https://ps-2.kev009.com/pccbbs/mobiles_pdf/39t6189.pdf",
+      "source_kind": "community",
+      "sha256": "40be171205cf458be4e1baccec23965aab33e7c202854d8cacc4bad573dc7b9a",
+      "bytes": 4375026,
+      "model_hint": "X30, X31, X32"
+    },
+    {
+      "id": "manual-39t6190",
+      "title": "ThinkPad R50/R50p, R51 Hardware Maintenance Manual",
+      "url": "https://ps-2.kev009.com/pccbbs/mobiles_pdf/39t6190.pdf",
+      "source_kind": "community",
+      "sha256": "192fee8f47d0deaa8430874af993a4119e6108919eacb1ff2a93ded623f164c7",
+      "bytes": 3783392,
+      "model_hint": "R50, R50p, R51"
+    },
+    {
+      "id": "manual-39t6192-01",
+      "title": "ThinkPad T40/T40p, T41/T41p, T42/T42p Hardware Maintenance Manual",
+      "url": "https://ps-2.kev009.com/pccbbs/mobiles_pdf/39t6192_01.pdf",
+      "source_kind": "community",
+      "sha256": "47cf00a83430b70704781d270bd68e02207c4e464ae01ec64efb5dd971e79de3",
+      "bytes": 4772697,
+      "model_hint": "T40, T40p, T41, T41p, T42, T42p"
+    },
+    {
+      "id": "manual-39t6193",
+      "title": "ThinkPad T43 Hardware Maintenance Manual (MT 1871–1876)",
+      "url": "https://ps-2.kev009.com/pccbbs/mobiles_pdf/39t6193.pdf",
+      "source_kind": "community",
+      "sha256": "2262fbf2270872da05ff110026a710d9da786a0e63778012756f3dc2ce73be3c",
+      "bytes": 4470474,
+      "model_hint": "T43"
+    },
+    {
+      "id": "manual-39t6194-01",
+      "title": "ThinkPad Z60t Hardware Maintenance Manual",
+      "url": "https://ps-2.kev009.com/pccbbs/mobiles_pdf/39t6194_01.pdf",
+      "source_kind": "community",
+      "sha256": "a5c4568b48ce03903d213be6d81f3da370221b1b0f18bf6b830283e0d1237474",
+      "bytes": 3900474,
+      "model_hint": "Z60t"
+    },
+    {
+      "id": "manual-39t6195-01",
+      "title": "ThinkPad Z60m Hardware Maintenance Manual",
+      "url": "https://ps-2.kev009.com/pccbbs/mobiles_pdf/39t6195_01.pdf",
+      "source_kind": "community",
+      "sha256": "7f2af85bba10201064d30e3b5ad522017ddc9ade27770bee22be4335771681f5",
+      "bytes": 4329240,
+      "model_hint": "Z60m"
+    },
+    {
+      "id": "manual-39t9290",
+      "title": "ThinkPad X41 Tablet — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/39t9290.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad X41 Tablet"
+    },
+    {
+      "id": "manual-42t7844-04",
+      "title": "ThinkPad T60, T60p (MT 1951, 1952, 1953, 1954, 1955, 1956, 2007, 2008, 2009, 2613, 2623, and 2637) — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42t7844_04.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad T60, T60p (MT 1951, 1952, 1953, 1954, 1955, 1956, 2007, 2008, 2009, 2613, 2623, and 2637)"
+    },
+    {
+      "id": "manual-42t7845-02",
+      "title": "ThinkPad Z61t Hardware Maintenance Manual",
+      "url": "https://ps-2.kev009.com/pccbbs/mobiles_pdf/42t7845_02.pdf",
+      "source_kind": "community",
+      "sha256": "3a03482234831580cf720b46eae9af9969f6f94cb518273f29ed5296acc667aa",
+      "bytes": 4591176,
+      "model_hint": "Z61t"
+    },
+    {
+      "id": "manual-42t7846-02",
+      "title": "ThinkPad Z61e, Z61m, Z61p Hardware Maintenance Manual",
+      "url": "https://ps-2.kev009.com/pccbbs/mobiles_pdf/42t7846_02.pdf",
+      "source_kind": "community",
+      "sha256": "d360f1747780fe4f406a3360a61f307ba0c310834ac06c2683ea2d69713d5420",
+      "bytes": 4957341,
+      "model_hint": "Z61e, Z61m, Z61p"
+    },
+    {
+      "id": "manual-42t8137-02",
+      "title": "ThinkPad T60 and T60p (15.4-inch widescreen) Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42t8137_02.pdf",
+      "source_kind": "official",
+      "sha256": "8ec961738ae7678a806e24b5de0c20bf6d1f8b8527f96850b8bf3c5b4a96a63f",
+      "bytes": 4081433,
+      "model_hint": "T60 15.4-inch widescreen, T60p 15.4-inch widescreen"
+    },
+    {
+      "id": "manual-42x3545-04",
+      "title": "ThinkPad T61, T61p (14.1-inch) — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42x3545_04.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad T61, T61p (14.1-inch)"
+    },
+    {
+      "id": "manual-42x3546-04",
+      "title": "ThinkPad T61, T61p (15.4-inch Widescreen) — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42x3546_04.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad T61, T61p (15.4-inch Widescreen)"
+    },
+    {
+      "id": "manual-42x3547-05",
+      "title": "ThinkPad T61, R61, R61i (14.1-inch widescreen) Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42x3547_05.pdf",
+      "source_kind": "official",
+      "sha256": "806f7cd203cc5ae35f802c13f2efe97a1648fbe8bc04a1cde40b3a7ad1e515de",
+      "bytes": 6737926,
+      "model_hint": "T61 14.1-inch widescreen, R61 14.1-inch widescreen, R61i 14.1-inch widescreen"
+    },
+    {
+      "id": "manual-42x3549-05",
+      "title": "ThinkPad R61, R61e, R61i (15.4-inch Widescreen) — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42x3549_05.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad R61, R61e, R61i (15.4-inch Widescreen)"
+    },
+    {
+      "id": "manual-42x3550-04",
+      "title": "ThinkPad X60, X60s, X61, X61s Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42x3550_04.pdf",
+      "source_kind": "official",
+      "sha256": "e84b1450ef108e558ffaeaf406e3d685132034a588e35aad6ccd3b74696ce8d5",
+      "bytes": 11076418,
+      "model_hint": "X60, X60s, X61, X61s"
+    },
+    {
+      "id": "manual-42x3551-02",
+      "title": "ThinkPad X60 Tablet and X61 Tablet Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42x3551_02.pdf",
+      "source_kind": "official",
+      "sha256": "a2f1eef91bf216980453b3fbe26c1b9764b69dfda1024f61a43658cf5a0e1d71",
+      "bytes": 3887732,
+      "model_hint": "X60 Tablet, X61 Tablet"
+    },
+    {
+      "id": "manual-42x3749-02",
+      "title": "ThinkPad R60, R60e, R61, R61i Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42x3749_02.pdf",
+      "source_kind": "official",
+      "sha256": "b5b53131225e369c876ca79c8f7480108aa6c2eb53daca4f8d2332425f24bce4",
+      "bytes": 6778898,
+      "model_hint": "R60, R60e, R61, R61i"
+    },
+    {
+      "id": "manual-42x4076-03",
+      "title": "ThinkPad Reserve Edition — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42x4076_03.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad Reserve Edition"
+    },
+    {
+      "id": "manual-42x4239-03",
+      "title": "ThinkPad X300 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42x4239_03.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad X300"
+    },
+    {
+      "id": "manual-43y6629-05",
+      "title": "ThinkPad R400, T400 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/43y6629_05.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad R400, T400"
+    },
+    {
+      "id": "manual-43y6630-04",
+      "title": "ThinkPad T500, W500 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/43y6630_04.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad T500, W500"
+    },
+    {
+      "id": "manual-43y6762-03",
+      "title": "ThinkPad SL400, SL400c, SL500, SL500c — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/43y6762_03.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad SL400, SL400c, SL500, SL500c"
+    },
+    {
+      "id": "manual-43y6763-03",
+      "title": "ThinkPad SL300 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/43y6763_03.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad SL300"
+    },
+    {
+      "id": "manual-43y9441-03",
+      "title": "ThinkPad X301 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/43y9441_03.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad X301"
+    },
+    {
+      "id": "manual-45m2271-07",
+      "title": "ThinkPad T400s, T410s, T410si — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/45M2271_07.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad T400s, T410s, T410si"
+    },
+    {
+      "id": "manual-45n3683-04",
+      "title": "ThinkPad X200 Tablet and X201 Tablet Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/45n3683_04.pdf",
+      "source_kind": "official",
+      "sha256": "bbb11894faa0bfa4718ba1735dc330ce521e6f6a7b692e9a605a3d33c9f92139",
+      "bytes": 15774415,
+      "model_hint": "X200 Tablet, X201 Tablet"
+    },
+    {
+      "id": "manual-560xhmm",
+      "title": "ThinkPad 560X — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/560xhmm.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad 560X"
+    },
+    {
+      "id": "manual-56zhmm",
+      "title": "ThinkPad 560Z — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/56zhmm.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad 560Z"
+    },
+    {
+      "id": "manual-60y3635-05",
+      "title": "ThinkPad L410, L510, SL410, SL510 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/60y3635_05.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad L410, L510, SL410, SL510"
+    },
+    {
+      "id": "manual-62p9631",
+      "title": "ThinkPad T20, T21, T22, T23 Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/62p9631.pdf",
+      "source_kind": "official",
+      "sha256": "347aa5abf1b4000bef8b8c76ee6b2c9dcf735c6703f6bdf18d786568b06f73ca",
+      "bytes": 2902595,
+      "model_hint": "T20, T21, T22, T23, ThinkPad Dock 2631"
+    },
+    {
+      "id": "manual-63y0536-05",
+      "title": "ThinkPad T510, T510i, W510 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/63Y0536_05.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad T510, T510i, W510"
+    },
+    {
+      "id": "manual-63y0640-06",
+      "title": "ThinkPad X100e, X120e — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/63Y0640_06.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad X100e, X120e"
+    },
+    {
+      "id": "manual-75y4302-05",
+      "title": "ThinkPad Edge 14, 15, E40, E50 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/75y4302_05.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad Edge 14, 15, E40, E50"
+    },
+    {
+      "id": "manual-92p1840",
+      "title": "ThinkPad T30 Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/92p1840.pdf",
+      "source_kind": "official",
+      "sha256": "a76f8a025878aedadb17cbc3664e4b225eb05aff2f8a4051bf4976896080f314",
+      "bytes": 3002497,
+      "model_hint": "T30, ThinkPad Dock 2631"
+    },
+    {
+      "id": "manual-92p1902",
+      "title": "ThinkPad A30, A30p, A31, A31p Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/92p1902.pdf",
+      "source_kind": "official",
+      "sha256": "d64ce1e4eceaab28910ec69c5d76795b01ab312d34b4a0066b787cfda19f788e",
+      "bytes": 3354819,
+      "model_hint": "A30, A30p, A31, A31p, ThinkPad Dock 2631"
+    },
+    {
+      "id": "manual-egde13-hmm-en-63y0744-05",
+      "title": "ThinkPad Edge 13, E30, E31 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/egde13_hmm_en_63y0744_05.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad Edge 13, E30, E31"
+    },
+    {
+      "id": "manual-l412-l512-hmm-en-0a96085-05",
+      "title": "ThinkPad L412, L512 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/l412_l512_hmm_en_0a96085_05.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad L412, L512"
+    },
+    {
+      "id": "manual-ltwbook-2013",
+      "title": "Lenovo Product Specifications Reference: ThinkPad Notebooks 2005–2013 withdrawn (December 2013)",
+      "url": "https://psrefstuff.lenovo.com/syspool/Sys/PDF/withdrawnbook/ltwbook_2013.pdf",
+      "source_kind": "official",
+      "sha256": "c091ddf01f29cf6f72e87cc764ed14173ebff20a3b4f854735e8359695d6f36f",
+      "bytes": 24117416,
+      "model_hint": "R40, R50, R51, R52, R60, R61, T41, T42, T43, T60, T61, X31, X32, X40, X41, X60, X61, G40, G41, Z60, Z61"
+    },
+    {
+      "id": "manual-r500-hmm-en-43y6631-03",
+      "title": "ThinkPad R500 — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/r500_hmm_en_43y6631_03.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad R500"
+    },
+    {
+      "id": "manual-t410-t410i-hmm-en-63y0535-06",
+      "title": "ThinkPad T410, T410i — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/t410_t410i_hmm_en_63y0535_06.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad T410, T410i"
+    },
+    {
+      "id": "manual-tawbook",
+      "title": "IBM Personal Systems Reference: ThinkPad A, T, X and G Series 2000–2005 withdrawn",
+      "url": "https://psrefstuff.lenovo.com/syspool/Sys/PDF/withdrawnbook/tawbook.pdf",
+      "source_kind": "official",
+      "sha256": "dca4a46bbdbb235363df75d06dca0a6e2b002d11794a831d65ed760794aebf2b",
+      "bytes": 1336900,
+      "model_hint": "A20, A21, A22, A30, A31, T20, T21, T22, T23, T30, T40, T41, X20, X21, X22, X23, X24, X30, X31, X40, G40"
+    },
+    {
+      "id": "manual-tiwbook",
+      "title": "IBM Personal Systems Reference: ThinkPad i Series 1998–2002 withdrawn",
+      "url": "https://psrefstuff.lenovo.com/syspool/Sys/PDF/withdrawnbook/tiwbook.pdf",
+      "source_kind": "official",
+      "sha256": "d09845be3d030efd2e5ec73f7cca12cdd8b939001b85c02e0e75456f0889199e",
+      "bytes": 406860,
+      "model_hint": "i Series"
+    },
+    {
+      "id": "manual-tp-x40-hmm-en",
+      "title": "ThinkPad X40 Series Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/tp_x40_hmm_en.pdf",
+      "source_kind": "official",
+      "sha256": "670d2943b7de15c63be7495476b79122f82ca7921b1a83f66747e3c0ea40bca9",
+      "bytes": 5994660,
+      "model_hint": "X40"
+    },
+    {
+      "id": "manual-tpvol1",
+      "title": "IBM Mobile Systems Hardware Maintenance Manual Volume 1 (May 1995)",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/bp_thinkpad/tpvol1.pdf",
+      "source_kind": "official",
+      "sha256": "692ccb21cc0e8c76c141970081eb67470a17ebafffa4dbe04f634c17782d9bcc",
+      "bytes": 3382703,
+      "model_hint": "ThinkPad 300, 350, 500, 510, 710T"
+    },
+    {
+      "id": "manual-tpvol2",
+      "title": "IBM Mobile Systems Hardware Maintenance Manual Volume 2: ThinkPad Computers (April 1995)",
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tpvol2.pdf",
+      "source_kind": "official",
+      "sha256": "0053d9272f3e40dd491636e1e4c88b8b1456d2149d2da6cd3ff2ceddd1b1bdad",
+      "bytes": 3716188,
+      "model_hint": "340x, 355x, 360x, 370C, 700, 700C, 701C, 701CS, 720, 720C, 750, 750C, 750Cs, 750P, 755C, 755Cs, 755CD, 755CDV, 755CE, 755CSE, 755CV, 755CX"
+    },
+    {
+      "id": "manual-tpvol3",
+      "title": "IBM Mobile Systems Hardware Maintenance Manual Volume 3 (March 1997)",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/tpvol3.pdf",
+      "source_kind": "official",
+      "sha256": "5dbb213e6c752800c542a9a96c8205bf1c25b8efb1f0f105cf5ef07067c64427",
+      "bytes": 7235531,
+      "model_hint": "365C/CD, 365CS/CSD, 365X/XD, 380, 385, 560, 760 variants"
+    },
+    {
+      "id": "manual-trwbook",
+      "title": "IBM Personal Systems Reference: ThinkPad R Series 2001–2005 withdrawn",
+      "url": "https://psrefstuff.lenovo.com/syspool/Sys/PDF/withdrawnbook/trwbook.pdf",
+      "source_kind": "official",
+      "sha256": "3184ee36b2897e28b14fc773c988cfa5b25284434059a28fe91bb3fadd6bef0d",
+      "bytes": 697053,
+      "model_hint": "R30, R31, R32, R40, R50, R51"
+    },
+    {
+      "id": "manual-twbook",
+      "title": "IBM Personal Systems Reference: ThinkPad Notebooks 1992–2001 withdrawn",
+      "url": "https://psrefstuff.lenovo.com/syspool/Sys/PDF/withdrawnbook/twbook.pdf",
+      "source_kind": "official",
+      "sha256": "2216e34dc76ce38861901ea9d99fb33a8449dd07d5408061c1ba117edf8bf837",
+      "bytes": 1193610,
+      "model_hint": "240, 300, 350, 360, 365, 380, 385, 390, 500, 560, 570, 600, 700, 701, 720, 750, 755, 760, 765, 770"
+    },
+    {
+      "id": "manual-vol4hmm",
+      "title": "IBM Mobile Systems HMM Volume 4: ThinkPad Computers (September 1997)",
+      "url": "https://download.lenovo.com/pccbbs/mobiles/vol4hmm.pdf",
+      "source_kind": "official",
+      "sha256": "182aaf9b4e7ace19ac8adb146f1ee705f0ef37dccc0cbc33ee30ee782369667b",
+      "bytes": 8194060,
+      "model_hint": "380, 385, 560, 560E, 760C, 760CD, 760E, 760ED, 760L, 760LD, 760EL, 760ELD, 760XL, 760XD, 765D, 765L, 770, SelectaDock III"
+    },
+    {
+      "id": "manual-w700-w700ds-w701-w701ds-hmm-en-43y9442-08",
+      "title": "ThinkPad W700, W700ds, W701, W701ds — Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/w700_w700ds_w701_w701ds_hmm_en_43y9442_08.pdf",
+      "source_kind": "official",
+      "sha256": null,
+      "bytes": null,
+      "model_hint": "ThinkPad W700, W700ds, W701, W701ds"
+    },
+    {
+      "id": "manual-x200-x200s-x200si-x201-x201i-x201s-hmm-en-43y6632-11",
+      "title": "ThinkPad X200, X200s, X200si, X201, X201i, X201s Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/x200_x200s_x200si_x201_x201i_x201s_hmm_en_43y6632_11.pdf",
+      "source_kind": "official",
+      "sha256": "04efed57a5d89d90f776bf52d17dc203d6b5e3c34bd908f0bc393b6ce15d5c2f",
+      "bytes": 16338562,
+      "model_hint": "X200, X200s, X200si, X201, X201i, X201s"
+    },
+    {
+      "id": "manual-x230tablet-x230itablet-hmm-en-0b48730-01",
+      "title": "ThinkPad X230 Tablet and X230i Tablet Hardware Maintenance Manual",
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/x230tablet_x230itablet_hmm_en_0b48730_01.pdf",
+      "source_kind": "official",
+      "sha256": "6668af70752497218b93fc5dac68d88aecd471f20b6a26a43d5f59c29479eb11",
+      "bytes": 25008764,
+      "model_hint": "X230 Tablet, X230i Tablet"
+    },
+    {
+      "id": "spec-p1-gen7",
+      "title": "ThinkPad P1 Gen 7 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P1_Gen_7/ThinkPad_P1_Gen_7_Spec.PDF",
+      "source_kind": "official",
+      "sha256": "c3450cb5eb35d4117e78e5b03700f571c8e449d2954ace96dda33d46f809e6ad",
+      "bytes": 1282033,
+      "model_hint": "ThinkPad P1 Gen 7"
+    },
+    {
+      "id": "spec-t14-gen5-amd",
+      "title": "ThinkPad T14 Gen 5 (AMD) Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_T14_Gen_5_AMD/ThinkPad_T14_Gen_5_AMD_Spec.pdf",
+      "source_kind": "official",
+      "sha256": "5a95a907faf4b9490ec507c5a6a428dad4ada193b594e2f4b616814c48a4d221",
+      "bytes": 1103362,
+      "model_hint": "ThinkPad T14 Gen 5 (AMD)"
+    },
+    {
+      "id": "spec-x1-carbon-gen12",
+      "title": "ThinkPad X1 Carbon Gen 12 Product Specifications Reference",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_Gen_12/ThinkPad_X1_Carbon_Gen_12_Spec.pdf",
+      "source_kind": "official",
+      "sha256": "c4d91141673baa92b280c9a2e5eb7aa6f1c143a7f0601eb2207a2f0ee66f5abe",
+      "bytes": 1172222,
+      "model_hint": "ThinkPad X1 Carbon Gen 12"
+    }
+  ]
+}

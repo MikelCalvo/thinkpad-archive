@@ -1,0 +1,28 @@
+# Generated sites and candidate/release archives
+/build/
+/dist/
+*.iso
+*.zip
+*.tar
+*.tar.gz
+*.pdf
+*.exe
+*.msi
+*.cab
+*.7z
+*.rar
+# Local bindings, original sources, evidence and secrets
+/private/
+/originals/
+/evidence/
+private-map*.json
+.env
+.env.*
+# Python and editor state
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+.DS_Store
