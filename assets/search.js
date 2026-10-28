@@ -6,10 +6,9 @@
   var family = document.getElementById("family-filter");
   var drivers = document.getElementById("driver-filter");
   var manuals = document.getElementById("manual-filter");
-  var count = document.getElementById("result-count");
   var empty = document.getElementById("empty-results");
   var body = document.getElementById("model-rows");
-  if (!form || !search || !family || !drivers || !manuals || !count || !empty || !body) { return; }
+  if (!form || !search || !family || !drivers || !manuals || !empty || !body) { return; }
   var rows = body.getElementsByTagName("tr");
   var timeline = document.getElementById("timeline");
   var slider = document.getElementById("year-slider");
@@ -41,7 +40,6 @@
       row.hidden = !match;
       if (match) { visible += 1; }
     }
-    count.textContent = String(visible);
     empty.hidden = visible !== 0;
     if (timeline) {
       timeline.setAttribute("data-selected-year", activeYear);

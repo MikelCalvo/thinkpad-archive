@@ -4,7 +4,7 @@
 
 Find manuals, driver metadata and source references for documented ThinkPad models, with an emphasis on early machines. The site is available in English and Spanish. You can also build a local copy and browse it without a server.
 
-**v0.4.0.** Source-backed model profiles and redesigned detail pages. The catalogue is still under development; coverage is documented, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
+**v0.4.1.** Dark by default, with a cleaner catalogue table and source-backed model profiles. The catalogue is still under development; coverage is documented, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
 
 This is an independent community project, not affiliated with, endorsed by or an official publication of IBM or Lenovo.
 
@@ -48,7 +48,7 @@ To make Spanish the root language:
 python3 -m thinkpad_archive build --output build/spanish --default-language es
 ```
 
-Switching languages keeps the current model. Both builds contain metadata and links, not manufacturer documents or installer binaries. The moon/sun control remembers your theme in local browser storage; on a first visit it follows your system preference. GitHub and external references open in a new tab, while catalogue navigation stays in the current one.
+Switching languages keeps the current model. Both builds contain metadata and links, not manufacturer documents or installer binaries. The moon/sun control remembers your theme in local browser storage; on a first visit it starts dark, independent of your system preference. A saved light or dark choice takes priority; without scripts the site also starts dark. GitHub and external references open in a new tab, while catalogue navigation stays in the current one.
 
 ## Hosting
 

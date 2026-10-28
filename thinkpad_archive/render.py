@@ -171,7 +171,6 @@ class Renderer:
                 body += '<option value="' + presence + '">' + e(t[presence + '_' + singular]) + '</option>'
             body += '</select></div>'
         body += '<button type="reset">' + e(t["reset"]) + '</button></form>'
-        body += '<p class="result-count" aria-live="polite" aria-atomic="true">' + e(t["matching"]) + ': <span id="result-count">' + str(selected_count) + '</span> / ' + str(len(data["models"])) + '</p>'
         body += '<div class="table-wrap" role="region" aria-labelledby="selected-year" tabindex="0"><table class="catalogue"><thead><tr>' + ''.join('<th scope="col">' + e(t[key]) + '</th>' for key in ("model", "family", "manual_availability", "driver_availability")) + '</tr></thead><tbody id="model-rows">'
         order = {key: i for i, key in enumerate(("early", "classic", "lenovo", "modern", "unknown"))}
         for model in sorted(data["models"], key=lambda m: (order[m["era"]], m["name"].casefold(), m["id"])):
@@ -182,13 +181,13 @@ class Renderer:
             row_years = ' '.join(str(year) for year in self.model_years(model))
             visibility = '' if selected_model(model) else ' hidden'
             body += '<tr data-model-id="' + e(model['id']) + '" data-years="' + e(row_years) + '" data-unknown-year="' + str(self.has_unknown_year(model)).lower() + '"' + visibility + ' data-search="' + e(' '.join([model["name"], model["id"], *model["aliases"]])) + '" data-family="' + e(model["family"]) + '" data-manuals="' + manual_presence + '" data-drivers="' + driver_presence + '"><th scope="row">' + self.link(current, model_path, model["name"]) + ('<span class="alias">' + e(aliases) + '</span>' if aliases else '') + '</th><td><span class="family-code">' + e(model["family"].upper()) + '</span><span class="alias">' + e(t["era_" + model["era"]]) + '</span></td>'
-            for ids, label_key, presence in ((model["document_ids"], "manuals", manual_presence), (model["driver_ids"], "drivers", driver_presence)):
+            for ids, label_key in ((model["document_ids"], "manuals"), (model["driver_ids"], "drivers")):
                 section = label_key
                 if label_key == "drivers" and ids and all(self.drivers[key]["risk"] == "firmware" for key in ids):
                     section = "firmware"
-                body += '<td>' + (self.link(current, model_path + '#' + section, str(len(ids))) if ids else '0') + '<span class="alias">' + e(t[presence + '_' + label_key]) + '</span></td>'
+                body += '<td>' + (self.link(current, model_path + '#' + section, str(len(ids))) if ids else '0') + '</td>'
             body += '</tr>'
-        body += '</tbody></table></div><p id="empty-results" class="notice"' + (' hidden' if selected_count else '') + '>' + e(t["empty_results"]) + '</p></section>'
+        body += '</tbody></table></div><p id="empty-results" class="notice" aria-live="polite"' + (' hidden' if selected_count else '') + '>' + e(t["empty_results"]) + '</p></section>'
         body += '<details class="reference-library"><summary>' + e(t['reference_library']) + '</summary><section aria-label="' + e(t["manuals"]) + '"><p>' + e(t["document_note"]) + '</p><div class="document-grid">'
         body += ''.join(self.document(current, lang, doc) for doc in data["documents"])
         body += '</div></section><section aria-label="' + e(t["utilities"]) + '"><p>' + e(t["utilities_note"]) + '</p><div class="utility-grid">'

@@ -71,7 +71,7 @@ class PublicPolish(unittest.TestCase):
             self.assertIn('class="theme-moon"', header)
             self.assertIn('class="theme-sun"', header)
 
-    def test_theme_bootstrap_is_local_early_and_nojs_css_has_system_fallback(self):
+    def test_theme_bootstrap_is_local_early_and_nojs_css_defaults_dark(self):
         for relative in ('index.html', 'en/models/700c.html', 'es/sources.html'):
             text = (self.output / relative).read_text()
             theme = [a for tag, a in Tags(text).tags if tag == 'script' and a.get('src', '').endswith('/theme.js')]
@@ -80,7 +80,7 @@ class PublicPolish(unittest.TestCase):
             self.assertLess(text.index(theme[0]['src']), text.index('rel="stylesheet"'))
         self.assertTrue((self.output / 'assets/theme.js').is_file())
         css = (self.output / 'assets/style.css').read_text()
-        self.assertIn('prefers-color-scheme:dark', css)
+        self.assertNotIn('prefers-color-scheme', css)
         self.assertIn('[data-theme="dark"]', css)
         self.assertIn('var(--firmware)', css)
 
@@ -137,17 +137,23 @@ function start(stored, systemDark, blocked=false) {
   handlers.DOMContentLoaded();
   return {attrs,handlers,button,writes,media,win};
 }
-const first=start(null,false);assert.equal(first.attrs['data-theme'],'light');
-assert.equal(first.button.hidden,false);assert.equal(first.button.attrs['aria-label'],'Switch to dark');
-first.handlers.click();assert.equal(first.attrs['data-theme'],'dark');
-assert.equal(first.button.attrs['aria-label'],'Switch to light');
-assert.equal(first.writes.length,1);assert.equal(first.writes[0][1],'dark');
+const first=start(null,false);assert.equal(first.attrs['data-theme'],'dark');
+assert.equal(first.button.hidden,false);assert.equal(first.button.attrs['aria-label'],'Switch to light');
+first.handlers.click();assert.equal(first.attrs['data-theme'],'light');
+assert.equal(first.button.attrs['aria-label'],'Switch to dark');
+assert.equal(first.writes.length,1);assert.equal(first.writes[0][1],'light');
 assert.equal(start('dark',false).attrs['data-theme'],'dark');
 assert.equal(start('light',true).attrs['data-theme'],'light');
-assert.equal(start('invalid',true).attrs['data-theme'],'dark');
-const denied=start(null,true,true);denied.handlers.click();assert.equal(denied.attrs['data-theme'],'light');
-const system=start(null,false);system.media.change({matches:true});assert.equal(system.attrs['data-theme'],'dark');
-system.handlers.click();system.media.change({matches:true});assert.equal(system.attrs['data-theme'],'light');
+assert.equal(start('invalid',false).attrs['data-theme'],'dark');
+assert.equal(start(null,true).attrs['data-theme'],'dark');
+const denied=start(null,false,true);assert.equal(denied.attrs['data-theme'],'dark');denied.handlers.click();assert.equal(denied.attrs['data-theme'],'light');
+const system=start(null,false);if(system.media.change)system.media.change({matches:false});assert.equal(system.attrs['data-theme'],'dark');
+system.handlers.click();if(system.media.change)system.media.change({matches:true});assert.equal(system.attrs['data-theme'],'light');
+system.win.storage({key:'thinkpad-archive-theme',newValue:'dark'});assert.equal(system.attrs['data-theme'],'dark');
+system.win.storage({key:'thinkpad-archive-theme',newValue:'light'});assert.equal(system.attrs['data-theme'],'light');
+system.win.storage({key:'thinkpad-archive-theme',newValue:null});assert.equal(system.attrs['data-theme'],'dark');
+system.win.storage({key:'thinkpad-archive-theme',newValue:'invalid'});assert.equal(system.attrs['data-theme'],'dark');
+system.win.storage({key:'unrelated',newValue:'light'});assert.equal(system.attrs['data-theme'],'dark');
 console.log('theme preference and failure paths passed');
 '''
         result = subprocess.run(['node', '-e', js, str(script)], capture_output=True, text=True, timeout=10)

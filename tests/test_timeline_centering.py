@@ -20,7 +20,7 @@ function run(reduced, nativeScroll = true) {
   }
   const controls = {};
   for (const id of ['filters','model-search','family-filter','driver-filter','manual-filter',
-                    'result-count','empty-results','year-slider','selected-year']) controls[id]=control();
+                    'empty-results','year-slider','selected-year']) controls[id]=control();
   const attrs = {'data-selected-year':'all','data-default-year':'all','data-all-value':'1991',
                  'data-all-label':'ALL','data-unknown-label':'Unknown','data-year-label':'Introduced in'};
   controls.timeline = {getAttribute:k=>attrs[k], setAttribute:(k,v)=>attrs[k]=v};

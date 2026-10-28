@@ -143,7 +143,8 @@ class BuildTests(unittest.TestCase):
         selects = {attrs.get("id") for tag, attrs in parser.tags if tag == "select"}
         self.assertEqual(selects, {"family-filter", "driver-filter", "manual-filter"})
         self.assertIn('type="search"', self.text())
-        self.assertIn('aria-live="polite"', self.text())
+        empty = next(attrs for tag, attrs in parser.tags if attrs.get('id') == 'empty-results')
+        self.assertEqual(empty.get('aria-live'), 'polite')
         self.assertIn('id="filters" class="filters" hidden', self.text())
         self.assertNotIn('class="stats"', self.text())
         self.assertNotIn('Manual references</dt><dd>1</dd>', self.text())
@@ -406,7 +407,7 @@ class BuildTests(unittest.TestCase):
 const assert = require('node:assert/strict');
 const listeners = new Map();
 function element(value = '') {return {value, hidden:true, textContent:'', addEventListener(k,f){listeners.set(this.id+':'+k,f);}};}
-const ids = ['filters','model-search','family-filter','driver-filter','manual-filter','result-count','empty-results','model-rows'];
+const ids = ['filters','model-search','family-filter','driver-filter','manual-filter','empty-results','model-rows'];
 const elements = Object.fromEntries(ids.map(id => [id, Object.assign(element(), {id})]));
 const rows = [
   {'data-search':'ThinkPad 700C 700 C','data-family':'700','data-drivers':'with','data-manuals':'with'},
@@ -418,7 +419,7 @@ global.document = {getElementById:id => elements[id]};
 global.window = {setTimeout:f => f()};
 require(process.argv[1]);
 function fire(id, event, value) {elements[id].value=value;listeners.get(id+':'+event)({preventDefault(){}});}
-function visible(expected) {assert.deepEqual(rows.map((r,i)=>r.hidden ? null : i).filter(i=>i!==null), expected);assert.equal(elements['result-count'].textContent,String(expected.length));assert.equal(elements['empty-results'].hidden,expected.length!==0);}
+function visible(expected) {assert.deepEqual(rows.map((r,i)=>r.hidden ? null : i).filter(i=>i!==null), expected);assert.equal(elements['empty-results'].hidden,expected.length!==0);}
 assert.equal(elements.filters.hidden,false);visible([0,1,2]);
 fire('driver-filter','change','without');visible([1]);
 fire('driver-filter','change','with');visible([0,2]);

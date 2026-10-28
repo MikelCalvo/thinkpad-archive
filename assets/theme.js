@@ -1,9 +1,8 @@
-/* Local-only preference, applied before CSS to avoid a light-theme flash. */
+/* Dark by default; a saved local preference is applied before CSS. */
 (function () {
   "use strict";
   var key = "thinkpad-archive-theme";
   var root = document.documentElement;
-  var media = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
   var preference = null;
   var button;
 
@@ -21,8 +20,7 @@
       button.setAttribute("title", label);
     }
   }
-  function systemTheme() { return media && media.matches ? "dark" : "light"; }
-  apply(preference || systemTheme());
+  apply(preference || "dark");
 
   function connect() {
     button = document.getElementById("theme-toggle");
@@ -39,14 +37,9 @@
     document.addEventListener("DOMContentLoaded", connect);
   } else { connect(); }
 
-  if (media && media.addEventListener) {
-    media.addEventListener("change", function (event) {
-      if (!preference) { apply(event.matches ? "dark" : "light"); }
-    });
-  }
   window.addEventListener("storage", function (event) {
     if (event.key !== key && event.key !== null) { return; }
     preference = valid(event.newValue) ? event.newValue : null;
-    apply(preference || systemTheme());
+    apply(preference || "dark");
   });
 }());

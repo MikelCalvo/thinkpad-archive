@@ -205,14 +205,14 @@ class Timeline(unittest.TestCase):
 const assert=require('node:assert/strict');
 let events={},prevented=0;
 function control(value=''){return {value,hidden:true,textContent:'',setAttribute(k,v){this[k]=v;},addEventListener(k,f){this[k]=f;}};}
-let form=control(),query=control(),family=control(),drivers=control(),manuals=control(),count=control(),empty=control();
+let form=control(),query=control(),family=control(),drivers=control(),manuals=control(),empty=control();
 let slider=control('1992'),label=control();
 let attrs={'data-selected-year':'all','data-default-year':'all','data-all-value':'1991','data-all-label':'All years','data-unknown-label':'Unknown','data-year-label':'Introduced in'};
 let timeline={getAttribute:k=>attrs[k],setAttribute:(k,v)=>attrs[k]=v};
 let rows=[['early','1992'],['later','2012 2013'],['unknown','']].map(([id,years])=>({hidden:false,getAttribute:k=>({'data-model-id':id,'data-years':years,'data-search':id,'data-family':'x','data-drivers':'with','data-manuals':'with'})[k]}));
 function anchor(year){return {attrs:{'data-year':year},getAttribute(k){return this.attrs[k];},setAttribute(k,v){this.attrs[k]=v;},removeAttribute(k){delete this.attrs[k];},addEventListener(k,f){this[k]=f;},scrollIntoView(){}};}
 let anchors=['1992','2000','2012','2013','unknown','all'].map(anchor);
-let body={getElementsByTagName:()=>rows};let controls={'filters':form,'model-search':query,'family-filter':family,'driver-filter':drivers,'manual-filter':manuals,'result-count':count,'empty-results':empty,'model-rows':body,'timeline':timeline,'year-slider':slider,'selected-year':label};
+let body={getElementsByTagName:()=>rows};let controls={'filters':form,'model-search':query,'family-filter':family,'driver-filter':drivers,'manual-filter':manuals,'empty-results':empty,'model-rows':body,'timeline':timeline,'year-slider':slider,'selected-year':label};
 global.document={getElementById:id=>controls[id]||null,querySelectorAll:s=>s==='[data-year]'?anchors:[]};
 global.window={setTimeout:f=>f(),location:{hash:''},addEventListener(k,f){events[k]=f;}};
 require(process.argv[1]);
@@ -228,7 +228,7 @@ query.value='';query.input();assert.equal(visible().length,3);
 anchors.find(a=>a.attrs['data-year']==='unknown').click({preventDefault(){}});assert.deepEqual(visible(),['unknown']);assert.equal(form.hidden,true);
 anchors.find(a=>a.attrs['data-year']==='all').click({preventDefault(){}});assert.equal(visible().length,3);assert.equal(form.hidden,false);
 slider.value='2000';slider.input();assert.deepEqual(visible(),[]);assert.equal(empty.hidden,false);assert.equal(form.hidden,true);
-form.reset();assert.equal(visible().length,3);assert.equal(count.textContent,'3');assert.equal(form.hidden,false);
+form.reset();assert.equal(visible().length,3);assert.equal(form.hidden,false);
 console.log('timeline interaction passed');
 '''
         result=subprocess.run(['node','-e',js,str(script)],capture_output=True,text=True,timeout=10)

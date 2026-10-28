@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.1
+
+- Start in dark mode when no valid local preference is saved, regardless of system theme. Keep explicit light/dark choices, cross-tab preference synchronization and a usable toggle when storage is blocked; no-script pages also default to dark.
+- Shorten catalogue headings to Model, Family, Manuals and Drivers & Software (and their Spanish equivalents). Use the same concise wording for ALL-view filter labels and options, with Models as the search label while preserving alias search. Keep model aliases and family/era context in rows, while showing only counts and existing section links in the two support columns.
+- Remove the repeated matching-entry counter beneath the filters. Keep year-selector counts, search, combined filters, reset, static year links and the empty-results state working without that DOM element.
+- Preserve all catalogue/profile data, model identities, manual/software associations, detail-page layout and firmware warnings.
+
 ## 0.4.0
 
 - Research-audited all 666 catalogue identities and added a separately validated EN/ES profile sidecar: 665 source-backed summaries and technical profiles, 7,095 technical facts, 652 historical contexts, 652 profiles with dated evidence and 239 with historical prices. X201si remains explicitly unresolved; missing facts are not inferred from neighboring models.
