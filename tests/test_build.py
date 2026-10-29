@@ -94,12 +94,12 @@ class BuildTests(unittest.TestCase):
         self.assertEqual(set(p.name for p in self.data.iterdir()), {"models.json", "documents.json", "drivers.json", "utilities.json"})
         self.build()
         for path in self.output.rglob("*"):
-            if path.is_file():
+            if path.is_file() and path.suffix != '.png':
                 content = path.read_text(encoding="utf-8").lower()
                 for removed in ("collection", "volumes.html", "private-map", "cd-r", "dvd-r", "recorded selection", "volúmenes", "colección"):
                     self.assertNotIn(removed, content, str(path.relative_to(self.output)))
         self.assertFalse(any(self.output.rglob("volumes.html")))
-        self.assertEqual({p.suffix for p in self.output.rglob("*") if p.is_file()}, {".html", ".css", ".js", ".svg"})
+        self.assertEqual({p.suffix for p in self.output.rglob("*") if p.is_file()}, {".html", ".css", ".js", ".svg", ".png"})
 
     def test_complete_bilingual_tree_same_model_links_and_local_assets(self):
         self.build()
@@ -116,7 +116,7 @@ class BuildTests(unittest.TestCase):
             self.assertEqual(len(parser.ids), len(set(parser.ids)))
             self.assertNotIn("fetch(", path.read_text())
             for tag, attrs in parser.tags:
-                if tag in ("script", "link", "img"):
+                if tag in ("script", "link", "img") and attrs.get('rel') != 'canonical':
                     self.assertFalse(urlsplit(attrs.get("src", attrs.get("href", ""))).scheme)
             for href in parser.links:
                 parts = urlsplit(href)

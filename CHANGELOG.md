@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.4
+
+- Add software-only package search and a source-listed operating-system filter on model pages, retaining original package wording, evidence, category controls and separate firmware warnings.
+- Keep catalogue search, family, availability filters and selected year in shareable URLs, with reload and browser history restoration.
+- Use the default index as the complete catalogue for ALL and language navigation; retain catalogue.html for old bookmarks.
+- Add localized static Open Graph/X sharing metadata, page-specific titles and descriptions, canonical URLs and two original 1200×630 PNG sharing cards.
+- Preserve static no-script/file browsing, all catalogue/profile records and external package associations.
+
 ## 0.4.3
 
 - Add an original red pointing-stick SVG favicon to every page.

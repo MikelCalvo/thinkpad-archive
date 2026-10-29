@@ -5,6 +5,10 @@ from html import escape
 from pathlib import PurePosixPath
 from urllib.parse import quote, urlencode
 import posixpath
+import json
+
+from .package_filters import operating_system_groups
+from .social import sharing_head
 
 
 # Presentation groups do not alter source categories or model associations.
@@ -72,7 +76,7 @@ class Renderer:
         languages, alternates = [], []
         for code, translation in self.locales.items():
             target = self.year_target(code, selection) if kind in ("year", "all") else code + ("/models/" + model_id + ".html" if model_id else "/" + ("sources.html" if kind == "sources" else "index.html"))
-            year_attrs = {'data-year-url':self.href(current, code + '/years/__year__.html'), 'data-all-url':self.href(current, code + '/catalogue.html')} if kind in ('home', 'year', 'all') else {}
+            year_attrs = {'data-year-url':self.href(current, code + '/years/__year__.html'), 'data-all-url':self.href(current, code + '/index.html')} if kind in ('home', 'year', 'all') else {}
             languages.append(self.link(current, target, translation["language_name"], hreflang=code, lang=code, **{'data-language-choice': code}, **year_attrs, **({"aria-current": "true"} if code == lang else {})))
             alternates.append('<link rel="alternate" hreflang="' + e(code) + '" href="' + e(self.href(current, target)) + '">\n')
         language_picker = ('<details id="language-picker" class="language-picker"><summary class="icon-control" aria-label="' + e(t['choose_language']) + '" title="' + e(t['choose_language']) + '">'
@@ -94,12 +98,12 @@ class Renderer:
                 '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
                 '<meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; style-src &#39;self&#39;; img-src &#39;self&#39;; script-src &#39;self&#39;; base-uri &#39;none&#39;; form-action &#39;none&#39;">\n'
                 '<meta name="referrer" content="no-referrer">\n<title>' + e(title + " · " + t["site_name"]) + '</title>\n'
-                + ''.join(alternates) + '<script src="' + e(self.href(current, "assets/language.js")) + '"></script>\n'
+                + sharing_head(current, lang, title, kind, selection, t) + ''.join(alternates) + '<script src="' + e(self.href(current, "assets/language.js")) + '"></script>\n'
                 '<script src="' + e(self.href(current, "assets/theme.js")) + '"></script>\n'
                 '<link rel="icon" type="image/svg+xml" href="' + e(self.href(current, 'favicon.svg')) + '">\n'
                 '<link rel="stylesheet" href="' + e(css) + '">\n'
                 + '<script src="' + e(self.href(current, "assets/ui.js")) + '" defer></script>\n'
-                + ('<script src="' + e(script) + '" defer></script>\n' if kind in ("home", "year", "all") else '') + '</head>\n<body>\n'
+                + ('<script src="' + e(script) + '" defer></script>\n' if kind in ("home", "year", "all") else '') + ('<script src="' + e(self.href(current, 'assets/packages.js')) + '" defer></script>\n' if kind == 'model' else '') + '</head>\n<body>\n'
                 '<a class="skip-link" href="#main">' + e(t["skip"]) + '</a>\n'
                 '<header class="site-header"><div class="topbar">'
                 '<nav class="main-nav" aria-label="' + e(t["site_name"]) + '">' + home + ''.join(nav) + '</nav>' + tools + '</div></header>\n'
@@ -110,11 +114,38 @@ class Renderer:
         items = [(t["source_kind"], t[doc["source_kind"]]), (t["model_hint"], doc["model_hint"] or t["not_recorded"]), (t["bytes"], doc["bytes"] if doc["bytes"] is not None else t["not_recorded"])]
         return ('<article class="document"><h3>' + e(doc["title"]) + '</h3><p>' + self.remote(doc["url"], t["remote"]) + '</p><p class="small">' + e(t["metadata_only"]) + '</p>' + self.metadata(items) + '<dl class="metadata"><div class="digest"><dt>' + e(t["digest"]) + '</dt><dd><code>' + e(doc["sha256"] or t["not_recorded"]) + '</code></dd></div></dl></article>')
 
+    @staticmethod
+    def package_attributes(driver):
+        attributes = ' data-package-id="' + e(driver['id']) + '"'
+        if driver['risk'] == 'software':
+            search = ' '.join([driver['title'], driver['category'], driver['version'] or '', *driver['operating_systems']])
+            attributes += ' data-package-search="' + e(search) + '" data-package-os="' + e(json.dumps(operating_system_groups(driver['operating_systems']), ensure_ascii=False)) + '"'
+        return attributes
+
+    def package_controls(self, lang, software):
+        if not software:
+            return ''
+        t = self.locales[lang]
+        systems = operating_system_groups([label for row in software for label in row['operating_systems']])
+        body = ('<form id="package-filters" class="package-filters" hidden>'
+                '<div class="package-search-field"><label for="package-search">' + e(t['package_search']) + '</label>'
+                '<input type="search" id="package-search" placeholder="' + e(t['package_search_hint']) + '" autocomplete="off"></div>'
+                '<div><label for="package-os">' + e(t['package_os']) + '</label><select id="package-os">'
+                '<option value="">' + e(t['package_os_all']) + '</option>')
+        for system in systems:
+            body += '<option value="' + e(system) + '">' + e(system) + '</option>'
+        if any(not row['operating_systems'] for row in software):
+            body += '<option value="__unrecorded__">' + e(t['package_os_unknown']) + '</option>'
+        return (body + '</select></div><button type="reset">' + e(t['reset']) + '</button>'
+                '<p class="package-filter-note">' + e(t['package_filter_note']) + '</p>'
+                '<p id="package-filter-status" class="package-filter-status" aria-live="polite" data-pattern="' + e(t['package_filter_count']) + '" hidden></p></form>'
+                '<p id="package-empty" class="notice" aria-live="polite" hidden>' + e(t['package_filter_empty']) + '</p>')
+
     def driver(self, lang, driver):
         t = self.locales[lang]
         items = [(t["category"], driver["category"]), (t["version"], driver["version"] or t["not_recorded"]), (t["operating_systems"], ' / '.join(driver["operating_systems"]) or t["not_recorded"]), (t["released"], driver["released"] or t["not_recorded"]), (t["evidence"], t[driver["evidence"]])]
         links = ' <span aria-hidden="true">·</span> '.join(self.remote(link["url"], t[link["kind"]]) for link in driver["links"])
-        body = '<article class="driver"><h3>' + e(driver["title"]) + '</h3>' + self.metadata(items)
+        body = '<article class="driver"' + self.package_attributes(driver) + '><h3>' + e(driver["title"]) + '</h3>' + self.metadata(items)
         body += '<p class="package-links">' + links + '</p>' if links else '<p>' + e(t["no_package_links"]) + '</p>'
         kinds = {link["kind"] for link in driver["links"]}
         for kind in ("download", "readme"):
@@ -138,7 +169,7 @@ class Renderer:
 
     def year_target(self, lang, year):
         if year == "all":
-            return lang + '/catalogue.html'
+            return lang + '/index.html'
         return lang + '/years/' + str(year) + '.html'
 
     def timeline(self, current, lang, selected):
@@ -253,6 +284,7 @@ class Renderer:
         software = [driver for driver in linked_drivers if driver["risk"] == "software"]
         firmware = [driver for driver in linked_drivers if driver["risk"] == "firmware"]
         body += '</section><section id="drivers"><h2>' + e(t["drivers"]) + '</h2><p>' + e(t["driver_note"]) + '</p>'
+        body += self.package_controls(lang, software)
         if software:
             body += self.driver_categories(current, lang, software, 'drivers')
         elif firmware:

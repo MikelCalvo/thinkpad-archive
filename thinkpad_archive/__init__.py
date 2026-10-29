@@ -38,8 +38,10 @@ def build_site(output, *, data_dir=None, locales_dir=None, default_language=None
         else:
             renderer = Renderer(data, locales)
         pages = renderer.render(language)
-        assets = {"assets/" + name: read_bytes(ROOT / "assets" / name) for name in ("style.css", "search.js", "ui.js", "theme.js", "language.js")}
+        assets = {"assets/" + name: read_bytes(ROOT / "assets" / name) for name in ("style.css", "search.js", "ui.js", "theme.js", "language.js", "packages.js")}
         assets["favicon.svg"] = read_bytes(ROOT / "assets/favicon.svg")
+        for code in ('en', 'es'):
+            assets['assets/social-' + code + '.png'] = read_bytes(ROOT / ('assets/social-' + code + '.png'))
         if profiles is not None:
             assets["assets/style.css"] += b"\n" + read_bytes(ROOT / "assets/model-design.css")
         payload = {name: text.encode("utf-8") for name, text in pages.items()}

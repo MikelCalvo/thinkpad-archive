@@ -12,6 +12,8 @@
 !assets/*.css
 !assets/*.js
 !assets/favicon.svg
+!assets/social-en.png
+!assets/social-es.png
 !tests/
 !tests/*.py
 !tools/

@@ -115,3 +115,17 @@
 .source-reference-list li{margin-bottom:.7rem;overflow-wrap:anywhere;font-size:.85rem}
 @media(max-width:720px){.source-families,.source-reference-groups{grid-template-columns:1fr}.source-family{padding:1.1rem}.source-family>svg{margin-bottom:.6rem}.source-evidence>div{grid-template-columns:1fr;gap:.25rem}.sources-page section{margin-bottom:1.6rem}.source-install{padding-left:.9rem}.source-reference-groups{gap:1rem}}
 @media print{.source-family,.source-install{break-inside:avoid}.source-details>details>.source-details-body{display:block!important}.source-details>details>summary::after{content:''}.source-reference-groups{display:block}}
+
+/* Software-only filtering; full original lists stay available without scripts. */
+.package-filters{display:flex;flex-wrap:wrap;align-items:flex-end;gap:1rem;margin:0 0 1.2rem;padding:1rem;border:1px solid var(--line);background:var(--card);border-radius:4px}
+.package-filters>div{min-width:0;flex:1 1 220px}
+.package-filters>.package-search-field{flex:2 1 280px}
+.package-filters label{display:block;font-size:.8rem;font-weight:bold;margin-bottom:.35rem;color:var(--ink)}
+.package-filters input,.package-filters select{width:100%;min-width:0;min-height:44px;padding:.6rem .7rem;background:var(--paper);color:var(--ink);border:1px solid var(--control-line);border-radius:2px;font:inherit;font-size:.9rem}
+.package-filters button{min-height:44px;padding:.6rem .8rem;background:var(--tint);color:var(--ink);border:1px solid var(--control-line);border-radius:2px;font:inherit;font-size:.85rem;cursor:pointer}
+.package-filters button:hover{border-color:var(--red);color:var(--red)}
+.package-filters p{flex-basis:100%;margin:0;font-size:.8rem;line-height:1.5;color:var(--muted)}
+.package-filters .package-filter-status{font-family:var(--mono);color:var(--ink)}
+[hidden].package-filters,[hidden].package-row,[hidden].driver,[hidden].driver-category{display:none!important}
+@media(max-width:720px){.package-filters{gap:.8rem;padding:.85rem}.package-filters>div,.package-filters>.package-search-field{flex-basis:100%}.package-filters button{width:100%}}
+@media print{.package-filters,#package-empty{display:none!important}}

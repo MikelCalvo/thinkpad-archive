@@ -59,8 +59,8 @@ class ModelDesign(unittest.TestCase):
         packages = [a['data-package-id'] for _,a in tags if 'data-package-id' in a]
         self.assertEqual(set(packages), set(model['driver_ids']))
         self.assertEqual(len(packages), len(model['driver_ids']))
-        for _,a in tags:
-            if a.get('href','').startswith('https://'):
+        for tag,a in tags:
+            if tag == 'a' and a.get('href','').startswith('https://'):
                 self.assertEqual(a.get('target'), '_blank')
                 self.assertIn('noopener', a.get('rel',''))
         self.assertIn('reference-details', text)

@@ -4,7 +4,7 @@
 
 Find manuals, driver metadata and source references for documented ThinkPad models, with an emphasis on early machines. The site is available in English and Spanish. You can also build a local copy and browse it without a server.
 
-**v0.4.3.** Compact navigation, remembered language choices, a red pointing-stick favicon and a clearer Sources page, with source-backed model profiles. The catalogue is still under development; coverage is documented, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
+**v0.4.4.** Software search and source-listed OS filters, shareable catalogue views, the complete catalogue at the default index and localized social sharing cards. The catalogue is still under development; coverage is documented, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
 
 This is an independent community project, not affiliated with, endorsed by or an official publication of IBM or Lenovo.
 
@@ -51,6 +51,14 @@ python3 -m thinkpad_archive build --output build/spanish --default-language es
 ```
 
 The navigation places catalogue/source links on the left and the globe language picker beside the theme and GitHub controls on the right. Subpages use a compact house icon to return home. The neutral entry starts in English by default and remembers an explicit language choice; direct English/Spanish links remain in their requested language. Switching languages keeps the current model, selected year or sources page. Both builds contain metadata and links, not manufacturer documents or installer binaries. The moon/sun control remembers your theme in local browser storage; on a first visit it starts dark, independent of your system preference. A saved light or dark choice takes priority; without scripts the site also starts dark. GitHub and external references open in a new tab, while catalogue navigation stays in the current one.
+
+## Search, shareable navigation and social cards (0.4.4)
+
+Model pages add optional software search and a source-listed operating-system filter. Known OS label spellings are grouped for navigation; each package still displays the original source text, architecture and evidence. An OS filter is not a compatibility certification. Firmware remains separate and is never hidden by software filters. Without scripts, the original complete category lists remain readable.
+
+Catalogue search, family, reference-presence filters and selected year can be shared in the URL. Reload and browser Back/Forward restore that view. Year views retain their clean, filter-free layout; choose ALL to search across the catalogue. These improvements run locally without accounts, network requests or server-side saved searches.
+
+Shared links include static Open Graph and X/Twitter large-card metadata, localized descriptions, page-specific model/year/source titles, canonical URLs and original EN/ES 1200×630 PNG artwork. The metadata uses the official HTTPS domain; local previews let you inspect the files, but social services cannot fetch localhost. The neutral and legacy catalogue entries use the language-specific default catalogue as their canonical URL. Public sharing services can fetch the deployed files, but their cached previews may take time to refresh; local copies cannot be fetched from localhost. Filter query strings retain their interactive behavior but use the page's unfiltered metadata; static crawlers do not execute the local search. No social SDK, account, tracker or automatic post is added. Normal builds copy the checked-in cards without dependencies; `tools/generate_social_cards.py` is an optional artwork-regeneration tool requiring Pillow, rsvg-convert and DejaVu Sans.
 
 ## Hosting
 

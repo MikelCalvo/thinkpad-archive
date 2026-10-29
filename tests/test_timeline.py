@@ -61,7 +61,7 @@ class Timeline(unittest.TestCase):
             self.assertIn('data-year="1992"', home)
             self.assertIn('type="range"', home)
             self.assertIn('years/2012.html', home)
-            self.assertIn('catalogue.html', home)
+            self.assertIn('href="index.html" data-year="all"', home)
             self.assertNotIn('reference-library', home)
             css = (site/'assets/style.css').read_text()
             self.assertNotIn('border-top:5px solid var(--red)', css)

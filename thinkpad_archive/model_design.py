@@ -256,7 +256,7 @@ class ModelDesignRenderer(Renderer):
         source += '<code>' + e(driver['source_sha256'] or t['not_recorded']) + '</code>'
         kinds = {link['kind'] for link in driver['links']}
         missing = ''.join('<span class="missing-link">' + e(words[key]) + '</span>' for kind,key in [('download','no_download'),('readme','no_readme')] if kind not in kinds)
-        return ('<article class="package-row" data-package-id="' + e(driver['id']) + '"><div class="package-main"><h3>' + e(driver['title']) + '</h3>' + meta
+        return ('<article class="package-row"' + self.package_attributes(driver) + '><div class="package-main"><h3>' + e(driver['title']) + '</h3>' + meta
                 + '<details class="reference-details package-reference"><summary>' + e(words['package_details']) + '</summary>' + source + '</details>'
                 + missing + '</div><div class="package-actions">' + ''.join(actions) + '</div></article>')
 
@@ -318,6 +318,7 @@ class ModelDesignRenderer(Renderer):
         body += '<section id="manuals" class="dossier-section"><div class="section-heading"><h2>'+e(w['manuals'])+'</h2><span>'+str(len(model['document_ids']))+' '+e(w['documents'])+'</span></div>'
         body += ('<div class="manual-cards">'+''.join(self.compact_document(lang,self.docs[key]) for key in model['document_ids'])+'</div>') if model['document_ids'] else '<p class="design-empty">'+e(w['no_manuals'])+'</p>'
         body += '</section><section id="drivers" class="dossier-section"><div class="section-heading"><h2>'+e(w['drivers'])+'</h2><span>'+str(len(software))+' '+e(w['packages'])+'</span></div>'
+        body += self.package_controls(lang, software)
         body += self.driver_categories(current,lang,software,'drivers') if software else '<p class="design-empty">'+e(w['no_packages'])+'</p>'
         body += '</section><section id="firmware" class="dossier-section"><div class="section-heading"><h2>'+e(w['firmware'])+'</h2><span>'+str(len(firmware))+' '+e(w['packages'])+'</span></div>'
         if firmware:

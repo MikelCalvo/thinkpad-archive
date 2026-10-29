@@ -19,7 +19,7 @@ class Links(HTMLParser):
             self.ids.append(values['id'])
         for attribute in ('href', 'src'):
             if attribute in values:
-                self.links.append((tag, attribute, values[attribute]))
+                self.links.append((tag, attribute, values[attribute], values.get('rel', '')))
 
 
 def check_site(root):
@@ -42,7 +42,7 @@ def check_site(root):
                 error(path, identity, 'duplicate-id')
 
     for path, parser in pages.items():
-        for tag, attribute, value in parser.links:
+        for tag, attribute, value, rel in parser.links:
             try:
                 url = urlsplit(value)
             except ValueError:
@@ -51,7 +51,8 @@ def check_site(root):
             if url.scheme or url.netloc:
                 if url.scheme not in ('http', 'https') or not url.hostname or url.username or url.password:
                     error(path, value, 'unsafe-scheme')
-                elif tag != 'a' or attribute != 'href':
+                elif not ((tag == 'a' and attribute == 'href') or
+                          (tag == 'link' and attribute == 'href' and rel == 'canonical' and url.scheme == 'https')):
                     error(path, value, 'remote-asset')
                 else:
                     external += 1

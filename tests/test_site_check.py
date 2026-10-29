@@ -44,6 +44,15 @@ class SiteCheck(unittest.TestCase):
             result = check(root)
             self.assertEqual({e['reason'] for e in result['errors']}, {'path-escape', 'unsafe-scheme', 'remote-asset'})
 
+    def test_https_canonical_is_metadata_not_a_remote_asset(self):
+        check = self.checker()
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'index.html').write_text('<link rel="canonical" href="https://thinkpadarchive.com/en/"><script src="https://example.com/a.js"></script><link rel="canonical" href="javascript:alert(1)">')
+            result = check(root)
+            self.assertEqual(result['external_links'], 1)
+            self.assertEqual([e['reason'] for e in result['errors']], ['remote-asset', 'unsafe-scheme'])
+
     def test_duplicate_ids_are_rejected(self):
         check = self.checker()
         with tempfile.TemporaryDirectory() as tmp:

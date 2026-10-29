@@ -142,5 +142,22 @@
   "sources_method_heading": "Cobertura y criterios del catálogo",
   "sources_method_dates": "Un listado regional o folleto fechado no demuestra un primer lanzamiento mundial. Las variantes exactas y los matices de las fuentes se conservan en cada ficha.",
   "sources_method_files": "Solo se publican metadatos factuales y enlaces, no archivos del fabricante ni páginas copiadas. Los archivos externos necesitan Internet y mantienen sus licencias originales.",
-  "sources_method_operations": "El catálogo nunca descarga ni ejecuta paquetes automáticamente. Firmware, recuperación, borrado y diagnóstico son operaciones independientes y deliberadas. Un enlace o hash no otorga derechos de redistribución."
+  "sources_method_operations": "El catálogo nunca descarga ni ejecuta paquetes automáticamente. Firmware, recuperación, borrado y diagnóstico son operaciones independientes y deliberadas. Un enlace o hash no otorga derechos de redistribución.",
+  "package_search": "Paquetes",
+  "package_search_hint": "Nombre, categoría o versión…",
+  "package_os": "SO indicado en la fuente",
+  "package_os_all": "Todos los sistemas indicados",
+  "package_os_unknown": "SO no registrado",
+  "package_filter_note": "Filtra por el sistema que menciona la fuente, no por compatibilidad probada. Comprueba el README original y la arquitectura.",
+  "package_filter_count": "{shown} / {total} paquetes",
+  "package_filter_empty": "No hay software con estos filtros. Prueba otro sistema o restablece los filtros.",
+  "social_home_description": "Manuales, listados de controladores y referencias documentadas de modelos ThinkPad. Un archivo comunitario independiente.",
+  "social_model_description": "{model}: manuales, listados de controladores, especificaciones y fuentes. Comprueba el modelo exacto y el README antes de instalar.",
+  "social_sources_description": "Documentación de IBM y Lenovo, especificaciones PSREF y referencias de ThinkWiki, con niveles de evidencia y notas de cobertura.",
+  "social_year_title": "Modelos ThinkPad · {year}",
+  "social_year_description": "Consulta las entradas ThinkPad con fechas documentadas en {year}, con manuales, listados de software y fuentes.",
+  "social_unknown_title": "Modelos ThinkPad · Fechas sin confirmar",
+  "social_unknown_description": "Entradas ThinkPad con fechas de introducción sin confirmar o parcialmente documentadas, con manuales, listados de software y fuentes.",
+  "social_image_alt": "ThinkPad Archive sobre fondo grafito con un capuchón rojo de pointing stick. Manuales, software e historia.",
+  "social_locale": "es_ES"
 }
