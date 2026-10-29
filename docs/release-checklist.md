@@ -13,6 +13,8 @@ This is a checklist, not a claim that the steps already passed.
 - Exercise model search, combined filters, a historical model, X230, EN/ES switching, source links, utility layout and narrow-screen behavior in a real browser.
 - Exercise every calendar year in the timeline, its native keyboard/touch control, global search, all-model/unknown-date views, grouped variants and same-year language switching. Verify static year pages and empty years without JavaScript.
 - Confirm file:// browsing works without a local server, and all entries remain readable without scripts. State untested legacy-browser and hardware boundaries.
+- Generate the versioned offline ZIP with `python3 -m thinkpad_archive offline-release --output NEW_DIR`. Check its sibling SHA-256 and every manifest member, extract to an isolated folder, then exercise catalogue/model/language/filter/no-script flows from the actual extracted files. Verify no collection or bundled manufacturer files/live counter history.
+- For published releases, require the exact released tag to match VERSION and verify the offline workflow's tested commit plus both attached asset names/checksums. Local workflow rehearsal is not hosted execution; never replace assets silently or publish a release merely to test automation.
 - Check firmware warnings, evidence-level labels and missing-data states. Remove personal-inventory/physical-media features from the public project.
 - Review SPEC compliance, then implementation quality on the frozen candidate. Fix demonstrated defects and rerun affected gates.
 - Update public status/changelog from actual results; declare 1.0.0 only after acceptance.

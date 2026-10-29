@@ -2,6 +2,12 @@
 !Dockerfile
 !.dockerignore
 !VERSION
+!LICENSE
+!docs/
+!docs/sources-and-rights.md
+!.github/
+!.github/workflows/
+!.github/workflows/offline-release.yml
 !thinkpad_archive/
 !thinkpad_archive/*.py
 !data/

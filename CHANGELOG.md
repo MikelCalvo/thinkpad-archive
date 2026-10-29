@@ -1,6 +1,12 @@
 # Changelog
 
-## 0.5.1 (unreleased preview)
+## 0.5.2 (unreleased preview)
+
+- Add an offline-release command that builds a fresh collection-free bilingual catalogue and packages it as a versioned ZIP, with the original license, usage/rights notes, per-file SHA-256 manifest and whole-archive checksum.
+- Keep every catalogue page and local asset available after extracting the complete folder and opening index.html. External sources, PDFs, installers and GitHub correction drafts still require Internet; manufacturer files and live statistics/history are not bundled.
+- Add a release-published workflow that tests the exact release snapshot and attaches the ZIP/checksum to the existing release. It does not create releases, tags or deployments, and never overwrites an existing asset. Hosted execution remains pending publication.
+
+## 0.5.1 (integrated locally, unreleased)
 
 - Add a discreet Suggest a correction / Proponer una corrección link to every model page, including legacy catalogues without technical profiles.
 - Open a GitHub issue draft with the exact model name, catalogue ID and public language-specific page URL. Localized prompts ask for the correction, supporting sources and relevant machine-type/package qualifiers; remind contributors not to include serial numbers or personal information.

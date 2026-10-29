@@ -31,6 +31,25 @@ Read the exact package README. Check machine type/model (MTM), variant, operatin
 
 **BIOS, embedded-controller, recovery and destructive utilities require separate care.** They are not routine driver updates. The site does not run downloads, automate installation or certify compatibility. Documentation review and content hashes are not hardware tests.
 
+## Offline release copy (0.5.2 preview)
+
+An offline catalogue asset can be generated for each release: `thinkpad-archive-VERSION-offline.zip` and its `.zip.sha256` checksum. This feature is currently prepared locally; there is no published 0.5.2 asset yet. Once published, download the ZIP from that version's [GitHub release assets](https://github.com/MikelCalvo/thinkpad-archive/releases), extract the entire folder and open `index.html`. No Python, local server, account or installation is needed to browse. English and Spanish are included in one archive.
+
+The archive contains the catalogue, technical profiles and local UI assets, plus the project license, bilingual instructions and source-rights notes. It does not contain manufacturer PDFs, driver installers, private research or live statistics/history. External references and GitHub correction drafts still require Internet. The offline copy never opts into collection; Stats cannot display live counts from a local file.
+
+To generate the same distribution yourself with Python 3.11 or later, from the project directory:
+
+```sh
+mkdir -p dist
+python3 -m thinkpad_archive offline-release --output dist/offline
+```
+
+The output directory must be new. Optionally add `--default-language es` for a Spanish root entry; both languages remain included. The command accepts the same metadata/locale directories as the static builder, but never accepts a prebuilt website or collection opt-in. It verifies the complete ZIP before publishing the two files into the output directory. Existing output is refused unchanged. Ordinary failures clean task-owned partial output; an interruption or power loss can leave incomplete files, so verify the checksum rather than treating directory presence as success.
+
+Each extracted copy includes `SHA256SUMS.json` for its members. The sibling `.zip.sha256` checks the whole ZIP, for example with `sha256sum -c *.zip.sha256` on Linux or `Get-FileHash FILE.zip -Algorithm SHA256` in PowerShell. These hashes detect changed bytes, not publisher identity. Member order, timestamps and modes are fixed; identical compressed bytes are expected only with the same Python/zlib toolchain.
+
+The release workflow runs on published releases, including prereleases, requires a matching `vVERSION` tag, and checks out the release's exact commit. A read-only job runs the complete suite and generates the archive; a separate job can only attach the verified files to that existing release. Existing asset names fail rather than being replaced. This local implementation has not yet run on GitHub-hosted runners. It does not backfill older releases automatically.
+
 ## Build locally
 
 You need Python 3.11 or later. The builder uses only the standard library. From the project directory:

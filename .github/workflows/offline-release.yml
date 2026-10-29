@@ -1,0 +1,110 @@
+name: Offline release archive
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: offline-release-${{ github.event.release.id }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.13'
+      - name: Test and package the released snapshot
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_SHA: ${{ github.sha }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          import subprocess
+          import sys
+          version = Path('VERSION').read_text(encoding='ascii').strip()
+          if os.environ['RELEASE_TAG'] != 'v' + version:
+              raise SystemExit('Release tag does not match VERSION')
+          head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
+          if head != os.environ['RELEASE_SHA']:
+              raise SystemExit('Checkout does not match the release snapshot')
+          subprocess.run([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-v'], check=True, timeout=600)
+          Path('dist').mkdir(exist_ok=True)
+          subprocess.run([sys.executable, '-m', 'thinkpad_archive', 'offline-release', '--output', 'dist/offline'], check=True, timeout=180)
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: offline-release
+          path: dist/offline/*
+          if-no-files-found: error
+          retention-days: 7
+
+  attach:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: offline-release
+          path: offline
+      - name: Verify and attach to the existing release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_ID: ${{ github.event.release.id }}
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import subprocess
+          import zipfile
+          tag = os.environ['RELEASE_TAG']
+          if re.fullmatch(r'v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)', tag) is None:
+              raise SystemExit('Invalid release tag')
+          version = tag[1:]
+          name = 'thinkpad-archive-' + version + '-offline.zip'
+          root = Path('offline')
+          if {p.name for p in root.iterdir()} != {name, name + '.sha256'}:
+              raise SystemExit('Unexpected release assets')
+          archive = root / name
+          with archive.open('rb') as stream:
+              checksum = hashlib.file_digest(stream, 'sha256').hexdigest()
+          if (root / (name + '.sha256')).read_text(encoding='ascii') != checksum + '  ' + name + '\n':
+              raise SystemExit('ZIP checksum mismatch')
+          with zipfile.ZipFile(archive) as bundle:
+              prefix = 'thinkpad-archive-' + version + '/'
+              manifest = json.loads(bundle.read(prefix + 'SHA256SUMS.json'))
+              if manifest['version'] != version or bundle.testzip() is not None:
+                  raise SystemExit('ZIP verification failed')
+              if set(bundle.namelist()) != {prefix + p for p in manifest['files']} | {prefix + 'SHA256SUMS.json'}:
+                  raise SystemExit('ZIP manifest membership mismatch')
+              for member, digest in manifest['files'].items():
+                  with bundle.open(prefix + member) as stream:
+                      if hashlib.file_digest(stream, 'sha256').hexdigest() != digest:
+                          raise SystemExit('ZIP member checksum mismatch')
+          endpoint = 'repos/' + os.environ['GH_REPO'] + '/releases/' + os.environ['RELEASE_ID']
+          release = json.loads(subprocess.check_output(['gh', 'api', endpoint], text=True, timeout=30))
+          if release['tag_name'] != tag or release['draft']:
+              raise SystemExit('Published release identity mismatch')
+          # No --clobber: an existing asset is never silently replaced.
+          subprocess.run(['gh', 'release', 'upload', tag, str(archive), str(root / (name + '.sha256')),
+                          '--repo', os.environ['GH_REPO']], check=True, timeout=120)
+          PY
