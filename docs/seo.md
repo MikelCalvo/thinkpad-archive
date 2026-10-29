@@ -1,6 +1,6 @@
 # Search discovery and indexing
 
-Version 0.5.4 includes technical SEO improvements. Its presence in the source repository does not establish that the public site has deployed it or that a search engine has indexed it. Technical correctness makes discovery easier; crawling, canonical selection, inclusion, rich results and ranking are search-engine decisions.
+The builder emits crawler-readable metadata and discovery files for the public catalogue. Verify each deployment separately from source publication. Crawling, canonical selection, indexing, rich results and ranking remain search-engine decisions; a valid sitemap does not guarantee inclusion.
 
 ## What the build emits
 
@@ -31,10 +31,10 @@ python3 tools/check_seo.py build/checks/english
 
 The SEO checker reads actual generated HTML and XML without fetching external URLs. It validates canonical and alternate existence/locality, reciprocal sets, sitemap membership, robots guidance, unique metadata and JSON-LD/CSP consistency. It is not a substitute for a search engine's live URL inspection, real-browser checks, external download verification or hardware compatibility testing.
 
-## After an authorized production deployment
+## Verify a production deployment
 
 1. Verify the deployed commit separately from the GitHub source commit. Fetch the real robots.txt and sitemap.xml with a fresh request. Require HTTP 200, correct UTF-8/plain-text or XML content and URLs on the official HTTPS domain. A local passing checker or an old public page is not deployment evidence.
-2. Check the English/Spanish catalogue, a model, Sources, a populated year and Stats. Ensure the public response has no accidental global noindex or X-Robots-Tag block, canonical/alternate targets exist, CSS/JS can be crawled and missing pages return real 404 rather than an indexable soft-404 shell. Confirm HTTP/HTTPS and any hostname redirects through the actual edge; this candidate does not change DNS or the reverse proxy.
+2. Check the English/Spanish catalogue, a model, Sources, a populated year and Stats. Ensure the public response has no accidental global noindex or X-Robots-Tag block, canonical/alternate targets exist, CSS/JS can be crawled and missing pages return real 404 rather than an indexable soft-404 shell. Confirm HTTP/HTTPS and any hostname redirects through the actual edge; publishing the catalogue does not require changing DNS or the reverse proxy.
 3. For Google, sign in to [Search Console](https://search.google.com/search-console/), add the appropriate property and complete the ownership method supplied by Google. A domain property uses DNS verification; a URL-prefix property may offer other methods. DNS/account/file changes require explicit operator approval, and verification values must not be guessed or posted in chat.
 4. In the verified property's Sitemaps report, submit `https://thinkpadarchive.com/sitemap.xml`. Inspect representative model and language URLs with the live URL-inspection tool. Google documents that a successful sitemap fetch does not mean every listed URL will be crawled or indexed.
 5. For Bing, sign in to [Bing Webmaster Tools](https://www.bing.com/webmasters/), add and verify the site using the offered method, or explicitly approve importing an already-verified Search Console property. Submit the same official sitemap in the Sitemaps section. Review processing and URL-inspection reports separately from submission success.

@@ -40,7 +40,7 @@ class ReleaseDraft(unittest.TestCase):
         self.repo = 'example/archive'
 
     def release(self, *, draft=True, digest_override=None):
-        return {'id': 123, 'tag_name': self.tag, 'draft': draft, 'prerelease': True,
+        return {'id': 123, 'tag_name': self.tag, 'draft': draft, 'prerelease': self.version.startswith('0.'),
                 'assets': [{'name': p.name, 'size': p.stat().st_size, 'state': 'uploaded',
                             'digest': digest_override or 'sha256:' + hashlib.sha256(p.read_bytes()).hexdigest()}
                            for p in sorted(self.assets.iterdir())]}
@@ -68,8 +68,9 @@ class ReleaseDraft(unittest.TestCase):
             result = self.invoke(module)
         creates = [c for c in calls if c[:3] == ['gh', 'release', 'create']]
         self.assertEqual(len(creates), 1)
-        for flag in ('--draft', '--verify-tag', '--prerelease', '--notes-file'):
+        for flag in ('--draft', '--verify-tag', '--notes-file'):
             self.assertIn(flag, creates[0])
+        self.assertEqual('--prerelease' in creates[0], self.version.startswith('0.'))
         self.assertNotIn('--clobber', creates[0])
         self.assertEqual(result['status'], 'draft-created')
 
@@ -146,7 +147,7 @@ class ReleaseDraft(unittest.TestCase):
         for initially_present in (True, False):
             with self.subTest(existing=initially_present):
                 calls = []
-                invalid = self.release();invalid['prerelease'] = False
+                invalid = self.release();invalid['prerelease'] = not self.version.startswith('0.')
                 def run(argv, **kwargs):
                     calls.append(argv)
                     if argv[0] == 'git':
@@ -159,6 +160,43 @@ class ReleaseDraft(unittest.TestCase):
                     self.invoke(module)
                 self.assertEqual(sum(c[:3] == ['gh', 'release', 'create'] for c in calls), 0 if initially_present else 1)
                 self.assertFalse(any(c[:3] in (['gh', 'release', 'edit'], ['gh', 'release', 'upload']) for c in calls))
+
+    def test_both_stable_and_prerelease_channels_create_and_reconcile(self):
+        # Characterize the existing channel policy independently of VERSION.
+        import thinkpad_archive.offline_release as offline
+        for number, expected in (('0.9.0', True), ('1.0.0', False)):
+            with self.subTest(version=number):
+                root = self.root / ('channel-' + number)
+                root.mkdir()
+                (root / 'VERSION').write_text(number + '\n')
+                (root / 'CHANGELOG.md').write_text('# Changelog\n\n## ' + number + '\n\n- Channel fixture.\n')
+                with patch.object(offline, 'release_version', return_value=number):
+                    assets = build_offline_release(root / 'offline', data_dir=self.root / 'data')
+                module = tool(); calls = []; present = False
+                release = {'tag_name': 'v' + number, 'draft': True, 'prerelease': expected,
+                           'assets': [{'name': p.name, 'size': p.stat().st_size, 'state': 'uploaded',
+                                       'digest': 'sha256:' + hashlib.sha256(p.read_bytes()).hexdigest()}
+                                      for p in sorted(assets.iterdir())]}
+                def run(argv, **kwargs):
+                    nonlocal present
+                    calls.append(argv)
+                    if argv[0] == 'git':
+                        return subprocess.CompletedProcess(argv, 0, stdout=self.sha, stderr='')
+                    if argv[:3] == ['gh', 'release', 'create']:
+                        present = True
+                        return subprocess.CompletedProcess(argv, 0, stdout='created', stderr='')
+                    if argv[:2] == ['gh', 'api']:
+                        return subprocess.CompletedProcess(argv, 0, stdout=json.dumps([[release] if present else []]), stderr='')
+                    raise AssertionError('Unexpected inert channel command')
+                with patch.object(module, 'ROOT', root), patch.object(module.subprocess, 'run', side_effect=run):
+                    result = module.prepare_draft(assets, repository=self.repo, tag='v' + number, sha=self.sha)
+                    again = module.prepare_draft(assets, repository=self.repo, tag='v' + number, sha=self.sha)
+                creates = [a for a in calls if a[:3] == ['gh', 'release', 'create']]
+                self.assertEqual(len(creates), 1)
+                self.assertEqual('--prerelease' in creates[0], expected)
+                self.assertEqual(result['status'], 'draft-created')
+                self.assertEqual(again['status'], 'draft-already-present')
+                self.assertFalse(any(a[:3] in (['gh', 'release', 'edit'], ['gh', 'release', 'upload']) for a in calls))
 
     def test_checksum_refusal_precedes_remote_queries(self):
         module = tool()

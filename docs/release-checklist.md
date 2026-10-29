@@ -1,27 +1,35 @@
-# 1.0.0 acceptance checklist
+# Release checklist
 
-This is a checklist, not a claim that the steps already passed.
+Use this checklist for the exact candidate being released. It is not a claim that every item has already passed. Keep the concrete commit, commands, exits and retained evidence in the release handoff; do not publish credentials or private research.
 
-- Confirm the public file allowlist and inspect source plus all reachable Git history for manufacturer originals, personal records, host paths and credentials.
-- Confirm the MIT license for original project material remains included, with third-party rights and icon attribution unaffected.
-- Validate model/source/document/driver references and programmatically deduplicate counts; preserve exact variants and documented gaps.
-- Confirm X200/X201/X220/X230 and supported variants are present, and early models receive source-backed references rather than invented support.
-- Verify driver associations against their actual source route or explicit README model list. Distinguish listing records from unique packages and live availability checks.
-- Run the full offline test suite with a nonempty selected count.
-- Rehearse documented build commands from a clean source copy. Build fresh English-root and Spanish-root sites.
-- Validate internal links, fragments, language counterparts and metadata escaping. All manufacturer files remain external links.
-- Run `python3 tools/check_seo.py SITE` on fresh default-language and statistics builds. Verify canonical/alternate reciprocity, sitemap membership, robots access, noindex navigation pages, unique metadata and escaped JSON-LD/CSP. After an authorized deployment, fetch the real robots.txt/sitemap.xml and inspect representative URLs; local success is not indexed-site evidence. Search Console/Bing account verification or submission remains a separately authorized action.
-- Exercise model search, combined filters, a historical model, X230, EN/ES switching, source links, utility layout and narrow-screen behavior in a real browser.
-- Exercise every calendar year in the timeline, its native keyboard/touch control, global search, all-model/unknown-date views, grouped variants and same-year language switching. Verify static year pages and empty years without JavaScript.
-- Confirm file:// browsing works without a local server, and all entries remain readable without scripts. State untested legacy-browser and hardware boundaries.
-- Generate the versioned offline ZIP with `python3 -m thinkpad_archive offline-release --output NEW_DIR`. Check its sibling SHA-256 and every manifest member, extract to an isolated folder, then exercise catalogue/model/language/filter/no-script flows from the actual extracted files. Verify no collection or bundled manufacturer files/live counter history.
-- On ordinary builds, exercise the top-bar native offline menu with keyboard and scripts disabled in both languages, including a narrow model page. Retrieve the actual same-origin ZIP, compare its digest to the inline SHA-256 field and sibling checksum, select/copy all 64 characters with scripts disabled, verify it matches a fresh standalone archive and confirm extracted pages have no download menu or nested downloads. This does not require a GitHub release.
-- Verify the download icon precedes the label, the displayed localized size matches the generated ZIP, and the copy button reports success only after copying, returns from check to copy, and fails honestly. With scripts disabled, keep manual SHA selection and hide the enhancement button.
-- In an isolated opt-in statistics stack, download the actual ZIP through the shipped proxy and verify the public download total increases without changing view marginals. Test HEAD, Range, checksum, malformed paths, DNT/GPC, reset/stalled connections, persistence/reopen and existing history preservation. Compare full public export with SQLite rows; never add test counts to production.
-- For published releases, require the exact released tag to match VERSION and verify the offline workflow's tested commit plus both attached asset names/checksums. Local workflow rehearsal is not hosted execution; never replace assets silently or publish a release merely to test automation.
-- For tag-driven release drafts, verify both Python CI jobs and workflow syntax on the exact tag commit before inspecting the draft, notes, prerelease state and both assets. Draft creation is not public publication; manually publish only after review. If an interrupted attempt leaves a draft or partial assets, reconcile it rather than replacing it or replaying a create command.
-- Check that branch/PR CI actually ran after the push; a local commit or local passing runner is not hosted CI. Repository required-check rules and source-triggered deployment are separate operator decisions.
-- Check firmware warnings, evidence-level labels and missing-data states. Remove personal-inventory/physical-media features from the public project.
-- Review SPEC compliance, then implementation quality on the frozen candidate. Fix demonstrated defects and rerun affected gates.
-- Update public status/changelog from actual results; declare 1.0.0 only after acceptance.
-- Confirm the exact public remote target and authorized assets before upload. Verify published URL and exact HEAD without replaying a successful write.
+## Source and data
+
+- Confirm the public file allowlist and reachable Git history exclude manufacturer originals, credentials, personal records and live databases.
+- Preserve the MIT license for original material, source/trademark limits and artwork attribution.
+- Validate model, document, software and profile references. Deduplicate counts in code; preserve exact variants, unknowns and qualified dates.
+- Run the metadata audit. Check external links under the [documented bounded method](link-checks.md), recording the date, scope, counts and unresolved results. Keep blocked, rate-limited and transport failures separate from confirmed missing targets.
+- Review proposed URL replacements against primary evidence. Do not remove provenance, change model associations or invent substitute downloads merely because a host is unavailable.
+
+## Local acceptance
+
+- Run the complete shared checks with Python 3.11 and 3.13 and Node available. Include fresh default-language, Spanish-root and statistics builds, syntax, internal links, SEO and offline packaging.
+- Build the actual static and optional statistics Docker targets affected by the change. Keep runtime limits and all intentional refusal/concurrency tests intact.
+- Exercise the affected real-browser flows: search and combined filters, timeline, representative early/current models, source links, same-model/year language switching, keyboard and narrow layouts. State the browsers actually checked; do not infer legacy-browser or hardware support.
+- Open the extracted release ZIP through `file://`. Verify search/navigation and no-script content, every ZIP/member checksum, exact file membership, rights/instructions and absence of collection, manufacturer binaries or nested downloads.
+- Verify the native download menu, actual ZIP size/hash, download icon and copy-to-check feedback; keep manual hash selection and download usable without scripts.
+- For an isolated statistics stack, verify independent JS views, HTML document categories and ZIP transfers, DNT/GPC, exclusions, complete export versus SQL, existing history and reopen. Do not seed production with trial counts.
+- Review SPEC compliance, then implementation quality on the same frozen candidate. Fix demonstrated defects and rerun only the affected boundaries plus the final coherent gate.
+
+## Publication
+
+- Make `VERSION`, changelog, README and current guides agree. Preserve history without presenting old preparation notes as current limitations.
+- Confirm the intended repository/ref and fresh remote base. Authenticate staged and committed files against the accepted source before integration; retain real commit/push receipts.
+- Verify exact-head hosted CI after pushing. Source publication, auto-deployment, tag creation and release publication are separate outcomes.
+- If deploying, compare changed public files with the accepted build and check the real browser/API flow, health and aggregate-history continuity. A 200 or old unchanged page is insufficient; preserve failures and investigate before retrying.
+- Check the public robots/sitemap and representative canonical/language URLs. Webmaster-account verification and sitemap submission are separate operator actions, not implicit release steps.
+- Create the matching tag only on the intended accepted commit. Let the existing workflow create the draft, then verify its exact-tag checks, notes, stable/prerelease channel and both assets. Download the real files and validate every manifest member before publishing the existing draft.
+- Confirm the public release, tag target, actual downloadable hashes and completed attachment workflow. Reconcile identical assets without another upload; never overwrite divergent files or replay an ambiguous create/publish.
+
+## Release boundary
+
+A stable release promises the documented software behavior, not an exhaustive hardware history, permanent external availability or tested installation compatibility. Keep source gaps and uncertain link results visible. Leave accepted worktrees and previews intact unless their cleanup is requested.

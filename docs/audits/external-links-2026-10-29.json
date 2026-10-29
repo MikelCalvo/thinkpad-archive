@@ -1,0 +1,2120 @@
+{
+  "schema": 1,
+  "scope": "All tracked data/*.json HTTP(S) string values, deduplicated by removing only fragments. Positive rows are summarized; all non-positive results and redirects are listed below.",
+  "source_base": "3fa1a528f08bf10bc11052185137e1b9b1dc489c",
+  "summary": {
+    "schema": 1,
+    "started_at": "2026-10-29T20:27:57.292Z",
+    "finished_at": "2026-10-29T20:46:49.625Z",
+    "elapsed": 1132.333,
+    "target": 5493,
+    "occurrences": 64319,
+    "rows": 5493,
+    "checked": 5493,
+    "not_checked": 0,
+    "complete": true,
+    "categories": {
+      "available": 5460,
+      "challenge": 1,
+      "confirmed_missing": 31,
+      "rate_limited": 1
+    },
+    "redirected_urls": 5,
+    "bytes_read": 33219,
+    "attempts": 5531
+  },
+  "input_sha256": {
+    "data/documents.json": "7741f677b052cbd2353b24a31d7ad9aaad2048f53503045e061bbecd383a304e",
+    "data/drivers.json": "763f32b8603aebcd05132fe7d28be050e4b58e4829f4cbec256c7802ca4a7a9c",
+    "data/models.json": "74a9aac0072a21f4e4d26133de4468f42a57f2ecdf769ea60a2a63ea3ba89a68",
+    "data/profiles.json": "04d675287d2cb02d3ac78cc31f34d816996d482fd7bf0c3c4cd185eec522ebc4",
+    "data/utilities.json": "554eccd90ba1eb4f8935e8e6524fa7b4c4c6d11937d58cbc332455c4d1cb63d6"
+  },
+  "tool_sha256": "757d32aaba08d18d47678094ebe24e08b0ff8d2fc792f1e0e327d1b8e8f2ba76",
+  "tool_role": "Original observation tool, not the hardened shipped successor. Pre-release review added explicit multicast rejection for literal and DNS destinations. Original observations and hashes remain unchanged; no second live crawl is claimed.",
+  "limits": {
+    "workers": 8,
+    "per_host": 4,
+    "min_host_start_interval": 0.075,
+    "timeout": 12.0,
+    "max_duration": 2650.0,
+    "redirect_limit": 5,
+    "get_read_cap": 1024
+  },
+  "limitations": [
+    "HEAD 2xx is availability only; not identity or compatibility",
+    "No HTML soft-error detection unless GET fallback fetched a prefix",
+    "No bodies retained; bytes_read is prefix bytes delivered to this application",
+    "No circuit breaker; each target attempted unless duration cutoff"
+  ],
+  "raw_metadata_sha256": "e57e1a4e533db7528f2bc61eacea7c17296ea40ec4a46735ccccc4947bc538bf",
+  "non_positive_results": [
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1ety48ww.txt",
+      "checked_at": "2026-10-29T20:46:46.952Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1ety48ww.txt",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1ety48ww.txt",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.0129
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1ety48ww.txt",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 0.741
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 2.5226,
+      "references": [
+        {
+          "file": "data/utilities.json",
+          "pointer": "/utilities/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1ety48ww.txt"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1khj06jp.exe",
+      "checked_at": "2026-10-29T20:45:35.666Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1khj06jp.exe",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1khj06jp.exe",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.2504
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1khj06jp.exe",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 2.9847
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 4.9548,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12217/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1khj06jp.exe"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1khj06jp.txt",
+      "checked_at": "2026-10-29T20:45:35.826Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1khj06jp.txt",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1khj06jp.txt",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.0456
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1khj06jp.txt",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 0.6499
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 2.3673,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12217/links/1/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/1khj06jp.txt"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w732_201308.exe",
+      "checked_at": "2026-10-29T20:40:27.604Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w732_201308.exe",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w732_201308.exe",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.7375
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w732_201308.exe",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 1.5601
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 3.3045,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/3361/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w732_201308.exe"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w732_201308.txt",
+      "checked_at": "2026-10-29T20:40:27.871Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w732_201308.txt",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w732_201308.txt",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.7704
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w732_201308.txt",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 0.705
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 2.5972,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/3361/links/1/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w732_201308.txt"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w764_201308.exe",
+      "checked_at": "2026-10-29T20:40:28.253Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w764_201308.exe",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w764_201308.exe",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.9123
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w764_201308.exe",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 1.703
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 5.2709,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/3361/links/2/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w764_201308.exe"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w764_201308.txt",
+      "checked_at": "2026-10-29T20:40:28.551Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w764_201308.txt",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w764_201308.txt",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.698
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w764_201308.txt",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 0.7022
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 2.2727,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/3361/links/3/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w764_201308.txt"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w832_201210.exe",
+      "checked_at": "2026-10-29T20:45:43.271Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w832_201210.exe",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w832_201210.exe",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.3089
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w832_201210.exe",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 1.2312
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 3.5777,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12621/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w832_201210.exe"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w832_201210.txt",
+      "checked_at": "2026-10-29T20:45:43.366Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w832_201210.txt",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w832_201210.txt",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.9608
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w832_201210.txt",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 0.709
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 2.7476,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12621/links/1/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w832_201210.txt"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w864_201210.exe",
+      "checked_at": "2026-10-29T20:45:44.160Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w864_201210.exe",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w864_201210.exe",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.6691
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w864_201210.exe",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 2.3664
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 4.0554,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12621/links/2/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w864_201210.exe"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w864_201210.txt",
+      "checked_at": "2026-10-29T20:45:44.198Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w864_201210.txt",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w864_201210.txt",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.7523
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w864_201210.txt",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 0.9436
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 2.8134,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12621/links/3/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles/tp_x230x_tablet_w864_201210.txt"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240ucdrw.exe",
+      "checked_at": "2026-10-29T20:43:41.616Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240ucdrw.exe",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240ucdrw.exe",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.1382
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240ucdrw.exe",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 1.7494
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 3.765,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/7848/links/12/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240ucdrw.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/11800/links/12/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240ucdrw.exe"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240ucdrw.txt",
+      "checked_at": "2026-10-29T20:43:41.634Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240ucdrw.txt",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240ucdrw.txt",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.8326
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240ucdrw.txt",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 1.3353
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 3.1828,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/7848/links/13/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240ucdrw.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/11800/links/13/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240ucdrw.txt"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240xcdrw.exe",
+      "checked_at": "2026-10-29T20:43:41.814Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240xcdrw.exe",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240xcdrw.exe",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.7882
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240xcdrw.exe",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 1.4812
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 3.2236,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/7848/links/14/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240xcdrw.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/11800/links/14/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/240xcdrw.exe"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.exe",
+      "checked_at": "2026-10-29T20:36:55.692Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.exe",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.exe",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.1271
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.exe",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 1.4207
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 3.4002,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/1102/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/5342/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/8383/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/10861/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12441/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12953/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/13633/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/14299/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.exe"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.txt",
+      "checked_at": "2026-10-29T20:36:55.945Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.txt",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.txt",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.1357
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.txt",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 1.0882
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 3.1335,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/1102/links/1/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/5342/links/1/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/8383/links/1/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/10861/links/1/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12441/links/1/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12953/links/1/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/13633/links/1/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/14299/links/1/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkcentre_drivers/1v29ez00lmc-c.txt"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe",
+      "checked_at": "2026-10-29T20:32:39.087Z",
+      "final_url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.0281
+        },
+        {
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 2.0802
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 3.2698,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/219/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/451/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/471/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/719/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/854/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/1060/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/1092/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/1240/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/1784/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/1809/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/1849/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/1863/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/1897/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/1959/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/2062/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/2182/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/2671/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/2929/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/3295/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/3329/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/3395/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/3550/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/3648/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/3700/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/4004/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/4088/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/4089/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/4241/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/4340/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/4711/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/4906/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/4950/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/5082/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/5381/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/5392/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/5503/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/5633/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/6050/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/6059/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/6077/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/6334/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/6908/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/7726/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/7821/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/7903/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/8408/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/8433/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/8484/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/8487/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/8874/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/9380/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/9906/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/10055/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/10779/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/11004/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/11287/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/11507/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/11730/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12040/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12367/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12745/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12891/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/13065/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/13394/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/13659/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/13662/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/13958/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/14208/links/0/url",
+          "url": "https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/systemupdate3.16-2013-7-10.exe"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/lenovo/content/ddfm/SL500.html",
+      "checked_at": "2026-10-29T20:46:41.575Z",
+      "final_url": "https://download.lenovo.com/lenovo/content/ddfm/SL500.html",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/lenovo/content/ddfm/SL500.html",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.8351
+        },
+        {
+          "url": "https://download.lenovo.com/lenovo/content/ddfm/SL500.html",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 0.9372
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 3.0188,
+      "references": [
+        {
+          "file": "data/models.json",
+          "pointer": "/models/166/matrix_url",
+          "url": "https://download.lenovo.com/lenovo/content/ddfm/SL500.html"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/pccbbs/mobiles/sif10ww760.exe",
+      "checked_at": "2026-10-29T20:33:40.193Z",
+      "final_url": "https://download.lenovo.com/pccbbs/mobiles/sif10ww760.exe",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles/sif10ww760.exe",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.4963
+        },
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles/sif10ww760.exe",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 2.002
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 3.6828,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/345/links/0/url",
+          "url": "https://download.lenovo.com/pccbbs/mobiles/sif10ww760.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/2061/links/0/url",
+          "url": "https://download.lenovo.com/pccbbs/mobiles/sif10ww760.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12326/links/0/url",
+          "url": "https://download.lenovo.com/pccbbs/mobiles/sif10ww760.exe"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/pccbbs/mobiles/sif10ww760.txt",
+      "checked_at": "2026-10-29T20:33:40.330Z",
+      "final_url": "https://download.lenovo.com/pccbbs/mobiles/sif10ww760.txt",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles/sif10ww760.txt",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.3845
+        },
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles/sif10ww760.txt",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 1.0381
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 2.6568,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/345/links/1/url",
+          "url": "https://download.lenovo.com/pccbbs/mobiles/sif10ww760.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/2061/links/1/url",
+          "url": "https://download.lenovo.com/pccbbs/mobiles/sif10ww760.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/12326/links/1/url",
+          "url": "https://download.lenovo.com/pccbbs/mobiles/sif10ww760.txt"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/02r2914.pdf",
+      "checked_at": "2026-10-29T20:28:08.223Z",
+      "final_url": "https://download.lenovo.com/pccbbs/mobiles_pdf/02r2914.pdf",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/02r2914.pdf",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.4974
+        },
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/02r2914.pdf",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 2.2282
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 3.7259,
+      "references": [
+        {
+          "file": "data/documents.json",
+          "pointer": "/documents/1/url",
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/02r2914.pdf"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/13n6183.pdf",
+      "checked_at": "2026-10-29T20:28:22.309Z",
+      "final_url": "https://download.lenovo.com/pccbbs/mobiles_pdf/13n6183.pdf",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/13n6183.pdf",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.7202
+        },
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/13n6183.pdf",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 1.2319
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 2.9523,
+      "references": [
+        {
+          "file": "data/documents.json",
+          "pointer": "/documents/12/url",
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/13n6183.pdf"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/23p0894.pdf",
+      "checked_at": "2026-10-29T20:28:24.326Z",
+      "final_url": "https://download.lenovo.com/pccbbs/mobiles_pdf/23p0894.pdf",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/23p0894.pdf",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.3965
+        },
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/23p0894.pdf",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 1.5435
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 2.9403,
+      "references": [
+        {
+          "file": "data/documents.json",
+          "pointer": "/documents/15/url",
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/23p0894.pdf"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/24p2911.pdf",
+      "checked_at": "2026-10-29T20:28:26.025Z",
+      "final_url": "https://download.lenovo.com/pccbbs/mobiles_pdf/24p2911.pdf",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/24p2911.pdf",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 2.1876
+        },
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/24p2911.pdf",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 2.6193
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 4.8234,
+      "references": [
+        {
+          "file": "data/documents.json",
+          "pointer": "/documents/18/url",
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/24p2911.pdf"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/24p2914.pdf",
+      "checked_at": "2026-10-29T20:28:26.862Z",
+      "final_url": "https://download.lenovo.com/pccbbs/mobiles_pdf/24p2914.pdf",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/24p2914.pdf",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.2874
+        },
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/24p2914.pdf",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 0.9815
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 2.2692,
+      "references": [
+        {
+          "file": "data/documents.json",
+          "pointer": "/documents/19/url",
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/24p2914.pdf"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/39t2462_01.pdf",
+      "checked_at": "2026-10-29T20:28:31.336Z",
+      "final_url": "https://download.lenovo.com/pccbbs/mobiles_pdf/39t2462_01.pdf",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/39t2462_01.pdf",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.5341
+        },
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/39t2462_01.pdf",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 0.982
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 2.5413,
+      "references": [
+        {
+          "file": "data/documents.json",
+          "pointer": "/documents/29/url",
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/39t2462_01.pdf"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/39t9290.pdf",
+      "checked_at": "2026-10-29T20:28:32.160Z",
+      "final_url": "https://download.lenovo.com/pccbbs/mobiles_pdf/39t9290.pdf",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/39t9290.pdf",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.141
+        },
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/39t9290.pdf",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 1.1893
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 2.3306,
+      "references": [
+        {
+          "file": "data/documents.json",
+          "pointer": "/documents/38/url",
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/39t9290.pdf"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42t7844_04.pdf",
+      "checked_at": "2026-10-29T20:28:32.819Z",
+      "final_url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42t7844_04.pdf",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42t7844_04.pdf",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.4009
+        },
+        {
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42t7844_04.pdf",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 2.417
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 3.8276,
+      "references": [
+        {
+          "file": "data/documents.json",
+          "pointer": "/documents/39/url",
+          "url": "https://download.lenovo.com/pccbbs/mobiles_pdf/42t7844_04.pdf"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.exe",
+      "checked_at": "2026-10-29T20:37:43.887Z",
+      "final_url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.exe",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.exe",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.4018
+        },
+        {
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.exe",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 1.2332
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 4.0511,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/1437/links/0/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/4198/links/0/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/6352/links/0/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/6737/links/0/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/6854/links/0/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/10270/links/0/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/10504/links/0/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/13139/links/0/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/13877/links/0/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.exe"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/13998/links/0/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.exe"
+        }
+      ]
+    },
+    {
+      "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.txt",
+      "checked_at": "2026-10-29T20:37:44.180Z",
+      "final_url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.txt",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.txt",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.5082
+        },
+        {
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.txt",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 1.2053
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 3.9814,
+      "references": [
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/1437/links/1/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/4198/links/1/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/6352/links/1/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/6737/links/1/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/6854/links/1/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/10270/links/1/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/10504/links/1/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/13139/links/1/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/13877/links/1/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.txt"
+        },
+        {
+          "file": "data/drivers.json",
+          "pointer": "/drivers/13998/links/1/url",
+          "url": "https://download.lenovo.com/pccbbs/thinkvantage_en/systemupdate5.07.0053.txt"
+        }
+      ]
+    },
+    {
+      "url": "https://macdat.net/laptops/ibm/thinkpad/330.php",
+      "checked_at": "2026-10-29T20:28:03.541Z",
+      "final_url": "https://macdat.net/laptops/ibm/thinkpad/330.php",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://macdat.net/laptops/ibm/thinkpad/330.php",
+          "method": "HEAD",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 3.2869
+        },
+        {
+          "url": "https://macdat.net/laptops/ibm/thinkpad/330.php",
+          "method": "GET",
+          "status": 404,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 0.9359
+        }
+      ],
+      "method": "GET",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "confirmed_missing",
+      "reason": "head_and_get_missing",
+      "elapsed": 4.2231,
+      "references": [
+        {
+          "file": "data/profiles.json",
+          "pointer": "/profiles/14/references/1/url",
+          "url": "https://macdat.net/laptops/ibm/thinkpad/330.php"
+        },
+        {
+          "file": "data/profiles.json",
+          "pointer": "/profiles/15/references/1/url",
+          "url": "https://macdat.net/laptops/ibm/thinkpad/330.php"
+        }
+      ]
+    },
+    {
+      "url": "https://tweakers.net/pricewatch/256747/lenovo-thinkpad-x200si-ns2fvmh.html",
+      "checked_at": "2026-10-29T20:28:01.268Z",
+      "final_url": "https://tweakers.net/pricewatch/256747/lenovo-thinkpad-x200si-ns2fvmh.html",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://tweakers.net/pricewatch/256747/lenovo-thinkpad-x200si-ns2fvmh.html",
+          "method": "HEAD",
+          "status": 403,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 3.0116
+        },
+        {
+          "url": "https://tweakers.net/pricewatch/256747/lenovo-thinkpad-x200si-ns2fvmh.html",
+          "method": "GET",
+          "status": 403,
+          "content_type": "text/html",
+          "bytes_read": 451,
+          "error": null,
+          "elapsed": 0.6377
+        }
+      ],
+      "method": "GET",
+      "status": 403,
+      "content_type": "text/html",
+      "bytes_read": 451,
+      "category": "challenge",
+      "reason": "bounded_html_prefix_challenge_marker",
+      "elapsed": 3.6496,
+      "references": [
+        {
+          "file": "data/models.json",
+          "pointer": "/sources/27/url",
+          "url": "https://tweakers.net/pricewatch/256747/lenovo-thinkpad-x200si-ns2fvmh.html#detail-view:specifications"
+        },
+        {
+          "file": "data/models.json",
+          "pointer": "/models/210/introduced/0/url",
+          "url": "https://tweakers.net/pricewatch/256747/lenovo-thinkpad-x200si-ns2fvmh.html#detail-view:specifications"
+        }
+      ]
+    },
+    {
+      "url": "https://venturebeat.com/ai/lenovo-updates-thinkpad-lineup-with-intel-8th-gen-processors-and-usb-type-c-power-adapters",
+      "checked_at": "2026-10-29T20:28:07.784Z",
+      "final_url": "https://venturebeat.com/ai/lenovo-updates-thinkpad-lineup-with-intel-8th-gen-processors-and-usb-type-c-power-adapters",
+      "redirect_chain": [],
+      "attempts": [
+        {
+          "url": "https://venturebeat.com/ai/lenovo-updates-thinkpad-lineup-with-intel-8th-gen-processors-and-usb-type-c-power-adapters",
+          "method": "HEAD",
+          "status": 429,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 3.1381
+        },
+        {
+          "url": "https://venturebeat.com/ai/lenovo-updates-thinkpad-lineup-with-intel-8th-gen-processors-and-usb-type-c-power-adapters",
+          "method": "GET",
+          "status": 429,
+          "content_type": "text/html",
+          "bytes_read": 1024,
+          "error": null,
+          "elapsed": 0.9563
+        }
+      ],
+      "method": "GET",
+      "status": 429,
+      "content_type": "text/html",
+      "bytes_read": 1024,
+      "category": "rate_limited",
+      "reason": "http_429",
+      "elapsed": 4.0946,
+      "references": [
+        {
+          "file": "data/profiles.json",
+          "pointer": "/profiles/399/references/7/url",
+          "url": "https://venturebeat.com/ai/lenovo-updates-thinkpad-lineup-with-intel-8th-gen-processors-and-usb-type-c-power-adapters"
+        },
+        {
+          "file": "data/profiles.json",
+          "pointer": "/profiles/643/references/7/url",
+          "url": "https://venturebeat.com/ai/lenovo-updates-thinkpad-lineup-with-intel-8th-gen-processors-and-usb-type-c-power-adapters"
+        }
+      ]
+    }
+  ],
+  "redirected_results": [
+    {
+      "url": "https://news.lenovo.com/pressroom/press-releases/lenovo-unveils-first-thinkpad-hybrid-laptop-and-companys-first-business-ultrabook",
+      "checked_at": "2026-10-29T20:28:40.432Z",
+      "final_url": "https://news.lenovo.com/pressroom/press-releases/lenovo-unveils-first-thinkpad-hybrid-laptop-and-companys-first-business-ultrabook/",
+      "redirect_chain": [
+        {
+          "url": "https://news.lenovo.com/pressroom/press-releases/lenovo-unveils-first-thinkpad-hybrid-laptop-and-companys-first-business-ultrabook",
+          "status": 301,
+          "to": "https://news.lenovo.com/pressroom/press-releases/lenovo-unveils-first-thinkpad-hybrid-laptop-and-companys-first-business-ultrabook/",
+          "method": "HEAD"
+        }
+      ],
+      "attempts": [
+        {
+          "url": "https://news.lenovo.com/pressroom/press-releases/lenovo-unveils-first-thinkpad-hybrid-laptop-and-companys-first-business-ultrabook",
+          "method": "HEAD",
+          "status": 301,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.859
+        },
+        {
+          "url": "https://news.lenovo.com/pressroom/press-releases/lenovo-unveils-first-thinkpad-hybrid-laptop-and-companys-first-business-ultrabook/",
+          "method": "HEAD",
+          "status": 200,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 1.019
+        }
+      ],
+      "method": "HEAD",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes_read": 0,
+      "category": "available",
+      "reason": "head_only_availability",
+      "elapsed": 1.8783
+    },
+    {
+      "url": "https://news.lenovo.com/pressroom/press-releases/new-thinkpad-edge-laptops-fuse-small-business-with-lifestyle-computing",
+      "checked_at": "2026-10-29T20:28:27.016Z",
+      "final_url": "https://news.lenovo.com/pressroom/press-releases/new-thinkpad-edge-laptops-fuse-small-business-with-lifestyle-computing/",
+      "redirect_chain": [
+        {
+          "url": "https://news.lenovo.com/pressroom/press-releases/new-thinkpad-edge-laptops-fuse-small-business-with-lifestyle-computing",
+          "status": 301,
+          "to": "https://news.lenovo.com/pressroom/press-releases/new-thinkpad-edge-laptops-fuse-small-business-with-lifestyle-computing/",
+          "method": "HEAD"
+        }
+      ],
+      "attempts": [
+        {
+          "url": "https://news.lenovo.com/pressroom/press-releases/new-thinkpad-edge-laptops-fuse-small-business-with-lifestyle-computing",
+          "method": "HEAD",
+          "status": 301,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.7478
+        },
+        {
+          "url": "https://news.lenovo.com/pressroom/press-releases/new-thinkpad-edge-laptops-fuse-small-business-with-lifestyle-computing/",
+          "method": "HEAD",
+          "status": 200,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.7252
+        }
+      ],
+      "method": "HEAD",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes_read": 0,
+      "category": "available",
+      "reason": "head_only_availability",
+      "elapsed": 1.4732
+    },
+    {
+      "url": "https://productindetail.com/pn/lenovo-thinkpad-x201i-tablet-2985",
+      "checked_at": "2026-10-29T20:28:05.670Z",
+      "final_url": "https://www.productindetail.com/pn/lenovo-thinkpad-x201i-tablet-2985",
+      "redirect_chain": [
+        {
+          "url": "https://productindetail.com/pn/lenovo-thinkpad-x201i-tablet-2985",
+          "status": 302,
+          "to": "https://www.productindetail.com/pn/lenovo-thinkpad-x201i-tablet-2985",
+          "method": "HEAD"
+        }
+      ],
+      "attempts": [
+        {
+          "url": "https://productindetail.com/pn/lenovo-thinkpad-x201i-tablet-2985",
+          "method": "HEAD",
+          "status": 302,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 2.935
+        },
+        {
+          "url": "https://www.productindetail.com/pn/lenovo-thinkpad-x201i-tablet-2985",
+          "method": "HEAD",
+          "status": 200,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 2.7154
+        }
+      ],
+      "method": "HEAD",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes_read": 0,
+      "category": "available",
+      "reason": "head_only_availability",
+      "elapsed": 5.6507
+    },
+    {
+      "url": "https://techlomedia.in/2011/06/lenovo-thinkpad-l410-features-and-12",
+      "checked_at": "2026-10-29T20:28:05.232Z",
+      "final_url": "https://techlomedia.in/2011/06/lenovo-thinkpad-l410-features-and-12/",
+      "redirect_chain": [
+        {
+          "url": "https://techlomedia.in/2011/06/lenovo-thinkpad-l410-features-and-12",
+          "status": 301,
+          "to": "https://techlomedia.in/2011/06/lenovo-thinkpad-l410-features-and-12/",
+          "method": "HEAD"
+        }
+      ],
+      "attempts": [
+        {
+          "url": "https://techlomedia.in/2011/06/lenovo-thinkpad-l410-features-and-12",
+          "method": "HEAD",
+          "status": 301,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 2.6983
+        },
+        {
+          "url": "https://techlomedia.in/2011/06/lenovo-thinkpad-l410-features-and-12/",
+          "method": "HEAD",
+          "status": 200,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.2748
+        }
+      ],
+      "method": "HEAD",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes_read": 0,
+      "category": "available",
+      "reason": "head_only_availability",
+      "elapsed": 2.9735
+    },
+    {
+      "url": "https://www.forbes.com/2002/04/23/0423tentech.html",
+      "checked_at": "2026-10-29T20:28:05.596Z",
+      "final_url": "https://www.forbes.com/consent/ketch/?toURL=https://www.forbes.com/2002/04/23/0423tentech.html",
+      "redirect_chain": [
+        {
+          "url": "https://www.forbes.com/2002/04/23/0423tentech.html",
+          "status": 302,
+          "to": "https://www.forbes.com/consent/ketch/?toURL=https://www.forbes.com/2002/04/23/0423tentech.html",
+          "method": "HEAD"
+        }
+      ],
+      "attempts": [
+        {
+          "url": "https://www.forbes.com/2002/04/23/0423tentech.html",
+          "method": "HEAD",
+          "status": 302,
+          "content_type": "",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 2.4695
+        },
+        {
+          "url": "https://www.forbes.com/consent/ketch/?toURL=https://www.forbes.com/2002/04/23/0423tentech.html",
+          "method": "HEAD",
+          "status": 200,
+          "content_type": "text/html",
+          "bytes_read": 0,
+          "error": null,
+          "elapsed": 0.7614
+        }
+      ],
+      "method": "HEAD",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes_read": 0,
+      "category": "available",
+      "reason": "head_only_availability",
+      "elapsed": 3.2312
+    }
+  ]
+}

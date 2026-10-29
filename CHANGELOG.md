@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0
+
+- Publish the first stable release of the bilingual ThinkPad reference catalogue, local builder and offline distribution. Keep the existing model identities, factual metadata, firmware cautions and optional aggregate-statistics privacy boundary.
+- Add a bounded external-link audit with dated, deduplicated results and source-field references. Distinguish confirmed missing targets, redirects, access/rate limits and network failures; a successful response does not certify document identity or installation compatibility.
+- Rewrite the public README around browsing, coverage, offline use and contributions. Organize development, deployment and release instructions into focused guides, document known gaps, and replace obsolete preparation notes with current behavior and verified release-workflow boundaries.
+
 ## 0.5.6
 
 - Add a compact native offline-download menu in the EN/ES top bar with version, bilingual scope, original-rights limits, real same-origin ZIP and a compact, directly selectable SHA-256 field instead of a checksum-download action. No account, JavaScript or GitHub release is needed for the hosted download.
@@ -11,13 +17,17 @@
 - Retain only a separate finite daily document-traffic marginal in the existing public SQLite table. Forward user agents transiently only on exact generated HTML routes, exclude DNT/GPC and dashboards, strip identity headers on other proxy paths, and bound compressed document snapshots within the existing service memory/request limits. Static and extracted offline builds remain collection-free.
 - Validate usability across keyboard navigation, light/dark themes, narrow layouts, no-script pages and the extracted offline archive. Record the actual checks and external-link limitations separately from publication and production deployment.
 
-## 0.5.5 (unreleased)
+## Source changes included in later releases
+
+Versions 0.5.1 through 0.5.5 identify source increments, not separate GitHub releases. Their changes are included in 0.5.6. The entries below retain that history without claiming those tags were published.
+
+## 0.5.5 (source increment)
 
 - Keep disposable test databases on a BuildKit tmpfs at /tmp during the Docker build. This avoids slow writable-overlay commits exhausting the existing SQLite and HTTP test deadlines on the deployment host; all tests remain enabled.
 - Leave runtime statistics code, request/lock limits, persistent counters and Compose volumes unchanged. Only the build step receives the temporary memory mount, which is discarded after the step.
 - Add a deployment regression guard for the temporary mount and the unchanged test/build/check sequence. Source publication, hosted CI and production deployment remain separately verified outcomes.
 
-## 0.5.4 (unreleased)
+## 0.5.4 (source increment)
 
 - Generate a deterministic official-HTTPS XML sitemap and robots.txt from validated public catalogue records. List canonical EN/ES catalogues, models, sources and populated date pages; omit duplicate entries, filters, statistics and empty/unconfirmed-date navigation without inventing modification dates.
 - Emit reciprocal absolute canonical-language alternates and x-default while preserving relative offline navigation and saved-language entry behavior. Keep canonical preferences for neutral/legacy entries and mark statistics plus empty/unconfirmed-date pages noindex,follow.
@@ -25,21 +35,21 @@
 - Check canonical and alternate targets, reciprocal language sets, sitemap membership, robots guidance, unique metadata and JSON-LD/CSP in the shared local/CI verification runner. Include the two public crawler files in the exact offline ZIP allowlist.
 - Document search-engine ownership verification and sitemap submission as separate operator actions. Local validation does not establish deployment, submission, indexing, rich results or search ranking.
 
-## 0.5.3 (unreleased)
+## 0.5.3 (source increment)
 
 - Add read-only CI for branch pushes and pull requests, reused by version-tag releases. Check the complete tests on Python 3.11/3.13 with Node available, Python/JavaScript syntax, fresh English/Spanish/statistics builds, internal links, offline packaging and changed whitespace.
 - Validate GitHub Actions workflows with version-pinned actionlint tooling and pin reusable actions by commit. Keep check jobs read-only; do not change branch protection or deploy production.
-- Create a draft release only after checks succeed for an existing vVERSION tag at the exact checked commit. Include the offline ZIP, checksum and version-specific changelog notes, keep 0.x drafts as prereleases and leave public publication to a human.
+- Create a draft release only after checks succeed for an existing vVERSION tag at the exact checked commit. Include the offline ZIP, checksum and version-specific changelog notes, keep 0.x drafts as prereleases and require review before public publication.
 - Reconcile already-attached identical release assets without uploading them again; refuse mismatches and propagate API/child failures without creating duplicate releases or replacing assets.
 - Provide tools/check.py as the same local verification entry point used by CI. Local checks pass; hosted run status is reported separately in GitHub Actions.
 
-## 0.5.2 (unreleased)
+## 0.5.2 (source increment)
 
 - Add an offline-release command that builds a fresh collection-free bilingual catalogue and packages it as a versioned ZIP, with the original license, usage/rights notes, per-file SHA-256 manifest and whole-archive checksum.
 - Keep every catalogue page and local asset available after extracting the complete folder and opening index.html. External sources, PDFs, installers and GitHub correction drafts still require Internet; manufacturer files and live statistics/history are not bundled.
-- Add a release-published workflow that tests the exact release snapshot and attaches the ZIP/checksum to the existing release. It does not create releases, tags or deployments, and never overwrites an existing asset. Actual release attachment remains unverified until the release flow is exercised.
+- Add a release-published workflow that tests the exact release snapshot and attaches the ZIP/checksum to the existing release. It does not create releases, tags or deployments, and never overwrites an existing asset. This workflow was first exercised successfully with the files published for 0.5.6.
 
-## 0.5.1 (unreleased)
+## 0.5.1 (source increment)
 
 - Add a discreet Suggest a correction / Proponer una corrección link to every model page, including legacy catalogues without technical profiles.
 - Open a GitHub issue draft with the exact model name, catalogue ID and public language-specific page URL. Localized prompts ask for the correction, supporting sources and relevant machine-type/package qualifiers; remind contributors not to include serial numbers or personal information.

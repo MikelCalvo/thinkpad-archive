@@ -1,6 +1,6 @@
-# Public first-party statistics (0.5.0; downloads and HTML traffic added in 0.5.6)
+# Public statistics and privacy
 
-Statistics are an explicit opt-in deployment mode. Existing static/offline deployments do not silently enable collection when upgrading to 0.5.0.
+Statistics are an explicit opt-in hosting mode. Normal static and offline builds do not collect anything. Enabling this service is a separate deployment choice; upgrades do not silently turn it on.
 
 ## What is counted
 

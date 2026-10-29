@@ -1,4 +1,6 @@
-# Static HTTP origin behind NetBird
+# Hosting and deployment
+
+The generated catalogue works on an ordinary static HTTP server. Serve its directory with `index.html` as the directory default and real 404 responses for missing files; no SPA fallback, application server or database is required. The supplied Docker image uses Caddy. The NetBird/Coolify setup below is one deployment example, not a requirement for browsing or self-hosting.
 
 The Dockerfile builds only public catalogue data and local assets. Tests and the internal-link checker run before the serving image is produced. Python and source data are absent from the final Caddy image. No manufacturer originals or mirrors are included.
 
@@ -32,4 +34,4 @@ An update starts after a push to main, not after a local-only commit. Initial de
 
 ## Rollback
 
-Use Coolify's deployment history to redeploy the previous successful commit/image. No database migration or content-volume restoration is needed for this static site. A fixed host-port mapping causes a short interruption while Coolify replaces the running container; it is not a zero-downtime rolling deployment. If bootstrap fails, leave the webhook inactive and fix the origin before routing public traffic.
+Use the hosting platform's deployment history to restore the previous successful commit/image. A static-only deployment has no application database to migrate or restore. The optional statistics stack does: preserve its existing `stats-data` volume and all aggregate rows across upgrade or rollback; do not use `down --volumes`. A fixed host-port mapping causes a short interruption while Coolify replaces the running container; it is not a zero-downtime rolling deployment. If bootstrap fails, leave the webhook inactive and fix the origin before routing public traffic.

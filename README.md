@@ -1,140 +1,88 @@
 # [![ThinkPad Archive](docs/readme-header.svg)](https://thinkpadarchive.com/)
 
-**[Browse the archive](https://thinkpadarchive.com/)** · [Build locally](#build-locally) · [Contribute](#contributing) · [MIT license](LICENSE)
+[Browse the archive](https://thinkpadarchive.com/) · [Download an offline copy](https://github.com/MikelCalvo/thinkpad-archive/releases) · [Documentation](docs/README.md) · [Contribute](#contributing)
 
-Find manuals, driver metadata and source references for documented ThinkPad models, with an emphasis on early machines. The site is available in English and Spanish. You can also build a local copy and browse it without a server.
+Manuals, driver references and documented history for ThinkPad computers, from early IBM machines to current Lenovo models. Browse in English or Spanish, search by model or alias, and follow each entry back to its sources.
 
-**Version 0.5.6.** This version adds a native offline-download menu with the actual bilingual ZIP and checksum bundled into ordinary builds, shows a localized archive size and copy-to-check hash button, adds a separate public download counter and an estimated crawler/browser-like HTML traffic breakdown in the opt-in statistics stack, hardens statistics test recovery without relaxing existing API limits, and receives a final usability pass. Version 0.5.5 kept disposable Docker-build test databases in memory to avoid overlay-storage latency. Version 0.5.4 added technical search metadata, crawler discovery files and SEO checks to the existing CI, correction links and offline distributions. Public first-party aggregate statistics, software search and shareable catalogue views remain available. The catalogue is still under development; coverage is documented, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
+ThinkPad Archive is an independent community project. It is not affiliated with or endorsed by IBM or Lenovo.
 
-This is an independent community project, not affiliated with, endorsed by or an official publication of IBM or Lenovo.
+## Find your model
 
-## In the catalogue
+Open [thinkpadarchive.com](https://thinkpadarchive.com/) and search the complete catalogue from **ALL**. Filter by family, manuals or software, or choose a documented year on the timeline. Each model page brings together:
 
-| Content | Indexed entries |
+- Source-backed technical specifications, historical context and dated evidence where available.
+- Manuals, specification sheets and other document references.
+- Searchable driver/software listings with source-advertised operating systems and versions.
+- Separate firmware listings and installation cautions.
+- Source citations and a link to propose a correction.
+
+Search and filters run locally in your browser. Share a filtered catalogue URL or switch languages without losing the current model or year. Basic pages and links work without JavaScript.
+
+## Catalogue coverage
+
+| Content | Records |
 | --- | ---: |
 | Documented model entries | 666 |
 | Manual and other document references | 489 |
 | Driver/software metadata entries | 14,901 |
 | Utility references | 10 |
 
-Model pages now include sourced EN/ES summaries, historical context and technical specifications in native collapsible groups. The 666-entry research audit supplies 665 technical profiles and 7,095 facts; 652 profiles contain dated evidence and 239 contain historical prices. These are coverage counts, not worldwide first-launch or universal-price claims. X201si remains unresolved. Compact header metadata omits unsourced prices and shows a market only when exclusivity is explicitly documented; complete source scope remains at the end of each page.
+There are 665 technical profiles and 7,095 sourced facts. The timeline reaches 2026; 665 model entries have a documented year. These totals count catalogue records, not unique hardware configurations, installers or working downloads. Manufacturer support listings sometimes group several variants.
 
-Model pages collect source-supported names and aliases, document links, driver/software listings and provenance. The landing page focuses on the catalogue, without a separate document/utility library. The shared footer contains the independent-community/non-affiliation statement and a creator link to Mikel Calvo. Start with ALL at the left of the timeline to search the complete catalogue and filter by family or available references. Swipe to a year or use the slider for a clean year-only list without search or filters. Entries with unconfirmed years stay in ALL, without a separate timeline option. Grouped variants may appear in more than one documented year. Package metadata includes advertised operating systems, versions and dates where the source provides them. ThinkWiki links are labelled as community references, with an explicit search fallback when no dedicated page has been verified.
+Coverage is not exhaustive. Missing facts stay missing: X201si has no resolved technical profile, A22m type 2633 remains undated, and some historical selector names are explicitly unverified. Regional availability, SKU announcements and later catalogue prices are labelled rather than presented as worldwide launch facts. See [data quality and known gaps](docs/data-quality.md) and [the catalogue schema](docs/catalogue.md).
 
-These counts describe catalogue records, not unique working downloads or hardware-tested packages. Manufacturer selectors can group variants, and a shared package can appear on several model routes. Missing information stays missing rather than being inferred from a similar model name. The source-backed timeline now reaches 2026. 665 entries have a documented year, including explicitly qualified regional availability and commercial-listing dates. A22m type 2633 remains undated; 750CSE and 1400/2651 remain unverified selector members. See the [0.3.2 historical backfill](docs/year-backfill-0.3.2.md) for the seven added variant years and their limits, alongside the [data-quality review and explicit selector errata](docs/data-quality.md) and the [catalogue schema and evidence levels](docs/catalogue.md).
+[External-link checks](docs/link-checks.md) describe the dated availability audit and its limits. A reachable link is not a compatibility or safety certification.
 
-The Sources page groups IBM/Lenovo documentation, PSREF specifications and ThinkWiki community research into compact entry points. Short evidence definitions and an installation/firmware caution stay visible; the original reference list and coverage/methodology remain available in native disclosures. Source-specific qualifications stay on each model page.
+## Take the catalogue offline
 
-### Before installing historical software
+Use the download menu on the website, or get the ZIP and its checksum from [GitHub Releases](https://github.com/MikelCalvo/thinkpad-archive/releases). Extract the whole folder and open `index.html`. You do not need Python, an account or a local server. Both languages are included.
 
-Read the exact package README. Check machine type/model (MTM), variant, operating system, architecture, device and dependencies. A source listing does not guarantee that a link is still live or that a package applies to your machine.
+The website shows the actual archive size and a selectable SHA-256, with a copy button when JavaScript is available. Release ZIPs also have a sibling `.zip.sha256` file and an internal `SHA256SUMS.json` manifest.
 
-**BIOS, embedded-controller, recovery and destructive utilities require separate care.** They are not routine driver updates. The site does not run downloads, automate installation or certify compatibility. Documentation review and content hashes are not hardware tests.
+The offline copy includes catalogue pages, technical profiles and local interface assets. Manufacturer PDFs, installers and live statistics are not bundled; external references still need Internet. The extracted catalogue does not collect analytics or contain nested ZIP downloads.
 
-## Offline release copy
+A checksum detects changed bytes. It does not authenticate the publisher if an attacker can replace both the archive and its advertised hash.
 
-Ordinary builds include an offline-download menu in the top bar, with a versioned bilingual ZIP served from the same site and its actual file size shown in readable units and its SHA-256 shown directly in a compact, read-only field. With JavaScript, the copy icon becomes a check for two seconds after a successful copy; if copying fails, the interface offers manual selection without a success check. The hash can still be selected and copied without scripts. It works without JavaScript: open the download menu, save `thinkpad-archive-VERSION-offline.zip`, extract the entire folder and open `index.html`. No Python, local server, account or installation is needed to browse. English and Spanish are included in one archive. The ZIP has no nested downloads or download menu of its own. The adjacent `.zip.sha256` file remains available for command-line checks and release tooling, but is not a separate action in the menu. A hash checks integrity, not publisher identity; serving it on the same site does not protect against an attacker who can alter both page and ZIP. The download control is included in 0.5.6 source builds; deployment status and tagged release assets are separate. Check the matching version's release for attached assets rather than assuming every source version has a tag. GitHub [release assets](https://github.com/MikelCalvo/thinkpad-archive/releases) remain a separate publication path, not a prerequisite for the site's download.
+## Before installing software
 
-The archive contains the catalogue, technical profiles and local UI assets, plus the project license, bilingual instructions and source-rights notes. It does not contain manufacturer PDFs, driver installers, private research or live statistics/history. External references and GitHub correction drafts still require Internet. The offline copy never opts into collection; Stats cannot display live counts from a local file.
+Read the exact package README and check your machine type, variant, operating system, architecture, device and dependencies. A manufacturer listing or a matching model name does not prove that a package applies to your machine.
 
-To generate the same distribution yourself with Python 3.11 or later, from the project directory:
-
-```sh
-mkdir -p dist
-python3 -m thinkpad_archive offline-release --output dist/offline
-```
-
-The output directory must be new. Optionally add `--default-language es` for a Spanish root entry; both languages remain included. The command accepts the same metadata/locale directories as the static builder, but never accepts a prebuilt website or collection opt-in. It verifies the complete ZIP before publishing the two files into the output directory. Existing output is refused unchanged. Ordinary failures clean task-owned partial output; an interruption or power loss can leave incomplete files, so verify the checksum rather than treating directory presence as success.
-
-Each extracted copy includes `SHA256SUMS.json` for its members. The sibling `.zip.sha256` checks the whole ZIP, for example with `sha256sum -c *.zip.sha256` on Linux or `Get-FileHash FILE.zip -Algorithm SHA256` in PowerShell. These hashes detect changed bytes, not publisher identity. Member order, timestamps and modes are fixed; identical compressed bytes are expected only with the same Python/zlib toolchain.
-
-The published-release workflow remains available for manually created releases, including prereleases, and requires a matching `vVERSION` tag at the exact release commit. It builds with read-only permissions and attaches with a separate write-enabled job. Identical existing ZIP/checksum assets are reconciled without another upload; mismatches are refused. The 0.5.3 tag workflow can instead prepare a draft with the files already attached. Neither flow backfills older releases automatically. Check the exact version's workflow run and attached files before relying on a release asset.
+**BIOS, embedded-controller, recovery and destructive utilities need particular care.** The archive does not run installers, automate firmware updates or certify hardware compatibility. An available download is not a tested installation.
 
 ## Build locally
 
-You need Python 3.11 or later. The builder uses only the standard library. From the project directory:
+The builder needs Python 3.11 or later and uses only the standard library. From a checkout of this repository:
 
 ```sh
-python3 -m unittest discover -s tests -v
 mkdir -p build
 python3 -m thinkpad_archive build --output build/public
 python3 tools/check_site.py build/public
 python3 tools/check_seo.py build/public
 ```
 
-The output destination must not already exist. Open `build/public/index.html` in your browser, including through `file://`. Pages and links work without JavaScript; optional search and filters run on your device. External manual, source and package links still need Internet access. Modern-browser checks do not establish support for every historical browser.
+Open `build/public/index.html`, including through `file://`. Choose a new output directory for each build. Add `--default-language es` for a Spanish root page; either build includes both languages.
 
-To make Spanish the root language:
-
-```sh
-python3 -m thinkpad_archive build --output build/spanish --default-language es
-```
-
-The navigation places catalogue/source links on the left and the globe language picker beside the theme and GitHub controls on the right. Subpages use a compact house icon to return home. The neutral entry starts in English by default and remembers an explicit language choice; direct English/Spanish links remain in their requested language. Switching languages keeps the current model, selected year or sources page. Both builds contain metadata and links, not manufacturer documents or installer binaries. The moon/sun control remembers your theme in local browser storage; on a first visit it starts dark, independent of your system preference. A saved light or dark choice takes priority; without scripts the site also starts dark. GitHub and external references open in a new tab, while catalogue navigation stays in the current one.
-
-## Search, shareable navigation and social cards (0.4.4)
-
-Model pages add optional software search and a source-listed operating-system filter. Known OS label spellings are grouped for navigation; each package still displays the original source text, architecture and evidence. An OS filter is not a compatibility certification. Firmware remains separate and is never hidden by software filters. Without scripts, the original complete category lists remain readable.
-
-Catalogue search, family, reference-presence filters and selected year can be shared in the URL. Reload and browser Back/Forward restore that view. Year views retain their clean, filter-free layout; choose ALL to search across the catalogue. These improvements run locally without accounts, network requests or server-side saved searches.
-
-Shared links include static Open Graph and X/Twitter large-card metadata, localized descriptions, page-specific model/year/source titles, canonical URLs and original EN/ES 1200×630 PNG artwork. The metadata uses the official HTTPS domain; local previews let you inspect the files, but social services cannot fetch localhost. The neutral and legacy catalogue entries use the language-specific default catalogue as their canonical URL. Public sharing services can fetch the deployed files, but their cached previews may take time to refresh; local copies cannot be fetched from localhost. Filter query strings retain their interactive behavior but use the page's unfiltered metadata; static crawlers do not execute the local search. No social SDK, account, tracker or automatic post is added. Normal builds copy the checked-in cards without dependencies; `tools/generate_social_cards.py` is an optional artwork-regeneration tool requiring Pillow, rsvg-convert and DejaVu Sans.
-
-## Public statistics (0.5.0)
-
-The footer links to a public EN/ES Stats dashboard. Normal static/offline builds do not collect anything. An explicit opt-in build and same-origin service can keep only public daily marginal page-view counters, without cookies, visitor IDs, raw referrers, raw user agents, IPs or GeoIP. Counts describe views, not unique visitors. Daily counters are retained indefinitely, with an All time period alongside the recent-period filters. The complete stored rows remain publicly accessible through the aggregate API; the dashboard does not include a JSON download block. From 0.5.6, the opt-in service also counts full ZIP responses in a separate daily version aggregate, shown as Catalogue downloads / Descargas del catálogo for the selected period. These are server-sent transfers, not clicks, unique people or proof that a file was saved. Static hosting and GitHub downloads are not counted. Existing view history is preserved; no earlier downloads are backfilled. DNT/GPC suppress collection. The opt-in stack also measures full HTML document responses separately, including crawlers that never run JavaScript. Its visual comparison distinguishes self-declared named crawlers/automation, browser-like traffic and unknown user agents, with exact daily/category counts for the selected period. This is a spoofable estimate, not verified humans or bot ownership; it does not reclassify historical JS views or retain raw user agents. See [statistics, privacy limits and optional self-hosted stack](docs/statistics.md).
-
-## CI and release drafts (0.5.3)
-
-CI runs after a branch push or pull request, not when a commit exists only on your computer. It runs the complete tests on Python 3.11 and 3.13 with Node 22 available, checks Python/JavaScript syntax and changed whitespace, builds English-root, Spanish-root and statistics-enabled sites, checks their internal links and packages the offline ZIP. A separate read-only job validates workflow syntax using actionlint 1.7.11. Successful Python 3.13 checks retain the offline files as a short-lived Actions artifact; that is not a published release.
-
-Run the same project checks locally with Python 3.11+ and Node installed:
+To generate the offline distribution:
 
 ```sh
-mkdir -p build
-python3 tools/check.py --output build/checks --package
+mkdir -p dist
+python3 -m thinkpad_archive offline-release --output dist/offline
 ```
 
-Use a new output path for each run. To validate the workflow files too, use Go 1.24+:
+For tests, CI, source audits and release instructions, see [development](docs/development.md) and [releases](docs/releases.md). For static or Docker hosting, see [deployment](docs/deployment.md).
 
-```sh
-go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.11 -shellcheck= -pyflakes=
-```
+## Public statistics and privacy
 
-The first Go invocation downloads the pinned verifier and its dependencies; the catalogue itself has no runtime dependency on Go, Node or actionlint. Shellcheck and pyflakes integrations are explicitly disabled; Python syntax and shipped JavaScript are checked by the project runner.
+The hosted [Stats dashboard](https://thinkpadarchive.com/en/stats.html) separates JavaScript page views, full catalogue ZIP transfers and HTML document requests. HTML traffic is estimated as browser-like, declared crawler/automation or unknown. Neither browser-like traffic nor a crawler name verifies who made a request; the figures are not unique visitors.
 
-For a release, update VERSION and its changelog section, review the checks, then explicitly create and push the matching `vX.Y.Z` tag on the intended commit. The tag workflow reruns the same CI before preparing a GitHub DRAFT with the verified ZIP, checksum and changelog notes. It requires an existing matching tag and never creates or moves one. Version 0.x drafts remain prereleases. Review the draft and publish it manually when ready. No workflow deploys the website or changes branch protection; source publication can still trigger the existing separate Coolify webhook described in the deployment guide.
-
-Draft creation attaches its assets in the same run: events created with the default GITHUB_TOKEN do not reliably start a second workflow, so the release flow does not depend on the published-release hook. The older published-release workflow remains a fallback for manually created releases. If both expected assets already exist with identical GitHub-reported SHA-256, size and uploaded state, it does nothing; missing/changed/partial asset sets are refused rather than overwritten. A failed or ambiguous create/upload requires inspecting the existing release before retrying. Network/authentication errors never become permission to create a duplicate.
-
-The 0.5.3 source passed 307 local tests on each of Python 3.11 and 3.13, plus fresh builds, internal-link checks, offline packaging and workflow validation. Hosted status is reported in [GitHub Actions](https://github.com/MikelCalvo/thinkpad-archive/actions); local checks are not a hosted result. Real tag-driven draft creation and attachment remain unverified until that release flow is exercised. Checks can be made required through repository rules later, but no such settings are changed by these files. CI does not certify external download availability, historical-browser support or hardware compatibility.
-
-## Search-engine discovery (0.5.4)
-
-Fresh builds include `robots.txt` and `sitemap.xml`. The sitemap lists official HTTPS canonical EN/ES model, catalogue, source and populated-year pages, without aliases, query filters, statistics or empty/unconfirmed-year navigation. Hreflang sets are absolute, reciprocal and self-inclusive, with the selected default language as x-default. Native navigation stays relative and works offline. Statistics and empty/unconfirmed-year pages remain accessible but carry `noindex,follow`; duplicate catalogue entries use canonical preferences instead of noindex.
-
-Static titles/descriptions and escaped Schema.org WebSite/page data describe the actual archive, not a shop or an official IBM/Lenovo publication. The inert JSON-LD has a page-specific CSP hash; no executable inline permission, tracking library, invented dates, offers, reviews or ratings are added. Search engines may choose different titles or canonical URLs. The shared check runner now validates generated SEO files and metadata as well as links. See [indexing checks and webmaster setup](docs/seo.md).
-
-Source publication, production deployment, search-engine ownership verification and sitemap submission are separate steps. Local validation alone establishes none of them. Crawlability helps discovery but does not guarantee crawling, inclusion, rich results or ranking. Metadata uses the official production origin; keep previews loopback-only or independently access-controlled rather than exposing a second public mirror.
-
-## Hosting
-
-The public site is at **[thinkpadarchive.com](https://thinkpadarchive.com/)**. You can host the generated files on a static web server, or use the included Docker setup. See the [deployment guide](docs/deployment.md) for container hosting and Coolify configuration.
+Collection is an explicit hosting option. Normal static builds and offline copies collect nothing. The optional service stores only public daily aggregate counters, without visitor IDs, cookies, stored IPs, raw user agents or cross-page tracking, and respects DNT/GPC. Existing theme and language preferences stay local to the browser. Infrastructure logs have their own boundary. Read [what is counted and stored](docs/statistics.md) before interpreting the numbers or deploying the service.
 
 ## Contributing
 
-Model pages include a Suggest a correction / Proponer una corrección link below each overview. It opens a GitHub issue draft with the exact model name, catalogue ID and public page URL, plus prompts for the proposed correction and sources. Review the draft and submit it yourself; sending requires a GitHub account. The link also works without JavaScript and from a local copy, but GitHub needs Internet access. Only public catalogue fields are prefilled, never local file paths, browser preferences or visit data. Do not include serial numbers or personal information.
+Use **Suggest a correction** below a model overview, or [open an issue](https://github.com/MikelCalvo/thinkpad-archive/issues). Include the exact model or machine type, the proposed change and a supporting source, preferably from the manufacturer. Do not include serial numbers or personal information. The model link prepares a GitHub draft; you review and submit it yourself.
 
-Corrections, source links and translations are welcome. Please include the exact model or machine-type qualifier and the source URL; prefer primary manufacturer sources. Keep grouped source identities intact unless a reliable source establishes an individual variant. Do not assign packages by family-name resemblance.
-
-For a new language, add a complete locale JSON with the same keys as the existing languages. Translate project interface text and warnings, while preserving original product titles and operating-system identifiers. Do not redistribute or translate a manufacturer document as part of this project.
-
-Before proposing a release, run the tests and link checker, inspect both languages and narrow layouts, and review the [release checklist](docs/release-checklist.md).
+Source links, corrections and translations are welcome. Preserve exact variant qualifiers and original product/OS names. Do not infer driver associations from family resemblance or submit copied manufacturer documents or installers. See [safe contributions](docs/catalogue.md#safe-contributions).
 
 ## License and source rights
 
-Original project code, documentation, tests, translations and artwork are available under the [MIT License](LICENSE), copyright 2026 MikelCalvo.
-
-The catalogue publishes factual metadata and source links. It does not mirror manufacturer PDFs, driver binaries, original README bodies or captured websites, and it contains no personal inventory or local-device records. The project license does not grant rights to third-party documents, software, websites or trademarks. Public availability and content hashes are not redistribution permission.
-
-See [sources, attribution and publication boundary](docs/sources-and-rights.md) for the full distinction. ThinkPad, IBM, Lenovo and other product names belong to their respective owners.
+Original code, documentation, translations and artwork are licensed under [MIT](LICENSE), copyright 2026 MikelCalvo. Manufacturer documents, software and trademarks retain their own rights. The project publishes factual metadata and links, not a mirror of those materials. See [sources and rights](docs/sources-and-rights.md).
