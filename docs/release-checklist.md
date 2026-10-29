@@ -10,6 +10,7 @@ This is a checklist, not a claim that the steps already passed.
 - Run the full offline test suite with a nonempty selected count.
 - Rehearse documented build commands from a clean source copy. Build fresh English-root and Spanish-root sites.
 - Validate internal links, fragments, language counterparts and metadata escaping. All manufacturer files remain external links.
+- Run `python3 tools/check_seo.py SITE` on fresh default-language and statistics builds. Verify canonical/alternate reciprocity, sitemap membership, robots access, noindex navigation pages, unique metadata and escaped JSON-LD/CSP. After an authorized deployment, fetch the real robots.txt/sitemap.xml and inspect representative URLs; local success is not indexed-site evidence. Search Console/Bing account verification or submission remains a separately authorized action.
 - Exercise model search, combined filters, a historical model, X230, EN/ES switching, source links, utility layout and narrow-screen behavior in a real browser.
 - Exercise every calendar year in the timeline, its native keyboard/touch control, global search, all-model/unknown-date views, grouped variants and same-year language switching. Verify static year pages and empty years without JavaScript.
 - Confirm file:// browsing works without a local server, and all entries remain readable without scripts. State untested legacy-browser and hardware boundaries.

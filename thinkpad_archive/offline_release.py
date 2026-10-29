@@ -25,7 +25,7 @@ def _expected_site(data_dir, locales_dir):
     locales = load_locales(locales_dir)
     years = [r['year'] for model in data['models'] for r in model.get('introduced', [])]
     calendar = list(range(min(years), max(years) + 1)) if years else []
-    members = {'index.html', 'favicon.svg', *('assets/' + name for name in ASSETS)}
+    members = {'index.html', 'favicon.svg', 'robots.txt', 'sitemap.xml', *('assets/' + name for name in ASSETS)}
     for lang in locales:
         members.update(lang + '/' + page for page in ('index.html', 'catalogue.html', 'sources.html', 'stats.html'))
         members.update(lang + '/models/' + model['id'] + '.html' for model in data['models'])

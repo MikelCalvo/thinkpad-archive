@@ -8,7 +8,8 @@ import posixpath
 import json
 
 from .package_filters import operating_system_groups
-from .social import SITE_ORIGIN, sharing_head
+from .social import SITE_ORIGIN, page_metadata, sharing_head
+from .seo import canonical_url, structured_page
 
 
 # Presentation groups do not alter source categories or model associations.
@@ -99,7 +100,9 @@ class Renderer:
             target = self.year_target(code, selection) if kind in ("year", "all") else code + ("/models/" + model_id + ".html" if model_id else "/" + ("sources.html" if kind == "sources" else "stats.html" if kind == "stats" else "index.html"))
             year_attrs = {'data-year-url':self.href(current, code + '/years/__year__.html'), 'data-all-url':self.href(current, code + '/index.html')} if kind in ('home', 'year', 'all') else {}
             languages.append(self.link(current, target, translation["language_name"], hreflang=code, lang=code, **{'data-language-choice': code}, **year_attrs, **({"aria-current": "true"} if code == lang else {})))
-            alternates.append('<link rel="alternate" hreflang="' + e(code) + '" href="' + e(self.href(current, target)) + '">\n')
+            alternates.append('<link rel="alternate" hreflang="' + e(code) + '" href="' + e(canonical_url(target, code, kind)) + '" data-language-target="' + e(self.href(current, target)) + '">\n')
+            if code == getattr(self, 'default_language', 'en'):
+                alternates.append('<link rel="alternate" hreflang="x-default" href="' + e(canonical_url(target, code, kind)) + '">\n')
         language_picker = ('<details id="language-picker" class="language-picker"><summary class="icon-control" aria-label="' + e(t['choose_language']) + '" title="' + e(t['choose_language']) + '">'
                            '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-5 5-5 13 0 18M12 3c5 5 5 13 0 18"/></svg>'
                            '<span class="language-code" aria-hidden="true">' + e(lang.upper()) + '</span></summary>'
@@ -121,11 +124,15 @@ class Renderer:
         if collect:
             extras += '<script src="' + e(self.href(current, 'assets/analytics.js')) + '" defer></script>\n'
         connect = ' connect-src &#39;self&#39;;' if collect or kind == 'stats' else ''
+        schema, schema_hash = structured_page(current, lang, title, kind, selection, t)
+        page_title, _, _ = page_metadata(current, lang, title, kind, selection, t)
+        noindex = kind == 'stats' or (kind == 'year' and (selection == 'unknown' or not any(selection in self.model_years(model) for model in self.data['models'])))
+        robots = '<meta name="robots" content="noindex,follow">\n' if noindex else ''
         return ('<!DOCTYPE html>\n<html lang="' + e(lang) + '"' + (' data-language-entry="true"' if current == 'index.html' else '') + (' data-stats-enabled="true"' if collect else '') + '>\n<head>\n<meta charset="utf-8">\n'
                 '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-                '<meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; style-src &#39;self&#39;; img-src &#39;self&#39;; script-src &#39;self&#39;;' + connect + ' base-uri &#39;none&#39;; form-action &#39;none&#39;">\n'
-                '<meta name="referrer" content="no-referrer">\n<title>' + e(title + " · " + t["site_name"]) + '</title>\n'
-                + sharing_head(current, lang, title, kind, selection, t) + ''.join(alternates) + '<script src="' + e(self.href(current, "assets/language.js")) + '"></script>\n'
+                '<meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; style-src &#39;self&#39;; img-src &#39;self&#39;; script-src &#39;self&#39; ' + e(schema_hash) + ';' + connect + ' base-uri &#39;none&#39;; form-action &#39;none&#39;">\n'
+                '<meta name="referrer" content="no-referrer">\n<title>' + e(page_title) + '</title>\n'
+                + sharing_head(current, lang, title, kind, selection, t) + robots + schema + ''.join(alternates) + '<script src="' + e(self.href(current, "assets/language.js")) + '"></script>\n'
                 '<script src="' + e(self.href(current, "assets/theme.js")) + '"></script>\n'
                 '<link rel="icon" type="image/svg+xml" href="' + e(self.href(current, 'favicon.svg')) + '">\n'
                 '<link rel="stylesheet" href="' + e(css) + '">\n'
@@ -385,6 +392,7 @@ class Renderer:
 
     def render(self, default_language):
         from .stats_page import STATS_COPY, stats_body
+        self.default_language = default_language
         result = {"index.html": self.home("index.html", default_language)}
         for lang in self.locales:
             current = lang + '/stats.html'

@@ -113,10 +113,14 @@ class NavigationRefresh(unittest.TestCase):
             self.assertNotIn('defer', script)
             self.assertLess(text.index(script['src']), text.index('rel="stylesheet"'))
             alternates = [a for tag, a in tags if tag == 'link' and a.get('rel') == 'alternate']
-            self.assertEqual({a['hreflang'] for a in alternates}, {'en', 'es'})
+            self.assertEqual({a['hreflang'] for a in alternates}, {'en', 'es', 'x-default'})
             for a in alternates:
                 suffix = relative.split('/', 1)[1] if '/' in relative else 'index.html'
-                self.assertEqual((page.parent / a['href']).resolve(), (self.site / a['hreflang'] / suffix).resolve())
+                code = 'en' if a['hreflang'] == 'x-default' else a['hreflang']
+                expected_suffix = '' if suffix == 'index.html' else suffix
+                self.assertEqual(a['href'], 'https://thinkpadarchive.com/' + code + '/' + expected_suffix)
+                if a['hreflang'] != 'x-default':
+                    self.assertEqual((page.parent / a['data-language-target']).resolve(), (self.site / code / suffix).resolve())
         self.assertNotIn('data-language-entry="true"', (self.site / 'es/index.html').read_text())
 
     @unittest.skipUnless(shutil.which('node'), 'Node is optional verification tooling')

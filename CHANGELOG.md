@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.4 (unreleased)
+
+- Generate a deterministic official-HTTPS XML sitemap and robots.txt from validated public catalogue records. List canonical EN/ES catalogues, models, sources and populated date pages; omit duplicate entries, filters, statistics and empty/unconfirmed-date navigation without inventing modification dates.
+- Emit reciprocal absolute canonical-language alternates and x-default while preserving relative offline navigation and saved-language entry behavior. Keep canonical preferences for neutral/legacy entries and mark statistics plus empty/unconfirmed-date pages noindex,follow.
+- Align static titles with social metadata, improve catalogue titles and give the statistics dashboard its own localized description. Add escaped WebSite and page-specific Schema.org JSON-LD with an exact CSP hash, without offers, ratings, unsupported dates or third-party scripts.
+- Check canonical and alternate targets, reciprocal language sets, sitemap membership, robots guidance, unique metadata and JSON-LD/CSP in the shared local/CI verification runner. Include the two public crawler files in the exact offline ZIP allowlist.
+- Document search-engine ownership verification and sitemap submission as separate operator actions. Local validation does not establish deployment, submission, indexing, rich results or search ranking.
+
 ## 0.5.3 (unreleased)
 
 - Add read-only CI for branch pushes and pull requests, reused by version-tag releases. Check the complete tests on Python 3.11/3.13 with Node available, Python/JavaScript syntax, fresh English/Spanish/statistics builds, internal links, offline packaging and changed whitespace.

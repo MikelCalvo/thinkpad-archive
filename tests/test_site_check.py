@@ -53,6 +53,24 @@ class SiteCheck(unittest.TestCase):
             self.assertEqual(result['external_links'], 1)
             self.assertEqual([e['reason'] for e in result['errors']], ['remote-asset', 'unsafe-scheme'])
 
+    def test_absolute_language_alternates_are_scoped_metadata_not_remote_assets(self):
+        check = self.checker()
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'index.html').write_text('<link rel="alternate" hreflang="es" href="https://thinkpadarchive.com/es/"><link rel="alternate" hreflang="x-default" href="https://thinkpadarchive.com/en/"><link rel="alternate" href="https://example.org/arbitrary"><link rel="alternate" hreflang="es" href="http://example.org/es/"><script src="https://example.org/a.js"></script>')
+            result = check(root)
+            self.assertEqual(result['external_links'], 2)
+            self.assertEqual([e['reason'] for e in result['errors']], ['remote-asset', 'remote-asset', 'remote-asset'])
+
+    def test_valid_three_letter_and_regional_language_metadata_remains_allowed(self):
+        check = self.checker()
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'index.html').write_text('<link rel="alternate" hreflang="ast" href="https://thinkpadarchive.com/ast/"><link rel="alternate" hreflang="pt-br" href="https://thinkpadarchive.com/pt-br/">')
+            result = check(root)
+            self.assertEqual(result['errors'], [])
+            self.assertEqual(result['external_links'], 2)
+
     def test_stats_api_export_is_allowed_only_by_explicit_scoped_flag(self):
         check = self.checker()
         with tempfile.TemporaryDirectory() as tmp:

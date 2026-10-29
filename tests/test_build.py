@@ -99,7 +99,8 @@ class BuildTests(unittest.TestCase):
                 for removed in ("volumes.html", "private-map", "cd-r", "dvd-r", "recorded selection", "volúmenes", "colección"):
                     self.assertNotIn(removed, content, str(path.relative_to(self.output)))
         self.assertFalse(any(self.output.rglob("volumes.html")))
-        self.assertEqual({p.suffix for p in self.output.rglob("*") if p.is_file()}, {".html", ".css", ".js", ".svg", ".png"})
+        self.assertEqual({p.relative_to(self.output).as_posix() for p in self.output.rglob('*') if p.is_file() and p.suffix in ('.txt', '.xml')}, {'robots.txt', 'sitemap.xml'})
+        self.assertEqual({p.suffix for p in self.output.rglob("*") if p.is_file()}, {".html", ".css", ".js", ".svg", ".png", ".txt", ".xml"})
 
     def test_complete_bilingual_tree_same_model_links_and_local_assets(self):
         self.build()
@@ -116,8 +117,12 @@ class BuildTests(unittest.TestCase):
             self.assertEqual(len(parser.ids), len(set(parser.ids)))
             self.assertNotIn("fetch(", path.read_text())
             for tag, attrs in parser.tags:
-                if tag in ("script", "link", "img") and attrs.get('rel') != 'canonical':
+                if tag in ("script", "link", "img") and attrs.get('rel') not in ('canonical', 'alternate'):
                     self.assertFalse(urlsplit(attrs.get("src", attrs.get("href", ""))).scheme)
+                if attrs.get('rel') == 'alternate':
+                    self.assertEqual(urlsplit(attrs['href']).scheme, 'https')
+                    self.assertEqual(urlsplit(attrs['href']).netloc, 'thinkpadarchive.com')
+                    self.assertIn(attrs['hreflang'], ('en', 'es', 'x-default'))
             for href in parser.links:
                 parts = urlsplit(href)
                 if parts.scheme:

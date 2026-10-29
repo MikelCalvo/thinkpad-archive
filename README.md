@@ -4,7 +4,7 @@
 
 Find manuals, driver metadata and source references for documented ThinkPad models, with an emphasis on early machines. The site is available in English and Spanish. You can also build a local copy and browse it without a server.
 
-**0.5.3 development snapshot; latest tagged release: v0.5.0.** This snapshot adds basic CI and draft-release automation, model correction links and offline ZIP distributions. Public first-party aggregate statistics, software search and shareable catalogue views remain available. The catalogue is still under development; coverage is documented, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
+**Development version 0.5.4; latest tagged release: v0.5.0.** This version adds technical search metadata, crawler discovery files and SEO checks to the existing CI, correction links and offline distributions. Public first-party aggregate statistics, software search and shareable catalogue views remain available. The catalogue is still under development; coverage is documented, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
 
 This is an independent community project, not affiliated with, endorsed by or an official publication of IBM or Lenovo.
 
@@ -59,6 +59,7 @@ python3 -m unittest discover -s tests -v
 mkdir -p build
 python3 -m thinkpad_archive build --output build/public
 python3 tools/check_site.py build/public
+python3 tools/check_seo.py build/public
 ```
 
 The output destination must not already exist. Open `build/public/index.html` in your browser, including through `file://`. Pages and links work without JavaScript; optional search and filters run on your device. External manual, source and package links still need Internet access. Modern-browser checks do not establish support for every historical browser.
@@ -107,6 +108,14 @@ For a release, update VERSION and its changelog section, review the checks, then
 Draft creation attaches its assets in the same run: events created with the default GITHUB_TOKEN do not reliably start a second workflow, so the release flow does not depend on the published-release hook. The older published-release workflow remains a fallback for manually created releases. If both expected assets already exist with identical GitHub-reported SHA-256, size and uploaded state, it does nothing; missing/changed/partial asset sets are refused rather than overwritten. A failed or ambiguous create/upload requires inspecting the existing release before retrying. Network/authentication errors never become permission to create a duplicate.
 
 The 0.5.3 source passed 307 local tests on each of Python 3.11 and 3.13, plus fresh builds, internal-link checks, offline packaging and workflow validation. Hosted status is reported in [GitHub Actions](https://github.com/MikelCalvo/thinkpad-archive/actions); local checks are not a hosted result. Real tag-driven draft creation and attachment remain unverified until that release flow is exercised. Checks can be made required through repository rules later, but no such settings are changed by these files. CI does not certify external download availability, historical-browser support or hardware compatibility.
+
+## Search-engine discovery (0.5.4)
+
+Fresh builds include `robots.txt` and `sitemap.xml`. The sitemap lists official HTTPS canonical EN/ES model, catalogue, source and populated-year pages, without aliases, query filters, statistics or empty/unconfirmed-year navigation. Hreflang sets are absolute, reciprocal and self-inclusive, with the selected default language as x-default. Native navigation stays relative and works offline. Statistics and empty/unconfirmed-year pages remain accessible but carry `noindex,follow`; duplicate catalogue entries use canonical preferences instead of noindex.
+
+Static titles/descriptions and escaped Schema.org WebSite/page data describe the actual archive, not a shop or an official IBM/Lenovo publication. The inert JSON-LD has a page-specific CSP hash; no executable inline permission, tracking library, invented dates, offers, reviews or ratings are added. Search engines may choose different titles or canonical URLs. The shared check runner now validates generated SEO files and metadata as well as links. See [indexing checks and webmaster setup](docs/seo.md).
+
+Source publication, production deployment, search-engine ownership verification and sitemap submission are separate steps. Local validation alone establishes none of them. Crawlability helps discovery but does not guarantee crawling, inclusion, rich results or ranking. Metadata uses the official production origin; keep previews loopback-only or independently access-controlled rather than exposing a second public mirror.
 
 ## Hosting
 

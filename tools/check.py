@@ -30,6 +30,7 @@ def check_project(output, *, package=False):
         site = destination / name
         run([sys.executable, '-m', 'thinkpad_archive', 'build', '--output', str(site), *flags])
         run([sys.executable, 'tools/check_site.py', str(site), *(['--allow-stats-api'] if name == 'stats' else [])])
+        run([sys.executable, 'tools/check_seo.py', str(site)])
     if package:
         run([sys.executable, '-m', 'thinkpad_archive', 'offline-release', '--output', str(destination / 'offline')])
     return destination

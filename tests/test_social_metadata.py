@@ -90,7 +90,7 @@ class SocialMetadata(unittest.TestCase):
             home = self.head(lang + '/index.html').metadata
             sources = self.head(lang + '/sources.html').metadata
             year = self.head(lang + '/years/1992.html').metadata
-            self.assertEqual(home.get('og:title'), 'ThinkPad Archive')
+            self.assertEqual(home.get('og:title'), 'ThinkPad Archive · ' + ('Manuals, drivers and history' if lang == 'en' else 'Manuales, drivers e historia'))
             self.assertIn('1992', year.get('og:title', ''))
             self.assertIn('1992', year.get('og:description', ''))
             self.assertIn('Sources' if lang == 'en' else 'Fuentes', sources.get('og:title', ''))

@@ -40,6 +40,8 @@ def build_site(output, *, data_dir=None, locales_dir=None, default_language=None
             renderer = Renderer(data, locales)
         renderer.stats_enabled = stats_enabled
         pages = renderer.render(language)
+        from .seo import crawler_files
+        pages.update(crawler_files(data, locales))
         assets = {"assets/" + name: read_bytes(ROOT / "assets" / name) for name in ("style.css", "search.js", "ui.js", "theme.js", "language.js", "packages.js", "stats.css", "stats.js", "analytics.js")}
         assets["favicon.svg"] = read_bytes(ROOT / "assets/favicon.svg")
         for code in ('en', 'es'):

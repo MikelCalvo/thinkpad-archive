@@ -2,6 +2,7 @@
 from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
+import re
 from urllib.parse import unquote, urlsplit
 import argparse
 import json
@@ -19,7 +20,7 @@ class Links(HTMLParser):
             self.ids.append(values['id'])
         for attribute in ('href', 'src'):
             if attribute in values:
-                self.links.append((tag, attribute, values[attribute], values.get('rel', '')))
+                self.links.append((tag, attribute, values[attribute], values.get('rel', ''), values.get('hreflang', '')))
 
 
 def check_site(root, *, allow_stats_api=False):
@@ -42,7 +43,7 @@ def check_site(root, *, allow_stats_api=False):
                 error(path, identity, 'duplicate-id')
 
     for path, parser in pages.items():
-        for tag, attribute, value, rel in parser.links:
+        for tag, attribute, value, rel, hreflang in parser.links:
             try:
                 url = urlsplit(value)
             except ValueError:
@@ -52,7 +53,9 @@ def check_site(root, *, allow_stats_api=False):
                 if url.scheme not in ('http', 'https') or not url.hostname or url.username or url.password:
                     error(path, value, 'unsafe-scheme')
                 elif not ((tag == 'a' and attribute == 'href') or
-                          (tag == 'link' and attribute == 'href' and rel == 'canonical' and url.scheme == 'https')):
+                          (tag == 'link' and attribute == 'href' and url.scheme == 'https' and
+                           (rel == 'canonical' or (rel == 'alternate' and url.netloc == 'thinkpadarchive.com' and
+                            re.fullmatch(r'(?:[a-z]{2,3}(?:-[a-z0-9]{2,8})*|x-default)', hreflang))))):
                     error(path, value, 'remote-asset')
                 else:
                     external += 1

@@ -8,7 +8,7 @@
   function target(code) {
     for (var i = 0; i < alternatives.length; i += 1) {
       if (alternatives[i].getAttribute("hreflang") === code) {
-        return alternatives[i].getAttribute("href");
+        return alternatives[i].getAttribute("data-language-target") || alternatives[i].getAttribute("href");
       }
     }
     return null;
