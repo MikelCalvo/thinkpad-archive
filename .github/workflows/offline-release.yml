@@ -104,7 +104,19 @@ jobs:
           release = json.loads(subprocess.check_output(['gh', 'api', endpoint], text=True, timeout=30))
           if release['tag_name'] != tag or release['draft']:
               raise SystemExit('Published release identity mismatch')
-          # No --clobber: an existing asset is never silently replaced.
-          subprocess.run(['gh', 'release', 'upload', tag, str(archive), str(root / (name + '.sha256')),
-                          '--repo', os.environ['GH_REPO']], check=True, timeout=120)
+          existing = release.get('assets', [])
+          if existing:
+              by_name = {row['name']: row for row in existing}
+              expected = {}
+              for path in (archive, root / (name + '.sha256')):
+                  with path.open('rb') as stream:
+                      expected[path.name] = (path.stat().st_size, 'sha256:' + hashlib.file_digest(stream, 'sha256').hexdigest())
+              if (len(existing) != len(expected) or set(by_name) != set(expected) or
+                      any(by_name[key].get('size') != size or by_name[key].get('digest') != digest or
+                          by_name[key].get('state') != 'uploaded' for key, (size, digest) in expected.items())):
+                  raise SystemExit('Existing release assets differ; reconcile manually')
+          else:
+              # No --clobber: an existing asset is never silently replaced.
+              subprocess.run(['gh', 'release', 'upload', tag, str(archive), str(root / (name + '.sha256')),
+                              '--repo', os.environ['GH_REPO']], check=True, timeout=120)
           PY

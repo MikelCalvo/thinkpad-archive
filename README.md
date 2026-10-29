@@ -4,7 +4,7 @@
 
 Find manuals, driver metadata and source references for documented ThinkPad models, with an emphasis on early machines. The site is available in English and Spanish. You can also build a local copy and browse it without a server.
 
-**v0.5.0.** Public first-party statistics with anonymous aggregate page-view counts, indefinite history and a bilingual dashboard. Software search, shareable catalogue views and localized social cards remain available. The catalogue is still under development; coverage is documented, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
+**0.5.3 development snapshot; latest tagged release: v0.5.0.** This snapshot adds basic CI and draft-release automation, model correction links and offline ZIP distributions. Public first-party aggregate statistics, software search and shareable catalogue views remain available. The catalogue is still under development; coverage is documented, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
 
 This is an independent community project, not affiliated with, endorsed by or an official publication of IBM or Lenovo.
 
@@ -31,9 +31,9 @@ Read the exact package README. Check machine type/model (MTM), variant, operatin
 
 **BIOS, embedded-controller, recovery and destructive utilities require separate care.** They are not routine driver updates. The site does not run downloads, automate installation or certify compatibility. Documentation review and content hashes are not hardware tests.
 
-## Offline release copy (0.5.2 preview)
+## Offline release copy
 
-An offline catalogue asset can be generated for each release: `thinkpad-archive-VERSION-offline.zip` and its `.zip.sha256` checksum. This feature is currently prepared locally; there is no published 0.5.2 asset yet. Once published, download the ZIP from that version's [GitHub release assets](https://github.com/MikelCalvo/thinkpad-archive/releases), extract the entire folder and open `index.html`. No Python, local server, account or installation is needed to browse. English and Spanish are included in one archive.
+An offline catalogue asset can be generated for each release: `thinkpad-archive-VERSION-offline.zip` and its `.zip.sha256` checksum. No tagged release includes these assets yet; source availability is separate from downloadable release assets. Once published, download the ZIP from that version's [GitHub release assets](https://github.com/MikelCalvo/thinkpad-archive/releases), extract the entire folder and open `index.html`. No Python, local server, account or installation is needed to browse. English and Spanish are included in one archive.
 
 The archive contains the catalogue, technical profiles and local UI assets, plus the project license, bilingual instructions and source-rights notes. It does not contain manufacturer PDFs, driver installers, private research or live statistics/history. External references and GitHub correction drafts still require Internet. The offline copy never opts into collection; Stats cannot display live counts from a local file.
 
@@ -48,7 +48,7 @@ The output directory must be new. Optionally add `--default-language es` for a S
 
 Each extracted copy includes `SHA256SUMS.json` for its members. The sibling `.zip.sha256` checks the whole ZIP, for example with `sha256sum -c *.zip.sha256` on Linux or `Get-FileHash FILE.zip -Algorithm SHA256` in PowerShell. These hashes detect changed bytes, not publisher identity. Member order, timestamps and modes are fixed; identical compressed bytes are expected only with the same Python/zlib toolchain.
 
-The release workflow runs on published releases, including prereleases, requires a matching `vVERSION` tag, and checks out the release's exact commit. A read-only job runs the complete suite and generates the archive; a separate job can only attach the verified files to that existing release. Existing asset names fail rather than being replaced. This local implementation has not yet run on GitHub-hosted runners. It does not backfill older releases automatically.
+The published-release workflow remains available for manually created releases, including prereleases, and requires a matching `vVERSION` tag at the exact release commit. It builds with read-only permissions and attaches with a separate write-enabled job. Identical existing ZIP/checksum assets are reconciled without another upload; mismatches are refused. The 0.5.3 tag workflow can instead prepare a draft with the files already attached. Neither flow backfills older releases automatically. Check the exact version's workflow run and attached files before relying on a release asset.
 
 ## Build locally
 
@@ -83,13 +83,38 @@ Shared links include static Open Graph and X/Twitter large-card metadata, locali
 
 The footer links to a public EN/ES Stats dashboard. Normal static/offline builds do not collect anything. An explicit opt-in build and same-origin service can keep only public daily marginal page-view counters, without cookies, visitor IDs, raw referrers, raw user agents, IPs or GeoIP. Counts describe views, not unique visitors. Daily counters are retained indefinitely, with an All time period alongside the recent-period filters. The complete stored rows remain publicly accessible through the aggregate API; the dashboard does not include a JSON download block. DNT/GPC suppress collection. See [statistics, privacy limits and optional self-hosted stack](docs/statistics.md).
 
+## CI and release drafts (0.5.3)
+
+CI runs after a branch push or pull request, not when a commit exists only on your computer. It runs the complete tests on Python 3.11 and 3.13 with Node 22 available, checks Python/JavaScript syntax and changed whitespace, builds English-root, Spanish-root and statistics-enabled sites, checks their internal links and packages the offline ZIP. A separate read-only job validates workflow syntax using actionlint 1.7.11. Successful Python 3.13 checks retain the offline files as a short-lived Actions artifact; that is not a published release.
+
+Run the same project checks locally with Python 3.11+ and Node installed:
+
+```sh
+mkdir -p build
+python3 tools/check.py --output build/checks --package
+```
+
+Use a new output path for each run. To validate the workflow files too, use Go 1.24+:
+
+```sh
+go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.11 -shellcheck= -pyflakes=
+```
+
+The first Go invocation downloads the pinned verifier and its dependencies; the catalogue itself has no runtime dependency on Go, Node or actionlint. Shellcheck and pyflakes integrations are explicitly disabled; Python syntax and shipped JavaScript are checked by the project runner.
+
+For a release, update VERSION and its changelog section, review the checks, then explicitly create and push the matching `vX.Y.Z` tag on the intended commit. The tag workflow reruns the same CI before preparing a GitHub DRAFT with the verified ZIP, checksum and changelog notes. It requires an existing matching tag and never creates or moves one. Version 0.x drafts remain prereleases. Review the draft and publish it manually when ready. No workflow deploys the website or changes branch protection; source publication can still trigger the existing separate Coolify webhook described in the deployment guide.
+
+Draft creation attaches its assets in the same run: events created with the default GITHUB_TOKEN do not reliably start a second workflow, so the release flow does not depend on the published-release hook. The older published-release workflow remains a fallback for manually created releases. If both expected assets already exist with identical GitHub-reported SHA-256, size and uploaded state, it does nothing; missing/changed/partial asset sets are refused rather than overwritten. A failed or ambiguous create/upload requires inspecting the existing release before retrying. Network/authentication errors never become permission to create a duplicate.
+
+The 0.5.3 source passed 307 local tests on each of Python 3.11 and 3.13, plus fresh builds, internal-link checks, offline packaging and workflow validation. Hosted status is reported in [GitHub Actions](https://github.com/MikelCalvo/thinkpad-archive/actions); local checks are not a hosted result. Real tag-driven draft creation and attachment remain unverified until that release flow is exercised. Checks can be made required through repository rules later, but no such settings are changed by these files. CI does not certify external download availability, historical-browser support or hardware compatibility.
+
 ## Hosting
 
 The public site is at **[thinkpadarchive.com](https://thinkpadarchive.com/)**. You can host the generated files on a static web server, or use the included Docker setup. See the [deployment guide](docs/deployment.md) for container hosting and Coolify configuration.
 
 ## Contributing
 
-The **0.5.1 preview** adds a Suggest a correction / Proponer una corrección link below each model's overview. It opens a GitHub issue draft with the exact model name, catalogue ID and public page URL, plus prompts for the proposed correction and sources. Review the draft and submit it yourself; sending requires a GitHub account. The link also works without JavaScript and from a local copy, but GitHub needs Internet access. Only public catalogue fields are prefilled, never local file paths, browser preferences or visit data. Do not include serial numbers or personal information.
+Model pages include a Suggest a correction / Proponer una corrección link below each overview. It opens a GitHub issue draft with the exact model name, catalogue ID and public page URL, plus prompts for the proposed correction and sources. Review the draft and submit it yourself; sending requires a GitHub account. The link also works without JavaScript and from a local copy, but GitHub needs Internet access. Only public catalogue fields are prefilled, never local file paths, browser preferences or visit data. Do not include serial numbers or personal information.
 
 Corrections, source links and translations are welcome. Please include the exact model or machine-type qualifier and the source URL; prefer primary manufacturer sources. Keep grouped source identities intact unless a reliable source establishes an individual variant. Do not assign packages by family-name resemblance.
 

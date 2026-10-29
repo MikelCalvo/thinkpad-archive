@@ -1,12 +1,20 @@
 # Changelog
 
-## 0.5.2 (unreleased preview)
+## 0.5.3 (unreleased)
+
+- Add read-only CI for branch pushes and pull requests, reused by version-tag releases. Check the complete tests on Python 3.11/3.13 with Node available, Python/JavaScript syntax, fresh English/Spanish/statistics builds, internal links, offline packaging and changed whitespace.
+- Validate GitHub Actions workflows with version-pinned actionlint tooling and pin reusable actions by commit. Keep check jobs read-only; do not change branch protection or deploy production.
+- Create a draft release only after checks succeed for an existing vVERSION tag at the exact checked commit. Include the offline ZIP, checksum and version-specific changelog notes, keep 0.x drafts as prereleases and leave public publication to a human.
+- Reconcile already-attached identical release assets without uploading them again; refuse mismatches and propagate API/child failures without creating duplicate releases or replacing assets.
+- Provide tools/check.py as the same local verification entry point used by CI. Local checks pass; hosted run status is reported separately in GitHub Actions.
+
+## 0.5.2 (unreleased)
 
 - Add an offline-release command that builds a fresh collection-free bilingual catalogue and packages it as a versioned ZIP, with the original license, usage/rights notes, per-file SHA-256 manifest and whole-archive checksum.
 - Keep every catalogue page and local asset available after extracting the complete folder and opening index.html. External sources, PDFs, installers and GitHub correction drafts still require Internet; manufacturer files and live statistics/history are not bundled.
-- Add a release-published workflow that tests the exact release snapshot and attaches the ZIP/checksum to the existing release. It does not create releases, tags or deployments, and never overwrites an existing asset. Hosted execution remains pending publication.
+- Add a release-published workflow that tests the exact release snapshot and attaches the ZIP/checksum to the existing release. It does not create releases, tags or deployments, and never overwrites an existing asset. Actual release attachment remains unverified until the release flow is exercised.
 
-## 0.5.1 (integrated locally, unreleased)
+## 0.5.1 (unreleased)
 
 - Add a discreet Suggest a correction / Proponer una corrección link to every model page, including legacy catalogues without technical profiles.
 - Open a GitHub issue draft with the exact model name, catalogue ID and public language-specific page URL. Localized prompts ask for the correction, supporting sources and relevant machine-type/package qualifiers; remind contributors not to include serial numbers or personal information.

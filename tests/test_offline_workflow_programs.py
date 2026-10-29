@@ -58,6 +58,36 @@ class WorkflowPrograms(unittest.TestCase):
             finally:
                 os.chdir(before)
 
+    def test_existing_identical_published_assets_are_not_reuploaded(self):
+        from thinkpad_archive.offline_release import build_offline_release
+        import hashlib
+        import test_build as fixtures
+        source = workflow_blocks()[1]
+        version = (ROOT / 'VERSION').read_text().strip()
+        env = {'RELEASE_TAG': 'v' + version, 'RELEASE_ID': '123', 'GH_REPO': 'example/archive'}
+        with tempfile.TemporaryDirectory(dir=os.environ.get('TMPDIR')) as folder:
+            root = Path(folder);fixtures.write_fixture(root / 'data')
+            assets = build_offline_release(root / 'offline', data_dir=root / 'data')
+            existing = [{'name': p.name, 'size': p.stat().st_size, 'state': 'uploaded',
+                         'digest': 'sha256:' + hashlib.sha256(p.read_bytes()).hexdigest()}
+                        for p in assets.iterdir()]
+            before = Path.cwd();os.chdir(root)
+            try:
+                calls = []
+                def upload(argv, **kwargs):
+                    calls.append(argv)
+                    return subprocess.CompletedProcess(argv, 0)
+                response = {'tag_name': env['RELEASE_TAG'], 'draft': False, 'assets': existing}
+                with patch.dict(os.environ, env, clear=True), patch('subprocess.check_output', return_value=json.dumps(response)), patch('subprocess.run', side_effect=upload):
+                    exec(compile(source, '<actual release attachment block>', 'exec'), {})
+                self.assertEqual(calls, [], 'An already attached identical release must be a no-op')
+                existing[0]['digest'] = 'sha256:' + '0' * 64
+                with patch.dict(os.environ, env, clear=True), patch('subprocess.check_output', return_value=json.dumps(response)), patch('subprocess.run', side_effect=upload), self.assertRaises(SystemExit):
+                    exec(compile(source, '<actual release attachment block>', 'exec'), {})
+                self.assertEqual(calls, [])
+            finally:
+                os.chdir(before)
+
     def test_attach_block_verifies_real_archive_before_one_upload_and_propagates_failure(self):
         from thinkpad_archive.offline_release import build_offline_release
         import test_build as fixtures

@@ -8,6 +8,9 @@
 !.github/
 !.github/workflows/
 !.github/workflows/offline-release.yml
+!.github/workflows/ci.yml
+!.github/workflows/release.yml
+!CHANGELOG.md
 !thinkpad_archive/
 !thinkpad_archive/*.py
 !data/
