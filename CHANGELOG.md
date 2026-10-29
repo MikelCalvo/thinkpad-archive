@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.5 (unreleased)
+
+- Keep disposable test databases on a BuildKit tmpfs at /tmp during the Docker build. This avoids slow writable-overlay commits exhausting the existing SQLite and HTTP test deadlines on the deployment host; all tests remain enabled.
+- Leave runtime statistics code, request/lock limits, persistent counters and Compose volumes unchanged. Only the build step receives the temporary memory mount, which is discarded after the step.
+- Add a deployment regression guard for the temporary mount and the unchanged test/build/check sequence. Source publication, hosted CI and production deployment remain separately verified outcomes.
+
 ## 0.5.4 (unreleased)
 
 - Generate a deterministic official-HTTPS XML sitemap and robots.txt from validated public catalogue records. List canonical EN/ES catalogues, models, sources and populated date pages; omit duplicate entries, filters, statistics and empty/unconfirmed-date navigation without inventing modification dates.

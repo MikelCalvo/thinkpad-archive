@@ -13,7 +13,8 @@ COPY .github/workflows/offline-release.yml .github/workflows/offline-release.yml
 COPY .github/workflows/ci.yml .github/workflows/ci.yml
 COPY .github/workflows/release.yml .github/workflows/release.yml
 COPY CHANGELOG.md ./
-RUN python -m unittest discover -s tests -v \
+# Test-only SQLite files avoid overlay-layer fsync latency; no runtime data is mounted here.
+RUN --mount=type=tmpfs,target=/tmp python -m unittest discover -s tests -v \
     && python -m thinkpad_archive build --output /public \
     && python tools/check_site.py /public
 

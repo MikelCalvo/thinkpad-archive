@@ -14,6 +14,16 @@ class StatsDeployment(unittest.TestCase):
         self.assertIn('AS static', text)
         self.assertGreater(text.rindex('AS static'), text.index('AS stats'))
 
+    def test_build_tests_use_ephemeral_tmpfs_without_changing_runtime_storage(self):
+        text = (ROOT / 'Dockerfile').read_text()
+        build, runtime = text.split('# Explicit opt-in build;', 1)
+        self.assertIn('RUN --mount=type=tmpfs,target=/tmp python -m unittest discover -s tests -v', build)
+        self.assertIn('&& python -m thinkpad_archive build --output /public', build)
+        self.assertIn('&& python tools/check_site.py /public', build)
+        self.assertNotIn('--mount=type=tmpfs', runtime)
+        self.assertNotIn('TMPDIR', text)
+        self.assertIn('stats-data:/data', (ROOT / 'deploy/compose.stats.yaml').read_text())
+
     def test_scoped_proxy_strips_identifying_headers_and_has_no_request_log(self):
         path = ROOT / 'deploy/Caddyfile.stats'
         self.assertTrue(path.is_file())

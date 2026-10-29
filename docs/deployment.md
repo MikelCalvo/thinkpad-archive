@@ -6,6 +6,8 @@ Build:
 
     docker build -t thinkpad-archive .
 
+The build requires Docker BuildKit. Its test step mounts `/tmp` as a disposable tmpfs so SQLite test commits do not depend on the writable image layer's fsync latency. All tests and their production timeout/refusal limits remain in place. This mount exists only during that build step; it does not change `/data`, the runtime statistics volume or its durability.
+
 The container serves plain HTTP on port 8080 as UID/GID 10001. Map it to an available private host port and point the NetBird reverse proxy there. NetBird manages the public domain, HTTPS and certificates; this origin needs no certificate, private key or port 443. Restrict the host bind to the mesh interface required by that proxy.
 
 Caddy serves ordinary files, not an SPA fallback: missing paths return 404. /healthz is a liveness endpoint. Its admin API is disabled. Run with a read-only filesystem, all capabilities dropped, no-new-privileges and bounded memory/PIDs. /tmp, /config and /data may use temporary filesystems; give UID/GID 10001 ownership of /config and /data. No writable persistent application data is needed.

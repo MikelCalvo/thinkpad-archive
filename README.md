@@ -4,7 +4,7 @@
 
 Find manuals, driver metadata and source references for documented ThinkPad models, with an emphasis on early machines. The site is available in English and Spanish. You can also build a local copy and browse it without a server.
 
-**Development version 0.5.4; latest tagged release: v0.5.0.** This version adds technical search metadata, crawler discovery files and SEO checks to the existing CI, correction links and offline distributions. Public first-party aggregate statistics, software search and shareable catalogue views remain available. The catalogue is still under development; coverage is documented, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
+**Development version 0.5.5; latest tagged release: v0.5.0.** This version keeps disposable Docker-build test databases in memory to avoid overlay-storage latency, without changing runtime statistics storage or timeout limits. Version 0.5.4 added technical search metadata, crawler discovery files and SEO checks to the existing CI, correction links and offline distributions. Public first-party aggregate statistics, software search and shareable catalogue views remain available. The catalogue is still under development; coverage is documented, not exhaustive. See the [changelog](CHANGELOG.md) for the current scope.
 
 This is an independent community project, not affiliated with, endorsed by or an official publication of IBM or Lenovo.
 
