@@ -10,6 +10,7 @@
   function unavailable(key) {
     results.hidden = true;
     element("total").textContent = "—";
+    element("download-total").textContent = "—";
     element("window").textContent = "—";
     status.textContent = copy[key];
   }
@@ -57,6 +58,23 @@
       total += day.count;
     }
     if (!integer(total) || total !== data.total) { return false; }
+    if (data.downloads !== undefined) {
+      var downloads = data.downloads, sumDownloads = 0, sumVersions = 0, versions = new Set();
+      if (!downloads || !integer(downloads.total) || !Array.isArray(downloads.daily) || downloads.daily.length !== length || !Array.isArray(downloads.versions)) { return false; }
+      for (var j = 0; j < length; j += 1) {
+        var entry = downloads.daily[j];
+        if (!entry || utcDay(entry.day) !== from + j * 86400000 || !integer(entry.count)) { return false; }
+        sumDownloads += entry.count;
+      }
+      for (var k = 0; k < downloads.versions.length; k += 1) {
+        var version = downloads.versions[k];
+        if (!version || typeof version.value !== 'string' || version.value.length > 64 ||
+            !/^(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)$/.test(version.value) ||
+            !integer(version.count) || version.count === 0 || versions.has(version.value)) { return false; }
+        versions.add(version.value); sumVersions += version.count;
+      }
+      if (!integer(sumDownloads) || !integer(sumVersions) || sumDownloads !== downloads.total || sumVersions !== downloads.total) { return false; }
+    }
     return Object.keys(dimensions).every(function (name) {
       var rows = data[name];
       if (!Array.isArray(rows)) { return false; }
@@ -133,6 +151,7 @@
   }
   function render(data) {
     element("total").textContent = String(data.total);
+    element("download-total").textContent = data.downloads ? String(data.downloads.total) : "—";
     element("window").textContent = copy.range.replace("{from}", data.window.from).replace("{to}", data.window.to);
     table("daily", data.daily);
     Object.keys(dimensions).forEach(function (name) { table(name, data[name]); });

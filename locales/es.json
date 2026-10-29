@@ -1,5 +1,13 @@
 {
   "language_name": "Español",
+  "offline_menu": "Catálogo offline",
+  "offline_version": "Catálogo offline · {version}",
+  "offline_download": "Descargar catálogo offline",
+  "offline_note": "Incluye español e inglés. Extrae el ZIP y abre index.html. No incluye manuales, instaladores ni estadísticas en directo; los enlaces externos necesitan Internet.",
+  "offline_checksum": "SHA-256",
+  "offline_copy": "Copiar SHA-256",
+  "offline_copied": "Copiado",
+  "offline_copy_failed": "No se pudo copiar. Selecciona el hash y cópialo manualmente.",
   "correction_label": "Proponer una corrección",
   "correction_title": "Abrir una incidencia preparada en GitHub (requiere una cuenta de GitHub)",
   "correction_issue_title": "Corrección: {model}",

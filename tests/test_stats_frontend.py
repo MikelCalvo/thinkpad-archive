@@ -227,7 +227,7 @@ function data(days=30,total=2){
 }
 function boot(config={}){
   const ids={},events={},calls=[],intervals=[],timers=new Map();let timerID=0;
-  for(const id of ['dashboard','controls','days','refresh','status','results','total','window','chart','daily','pages','sources','devices','browsers','systems','languages']) ids['stats-'+id]=new Element();
+  for(const id of ['dashboard','controls','days','refresh','status','results','total','download-total','window','chart','daily','pages','sources','devices','browsers','systems','languages']) ids['stats-'+id]=new Element();
   ids['stats-chart'].clientWidth=config.chartWidth||1000;
   ids['stats-results'].hidden=true;ids['stats-controls'].hidden=true;
   ids['stats-dashboard'].attrs['data-stats-copy']=JSON.stringify(copies[config.lang||'en']);
@@ -255,6 +255,21 @@ class StatsDashboard(unittest.TestCase):
         program = DASHBOARD_HARNESS + code + '\n})().catch(error=>{console.error(error);process.exitCode=1});'
         result = subprocess.run(['node', '--unhandled-rejections=strict', '-e', program, str(ROOT / 'assets/stats.js'), json.dumps(module.STATS_COPY)], capture_output=True, text=True, timeout=10)
         self.assertEqual(result.returncode, 0, result.stderr)
+
+    def test_download_total_is_separate_localized_and_validated(self):
+        module = stats_module()
+        for lang, label in [('en', 'Catalogue downloads'), ('es', 'Descargas del catálogo')]:
+            self.assertIn('id="stats-download-total"', module.stats_body(lang))
+            self.assertIn(label, module.stats_body(lang))
+        self.run_node(r'''
+const payload=data();payload.downloads={total:4,versions:[{value:'0.5.6',count:4}],daily:payload.daily.map(r=>({day:r.day,count:r.day===payload.window.to?4:0}))};
+const app=boot({payload});positive(app);await flush();
+assert.equal(app.ids['stats-download-total'].textContent,'4');assert.equal(app.ids['stats-total'].textContent,'2');
+for(const mutate of [p=>p.downloads.total=-1,p=>p.downloads.total='4',p=>p.downloads.daily.at(-1).count=3,p=>p.downloads.versions[0].value='arbitrary/path',p=>p.downloads.versions[0].count=3]){
+ const bad=structuredClone(payload);mutate(bad);const failed=boot({payload:bad});await flush();assert.equal(failed.ids['stats-results'].hidden,true);
+}
+const old=boot();await flush();assert.equal(old.ids['stats-download-total'].textContent,'—','An older API must not invent download zeroes');
+''')
 
     def test_real_api_contract_all_buckets_chart_and_text_only_rendering(self):
         self.run_node(r'''

@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 from pathlib import Path
+import hashlib
+import tempfile
 
 from .render import Renderer
 from .validation import LANG, load_catalogue, load_locales, no_symlinks, read_bytes, require
@@ -9,7 +11,7 @@ from .validation import LANG, load_catalogue, load_locales, no_symlinks, read_by
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def build_site(output, *, data_dir=None, locales_dir=None, default_language=None, stats_enabled=False):
+def build_site(output, *, data_dir=None, locales_dir=None, default_language=None, stats_enabled=False, offline_download=True):
     """Validate public metadata, locales and assets, then create a fresh output.
 
     English is the default. Returns the output Path. No network, manufacturer
@@ -17,6 +19,7 @@ def build_site(output, *, data_dir=None, locales_dir=None, default_language=None
     """
     try:
         require(type(stats_enabled) is bool, "Stats opt-in must be a boolean")
+        require(type(offline_download) is bool, "Offline download option must be a boolean")
         destination = no_symlinks(output)
         require(not destination.exists(), "Output must be a new directory")
         source_data = no_symlinks(data_dir if data_dir is not None else ROOT / "data")
@@ -39,6 +42,20 @@ def build_site(output, *, data_dir=None, locales_dir=None, default_language=None
         else:
             renderer = Renderer(data, locales)
         renderer.stats_enabled = stats_enabled
+        downloads = {}
+        if offline_download:
+            from .offline_release import build_offline_release, release_version, MAX_TOTAL
+            renderer.offline_version = release_version()
+            # Finish the archive first: its hash is rendered into hosted pages.
+            # The inner build disables downloads, avoiding a circular ZIP/hash.
+            with tempfile.TemporaryDirectory(prefix='.thinkpad-download-', dir=destination.parent) as temporary:
+                packaged = build_offline_release(Path(temporary) / 'release', data_dir=source_data,
+                                                 locales_dir=source_locales, default_language=language)
+                for asset in sorted(packaged.iterdir()):
+                    downloads['downloads/' + asset.name] = read_bytes(asset, limit=MAX_TOTAL)
+            name = 'thinkpad-archive-' + renderer.offline_version + '-offline.zip'
+            renderer.offline_sha256 = hashlib.sha256(downloads['downloads/' + name]).hexdigest()
+            renderer.offline_bytes = len(downloads['downloads/' + name])
         pages = renderer.render(language)
         from .seo import crawler_files
         pages.update(crawler_files(data, locales))
@@ -50,6 +67,7 @@ def build_site(output, *, data_dir=None, locales_dir=None, default_language=None
             assets["assets/style.css"] += b"\n" + read_bytes(ROOT / "assets/model-design.css")
         payload = {name: text.encode("utf-8") for name, text in pages.items()}
         payload.update(assets)
+        payload.update(downloads)
         try:
             destination.mkdir(mode=0o755)
         except FileExistsError:

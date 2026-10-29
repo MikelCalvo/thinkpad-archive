@@ -14,6 +14,8 @@ import json
 import os
 import re
 import socket
+import stat
+from pathlib import Path
 from socketserver import TCPServer, ThreadingMixIn
 import sqlite3
 import threading
@@ -21,15 +23,17 @@ import time
 from typing import cast
 from urllib.parse import urlsplit
 
-from .stats_store import AnalyticsStore, CATEGORIES, LANG, PRIVACY, ROUTE, empty_data, no_symlinks
+from .stats_store import AnalyticsStore, CATEGORIES, LANG, PRIVACY, ROUTE, VERSION, empty_data, no_symlinks
 
 MAX_WORKERS = 8
 READ_TIMEOUT = 2.0
 RATE_CAPACITY = 240
 RATE_PER_SECOND = 60
 MAX_BODY = 1024
+DOWNLOAD_TIMEOUT = 30.0
+MAX_DOWNLOAD = 512 * 1024 * 1024
 ERRORS = {400: b"invalid request\n", 403: b"forbidden\n", 404: b"not found\n",
-          405: b"method not allowed\n", 413: b"too large\n", 429: b"busy\n", 503: b"unavailable\n"}
+          405: b"method not allowed\n", 413: b"too large\n", 416: b"range not supported\n", 429: b"busy\n", 503: b"unavailable\n"}
 
 
 class _RootLanguage(HTMLParser):
@@ -75,6 +79,26 @@ def _routes(root):
     return root, routes
 
 
+def _download_files(root):
+    """Snapshot only versioned generated ZIPs, never client-selected paths."""
+    folder = no_symlinks(root / 'downloads')
+    if not folder.exists():
+        return {}
+    if not folder.is_dir():
+        raise ValueError('Invalid downloads folder')
+    result = {}
+    for path in folder.iterdir():
+        match = re.fullmatch(r'thinkpad-archive-(.+)-offline\.zip', path.name)
+        if not match or len(match[1]) > 64 or not VERSION.fullmatch(match[1]):
+            continue
+        path = no_symlinks(path)
+        meta = path.stat()
+        if not stat.S_ISREG(meta.st_mode) or meta.st_nlink != 1 or not 0 < meta.st_size <= MAX_DOWNLOAD:
+            raise ValueError('Invalid download file')
+        result['/downloads/' + path.name] = (path, match[1], (meta.st_dev, meta.st_ino, meta.st_size, meta.st_mtime_ns, meta.st_ctime_ns))
+    return result
+
+
 def _origin(value):
     try:
         parts = urlsplit(value)
@@ -98,7 +122,8 @@ class _Server(ThreadingMixIn, HTTPServer):
     allow_reuse_address = True
     request_queue_size = 16
 
-    def __init__(self, address, *, store, routes, origin, clock):
+    def __init__(self, address, *, store, routes, downloads, origin, clock):
+        self.downloads = downloads
         self.store = store
         self.routes = routes
         self.origin = origin
@@ -233,6 +258,12 @@ class _Handler(BaseHTTPRequestHandler):
             return self._reply(503)
 
     def _route(self):
+        if self.path.startswith('/downloads/'):
+            if self.path not in self.server.downloads:
+                return self._reply(404)
+            if self.command not in ('GET', 'HEAD'):
+                return self._reply(405)
+            return self._download()
         if self.path == '/api/stats/pageview':
             if self.command != 'POST':
                 return self._reply(405)
@@ -258,6 +289,56 @@ class _Handler(BaseHTTPRequestHandler):
                 return self._reply(200, empty_data(days, today, enabled=False))
             return self._reply(200, self.server.store.data(days))
         return self._reply(404)
+
+    def _download(self):
+        if self.headers.get_all('Range'):
+            return self._reply(416)
+        path, version, expected = self.server.downloads[self.path]
+        no_symlinks(path)
+        with os.fdopen(os.open(path, os.O_RDONLY | os.O_NOFOLLOW), 'rb') as stream:
+            meta = os.fstat(stream.fileno())
+            identity = (meta.st_dev, meta.st_ino, meta.st_size, meta.st_mtime_ns, meta.st_ctime_ns)
+            if not stat.S_ISREG(meta.st_mode) or meta.st_nlink != 1 or identity != expected:
+                return self._reply(503)
+            self.close_connection = True
+            # Retain API/slow-header deadlines; only an admitted ZIP transfer
+            # receives this separate, finite absolute body-send allowance.
+            self._deadline.cancel()
+            self._deadline = threading.Timer(DOWNLOAD_TIMEOUT, self._expire)
+            self._deadline.daemon = True
+            self._deadline.start()
+            try:
+                self.send_response_only(200)
+                self.send_header('Content-Type', 'application/zip')
+                self.send_header('Content-Length', str(meta.st_size))
+                self.send_header('Content-Disposition', 'attachment; filename="' + path.name + '"')
+                self.send_header('Cache-Control', 'no-store')
+                self.send_header('X-Content-Type-Options', 'nosniff')
+                self.send_header('Connection', 'close')
+                self.end_headers()
+                if self.command == 'HEAD':
+                    return
+                remaining = meta.st_size
+                while remaining:
+                    chunk = stream.read(min(65536, remaining))
+                    if not chunk:
+                        return
+                    self.wfile.write(chunk)
+                    remaining -= len(chunk)
+                self.wfile.flush()
+            except OSError:
+                # Headers may already be sent. Never emit a second HTTP reply.
+                return
+            finally:
+                self._deadline.cancel()
+        opted_out = any(value.strip(' \t') == '1' for name in ('DNT', 'Sec-GPC')
+                        for value in self.headers.get_all(name, []))
+        if self.server.store is not None and not opted_out:
+            try:
+                self.server.store.record_download(version)
+            except (OSError, sqlite3.Error):
+                # Download already delivered: no retries or deceptive failure.
+                pass
 
     def _pageview(self):
         if self.server.store is None:
@@ -316,13 +397,14 @@ def create_server(site_root, database, origin, *, host='127.0.0.1', port=0,
         raise ValueError('Listen address must be numeric IPv4') from None
     origin = _origin(origin)
     root, routes = _routes(site_root)
+    downloads = _download_files(root)
     database = no_symlinks(database)
     if database == root or database.is_relative_to(root):
         raise ValueError('Database must be outside public root')
     clock = clock or (lambda: datetime.now(timezone.utc))
     store = AnalyticsStore(database, pages=set(routes.values()), clock=clock) if enabled else None
     try:
-        return _Server((host, port), store=store, routes=routes, origin=origin, clock=clock)
+        return _Server((host, port), store=store, routes=routes, downloads=downloads, origin=origin, clock=clock)
     except BaseException:
         if store is not None:
             store.close()

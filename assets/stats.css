@@ -12,11 +12,11 @@
 .stats-dashboard :focus-visible{outline:3px solid var(--red);outline-offset:3px}
 .stats-dashboard .stats-status{min-height:1.5em;font-size:.85rem;color:var(--muted);margin:0 0 1.4rem}
 .stats-dashboard .stats-status:empty{display:none}
-.stats-dashboard .stats-overview{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:1rem;margin:0 0 1.2rem}
+.stats-dashboard .stats-overview{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,2fr);gap:1rem;margin:0 0 1.2rem}
 .stats-dashboard .stats-overview>div{min-width:0;padding:1.25rem;background:var(--card);border:1px solid var(--line);border-radius:6px}
 .stats-dashboard .stats-overview dt{font-size:.8rem;color:var(--muted);margin-bottom:.45rem}
 .stats-dashboard .stats-overview dd{margin:0;color:var(--ink);font:1.05rem/1.5 var(--mono);overflow-wrap:anywhere}
-.stats-dashboard #stats-total{font-size:2.35rem;line-height:1.15;font-weight:bold;letter-spacing:-.05em}
+.stats-dashboard #stats-total,.stats-dashboard #stats-download-total{font-size:2.35rem;line-height:1.15;font-weight:bold;letter-spacing:-.05em}
 .stats-dashboard .stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
 .stats-dashboard .stats-panel{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1.2rem;min-width:0;margin:0}
 .stats-dashboard h2{font-size:1.1rem;color:var(--ink);letter-spacing:-.015em;margin-bottom:1rem}

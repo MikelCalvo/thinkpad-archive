@@ -85,7 +85,7 @@ class BuildTests(unittest.TestCase):
         return (self.output / page).read_text(encoding="utf-8")
 
     def test_api_is_public_only(self):
-        self.assertEqual(list(inspect.signature(self.engine().build_site).parameters), ["output", "data_dir", "locales_dir", "default_language", "stats_enabled"])
+        self.assertEqual(list(inspect.signature(self.engine().build_site).parameters), ["output", "data_dir", "locales_dir", "default_language", "stats_enabled", "offline_download"])
         import thinkpad_archive.validation as validation
         self.assertFalse(hasattr(validation, "private_bindings"))
         self.assertFalse(hasattr(validation, "VOLUME_IDS"))
@@ -94,13 +94,13 @@ class BuildTests(unittest.TestCase):
         self.assertEqual(set(p.name for p in self.data.iterdir()), {"models.json", "documents.json", "drivers.json", "utilities.json"})
         self.build()
         for path in self.output.rglob("*"):
-            if path.is_file() and path.suffix != '.png':
+            if path.is_file() and path.suffix not in ('.png', '.zip'):
                 content = path.read_text(encoding="utf-8").lower()
                 for removed in ("volumes.html", "private-map", "cd-r", "dvd-r", "recorded selection", "volúmenes", "colección"):
                     self.assertNotIn(removed, content, str(path.relative_to(self.output)))
         self.assertFalse(any(self.output.rglob("volumes.html")))
         self.assertEqual({p.relative_to(self.output).as_posix() for p in self.output.rglob('*') if p.is_file() and p.suffix in ('.txt', '.xml')}, {'robots.txt', 'sitemap.xml'})
-        self.assertEqual({p.suffix for p in self.output.rglob("*") if p.is_file()}, {".html", ".css", ".js", ".svg", ".png", ".txt", ".xml"})
+        self.assertEqual({p.suffix for p in self.output.rglob("*") if p.is_file()}, {".html", ".css", ".js", ".svg", ".png", ".txt", ".xml", ".zip", ".sha256"})
 
     def test_complete_bilingual_tree_same_model_links_and_local_assets(self):
         self.build()

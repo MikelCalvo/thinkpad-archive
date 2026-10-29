@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from html import escape
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import PurePosixPath
 from urllib.parse import quote, urlencode
 import posixpath
@@ -45,9 +46,24 @@ def e(value):
     return escape(str(value), quote=True)
 
 
+def human_size(size, lang):
+    """Decimal file-size units, at most one decimal, localized punctuation."""
+    units = ('B', 'kB', 'MB', 'GB', 'TB')
+    value = Decimal(size)
+    unit = 0
+    while value >= 1000 and unit < len(units) - 1:
+        value /= 1000
+        unit += 1
+    text = format(value.quantize(Decimal('0.1'), rounding=ROUND_HALF_UP), 'f').removesuffix('.0')
+    return (text.replace('.', ',') if lang == 'es' else text) + ' ' + units[unit]
+
+
 class Renderer:
     def __init__(self, data, locales):
         self.stats_enabled = False
+        self.offline_version: str | None = None
+        self.offline_sha256: str | None = None
+        self.offline_bytes = 0
         self.data, self.locales = data, locales
         self.docs = {row["id"]: row for row in data["documents"]}
         self.drivers = {row["id"]: row for row in data["drivers"]}
@@ -85,6 +101,31 @@ class Renderer:
                 + '" aria-label="' + e(t['correction_label'] + ' (GitHub)') + '">' + icon
                 + '<span>' + e(t['correction_label']) + '</span><span aria-hidden="true">↗</span></a></p>')
 
+    def offline_control(self, current, lang):
+        if self.offline_version is None:
+            return ''
+        t = self.locales[lang]
+        name = 'thinkpad-archive-' + self.offline_version + '-offline.zip'
+        icon = ('<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+                '<path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg>')
+        return ('<details class="offline-picker"><summary class="icon-control" aria-label="' + e(t['offline_menu'])
+                + '" title="' + e(t['offline_menu']) + '">' + icon + '</summary>'
+                '<div class="offline-panel"><p class="offline-version">' + e(t['offline_version'].format(version=self.offline_version)) + '</p>'
+                '<a class="offline-download" href="' + e(self.href(current, 'downloads/' + name))
+                + '" download="' + e(name) + '" aria-label="' + e(t['offline_download']) + '">'
+                + icon + '<span><span>' + e(t['offline_download']) + '</span> <span class="offline-size">('
+                + e(human_size(self.offline_bytes, lang)) + ')</span></span></a><p>' + e(t['offline_note']) + '</p>'
+                + '<div class="offline-hash-heading"><label class="offline-checksum" for="offline-hash">' + e(t['offline_checksum']) + '</label>'
+                + '<button id="offline-copy" class="offline-copy icon-control" type="button" hidden'
+                + ' aria-label="' + e(t['offline_copy']) + '" title="' + e(t['offline_copy']) + '"'
+                + ' data-copy-label="' + e(t['offline_copy']) + '" data-copied-label="' + e(t['offline_copied']) + '"'
+                + ' data-copy-failed="' + e(t['offline_copy_failed']) + '">'
+                + '<svg class="copy-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg>'
+                + '<svg class="copy-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 12 4 4L19 6"/></svg></button></div>'
+                + '<textarea id="offline-hash" class="offline-hash" rows="2" readonly spellcheck="false"'
+                + ' aria-label="' + e(t['offline_checksum']) + '">' + e(self.offline_sha256) + '</textarea>'
+                + '<p id="offline-copy-status" class="offline-copy-status" role="status" aria-live="polite"></p></div></details>')
+
     @staticmethod
     def metadata(items):
         return '<dl class="metadata">' + ''.join('<div><dt>' + e(key) + '</dt><dd>' + e(value) + '</dd></div>' for key, value in items) + '</dl>'
@@ -111,7 +152,7 @@ class Renderer:
                     '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 10.5 12 3l9 7.5M5.5 9v11h5v-6h3v6h5V9"/></svg></a>')
         css = self.href(current, "assets/style.css")
         script = self.href(current, "assets/search.js")
-        tools = ('<div class="header-tools">' + language_picker +
+        tools = ('<div class="header-tools">' + self.offline_control(current, lang) + language_picker +
                  '<button id="theme-toggle" class="icon-control" type="button" hidden aria-label="' + e(t["theme_dark"]) + '" data-light-label="' + e(t["theme_light"]) + '" data-dark-label="' + e(t["theme_dark"]) + '">'
                  '<svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 13.2A8.5 8.5 0 0 1 10.8 3.5a8.5 8.5 0 1 0 9.7 9.7Z"/></svg>'
                  '<svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>'

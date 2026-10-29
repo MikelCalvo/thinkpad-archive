@@ -71,6 +71,14 @@ def _verify_archive(path, prefix, digests):
             require(digest.hexdigest() == digests[info.filename[len(prefix):]], 'Archive checksum mismatch')
 
 
+def release_version():
+    """Return the validated version shared by hosted download links and ZIPs."""
+    text = read_bytes(ROOT / 'VERSION', limit=64).decode('ascii')
+    require(re.fullmatch(r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\n?', text) is not None,
+            'Invalid release version')
+    return text.strip()
+
+
 def build_offline_release(output, *, data_dir=None, locales_dir=None, default_language=None):
     """Create a new directory containing the bilingual ZIP and its checksum.
 
@@ -87,10 +95,7 @@ def build_offline_release(output, *, data_dir=None, locales_dir=None, default_la
         require(destination.parent.is_dir(), 'Output parent must exist')
         require(not any(destination == p or destination.is_relative_to(p)
                         for p in (data, locales, ROOT / 'assets', ROOT / 'thinkpad_archive')), 'Output overlaps inputs')
-        version_text = read_bytes(ROOT / 'VERSION', limit=64).decode('ascii')
-        require(re.fullmatch(r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\n?', version_text) is not None,
-                'Invalid release version')
-        version = version_text.strip()
+        version = release_version()
         name = 'thinkpad-archive-' + version + '-offline.zip'
         prefix = 'thinkpad-archive-' + version + '/'
         expected = _expected_site(data, locales)
@@ -98,7 +103,7 @@ def build_offline_release(output, *, data_dir=None, locales_dir=None, default_la
         with tempfile.TemporaryDirectory(prefix='.thinkpad-offline-', dir=destination.parent) as temporary:
             staging = Path(temporary)
             site = build_site(staging / 'site', data_dir=data, locales_dir=locales,
-                              default_language=default_language, stats_enabled=False)
+                              default_language=default_language, stats_enabled=False, offline_download=False)
             entries = list(site.rglob('*'))
             require(all(not p.is_symlink() and (p.is_dir() or p.is_file()) for p in entries), 'Invalid generated file type')
             require({p.relative_to(site).as_posix() for p in entries if p.is_file()} == expected,

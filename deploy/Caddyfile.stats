@@ -21,7 +21,28 @@ http://:8080 {
 		X-Frame-Options DENY
 		Permissions-Policy "camera=(), microphone=(), geolocation=()"
 	}
-	# No access-log directive. Only the same-origin stats API is proxied.
+	# No access-log directive. ZIP transfers and the same-origin stats API only.
+	@catalogueDownload {
+		path_regexp catalogueZip ^/downloads/thinkpad-archive-[0-9]+\.[0-9]+\.[0-9]+-offline\.zip$
+	}
+	handle @catalogueDownload {
+		reverse_proxy {$STATS_UPSTREAM:stats:8081} {
+			flush_interval -1
+			header_up -Cookie
+			header_up -Authorization
+			header_up -User-Agent
+			header_up -Referer
+			header_up -Forwarded
+			header_up -X-Forwarded-For
+			header_up -X-Forwarded-Host
+			header_up -X-Forwarded-Proto
+			header_up -X-Real-IP
+			transport http {
+				dial_timeout 2s
+				response_header_timeout 4s
+			}
+		}
+	}
 	handle /api/stats/* {
 		request_body {
 			max_size 1KB

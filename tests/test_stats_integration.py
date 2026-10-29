@@ -57,7 +57,9 @@ class StatsIntegration(unittest.TestCase):
         self.assertIn('https://thinkpadarchive.com/es/stats.html', stats)
         self.assertNotIn('data-year-url', stats)
         self.assertNotIn('stats-export', stats)
-        self.assertNotIn(' download=', stats)
+        # No aggregate export control in the dashboard. The shared header may
+        # offer the collection-free catalogue ZIP and checksum.
+        self.assertNotIn(' download=', stats.split('<main', 1)[1])
 
     def test_opt_in_adds_only_same_origin_collector_except_dashboard(self):
         self.assertIn('stats_enabled', inspect.signature(build_site).parameters)

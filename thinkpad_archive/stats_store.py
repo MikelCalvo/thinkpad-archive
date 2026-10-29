@@ -25,6 +25,7 @@ CATEGORIES = {
 PRIVACY = {"storage": "daily_marginal_counters", "retention_days": None,
            "timezone": "UTC", "unique_visitors": False, "no_cookies": True,
            "no_identifiers": True, "geo": False}
+VERSION = re.compile(r'(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\Z', re.ASCII)
 LOCK_TIMEOUT = 0.5
 SCHEMA = """CREATE TABLE counts(day TEXT NOT NULL, dimension TEXT NOT NULL,
 value TEXT NOT NULL, count INTEGER NOT NULL CHECK(typeof(count)='integer' AND count>0),
@@ -47,6 +48,7 @@ def empty_data(days, today, *, enabled=True, first_day=None):
             "window": {"days": days, "from": start.isoformat(), "to": today.isoformat()},
             "total": 0, "daily": [{"day": (start + timedelta(days=i)).isoformat(), "count": 0} for i in range(length)],
             **{name: [] for name in ("pages", "sources", "devices", "browsers", "systems", "languages")},
+            "downloads": {"total": 0, "daily": [{"day": (start + timedelta(days=i)).isoformat(), "count": 0} for i in range(length)], "versions": []},
             "export_url": "/api/stats/export.json"}
 
 
@@ -98,6 +100,8 @@ class AnalyticsStore:
                         valid = type(value) is str and bool(ROUTE.fullmatch(value)) and not value.endswith('/stats.html')
                     elif dimension == 'language':
                         valid = type(value) is str and bool(LANG.fullmatch(value))
+                    elif dimension == 'download':
+                        valid = type(value) is str and len(value) <= 64 and bool(VERSION.fullmatch(value))
                     else:
                         valid = dimension in allowed and value in allowed[dimension]
                     if (type(day) is not str or date.fromisoformat(day).isoformat() != day or
@@ -145,6 +149,15 @@ class AnalyticsStore:
                            "ON CONFLICT(day,dimension,value) DO UPDATE SET count=count+1",
                            [(today.isoformat(), dim, value) for dim, value in fields.items()])
 
+    def record_download(self, version):
+        """Increment only a public daily version aggregate, not pageview marginals."""
+        if type(version) is not str or len(version) > 64 or not VERSION.fullmatch(version):
+            raise ValueError('Invalid download version')
+        with self._transaction() as (db, today):
+            db.execute("INSERT INTO counts(day,dimension,value,count) VALUES(?,?,?,1) "
+                       "ON CONFLICT(day,dimension,value) DO UPDATE SET count=count+1",
+                       (today.isoformat(), 'download', version))
+
     def export(self):
         with self._transaction() as (db, today):
             rows = db.execute("SELECT day,dimension,value,count FROM counts ORDER BY day,dimension,value").fetchall()
@@ -163,13 +176,20 @@ class AnalyticsStore:
                               (result['window']['from'], today.isoformat())).fetchall()
         daily = {row['day']: row for row in result['daily']}
         totals = {key: {} for key in ("page", "source", "device", "browser", "system", "language")}
+        download_daily = {row['day']: row for row in result['downloads']['daily']}
+        versions = {}
         for day, dimension, value, count in rows:
-            if dimension == 'total':
+            if dimension == 'download':
+                result['downloads']['total'] += count
+                download_daily[day]['count'] += count
+                versions[value] = versions.get(value, 0) + count
+            elif dimension == 'total':
                 daily[day]['count'] += count
                 result['total'] += count
             else:
                 bucket = totals[dimension]
                 bucket[value] = bucket.get(value, 0) + count
+        result['downloads']['versions'] = [{"value": value, "count": count} for value, count in sorted(versions.items(), key=lambda item: (-item[1], item[0]))]
         for dimension, values in totals.items():
             result[dimension + 's'] = [{"value": value, "count": count} for value, count in sorted(values.items(), key=lambda item: (-item[1], item[0]))]
         return result

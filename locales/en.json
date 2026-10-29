@@ -1,5 +1,13 @@
 {
   "language_name": "English",
+  "offline_menu": "Offline catalogue",
+  "offline_version": "Offline catalogue · {version}",
+  "offline_download": "Download offline catalogue",
+  "offline_note": "English and Spanish included. Extract the ZIP and open index.html. Manuals, installers and live statistics are not included; external links need Internet.",
+  "offline_checksum": "SHA-256",
+  "offline_copy": "Copy SHA-256",
+  "offline_copied": "Copied",
+  "offline_copy_failed": "Could not copy. Select the hash and copy it manually.",
   "correction_label": "Suggest a correction",
   "correction_title": "Open a prefilled issue on GitHub (GitHub account required)",
   "correction_issue_title": "Correction: {model}",

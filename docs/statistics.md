@@ -1,4 +1,4 @@
-# Public first-party statistics (0.5.0)
+# Public first-party statistics (0.5.0; downloads added in 0.5.6)
 
 Statistics are an explicit opt-in deployment mode. Existing static/offline deployments do not silently enable collection when upgrading to 0.5.0.
 
@@ -10,6 +10,8 @@ The optional collector runs on the same origin. It reduces a referrer to direct,
 
 The existing theme and language controls use local browser preferences, independently of analytics; those preferences are not submitted to the analytics service.
 
+From 0.5.6, the opt-in stack also counts full catalogue ZIP responses successfully written by its own service. This is not a click event, a unique-person count, proof that a browser saved/extracted the file, or a hardware acknowledgement of receipt. The public dashboard shows Catalogue downloads / Descargas del catálogo separately from page views, using the same period selector. Only collection from activation onward is included; no earlier downloads are inferred. HEAD, Range requests, checksums, other files, invalid/query-bearing paths, failed sends and DNT/GPC opt-outs do not increment it. A disconnect detected during sending omits the count; disconnects after bytes enter network/proxy buffers may not be detected. A failed counter write after delivery also omits the count and is not retried. Bots and repeated downloads can increase it. Static-only hosting, offline files and GitHub release assets do not report transfers to this counter.
+
 ## The entire analytics database is public data
 
 SQLite contains only:
@@ -17,7 +19,7 @@ SQLite contains only:
     counts(day, dimension, value, count)
     PRIMARY KEY(day, dimension, value)
 
-An accepted view increments seven separate daily marginals: total, page, source, device, browser, system and language. It does not retain the combination as an event or visitor record. A page cannot be filtered by its visitors' device/source. All stored rows and fields, not only the dashboard's selected period, are available without login at /api/stats/export.json. SQLite journals contain the same aggregate data, not raw events. Counters are retained indefinitely as part of the archive. Startup, reads, writes and period changes never delete historical counts. Repeated exports can expose changes in low-volume counters; aggregation is not differential privacy.
+An accepted view increments seven separate daily marginals: total, page, source, device, browser, system and language. It does not retain the combination as an event or visitor record. Downloads add only a `download` dimension whose value is the generated numeric `major.minor.patch` version, with a UTC day and count. No source, language, device, browser or system categories are attached to downloads. This uses the unchanged table schema and preserves every existing row; view totals never include download counts. A page cannot be filtered by its visitors' device/source. All stored rows and fields, not only the dashboard's selected period, are available without login at /api/stats/export.json. SQLite journals contain the same aggregate data, not raw events. Counters are retained indefinitely as part of the archive. Startup, reads, writes and period changes never delete historical counts. Repeated exports can expose changes in low-volume counters; aggregation is not differential privacy.
 
 The application writes no access/request logs. The optional bundled Caddy configuration discards its own request/error logs, but an outer HTTPS proxy, host, backups or monitoring system may have separate logs. Inspect that infrastructure before making a site-wide no-IP-storage claim. Network peers necessarily see a connecting address transiently; this application does not store or enrich it.
 
@@ -37,7 +39,7 @@ For an explicit local collection preview (use fresh output names):
     install -d -m 0700 build/stats-data
     python3 -m thinkpad_archive.stats_server --site-root build/stats --database build/stats-data/counts.sqlite --origin http://127.0.0.1:8080 --listen 127.0.0.1 --port 8081 --enabled
 
-The API is intentionally not a static file server. Put a same-origin proxy in front: serve build/stats at http://127.0.0.1:8080 and proxy only /api/stats/* to 127.0.0.1:8081. The database must be outside the public directory, owned by the service UID with a private 0700 parent. No symlinks are accepted. Listen addresses are numeric IPv4; IPv6 is not implemented. The exact configured Origin has no trailing slash and must match the browser's origin, not the internal backend address. Origin checking reduces accidental cross-site submissions; it does not authenticate humans or prevent deliberate counter spoofing.
+The API is intentionally not a static file server. Put a same-origin proxy in front: serve build/stats at http://127.0.0.1:8080 and proxy /api/stats/* plus exact /downloads/thinkpad-archive-MAJOR.MINOR.PATCH-offline.zip paths to 127.0.0.1:8081. Serve checksum files and other resources statically. Use the shipped deploy/Caddyfile.stats for this routing and privacy-header stripping. The database must be outside the public directory, owned by the service UID with a private 0700 parent. No symlinks are accepted. Listen addresses are numeric IPv4; IPv6 is not implemented. The exact configured Origin has no trailing slash and must match the browser's origin, not the internal backend address. Origin checking reduces accidental cross-site submissions; it does not authenticate humans or prevent deliberate counter spoofing.
 
 ## Optional Docker stack
 
@@ -47,7 +49,7 @@ The last/default Docker target remains static. The opt-in stack uses separate st
 
 Open http://127.0.0.1:8080/es/stats.html. By default the web listener binds host loopback. Explicitly configure STATS_BIND, STATS_PORT and ANALYTICS_ORIGIN for a different authorized deployment. No production rollout is implied by these commands. Set the existing private COOLIFY_WEBHOOK_UPSTREAM only if that deployment uses its existing authenticated webhook path; the stats stack does not create a webhook or store its secret.
 
-The volume initializer only sets owner 10001:10001 and mode 0700 on /data. The service and Caddy then run unprivileged, read-only, with dropped capabilities. The backend has a private internal Docker network; only web joins the egress network. Caddy strips Cookie, Authorization, User-Agent, Referer and forwarding/IP headers before proxying the stats API; DNT, Sec-GPC and Origin remain. Both containers disable Docker logs. Global process limits, not IP-based limits: eight workers, a two-second connection deadline and token bucket of 240 requests with refill 60/second. An upstream deployment may need additional global abuse controls. These measures cannot certify counters as human visits.
+The volume initializer only sets owner 10001:10001 and mode 0700 on /data. The service and Caddy then run unprivileged, read-only, with dropped capabilities. The backend has a private internal Docker network; only web joins the egress network. Caddy strips Cookie, Authorization, User-Agent, Referer and forwarding/IP headers before proxying the stats API or catalogue ZIP; DNT, Sec-GPC and Origin remain. Both containers disable Docker logs. Global process limits, not IP-based limits: eight workers and a shared token bucket of 240 requests with refill 60/second. API requests and slow headers retain their two-second absolute deadline. Only an admitted ZIP send receives a separate 30-second absolute transfer deadline, still under the same worker/rate caps; archive files are capped at 512 MiB. An upstream deployment may need additional global abuse controls. These measures cannot certify counters as human visits.
 
 To stop the optional stack without deleting aggregate data:
 
@@ -59,7 +61,9 @@ Do not add --volumes unless deleting the stored aggregate history is intended. P
 
 - POST /api/stats/pageview: exact JSON string fields path, source, device, browser, system; generated routes only, 1024-byte maximum, exact same Origin. Accepted or DNT/GPC-opted-out requests return 204. The dashboard, arbitrary routes, query strings, fragments, extra fields and arbitrary categories are refused.
 - GET /api/stats/data?days=30: allowed windows 7, 30, 90, 365 and all (All time / Todo el tiempo). The all-time window starts at the earliest stored UTC day and includes zero-filled days through today; an empty archive starts at today. Period filters only affect the response, never storage. Metadata uses retention_days: null to mean indefinite retention.
-- GET /api/stats/export.json: privacy metadata and every retained {day, dimension, value, count} row.
+- GET /api/stats/data also returns `downloads: {total, daily, versions}` for the same window, without changing the page-view `total` or marginals. An older API without this field displays an unavailable dash, not an invented download zero.
+- GET /downloads/thinkpad-archive-MAJOR.MINOR.PATCH-offline.zip: only files snapshotted from the generated downloads directory, with size/identity checks. Full successful sends increment only the download aggregate. HEAD returns metadata without counting; Range returns 416 without counting. There is no client-submitted download-event endpoint.
+- GET /api/stats/export.json: privacy metadata and every retained {day, dimension, value, count} row, including download rows.
 - GET /api/stats/health: readiness, no collection.
 
 Responses have no-store and nosniff; no cookies or wildcard CORS. GET/HEAD/OPTIONS never create views. Disabled API mode creates no database and reports disabled zero data; health/ingestion are unavailable. A file:// dashboard shows an explicit unavailable state and does not contact an API. Without JavaScript the methodology remains readable. The dashboard has no complete-JSON download section; public aggregate API access remains available for transparency.

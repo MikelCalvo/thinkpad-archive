@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.6 (unreleased)
+
+- Add a compact native offline-download menu in the EN/ES top bar with version, bilingual scope, original-rights limits, real same-origin ZIP and a compact, directly selectable SHA-256 field instead of a checksum-download action. No account, JavaScript or GitHub release is needed for the hosted download.
+- Generate the download from the same metadata, locales and default language before publishing the site output. Disable collection and the download feature inside the archive, preventing nested ZIPs and unavailable local download links. Keep the existing SQLite table schema, historical view rows and aggregate-only privacy boundary.
+- Add a download icon, localized size of the actual ZIP and a progressive copy button with two-second check feedback only after successful copying. Manual hash selection and the native download link remain usable without scripts.
+- Count full ZIP responses sent by the opt-in service as separate daily version aggregates, respecting DNT/GPC and excluding HEAD, Range, checksum requests and failed sends. Show downloads beside views on the public EN/ES dashboard for the selected period; retain existing view history, the exact table schema and API protection limits. Static hosting and GitHub assets do not report downloads.
+- Harden statistics test recovery on the same server: keep short attack deadlines for slow connections, restore normal request timeouts for legitimate recovery and observe actual worker completion rather than assuming a fixed sleep proves release. Production limits and refusal assertions stay unchanged.
+- Validate usability across keyboard navigation, light/dark themes, narrow layouts, no-script pages and the extracted offline archive. Record the actual checks and external-link limitations separately from publication and production deployment.
+
 ## 0.5.5 (unreleased)
 
 - Keep disposable test databases on a BuildKit tmpfs at /tmp during the Docker build. This avoids slow writable-overlay commits exhausting the existing SQLite and HTTP test deadlines on the deployment host; all tests remain enabled.

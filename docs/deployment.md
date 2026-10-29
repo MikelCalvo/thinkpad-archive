@@ -6,7 +6,9 @@ Build:
 
     docker build -t thinkpad-archive .
 
-The build requires Docker BuildKit. Its test step mounts `/tmp` as a disposable tmpfs so SQLite test commits do not depend on the writable image layer's fsync latency. All tests and their production timeout/refusal limits remain in place. This mount exists only during that build step; it does not change `/data`, the runtime statistics volume or its durability.
+The build requires Docker BuildKit. Ordinary builds also generate a collection-free bilingual ZIP and checksum under `/downloads/`, used by the native offline menu. These are generated files copied into the serving images, not a writable runtime volume. Static-only hosting serves them without counting. The opt-in statistics stack proxies only versioned catalogue ZIP paths to its bounded transfer handler, which keeps a separate daily version counter after a full send; checksum files remain static. The hosted menu displays the actual ZIP's SHA-256 in a compact selectable field; its sibling checksum file remains available for tooling without requiring a separate UI download. Archive assembly disables its own download control and never nests another ZIP.
+
+Its test step mounts `/tmp` as a disposable tmpfs so SQLite test commits do not depend on the writable image layer's fsync latency. All tests and their production timeout/refusal limits remain in place. This mount exists only during that build step; it does not change `/data`, the runtime statistics volume or its durability.
 
 The container serves plain HTTP on port 8080 as UID/GID 10001. Map it to an available private host port and point the NetBird reverse proxy there. NetBird manages the public domain, HTTPS and certificates; this origin needs no certificate, private key or port 443. Restrict the host bind to the mesh interface required by that proxy.
 

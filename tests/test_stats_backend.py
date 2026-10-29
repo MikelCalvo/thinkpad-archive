@@ -247,6 +247,25 @@ class StorageTests(unittest.TestCase):
             AnalyticsStore(target / "db", pages=self.pages)
 
 
+class _WorkerObservation:
+    """Observe real request-thread entry and post-semaphore-release completion."""
+
+    def __init__(self, *, held=False):
+        self.changed = threading.Condition()
+        self.entered = 0
+        self.completed = 0
+        self.dispatch = threading.Event()
+        if not held:
+            self.dispatch.set()
+
+    def wait_for(self, testcase, *, entered, completed, timeout=1):
+        with self.changed:
+            reached = self.changed.wait_for(
+                lambda: self.entered == entered and self.completed == completed,
+                timeout=timeout)
+            testcase.assertTrue(reached, 'request workers did not reach expected lifecycle counts')
+
+
 class HTTPTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
@@ -276,6 +295,33 @@ class HTTPTests(unittest.TestCase):
             server.server_close()
         self.addCleanup(cleanup)
         return server
+
+    def start_observed(self, *, held=False, **kwargs):
+        from thinkpad_archive import stats_server
+        observation = _WorkerObservation(held=held)
+        original = stats_server._Server
+
+        class ObservedServer(original):
+            def process_request_thread(self, request, client_address):
+                with observation.changed:
+                    observation.entered += 1
+                    observation.changed.notify_all()
+                # Hold admitted workers before handler setup only for the
+                # occupancy assertion; attack deadlines still run unchanged.
+                observation.dispatch.wait(2)
+                try:
+                    super().process_request_thread(request, client_address)
+                finally:
+                    # The real server's finally has released its semaphore.
+                    with observation.changed:
+                        observation.completed += 1
+                        observation.changed.notify_all()
+
+        with patch.object(stats_server, '_Server', ObservedServer):
+            server = self.start(**kwargs)
+        # Run before start()'s shutdown/join cleanup, including assertion errors.
+        self.addCleanup(observation.dispatch.set)
+        return server, observation
 
     def request(self, server, method="GET", path="/api/stats/data", body=None, headers=None):
         connection = http.client.HTTPConnection(*server.server_address, timeout=4)
@@ -533,21 +579,37 @@ class HTTPTests(unittest.TestCase):
         self.assertEqual(self.post(other)[0], 204)
 
     def test_bounded_workers_socket_deadline_and_bad_framing(self):
+        from thinkpad_archive.stats_server import READ_TIMEOUT
+        normal_read_timeout = READ_TIMEOUT
         with patch("thinkpad_archive.stats_server.MAX_WORKERS", 2), patch("thinkpad_archive.stats_server.READ_TIMEOUT", 0.35):
-            server = self.start()
+            server, workers = self.start_observed(held=True)
         sockets = []
         try:
             for _ in range(2):
                 sock = socket.create_connection(server.server_address, timeout=2)
-                sock.sendall(b"POST /api/stats/pageview HTTP/1.1\r\n")
                 sockets.append(sock)
-            time.sleep(0.04)
-            self.assertEqual(self.post(server)[0], 429)
-            time.sleep(0.4)
-            self.assertEqual(self.post(server)[0], 204)
+                sock.sendall(b"POST /api/stats/pageview HTTP/1.1\r\n")
+            workers.wait_for(self, entered=2, completed=0)
+            status, _, body = self.post(server)
+            self.assertEqual(status, 429)
+            self.assertEqual(body, b'busy\n')
+            workers.wait_for(self, entered=2, completed=0)
+            started = time.monotonic()
+            workers.dispatch.set()
+            workers.wait_for(self, entered=2, completed=2)
+            self.assertLess(time.monotonic() - started, 1)
         finally:
+            workers.dispatch.set()
             for sock in sockets:
                 sock.close()
+        # Both attack handlers have ended and released their real slots. The
+        # same server must use its ordinary deadline for legitimate recovery.
+        server.read_timeout = normal_read_timeout
+        self.assertEqual(self.data(server)['total'], 0)
+        workers.wait_for(self, entered=3, completed=3)
+        self.assertEqual(self.post(server)[0], 204)
+        workers.wait_for(self, entered=4, completed=4)
+        self.assertEqual(self.data(server)['total'], 1)
         # Separate framing validation from the deliberately saturated server;
         # a response can arrive just before its worker releases its slot.
         server = self.start(database=self.private / 'framing.sqlite3')
@@ -569,8 +631,10 @@ class HTTPTests(unittest.TestCase):
         self.assertEqual(self.data(server)["total"], 0)
 
     def test_body_absolute_deadline_and_incomplete_body_never_write(self):
+        from thinkpad_archive.stats_server import READ_TIMEOUT
+        normal_read_timeout = READ_TIMEOUT
         with patch('thinkpad_archive.stats_server.READ_TIMEOUT', 0.25):
-            server = self.start()
+            server, workers = self.start_observed()
         raw = json.dumps(self.event).encode()
         head = ("POST /api/stats/pageview HTTP/1.1\r\nHost: archive.example\r\nOrigin: " + self.origin + "\r\nContent-Type: application/json\r\nContent-Length: " + str(len(raw)) + "\r\n\r\n").encode()
         started = time.monotonic()
@@ -587,10 +651,13 @@ class HTTPTests(unittest.TestCase):
                 received = sock.recv(4096)
             except OSError:
                 pass
+        workers.wait_for(self, entered=1, completed=1)
         self.assertLess(time.monotonic() - started, 1)
         self.assertNotIn(b' 204 ', received)
+        server.read_timeout = normal_read_timeout
         self.assertEqual(self.data(server)['total'], 0)
         self.assertEqual(self.post(server)[0], 204)
+        self.assertEqual(self.data(server)['total'], 1)
 
     def test_hostname_listen_is_refused_without_outbound_resolution(self):
         from thinkpad_archive.stats_server import create_server
