@@ -21,7 +21,7 @@ http://:8080 {
 		X-Frame-Options DENY
 		Permissions-Policy "camera=(), microphone=(), geolocation=()"
 	}
-	# No access-log directive. ZIP transfers and the same-origin stats API only.
+	# No access-log directive. Only generated documents, ZIPs and stats API.
 	@catalogueDownload {
 		path_regexp catalogueZip ^/downloads/thinkpad-archive-[0-9]+\.[0-9]+\.[0-9]+-offline\.zip$
 	}
@@ -30,7 +30,27 @@ http://:8080 {
 			flush_interval -1
 			header_up -Cookie
 			header_up -Authorization
-			header_up -User-Agent
+			# Empty override also prevents Go transport synthesizing a UA.
+			header_up User-Agent ""
+			header_up -Referer
+			header_up -Forwarded
+			header_up -X-Forwarded-For
+			header_up -X-Forwarded-Host
+			header_up -X-Forwarded-Proto
+			header_up -X-Real-IP
+			transport http {
+				dial_timeout 2s
+				response_header_timeout 4s
+			}
+		}
+	}
+	# Exact generated HTML routes; dashboard/assets remain static and uncounted.
+	import /etc/caddy/document-routes.caddy
+	handle @catalogueDocument {
+		reverse_proxy {$STATS_UPSTREAM:stats:8081} {
+			flush_interval -1
+			header_up -Cookie
+			header_up -Authorization
 			header_up -Referer
 			header_up -Forwarded
 			header_up -X-Forwarded-For
@@ -50,7 +70,8 @@ http://:8080 {
 		reverse_proxy {$STATS_UPSTREAM:stats:8081} {
 			header_up -Cookie
 			header_up -Authorization
-			header_up -User-Agent
+			# Empty override also prevents Go transport synthesizing a UA.
+			header_up User-Agent ""
 			header_up -Referer
 			header_up -Forwarded
 			header_up -X-Forwarded-For
@@ -74,6 +95,15 @@ http://:8080 {
 		rewrite * /webhooks/source/github/events/manual
 		reverse_proxy {$COOLIFY_WEBHOOK_UPSTREAM: http://127.0.0.1:9} {
 			header_up Host {upstream_hostport}
+			header_up -Cookie
+			header_up -Authorization
+			header_up User-Agent ""
+			header_up -Referer
+			header_up -Forwarded
+			header_up -X-Forwarded-For
+			header_up -X-Forwarded-Host
+			header_up -X-Forwarded-Proto
+			header_up -X-Real-IP
 			transport http {
 				dial_timeout 3s
 				response_header_timeout 15s

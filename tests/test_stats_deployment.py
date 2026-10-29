@@ -29,7 +29,8 @@ class StatsDeployment(unittest.TestCase):
         self.assertTrue(path.is_file())
         text = path.read_text()
         self.assertIn('handle /api/stats/*', text)
-        for key in ('Cookie', 'User-Agent', 'Referer', 'Forwarded', 'X-Forwarded-For', 'X-Real-IP'):
+        self.assertIn('header_up User-Agent ""', text)
+        for key in ('Cookie', 'Referer', 'Forwarded', 'X-Forwarded-For', 'X-Real-IP'):
             self.assertIn('header_up -' + key, text)
         self.assertIn('log {', text)
         self.assertIn('output discard', text)

@@ -12,7 +12,7 @@ STATS_COPY = {
         'disabled': 'Analytics collection is disabled. No counts are being displayed.',
         'file': 'Live statistics are unavailable in a local file. Open the hosted site to read public counts.',
         'noscript': 'Live counts need JavaScript. Privacy and methodology remain readable below.',
-        'initial': 'Live counts have not been loaded.', 'views': 'Page views',
+        'initial': 'Live counts have not been loaded.', 'views': 'JavaScript page views',
         'download_total': 'Catalogue downloads',
         'download_method': 'Downloads count full ZIP responses sent by this server, separately from views and only since collection was enabled. HEAD, partial Range requests and DNT/GPC opt-outs do not count. Transfers are not unique people or proof a file was saved. Buffers used by the network or proxy can outlive a disconnect; these are not receipt acknowledgements. Failed counter writes and interrupted transfers can omit counts.',
         'window': 'UTC window', 'range': '{from} – {to}', 'daily': 'Daily views',
@@ -35,6 +35,19 @@ STATS_COPY = {
         'system_windows': 'Windows', 'system_macos': 'macOS', 'system_linux': 'Linux',
         'system_android': 'Android', 'system_ios': 'iOS', 'system_other': 'Other', 'system_unknown': 'Unknown',
         'language_en': 'English', 'language_es': 'Spanish',
+        'traffic_method': 'HTML requests add one daily document-traffic marginal: browser, unknown, other-bot or a finite crawler name. No page, referrer or device is joined to it. Only transient User-Agent classification is used, with no IP, DNS or GeoIP verification. Earlier views are not reclassified. DNT/GPC opt-outs, HEAD, errors, dashboard, APIs, assets and downloads are excluded. Only successful full server writes count, not receipt by a person: network or proxy buffers may outlive disconnects. Counter failures and interrupted sends can omit counts. Static/offline hosting collects nothing by default.',
+        'traffic_note': 'Successful HTML GETs, including clients without JavaScript. Browser-like does not mean human; crawler names are spoofable self-descriptions. This is a separate population from JavaScript views and ZIP downloads.',
+        'other-bot': 'Other self-declared automation',
+        'traffic_absent': 'This API does not yet provide HTML traffic counts. Earlier JavaScript views remain unclassified.',
+        'requests': 'Requests',
+        'traffic_daily': 'Daily HTML requests',
+        'traffic_counts': 'Exact category counts',
+        'traffic_crawlers': 'Declared crawlers & other automation',
+        'traffic_unknown': 'Unknown',
+        'traffic_bots': 'Bots / automation',
+        'traffic_browser': 'Browser-like',
+        'traffic': 'Document traffic · self-declared categories',
+        'documents': 'HTML document requests',
     },
     'es': {
         'title': 'Estadísticas',
@@ -44,7 +57,7 @@ STATS_COPY = {
         'disabled': 'La recopilación está desactivada. No se muestran recuentos.',
         'file': 'Las estadísticas en directo no están disponibles en un archivo local. Abre el sitio alojado para consultar los recuentos públicos.',
         'noscript': 'Los recuentos en directo necesitan JavaScript. La privacidad y la metodología siguen disponibles debajo.',
-        'initial': 'No se han cargado los recuentos en directo.', 'views': 'Vistas de páginas',
+        'initial': 'No se han cargado los recuentos en directo.', 'views': 'Vistas con JavaScript',
         'download_total': 'Descargas del catálogo',
         'download_method': 'Las descargas cuentan respuestas ZIP completas enviadas por este servidor, por separado de las vistas y solo desde que se activó su recuento. No se cuentan HEAD, peticiones parciales Range ni exclusiones DNT/GPC. No son personas únicas ni prueban que se guardara el archivo. Los búferes de red o del proxy pueden sobrevivir a una desconexión; no son confirmaciones de recepción. Un fallo al guardar el contador o una transferencia interrumpida puede omitir recuentos.',
         'window': 'Intervalo UTC', 'range': '{from} – {to}', 'daily': 'Vistas diarias',
@@ -67,6 +80,19 @@ STATS_COPY = {
         'system_windows': 'Windows', 'system_macos': 'macOS', 'system_linux': 'Linux',
         'system_android': 'Android', 'system_ios': 'iOS', 'system_other': 'Otro', 'system_unknown': 'Desconocido',
         'language_en': 'Inglés', 'language_es': 'Español',
+        'traffic_method': 'Las peticiones HTML añaden un único marginal diario document-traffic: browser, unknown, other-bot o un nombre de rastreador de una lista finita. No se combina con página, procedencia ni dispositivo. Solo se clasifica el User-Agent de forma transitoria, sin verificar IP, DNS ni GeoIP. No se reclasifican vistas anteriores. Se excluyen DNT/GPC, HEAD, errores, panel, API, recursos y descargas. Solo cuentan escrituras completas del servidor, no la recepción por una persona: los búferes de red o del proxy pueden sobrevivir a una desconexión. Los fallos de contador y envíos interrumpidos pueden omitir recuentos. El alojamiento estático y sin conexión no recopila por defecto.',
+        'traffic_note': 'GET de HTML completos, incluidos clientes sin JavaScript. Parecer un navegador no implica ser humano; los nombres de rastreadores son declaraciones falseables. Esta población es distinta de las vistas con JavaScript y las descargas ZIP.',
+        'other-bot': 'Otra automatización declarada',
+        'traffic_absent': 'Esta API todavía no ofrece recuentos de tráfico HTML. Las vistas anteriores con JavaScript siguen sin clasificar.',
+        'requests': 'Peticiones',
+        'traffic_daily': 'Peticiones HTML diarias',
+        'traffic_counts': 'Recuentos exactos por categoría',
+        'traffic_crawlers': 'Rastreadores declarados y otra automatización',
+        'traffic_unknown': 'Desconocido',
+        'traffic_bots': 'Bots / automatización',
+        'traffic_browser': 'Similar a un navegador',
+        'traffic': 'Tráfico de documentos · categorías declaradas',
+        'documents': 'Peticiones de documentos HTML',
     },
 }
 
@@ -74,12 +100,12 @@ STATS_COPY = {
 def stats_body(lang):
     """Return a self-contained escaped body fragment; unsupported locales use EN."""
     t = STATS_COPY.get(lang, STATS_COPY['en'])
-    e = lambda key: escape(t[key], quote=True)
+    e = lambda key: escape(t[key.replace('traffic-counts', 'traffic_counts').replace('traffic-crawlers', 'traffic_crawlers')], quote=True)
 
-    def table(name, first='value'):
+    def table(name, first='value', count='count'):
         return ('<div class="stats-table-scroll" role="region" aria-label="' + e(name) + '" tabindex="0">'
                 '<table><caption class="visually-hidden">' + e(name) + '</caption><thead><tr>'
-                '<th scope="col">' + e(first) + '</th><th scope="col">' + e('count') + '</th>'
+                '<th scope="col">' + e(first) + '</th><th scope="col">' + e(count) + '</th>'
                 '</tr></thead><tbody id="stats-' + name + '"></tbody></table></div>')
 
     title = e('title')
@@ -102,7 +128,19 @@ def stats_body(lang):
              '<p id="stats-status" class="stats-status" role="status" aria-live="polite" aria-atomic="true">' + e('initial') + '</p>'
              '<noscript><p>' + e('noscript') + '</p></noscript>'
              '<div id="stats-results" hidden><dl class="stats-overview"><div><dt>' + e('views') + '</dt>'
-             '<dd id="stats-total">—</dd></div><div><dt>' + e('download_total') + '</dt><dd id="stats-download-total">—</dd></div><div><dt>' + e('window') + '</dt><dd id="stats-window">—</dd></div></dl>'
+             '<dd id="stats-total">—</dd></div><div><dt>' + e('download_total') + '</dt><dd id="stats-download-total">—</dd></div><div><dt>' + e('documents') + '</dt><dd id="stats-document-total">—</dd></div><div><dt>' + e('window') + '</dt><dd id="stats-window">—</dd></div></dl>'
+             '<section id="stats-traffic" class="stats-panel stats-traffic" aria-labelledby="stats-traffic-title">'
+             '<h2 id="stats-traffic-title">' + e('traffic') + '</h2><p class="stats-traffic-note">' + e('traffic_note') + '</p>'
+             '<p id="stats-traffic-status" role="status"></p>'
+             '<svg id="stats-traffic-chart" class="stats-chart stats-traffic-chart" viewBox="0 0 600 240" role="img" aria-label="' + e('traffic') + '"></svg>'
+             + table('traffic-counts', count='requests') +
+             '<details><summary>' + e('traffic_crawlers') + '</summary>' + table('traffic-crawlers', count='requests') + '</details>'
+             '<details><summary>' + e('traffic_daily') + '</summary>'
+             '<div class="stats-table-scroll" role="region" aria-label="' + e('traffic_daily') + '" tabindex="0"><table>'
+             '<caption class="visually-hidden">' + e('traffic_daily') + '</caption><thead><tr>'
+             '<th scope="col">' + e('day') + '</th>' +
+             ''.join('<th scope="col">' + e(key) + '</th>' for key in ('requests', 'traffic_browser', 'traffic_bots', 'traffic_unknown')) +
+             '</tr></thead><tbody id="stats-traffic-daily"></tbody></table></div></details></section>'
              '<section class="stats-panel stats-daily" aria-labelledby="stats-daily-title"><h2 id="stats-daily-title">' + e('daily') + '</h2>'
              '<svg id="stats-chart" class="stats-chart" viewBox="0 0 1000 180" role="img" aria-label="' + e('daily') + '"></svg>'
              '<details><summary>' + e('daily_table') + '</summary>' + table('daily', 'day') + '</details></section>'
@@ -113,5 +151,5 @@ def stats_body(lang):
     body += ('</div></div><section class="stats-privacy" aria-labelledby="stats-privacy-title">'
              '<h2 id="stats-privacy-title">' + e('privacy_title') + '</h2><p>' + e('privacy_short') + '</p>'
              '<details><summary>' + e('method') + '</summary>')
-    body += ''.join('<p>' + e(key) + '</p>' for key in ('storage', 'collection', 'download_method', 'limits', 'infrastructure'))
+    body += ''.join('<p>' + e(key) + '</p>' for key in ('storage', 'collection', 'traffic_method', 'download_method', 'limits', 'infrastructure'))
     return body + '</details></section></div>'

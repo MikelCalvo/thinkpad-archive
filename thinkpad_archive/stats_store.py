@@ -22,6 +22,11 @@ CATEGORIES = {
     "browser": frozenset(("firefox", "chrome", "safari", "edge", "opera", "other", "unknown")),
     "system": frozenset(("windows", "macos", "linux", "android", "ios", "other", "unknown")),
 }
+# A single finite marginal, never joined to page/device/referral or an event.
+KNOWN_CRAWLERS = ('Googlebot', 'Bingbot', 'DuckDuckBot', 'Baiduspider', 'YandexBot',
+                  'Applebot', 'GPTBot', 'OAI-SearchBot', 'ClaudeBot', 'Bytespider',
+                  'PetalBot', 'Amazonbot')
+TRAFFIC = frozenset(('browser', 'unknown', 'other-bot', *KNOWN_CRAWLERS))
 PRIVACY = {"storage": "daily_marginal_counters", "retention_days": None,
            "timezone": "UTC", "unique_visitors": False, "no_cookies": True,
            "no_identifiers": True, "geo": False}
@@ -49,6 +54,9 @@ def empty_data(days, today, *, enabled=True, first_day=None):
             "total": 0, "daily": [{"day": (start + timedelta(days=i)).isoformat(), "count": 0} for i in range(length)],
             **{name: [] for name in ("pages", "sources", "devices", "browsers", "systems", "languages")},
             "downloads": {"total": 0, "daily": [{"day": (start + timedelta(days=i)).isoformat(), "count": 0} for i in range(length)], "versions": []},
+            "documents": {"total": 0, "browser": 0, "bots": 0, "unknown": 0, "crawlers": [],
+                          "daily": [{"day": (start + timedelta(days=i)).isoformat(), "total": 0,
+                                     "browser": 0, "bots": 0, "unknown": 0} for i in range(length)]},
             "export_url": "/api/stats/export.json"}
 
 
@@ -94,7 +102,7 @@ class AnalyticsStore:
             db.execute("PRAGMA journal_mode=WAL")
             db.execute("PRAGMA secure_delete=ON")
             with self._transaction() as (conn, today):
-                allowed = {**CATEGORIES, 'total': {'all'}}
+                allowed = {**CATEGORIES, 'total': {'all'}, 'document-traffic': TRAFFIC}
                 for day, dimension, value, count in conn.execute('SELECT day,dimension,value,count FROM counts'):
                     if dimension == 'page':
                         valid = type(value) is str and bool(ROUTE.fullmatch(value)) and not value.endswith('/stats.html')
@@ -158,6 +166,15 @@ class AnalyticsStore:
                        "ON CONFLICT(day,dimension,value) DO UPDATE SET count=count+1",
                        (today.isoformat(), 'download', version))
 
+    def record_document(self, category):
+        """Increment only the transient UA's finite daily document marginal."""
+        if type(category) is not str or category not in TRAFFIC:
+            raise ValueError('Invalid document category')
+        with self._transaction() as (db, today):
+            db.execute("INSERT INTO counts(day,dimension,value,count) VALUES(?,?,?,1) "
+                       "ON CONFLICT(day,dimension,value) DO UPDATE SET count=count+1",
+                       (today.isoformat(), 'document-traffic', category))
+
     def export(self):
         with self._transaction() as (db, today):
             rows = db.execute("SELECT day,dimension,value,count FROM counts ORDER BY day,dimension,value").fetchall()
@@ -178,8 +195,18 @@ class AnalyticsStore:
         totals = {key: {} for key in ("page", "source", "device", "browser", "system", "language")}
         download_daily = {row['day']: row for row in result['downloads']['daily']}
         versions = {}
+        document_daily = {row['day']: row for row in result['documents']['daily']}
+        crawlers = {}
         for day, dimension, value, count in rows:
-            if dimension == 'download':
+            if dimension == 'document-traffic':
+                category = value if value in ('browser', 'unknown') else 'bots'
+                result['documents']['total'] += count
+                result['documents'][category] += count
+                document_daily[day]['total'] += count
+                document_daily[day][category] += count
+                if category == 'bots':
+                    crawlers[value] = crawlers.get(value, 0) + count
+            elif dimension == 'download':
                 result['downloads']['total'] += count
                 download_daily[day]['count'] += count
                 versions[value] = versions.get(value, 0) + count
@@ -189,6 +216,7 @@ class AnalyticsStore:
             else:
                 bucket = totals[dimension]
                 bucket[value] = bucket.get(value, 0) + count
+        result['documents']['crawlers'] = [{'value': value, 'count': count} for value, count in sorted(crawlers.items(), key=lambda item: (-item[1], item[0]))]
         result['downloads']['versions'] = [{"value": value, "count": count} for value, count in sorted(versions.items(), key=lambda item: (-item[1], item[0]))]
         for dimension, values in totals.items():
             result[dimension + 's'] = [{"value": value, "count": count} for value, count in sorted(values.items(), key=lambda item: (-item[1], item[0]))]

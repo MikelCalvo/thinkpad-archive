@@ -1,12 +1,14 @@
 # Changelog
 
-## 0.5.6 (unreleased)
+## 0.5.6
 
 - Add a compact native offline-download menu in the EN/ES top bar with version, bilingual scope, original-rights limits, real same-origin ZIP and a compact, directly selectable SHA-256 field instead of a checksum-download action. No account, JavaScript or GitHub release is needed for the hosted download.
 - Generate the download from the same metadata, locales and default language before publishing the site output. Disable collection and the download feature inside the archive, preventing nested ZIPs and unavailable local download links. Keep the existing SQLite table schema, historical view rows and aggregate-only privacy boundary.
 - Add a download icon, localized size of the actual ZIP and a progressive copy button with two-second check feedback only after successful copying. Manual hash selection and the native download link remain usable without scripts.
 - Count full ZIP responses sent by the opt-in service as separate daily version aggregates, respecting DNT/GPC and excluding HEAD, Range, checksum requests and failed sends. Show downloads beside views on the public EN/ES dashboard for the selected period; retain existing view history, the exact table schema and API protection limits. Static hosting and GitHub assets do not report downloads.
 - Harden statistics test recovery on the same server: keep short attack deadlines for slow connections, restore normal request timeouts for legitimate recovery and observe actual worker completion rather than assuming a fixed sleep proves release. Production limits and refusal assertions stay unchanged.
+- Distinguish successful HTML document requests as browser-like, self-declared crawlers/automation or unknown, including crawlers that do not execute JavaScript. Add an EN/ES comparison chart, exact category/daily counts and a finite named-crawler breakdown under the same period selector. These are spoofable estimates, not verified people or bots; historical JS views remain unchanged and unclassified.
+- Retain only a separate finite daily document-traffic marginal in the existing public SQLite table. Forward user agents transiently only on exact generated HTML routes, exclude DNT/GPC and dashboards, strip identity headers on other proxy paths, and bound compressed document snapshots within the existing service memory/request limits. Static and extracted offline builds remain collection-free.
 - Validate usability across keyboard navigation, light/dark themes, narrow layouts, no-script pages and the extracted offline archive. Record the actual checks and external-link limitations separately from publication and production deployment.
 
 ## 0.5.5 (unreleased)

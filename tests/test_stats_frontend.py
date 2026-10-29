@@ -227,7 +227,7 @@ function data(days=30,total=2){
 }
 function boot(config={}){
   const ids={},events={},calls=[],intervals=[],timers=new Map();let timerID=0;
-  for(const id of ['dashboard','controls','days','refresh','status','results','total','download-total','window','chart','daily','pages','sources','devices','browsers','systems','languages']) ids['stats-'+id]=new Element();
+  for(const id of ['dashboard','controls','days','refresh','status','results','total','download-total','window','chart','daily','pages','sources','devices','browsers','systems','languages','traffic','traffic-chart','traffic-counts','traffic-crawlers','traffic-daily','traffic-status','document-total']) ids['stats-'+id]=new Element();
   ids['stats-chart'].clientWidth=config.chartWidth||1000;
   ids['stats-results'].hidden=true;ids['stats-controls'].hidden=true;
   ids['stats-dashboard'].attrs['data-stats-copy']=JSON.stringify(copies[config.lang||'en']);

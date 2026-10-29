@@ -133,7 +133,7 @@ class DownloadHTTP(unittest.TestCase):
         self.assertIn('path_regexp', text)
         self.assertIn('flush_interval -1', text)
         self.assertIn('header_up -Cookie', text)
-        self.assertIn('header_up -User-Agent', text)
+        self.assertIn('header_up User-Agent ""', text)
 
     def test_changed_or_symlinked_archive_cannot_be_read_or_counted(self):
         server = self.start()

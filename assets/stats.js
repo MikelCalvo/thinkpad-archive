@@ -11,6 +11,7 @@
     results.hidden = true;
     element("total").textContent = "—";
     element("download-total").textContent = "—";
+    element("document-total").textContent = "—";
     element("window").textContent = "—";
     status.textContent = copy[key];
   }
@@ -39,6 +40,31 @@
     var stamp = Date.parse(value + "T00:00:00Z");
     return Number.isFinite(stamp) && new Date(stamp).toISOString().slice(0, 10) === value ? stamp : NaN;
   }
+  var crawlerNames = ["Googlebot", "Bingbot", "DuckDuckBot", "Baiduspider", "YandexBot", "Applebot", "GPTBot", "OAI-SearchBot", "ClaudeBot", "Bytespider", "PetalBot", "Amazonbot", "other-bot"];
+  function validDocuments(documents, from, length) {
+    if (!documents || !["total", "browser", "bots", "unknown"].every(function (k) { return integer(documents[k]); }) ||
+        !integer(documents.browser + documents.bots + documents.unknown) ||
+        documents.total !== documents.browser + documents.bots + documents.unknown ||
+        !Array.isArray(documents.daily) || documents.daily.length !== length ||
+        !Array.isArray(documents.crawlers) || documents.crawlers.length > crawlerNames.length) { return false; }
+    var sums = {total: 0, browser: 0, bots: 0, unknown: 0};
+    for (var d = 0; d < length; d += 1) {
+      var row = documents.daily[d];
+      if (!row || utcDay(row.day) !== from + d * 86400000 ||
+          !Object.keys(sums).every(function (k) { return integer(row[k]); }) ||
+          row.total !== row.browser + row.bots + row.unknown) { return false; }
+      Object.keys(sums).forEach(function (k) { sums[k] += row[k]; });
+    }
+    if (!Object.keys(sums).every(function (k) { return integer(sums[k]) && sums[k] === documents[k]; })) { return false; }
+    var seen = new Set(), total = 0, previous = null;
+    for (var i = 0; i < documents.crawlers.length; i += 1) {
+      var crawler = documents.crawlers[i];
+      if (!crawler || crawlerNames.indexOf(crawler.value) === -1 || seen.has(crawler.value) || !integer(crawler.count) || crawler.count === 0 ||
+          (previous && (crawler.count > previous.count || (crawler.count === previous.count && crawler.value < previous.value)))) { return false; }
+      total += crawler.count; seen.add(crawler.value); previous = crawler;
+    }
+    return integer(total) && total === documents.bots;
+  }
   function valid(data, days) {
     if (!data || data.enabled !== true || !integer(data.total) || !data.window ||
         data.window.days !== days || data.export_url !== "/api/stats/export.json") { return false; }
@@ -58,6 +84,7 @@
       total += day.count;
     }
     if (!integer(total) || total !== data.total) { return false; }
+    if (data.documents !== undefined && !validDocuments(data.documents, from, length)) { return false; }
     if (data.downloads !== undefined) {
       var downloads = data.downloads, sumDownloads = 0, sumVersions = 0, versions = new Set();
       if (!downloads || !integer(downloads.total) || !Array.isArray(downloads.daily) || downloads.daily.length !== length || !Array.isArray(downloads.versions)) { return false; }
@@ -149,6 +176,37 @@
     chartNode.appendChild(svg("text", {x: 10, y: 176, "text-anchor": "start"}, rows[0].day));
     chartNode.appendChild(svg("text", {x: right, y: 176, "text-anchor": "end"}, rows[rows.length - 1].day));
   }
+  function traffic(documents) {
+    var chartNode = element("traffic-chart");
+    element("traffic-counts").replaceChildren();
+    element("traffic-crawlers").replaceChildren();
+    element("traffic-daily").replaceChildren();
+    chartNode.replaceChildren();
+    chartNode.hidden = !documents;
+    element("traffic-status").textContent = documents ? "" : copy.traffic_absent;
+    element("document-total").textContent = documents ? String(documents.total) : "—";
+    if (!documents) { return; }
+    var categories = ["browser", "bots", "unknown"];
+    var width = Math.max(240, chartNode.clientWidth || 600), right = width - 10;
+    chartNode.setAttribute("viewBox", "0 0 " + width + " 240");
+    chartNode.appendChild(svg("title", {}, copy.traffic));
+    categories.forEach(function (name, i) {
+      var label = copy["traffic_" + name], value = documents[name];
+      var row = node("tr"), heading = node("th", label); heading.setAttribute("scope", "row");
+      row.appendChild(heading); row.appendChild(node("td", String(value))); element("traffic-counts").appendChild(row);
+      chartNode.appendChild(svg("text", {x: 10, y: 22 + i * 80}, label));
+      chartNode.appendChild(svg("text", {x: right, y: 22 + i * 80, "text-anchor": "end"}, String(value)));
+      var bar = svg("rect", {x: 10, y: 34 + i * 80, width: documents.total ? (width - 20) * value / documents.total : 0, height: 22, "class": "traffic-" + name});
+      bar.appendChild(svg("title", {}, label + " · " + value)); chartNode.appendChild(bar);
+    });
+    table("traffic-crawlers", documents.crawlers);
+    documents.daily.forEach(function (day) {
+      var row = node("tr"), heading = node("th", day.day); heading.setAttribute("scope", "row"); row.appendChild(heading);
+      ["total", "browser", "bots", "unknown"].forEach(function (k) { row.appendChild(node("td", String(day[k]))); });
+      element("traffic-daily").appendChild(row);
+    });
+  }
+  var documentRows = null;
   function render(data) {
     element("total").textContent = String(data.total);
     element("download-total").textContent = data.downloads ? String(data.downloads.total) : "—";
@@ -157,6 +215,8 @@
     Object.keys(dimensions).forEach(function (name) { table(name, data[name]); });
     results.hidden = false;
     chart(data.daily);
+    documentRows = data.documents || null;
+    traffic(documentRows);
     status.textContent = data.total === 0 ? "" : copy.ready;
   }
   var generation = 0, active = null;
@@ -207,7 +267,7 @@
     }
   }
   selector.addEventListener("change", load);
-  window.addEventListener("resize", function () { if (chartRows && !results.hidden) { chart(chartRows); } });
+  window.addEventListener("resize", function () { if (chartRows && !results.hidden) { chart(chartRows); traffic(documentRows); } });
   element("refresh").addEventListener("click", load);
   document.addEventListener("visibilitychange", function () { if (visible() && !active) { load(); } });
   element("controls").hidden = false;

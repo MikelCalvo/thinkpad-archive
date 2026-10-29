@@ -21,7 +21,8 @@ RUN --mount=type=tmpfs,target=/tmp python -m unittest discover -s tests -v \
 # Explicit opt-in build; the ordinary default image remains static-only.
 FROM build AS stats-build
 RUN python -m thinkpad_archive build --output /public-stats --enable-stats \
-    && python tools/check_site.py /public-stats --allow-stats-api
+    && python tools/check_site.py /public-stats --allow-stats-api \
+    && python -c "from thinkpad_archive.stats_server import document_proxy_matcher; from pathlib import Path; Path('/document-routes.caddy').write_text(document_proxy_matcher('/public-stats'))"
 
 FROM python:3.13-alpine@sha256:8bcfa47b04b853a17aaf909362b847b2112fd6ec4105ea553ef9a43bafbb5916 AS stats
 WORKDIR /app
@@ -34,6 +35,7 @@ CMD ["python", "-m", "thinkpad_archive.stats_server", "--site-root", "/srv", "--
 FROM caddy:2-alpine@sha256:eb4d35b7452d1ab6171fbdbe8d9275b2301dad6dad92115d91e19fb9b24d510f AS stats-web
 COPY --from=stats-build /public-stats /srv
 COPY deploy/Caddyfile.stats /etc/caddy/Caddyfile
+COPY --from=stats-build /document-routes.caddy /etc/caddy/document-routes.caddy
 RUN setcap -r /usr/bin/caddy
 USER 10001:10001
 EXPOSE 8080

@@ -1,4 +1,4 @@
-"""First-party aggregate-only HTTP API; intentionally not a static web server.
+"""First-party aggregate API and fixed generated-document delivery boundary.
 
 Run behind a same-origin reverse proxy. This application has no access/error
 request logs. Infrastructure (proxy/hosting) logs are outside that promise.
@@ -20,20 +20,86 @@ from socketserver import TCPServer, ThreadingMixIn
 import sqlite3
 import threading
 import time
+import zlib
 from typing import cast
 from urllib.parse import urlsplit
 
-from .stats_store import AnalyticsStore, CATEGORIES, LANG, PRIVACY, ROUTE, VERSION, empty_data, no_symlinks
+from .stats_store import AnalyticsStore, CATEGORIES, KNOWN_CRAWLERS, LANG, PRIVACY, ROUTE, VERSION, empty_data, no_symlinks
 
 MAX_WORKERS = 8
 READ_TIMEOUT = 2.0
 RATE_CAPACITY = 240
 RATE_PER_SECOND = 60
 MAX_BODY = 1024
+MAX_HTML = 2 * 1024 * 1024
+MAX_HTML_TOTAL = 256 * 1024 * 1024
+MAX_HTML_CACHE = 32 * 1024 * 1024
+MAX_DOCUMENTS = 10000
 DOWNLOAD_TIMEOUT = 30.0
 MAX_DOWNLOAD = 512 * 1024 * 1024
 ERRORS = {400: b"invalid request\n", 403: b"forbidden\n", 404: b"not found\n",
           405: b"method not allowed\n", 413: b"too large\n", 416: b"range not supported\n", 429: b"busy\n", 503: b"unavailable\n"}
+
+
+# Token boundaries deliberately exclude URL/domain/suffix matches.
+_TOKEN_START = r'(?:^|[ \t;(])'
+_TOKEN_END = r'(?:/[0-9]+(?:\.[0-9]+)*(?=$|[ \t;)])|(?=$|[ \t;)]))'
+_CRAWLER_PATTERNS = tuple((name, re.compile(_TOKEN_START + re.escape(name) + _TOKEN_END, re.I | re.ASCII))
+                          for name in KNOWN_CRAWLERS)
+_AUTOMATION = re.compile(_TOKEN_START + r'(?:[a-z0-9_-]*(?:bot|crawler|spider)|curl|wget|python-requests|python-urllib|headlesschrome|selenium|playwright|puppeteer|scrapy|go-http-client)' + _TOKEN_END, re.I | re.ASCII)
+_BROWSER = re.compile(_TOKEN_START + r'(?:Firefox|Chrome|Safari|Edg|OPR|CriOS|FxiOS)' + _TOKEN_END, re.I | re.ASCII)
+
+
+def classify_traffic(user_agent):
+    """Spoofable self-description only; no identity, DNS, IP or UA retention."""
+    if type(user_agent) is not str or len(user_agent) > 2048 or any(ord(c) < 32 or ord(c) > 126 for c in user_agent):
+        return 'unknown'
+    for name, pattern in _CRAWLER_PATTERNS:
+        if pattern.search(user_agent):
+            return name
+    if _AUTOMATION.search(user_agent):
+        return 'other-bot'
+    return 'browser' if _BROWSER.search(user_agent) else 'unknown'
+
+
+def _identity(meta):
+    return meta.st_dev, meta.st_ino, meta.st_size, meta.st_mtime_ns, meta.st_ctime_ns
+
+
+def _document_files(root, routes):
+    """Cache bounded immutable public bytes; request paths never select IO."""
+    files = {}
+    total = 0
+    cached = 0
+    for route in sorted(routes):
+        # Directory defaults use the corresponding real index, not redirects.
+        path = root / (route.lstrip('/') + 'index.html' if route.endswith('/') else route.lstrip('/'))
+        no_symlinks(path)
+        with os.fdopen(os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK), 'rb') as stream:
+            meta = os.fstat(stream.fileno())
+            if not stat.S_ISREG(meta.st_mode) or meta.st_nlink != 1 or not 0 < meta.st_size <= MAX_HTML:
+                raise ValueError('Invalid document file')
+            total += meta.st_size
+            if total > MAX_HTML_TOTAL or len(files) >= MAX_DOCUMENTS:
+                raise ValueError('Document snapshot too large')
+            body = stream.read(MAX_HTML + 1)
+            if len(body) != meta.st_size or _identity(os.fstat(stream.fileno())) != _identity(meta):
+                raise ValueError('Changed document file')
+        # Compress immutable bytes to fit the existing 128 MiB container.
+        # Reads and decompression are still bounded to MAX_HTML per worker.
+        packed = zlib.compress(body)
+        cached += len(packed)
+        if cached > MAX_HTML_CACHE:
+            raise ValueError('Document cache too large')
+        files[route] = (path, _identity(meta), packed)
+    return files
+
+
+def document_proxy_matcher(root):
+    """Generate a Caddy exact-path matcher outside the public static tree."""
+    root, routes = _routes(root)
+    _document_files(root, routes)
+    return '@catalogueDocument {\n\tpath ' + ' '.join(sorted(routes)) + '\n}\n'
 
 
 class _RootLanguage(HTMLParser):
@@ -50,8 +116,14 @@ def _routes(root):
     if not root.is_dir():
         raise ValueError("Invalid site root")
     parser = _RootLanguage()
-    with no_symlinks(root / 'index.html').open('r', encoding='utf-8') as stream:
-        parser.feed(stream.read(65536))
+    initial = no_symlinks(root / 'index.html')
+    with os.fdopen(os.open(initial, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK), 'rb') as stream:
+        meta = os.fstat(stream.fileno())
+        if not stat.S_ISREG(meta.st_mode) or meta.st_nlink != 1 or not 0 < meta.st_size <= MAX_HTML:
+            raise ValueError('Invalid root document')
+        parser.feed(stream.read(min(meta.st_size, 65536)).decode('utf-8'))
+        if _identity(os.fstat(stream.fileno())) != _identity(meta):
+            raise ValueError('Changed root document')
     default = parser.language
     if not isinstance(default, str) or not LANG.fullmatch(default):
         raise ValueError("Invalid default language")
@@ -64,7 +136,13 @@ def _routes(root):
             if not name.endswith('.html'):
                 continue
             path = '/' + (no_symlinks(folder) / name).relative_to(root).as_posix()
-            if not ROUTE.fullmatch(path) or path.endswith('/stats.html'):
+            if not ROUTE.fullmatch(path):
+                continue
+            parts = path.strip('/').split('/')
+            generated = ((len(parts) == 2 and parts[1] in ('index.html', 'catalogue.html', 'sources.html')) or
+                         (len(parts) == 3 and parts[1] in ('models', 'years', 'sources') and
+                          re.fullmatch(r'[a-zA-Z0-9_-]+\.html', parts[2])))
+            if not generated:
                 continue
             routes[path] = path
     for path in tuple(routes):
@@ -122,7 +200,8 @@ class _Server(ThreadingMixIn, HTTPServer):
     allow_reuse_address = True
     request_queue_size = 16
 
-    def __init__(self, address, *, store, routes, downloads, origin, clock):
+    def __init__(self, address, *, store, routes, documents, downloads, origin, clock):
+        self.documents = documents
         self.downloads = downloads
         self.store = store
         self.routes = routes
@@ -205,6 +284,7 @@ class _Handler(BaseHTTPRequestHandler):
     def setup(self):
         self.request.settimeout(self.server.read_timeout)
         # An absolute connection deadline also bounds slow trickle reads.
+        self._expires_at = time.monotonic() + self.server.read_timeout
         self._deadline = threading.Timer(self.server.read_timeout, self._expire)
         self._deadline.daemon = True
         self._deadline.start()
@@ -258,6 +338,12 @@ class _Handler(BaseHTTPRequestHandler):
             return self._reply(503)
 
     def _route(self):
+        # Strip only a query, never decode, normalize or join a client path.
+        document = self.path.split('?', 1)[0]
+        if document in self.server.documents:
+            if self.command not in ('GET', 'HEAD'):
+                return self._reply(405)
+            return self._document(document)
         if self.path.startswith('/downloads/'):
             if self.path not in self.server.downloads:
                 return self._reply(404)
@@ -289,6 +375,47 @@ class _Handler(BaseHTTPRequestHandler):
                 return self._reply(200, empty_data(days, today, enabled=False))
             return self._reply(200, self.server.store.data(days))
         return self._reply(404)
+
+    def _document(self, route):
+        if self.headers.get_all('Range'):
+            return self._reply(416)
+        path, expected, packed = self.server.documents[route]
+        body = zlib.decompress(packed)
+        no_symlinks(path)
+        meta = path.stat(follow_symlinks=False)
+        if not stat.S_ISREG(meta.st_mode) or meta.st_nlink != 1 or _identity(meta) != expected:
+            return self._reply(503)
+        # Serve only cached allowlisted bytes. Even a concurrent directory
+        # replacement cannot disclose replacement content or select other IO.
+        self.close_connection = True
+        try:
+            self.send_response_only(200)
+            self.send_header('Content-Type', 'text/html; charset=utf-8')
+            self.send_header('Content-Length', str(len(body)))
+            self.send_header('Cache-Control', 'no-store')
+            self.send_header('X-Content-Type-Options', 'nosniff')
+            self.send_header('Connection', 'close')
+            self.end_headers()
+            if self.command == 'HEAD':
+                return
+            self.wfile.write(body)
+            self.wfile.flush()
+            no_symlinks(path)
+            meta = path.stat(follow_symlinks=False)
+            if _identity(meta) != expected or meta.st_nlink != 1 or time.monotonic() >= self._expires_at:
+                return
+        except (OSError, ValueError):
+            # A send may be partially complete: never emit another response.
+            return
+        opted_out = any(value.strip(' \t') == '1' for name in ('DNT', 'Sec-GPC')
+                        for value in self.headers.get_all(name, []))
+        if self.server.store is not None and not opted_out:
+            agents = self.headers.get_all('User-Agent', [])
+            category = classify_traffic(agents[0] if len(agents) == 1 else None)
+            try:
+                self.server.store.record_document(category)
+            except (OSError, sqlite3.Error):
+                pass  # Delivery already completed; never replay it.
 
     def _download(self):
         if self.headers.get_all('Range'):
@@ -397,6 +524,7 @@ def create_server(site_root, database, origin, *, host='127.0.0.1', port=0,
         raise ValueError('Listen address must be numeric IPv4') from None
     origin = _origin(origin)
     root, routes = _routes(site_root)
+    documents = _document_files(root, routes)
     downloads = _download_files(root)
     database = no_symlinks(database)
     if database == root or database.is_relative_to(root):
@@ -404,7 +532,7 @@ def create_server(site_root, database, origin, *, host='127.0.0.1', port=0,
     clock = clock or (lambda: datetime.now(timezone.utc))
     store = AnalyticsStore(database, pages=set(routes.values()), clock=clock) if enabled else None
     try:
-        return _Server((host, port), store=store, routes=routes, downloads=downloads, origin=origin, clock=clock)
+        return _Server((host, port), store=store, routes=routes, documents=documents, downloads=downloads, origin=origin, clock=clock)
     except BaseException:
         if store is not None:
             store.close()
