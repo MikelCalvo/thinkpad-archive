@@ -8,7 +8,7 @@ import posixpath
 import json
 
 from .package_filters import operating_system_groups
-from .social import sharing_head
+from .social import SITE_ORIGIN, sharing_head
 
 
 # Presentation groups do not alter source categories or model associations.
@@ -63,6 +63,26 @@ class Renderer:
     @staticmethod
     def remote(url, label):
         return '<a href="' + e(url) + '" target="_blank" rel="noopener noreferrer">' + e(label) + '</a>'
+
+    def correction(self, lang, model):
+        """Create a draft-only link from public catalogue fields, never browser state."""
+        t = self.locales[lang]
+        path = lang + '/models/' + model['id'] + '.html'
+        body = ('### ' + t['model'] + '\n' + model['name'] + '\n\n'
+                + 'ID: ' + model['id'] + '\n' + SITE_ORIGIN + '/' + path + '\n\n'
+                + '### ' + t['correction_problem'] + '\n\n\n'
+                + '### ' + t['correction_proposed'] + '\n\n\n'
+                + '### ' + t['correction_sources'] + '\n' + t['correction_source_hint'] + '\n\n'
+                + t['correction_variant_hint'] + '\n' + t['correction_privacy_hint'] + '\n')
+        url = 'https://github.com/MikelCalvo/thinkpad-archive/issues/new?' + urlencode({
+            'title': t['correction_issue_title'].format(model=model['name']), 'body': body,
+        }, quote_via=quote)
+        icon = ('<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+                '<path d="m15 5 4 4M4 20l4-1L20 7a2.8 2.8 0 0 0-4-4L4 15Z"/></svg>')
+        return ('<p class="model-correction-row"><a class="model-correction" href="' + e(url)
+                + '" target="_blank" rel="noopener noreferrer" title="' + e(t['correction_title'])
+                + '" aria-label="' + e(t['correction_label'] + ' (GitHub)') + '">' + icon
+                + '<span>' + e(t['correction_label']) + '</span><span aria-hidden="true">↗</span></a></p>')
 
     @staticmethod
     def metadata(items):
@@ -266,7 +286,7 @@ class Renderer:
     def model(self, current, lang, model):
         t = self.locales[lang]
         items = [(t["aliases"], ' / '.join(model["aliases"]) or t["not_recorded"]), (t["era"], t["era_" + model["era"]])]
-        body = '<section class="model-hero"><p class="eyebrow">' + e(t["family"]) + ' ' + e(model["family"].upper()) + '</p><h1>' + e(model["name"]) + '</h1><p>' + e(t["source_listing"]) + '</p>' + self.metadata(items) + self.thinkwiki(lang, model) + '</section>'
+        body = '<section class="model-hero"><p class="eyebrow">' + e(t["family"]) + ' ' + e(model["family"].upper()) + '</p><h1>' + e(model["name"]) + '</h1><p>' + e(t["source_listing"]) + '</p>' + self.metadata(items) + self.thinkwiki(lang, model) + self.correction(lang, model) + '</section>'
         introductions = model.get('introduced', [])
         if introductions:
             dates = ' <span aria-hidden="true">·</span> '.join(self.remote(row['url'], str(row['year']) + ' · ' + ', '.join(row['variants'])) for row in introductions)

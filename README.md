@@ -70,6 +70,8 @@ The public site is at **[thinkpadarchive.com](https://thinkpadarchive.com/)**. Y
 
 ## Contributing
 
+The **0.5.1 preview** adds a Suggest a correction / Proponer una corrección link below each model's overview. It opens a GitHub issue draft with the exact model name, catalogue ID and public page URL, plus prompts for the proposed correction and sources. Review the draft and submit it yourself; sending requires a GitHub account. The link also works without JavaScript and from a local copy, but GitHub needs Internet access. Only public catalogue fields are prefilled, never local file paths, browser preferences or visit data. Do not include serial numbers or personal information.
+
 Corrections, source links and translations are welcome. Please include the exact model or machine-type qualifier and the source URL; prefer primary manufacturer sources. Keep grouped source identities intact unless a reliable source establishes an individual variant. Do not assign packages by family-name resemblance.
 
 For a new language, add a complete locale JSON with the same keys as the existing languages. Translate project interface text and warnings, while preserving original product titles and operating-system identifiers. Do not redistribute or translate a manufacturer document as part of this project.

@@ -1,5 +1,8 @@
 {
   "language_name": "Español",
+  "correction_label": "Proponer una corrección",
+  "correction_title": "Abrir una incidencia preparada en GitHub (requiere una cuenta de GitHub)",
+  "correction_issue_title": "Corrección: {model}",
   "site_name": "ThinkPad Archive",
   "catalogue": "Catálogo",
   "sources": "Fuentes",
@@ -159,5 +162,11 @@
   "social_unknown_title": "Modelos ThinkPad · Fechas sin confirmar",
   "social_unknown_description": "Entradas ThinkPad con fechas de introducción sin confirmar o parcialmente documentadas, con manuales, listados de software y fuentes.",
   "social_image_alt": "ThinkPad Archive sobre fondo grafito con un capuchón rojo de pointing stick. Manuales, software e historia.",
-  "social_locale": "es_ES"
+  "social_locale": "es_ES",
+  "correction_problem": "¿Qué hay que corregir?",
+  "correction_proposed": "Corrección propuesta",
+  "correction_sources": "Fuentes",
+  "correction_source_hint": "Añade la URL de la fuente y la página o sección pertinente. Prioriza las fuentes originales del fabricante.",
+  "correction_variant_hint": "Si corresponde, indica la variante o el tipo de máquina exactos, el sistema operativo y la versión del paquete.",
+  "correction_privacy_hint": "No incluyas números de serie ni información personal."
 }

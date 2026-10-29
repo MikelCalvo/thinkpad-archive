@@ -1,5 +1,8 @@
 {
   "language_name": "English",
+  "correction_label": "Suggest a correction",
+  "correction_title": "Open a prefilled issue on GitHub (GitHub account required)",
+  "correction_issue_title": "Correction: {model}",
   "site_name": "ThinkPad Archive",
   "catalogue": "Catalogue",
   "sources": "Sources",
@@ -159,5 +162,11 @@
   "social_unknown_title": "ThinkPad models · Unconfirmed dates",
   "social_unknown_description": "ThinkPad catalogue entries with unconfirmed or partially documented introduction dates, with manuals, software listings and source references.",
   "social_image_alt": "ThinkPad Archive wordmark on graphite with a red pointing-stick cap. Manuals, software and history.",
-  "social_locale": "en_US"
+  "social_locale": "en_US",
+  "correction_problem": "What needs correcting?",
+  "correction_proposed": "Suggested correction",
+  "correction_sources": "Sources",
+  "correction_source_hint": "Add the source URL and the relevant page or section. Prefer primary manufacturer sources.",
+  "correction_variant_hint": "If applicable, specify the exact variant or machine type, operating system and package version.",
+  "correction_privacy_hint": "Do not include serial numbers or personal information."
 }

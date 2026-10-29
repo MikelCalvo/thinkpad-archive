@@ -57,6 +57,14 @@
 @media(max-width:720px){.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}.stats dd{font-size:1.5rem}.stats dt{font-size:.65rem;line-height:1.35;max-width:none}.timeline-track a{min-width:66px;padding:.55rem .75rem}.timeline{margin-top:1rem}.hero{padding-bottom:0;margin-bottom:1rem}.archive-title{margin-bottom:1.25rem}}
 @media print{.timeline{display:none}}
 
+/* Native model correction links stay secondary and need no script or backend. */
+.model-correction-row{margin:.6rem 0 0}
+.model-correction{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;max-width:100%;padding:.25rem 0;color:var(--muted);font-size:.8rem;line-height:1.5;text-decoration:none}
+.model-correction>span:first-of-type{overflow-wrap:anywhere}
+.model-correction svg{width:15px;height:15px;flex:0 0 15px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.model-correction:hover{color:var(--red);text-decoration:underline}
+.model-correction:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+
 /* Navigation left, local language/theme controls right. */
 .topbar{gap:1rem;justify-content:space-between;flex-wrap:nowrap}
 .topbar>.main-nav{min-width:0;flex-wrap:nowrap}

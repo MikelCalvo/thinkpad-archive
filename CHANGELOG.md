@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.1 (unreleased preview)
+
+- Add a discreet Suggest a correction / Proponer una corrección link to every model page, including legacy catalogues without technical profiles.
+- Open a GitHub issue draft with the exact model name, catalogue ID and public language-specific page URL. Localized prompts ask for the correction, supporting sources and relevant machine-type/package qualifiers; remind contributors not to include serial numbers or personal information.
+- Keep the action a native external link, usable without JavaScript or through file browsing. Opening a draft does not submit an issue; a GitHub account is required to send it. No form backend, tracking, catalogue-data changes or automatic publication is added.
+
 ## 0.5.0
 
 - Add a public EN/ES statistics dashboard and a compact Stats link beside the creator credit. Keep the header title-only, with an icon refresh action and the archive red-dot treatment in Estadísticas.

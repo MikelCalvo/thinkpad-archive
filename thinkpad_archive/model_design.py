@@ -314,7 +314,7 @@ class ModelDesignRenderer(Renderer):
             body += '<details class="era-story"><summary>' + e(w['era_pending']) + '</summary><p>' + e(self.local(sample['era_story'],lang)) + '</p></details>'
         if sample and not profile:
             body += '<p class="context-reference">' + self.remote(sample['reference'],sample['reference_title']+' ↗') + '</p>'
-        body += '</section>' + self.specifications(lang, profile, sample)
+        body += self.correction(lang, model) + '</section>' + self.specifications(lang, profile, sample)
         body += '<section id="manuals" class="dossier-section"><div class="section-heading"><h2>'+e(w['manuals'])+'</h2><span>'+str(len(model['document_ids']))+' '+e(w['documents'])+'</span></div>'
         body += ('<div class="manual-cards">'+''.join(self.compact_document(lang,self.docs[key]) for key in model['document_ids'])+'</div>') if model['document_ids'] else '<p class="design-empty">'+e(w['no_manuals'])+'</p>'
         body += '</section><section id="drivers" class="dossier-section"><div class="section-heading"><h2>'+e(w['drivers'])+'</h2><span>'+str(len(software))+' '+e(w['packages'])+'</span></div>'
