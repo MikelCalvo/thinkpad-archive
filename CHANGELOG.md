@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.0
+
+- Add a public EN/ES statistics dashboard and a compact Stats link beside the creator credit. Keep the header title-only, with an icon refresh action and the archive red-dot treatment in Estadísticas.
+- Store only daily marginal page-view counters in first-party SQLite: page, referral category, coarse device/browser/system and page language. No cookies, visitor identifiers, raw referrers or user agents, IP storage, GeoIP, sessions or unique-visitor claims. Respect DNT and Global Privacy Control.
+- Retain aggregate history indefinitely. Add All time / Todo el tiempo alongside 7/30/90/365-day views; period filters never delete history. Publish every retained aggregate field through the public API without a dashboard download block.
+- Exclude the dashboard and catalogue filter changes from collection. Keep normal static/offline builds collection-free unless explicitly enabled.
+- Add opt-in same-origin Caddy/API Docker targets, private persistent count storage and deployment/privacy documentation. Preserve existing catalogue data, software filters, firmware warnings and sharing behavior.
+
 ## 0.4.4
 
 - Add software-only package search and a source-listed operating-system filter on model pages, retaining original package wording, evidence, category controls and separate firmware warnings.

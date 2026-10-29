@@ -1,0 +1,71 @@
+{
+	admin off
+	auto_https off
+	persist_config off
+	servers {
+		protocols h1 h2
+	}
+	# Do not persist request errors that might include URLs, headers or peers.
+	log {
+		output discard
+	}
+}
+
+http://:8080 {
+	root * /srv
+	encode zstd gzip
+	header {
+		-Server
+		X-Content-Type-Options nosniff
+		Referrer-Policy no-referrer
+		X-Frame-Options DENY
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+	}
+	# No access-log directive. Only the same-origin stats API is proxied.
+	handle /api/stats/* {
+		request_body {
+			max_size 1KB
+		}
+		reverse_proxy {$STATS_UPSTREAM:stats:8081} {
+			header_up -Cookie
+			header_up -Authorization
+			header_up -User-Agent
+			header_up -Referer
+			header_up -Forwarded
+			header_up -X-Forwarded-For
+			header_up -X-Forwarded-Host
+			header_up -X-Forwarded-Proto
+			header_up -X-Real-IP
+			transport http {
+				dial_timeout 2s
+				response_header_timeout 4s
+			}
+		}
+	}
+	@github {
+		path /_deploy/github
+		method POST
+	}
+	handle @github {
+		request_body {
+			max_size 2MB
+		}
+		rewrite * /webhooks/source/github/events/manual
+		reverse_proxy {$COOLIFY_WEBHOOK_UPSTREAM: http://127.0.0.1:9} {
+			header_up Host {upstream_hostport}
+			transport http {
+				dial_timeout 3s
+				response_header_timeout 15s
+			}
+		}
+	}
+	handle /_deploy/* {
+		respond 404
+	}
+	handle /healthz {
+		respond "ok" 200
+	}
+	handle {
+		file_server
+	}
+}

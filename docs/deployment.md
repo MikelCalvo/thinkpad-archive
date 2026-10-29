@@ -10,6 +10,10 @@ The container serves plain HTTP on port 8080 as UID/GID 10001. Map it to an avai
 
 Caddy serves ordinary files, not an SPA fallback: missing paths return 404. /healthz is a liveness endpoint. Its admin API is disabled. Run with a read-only filesystem, all capabilities dropped, no-new-privileges and bounded memory/PIDs. /tmp, /config and /data may use temporary filesystems; give UID/GID 10001 ownership of /config and /data. No writable persistent application data is needed.
 
+## Explicit opt-in statistics
+
+The default/last Docker target still builds the static-only site. The optional `stats` and `stats-web` targets and `deploy/compose.stats.yaml` enable the public dashboard and first-party collection; see [statistics setup and privacy boundaries](statistics.md). Use the Compose build pack for this stack, with `/deploy/compose.stats.yaml` as the repository file. Set ANALYTICS_ORIGIN to the exact public HTTPS origin, STATS_BIND to the private host interface and STATS_PORT to the existing origin port; retain COOLIFY_WEBHOOK_UPSTREAM when the existing signed GitHub deployment hook is used. Preserve the named stats-data volume across redeployments and rollback. It stores only public aggregate counters, retained indefinitely. Do not apply the static-only no-volume rollback description below to that optional stack. An ordinary Dockerfile deployment remains collection-free.
+
 ## Coolify auto-deploy
 
 Create a public Git application from MikelCalvo/thinkpad-archive, branch main, using the Dockerfile build pack. Expose container port 8080, map an available private host port and enable automatic deployment. Do not enable Coolify's HTTPS redirect: NetBird terminates TLS. Disable preview deployments unless explicitly needed.

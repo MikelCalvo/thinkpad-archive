@@ -1,0 +1,90 @@
+# Explicit opt-in stack. Never replace the ordinary static Docker target implicitly.
+services:
+  stats-volume-init:
+    build:
+      context: ..
+      target: stats
+    user: "0:0"
+    entrypoint: ["python", "-c"]
+    command:
+      - "import os; os.chown('/data', 10001, 10001); os.chmod('/data', 0o700) # mode=0700"
+    volumes:
+      - stats-data:/data
+    read_only: true
+    network_mode: none
+    cap_drop: [ALL]
+    cap_add: [CHOWN, FOWNER]
+    security_opt: ["no-new-privileges:true"]
+    restart: "no"
+
+  stats:
+    build:
+      context: ..
+      target: stats
+    command:
+      - python
+      - -m
+      - thinkpad_archive.stats_server
+      - --site-root
+      - /srv
+      - --database
+      - /data/counts.sqlite
+      - --origin
+      - ${ANALYTICS_ORIGIN:?Set the exact public origin, without a trailing slash}
+      - --listen
+      - 0.0.0.0
+      - --port
+      - "8081"
+      - --enabled
+    depends_on:
+      stats-volume-init:
+        condition: service_completed_successfully
+    volumes:
+      - stats-data:/data
+    networks: [stats-private]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 64
+    mem_limit: 128m
+    restart: unless-stopped
+    logging:
+      driver: none
+    healthcheck:
+      test: [CMD, python, -c, "from urllib.request import urlopen; urlopen('http://127.0.0.1:8081/api/stats/health',timeout=2).close()"]
+      interval: 30s
+      timeout: 4s
+      retries: 3
+
+  web:
+    build:
+      context: ..
+      target: stats-web
+    environment:
+      STATS_UPSTREAM: stats:8081
+      COOLIFY_WEBHOOK_UPSTREAM: ${COOLIFY_WEBHOOK_UPSTREAM:-http://127.0.0.1:9}
+    depends_on:
+      stats:
+        condition: service_healthy
+    ports:
+      - "${STATS_BIND:-127.0.0.1}:${STATS_PORT:-8080}:8080"
+    networks: [stats-private, web-egress]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 64
+    mem_limit: 128m
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=8m
+      - /config:rw,noexec,nosuid,size=8m,uid=10001,gid=10001
+      - /data:rw,noexec,nosuid,size=8m,uid=10001,gid=10001
+    restart: unless-stopped
+    logging:
+      driver: none
+
+volumes:
+  stats-data:
+networks:
+  stats-private:
+    internal: true
+  web-egress:

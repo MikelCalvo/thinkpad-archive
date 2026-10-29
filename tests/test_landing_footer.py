@@ -51,8 +51,8 @@ class LandingFooter(unittest.TestCase):
 
     def test_footer_is_only_independence_and_creator_in_both_languages(self):
         expected = {
-            'en': ['Independent community reference · Not affiliated with IBM or Lenovo', 'Created by Mikel Calvo'],
-            'es': ['Referencia comunitaria independiente · Sin afiliación con IBM ni Lenovo', 'Creado por Mikel Calvo'],
+            'en': ['Independent community reference · Not affiliated with IBM or Lenovo', 'Created by Mikel Calvo · 📊 Stats'],
+            'es': ['Referencia comunitaria independiente · Sin afiliación con IBM ni Lenovo', 'Creado por Mikel Calvo · 📊 Stats'],
         }
         for path in self.site.rglob('*.html'):
             with self.subTest(path=str(path.relative_to(self.site))):
@@ -72,7 +72,9 @@ class LandingFooter(unittest.TestCase):
                     text = (self.site / lang / suffix).read_text()
                     footer = text.split('<footer>', 1)[1].split('</footer>', 1)[0]
                     links = [attrs for tag, attrs in Tags(footer).tags if tag == 'a']
-                    self.assertEqual(len(links), 1)
+                    self.assertEqual(len(links), 2)
+                    self.assertEqual(links[1].get("class"), "footer-stats")
+                    self.assertNotIn("target", links[1])
                     self.assertEqual(links[0].get('href'), 'https://mikelcalvo.net/')
                     self.assertEqual(links[0].get('target'), '_blank')
                     self.assertEqual(set(links[0].get('rel', '').split()), {'noopener', 'noreferrer'})

@@ -53,6 +53,18 @@ class SiteCheck(unittest.TestCase):
             self.assertEqual(result['external_links'], 1)
             self.assertEqual([e['reason'] for e in result['errors']], ['remote-asset', 'unsafe-scheme'])
 
+    def test_stats_api_export_is_allowed_only_by_explicit_scoped_flag(self):
+        check = self.checker()
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'index.html').write_text('<a href="/api/stats/export.json">Export</a><a href="/api/private">Not allowed</a>')
+            self.assertEqual(len(check(root)['errors']), 2)
+            import inspect
+            self.assertIn('allow_stats_api', inspect.signature(check).parameters)
+            result = check(root, allow_stats_api=True)
+            self.assertEqual([e['link'] for e in result['errors']], ['/api/private'])
+            self.assertEqual(result['internal_links'], 1)
+
     def test_duplicate_ids_are_rejected(self):
         check = self.checker()
         with tempfile.TemporaryDirectory() as tmp:

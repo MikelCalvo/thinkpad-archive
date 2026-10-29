@@ -9,13 +9,14 @@ from .validation import LANG, load_catalogue, load_locales, no_symlinks, read_by
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def build_site(output, *, data_dir=None, locales_dir=None, default_language=None):
+def build_site(output, *, data_dir=None, locales_dir=None, default_language=None, stats_enabled=False):
     """Validate public metadata, locales and assets, then create a fresh output.
 
     English is the default. Returns the output Path. No network, manufacturer
     originals, archived software or devices are consumed by this builder.
     """
     try:
+        require(type(stats_enabled) is bool, "Stats opt-in must be a boolean")
         destination = no_symlinks(output)
         require(not destination.exists(), "Output must be a new directory")
         source_data = no_symlinks(data_dir if data_dir is not None else ROOT / "data")
@@ -37,8 +38,9 @@ def build_site(output, *, data_dir=None, locales_dir=None, default_language=None
             renderer = ModelDesignRenderer(data, locales, profiles=profiles)
         else:
             renderer = Renderer(data, locales)
+        renderer.stats_enabled = stats_enabled
         pages = renderer.render(language)
-        assets = {"assets/" + name: read_bytes(ROOT / "assets" / name) for name in ("style.css", "search.js", "ui.js", "theme.js", "language.js", "packages.js")}
+        assets = {"assets/" + name: read_bytes(ROOT / "assets" / name) for name in ("style.css", "search.js", "ui.js", "theme.js", "language.js", "packages.js", "stats.css", "stats.js", "analytics.js")}
         assets["favicon.svg"] = read_bytes(ROOT / "assets/favicon.svg")
         for code in ('en', 'es'):
             assets['assets/social-' + code + '.png'] = read_bytes(ROOT / ('assets/social-' + code + '.png'))

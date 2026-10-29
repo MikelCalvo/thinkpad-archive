@@ -20,3 +20,5 @@
 !tools/*.py
 !deploy/
 !deploy/Caddyfile
+!deploy/Caddyfile.stats
+!deploy/compose.stats.yaml

@@ -22,7 +22,7 @@ class Links(HTMLParser):
                 self.links.append((tag, attribute, values[attribute], values.get('rel', '')))
 
 
-def check_site(root):
+def check_site(root, *, allow_stats_api=False):
     root = Path(root).resolve(strict=True)
     pages = {}
     errors = []
@@ -57,6 +57,9 @@ def check_site(root):
                 else:
                     external += 1
                 continue
+            if allow_stats_api and tag == 'a' and attribute == 'href' and value == '/api/stats/export.json':
+                internal += 1
+                continue
             target = (path.parent / unquote(url.path)).resolve() if url.path else path
             if not target.is_relative_to(root):
                 error(path, value, 'path-escape')
@@ -77,8 +80,9 @@ def check_site(root):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('site', type=Path)
+    parser.add_argument('--allow-stats-api', action='store_true', help='allow only the first-party public JSON export route')
     args = parser.parse_args()
-    result = check_site(args.site)
+    result = check_site(args.site, allow_stats_api=args.allow_stats_api)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 1 if result['errors'] or not result['html_pages'] else 0
 
